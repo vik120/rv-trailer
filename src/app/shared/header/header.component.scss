@@ -1,0 +1,56 @@
+@import '../../style/style';
+header {
+    background: $background-color;
+    color: #fff;
+    .nav {
+        margin-right: 0;
+        li {
+            padding: 10px 15px;
+            a {
+                color: #fff;
+                font-size: $very-small;
+                padding: $space-m 0px;
+                border-bottom: solid 4px transparent;
+                text-transform: uppercase;
+                &:hover {
+                    background: none;
+                    color: $background-color;
+                    border-color: $background-color;
+                }
+            }
+            &:hover,
+            &.active {
+                background: #fff;
+                &>a {
+                    color: $background-color;
+                    border-color: $background-color;
+                }
+            }
+        }
+    }
+    .navbar {
+        margin: 0;
+    }
+    .header-btn {
+        float: right;
+        margin-top: $space-m - 2;
+        margin-left: $space-n;
+        text-transform: uppercase;
+        .btn {
+            text-transform: uppercase;
+            font-size: $small;
+            border-width: 2px;
+        }
+    }
+    .navbar-brand {
+        padding: $space-vs;
+        height: auto;
+    }
+    .header-lang {
+        display: block;
+        float: right;
+        margin-top: $space-m - 2;
+        margin-left: $space-n;
+        color: $white-color;
+    }
+}

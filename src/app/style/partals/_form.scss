@@ -1,0 +1,43 @@
+.form-control{
+    border-radius: 0;
+    color: $secondary-color;
+    border-color: $border-color;
+}
+
+/* checkbox */
+
+.checkbox{
+     input[type="checkbox"]{
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+
+     input[type="checkbox"] + label{
+            position: relative;
+            padding-left: $medium;
+
+            &:before{
+                content: "\f096";
+                display: inline-block;
+                font-family: FontAwesome;
+                font-size: 18px;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+    input[type="checkbox"]:checked + label{
+        &:before{
+            content: "\f046";
+        }
+    }
+
+    
+}

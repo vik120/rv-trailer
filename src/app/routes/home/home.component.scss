@@ -1,0 +1,35 @@
+@import '../../style/style';
+.home-banner {
+    @include background-image('rv-banner.jpg', 0 0, $white-color);
+    padding: $space-xl 0;
+    color: $white-color;
+    text-align: center;
+    h1 {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: $extra-large + $medium;
+        span {
+            color: $background-color;
+        }
+    }
+    .homefilter {
+        text-align: left;
+        margin-top: $space-xl
+    }
+}
+
+.feature-rv {
+    margin: $space-xl 0;
+    &-title {
+        text-transform: uppercase;
+        h1 {
+            font-weight: 900;
+        }
+    }
+    &-box {
+        width: 31%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 13px;
+    }
+}

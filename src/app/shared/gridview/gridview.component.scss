@@ -1,0 +1,56 @@
+@import '../../style/style';
+.rv {
+    &-figure {
+        position: relative;
+        height: 286px;
+        width: 100%;
+        img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 1;
+        }
+        &:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &-hover {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+    &-content {
+        display: flex;
+        width: $full;
+        &-box {
+            background: $white-color;
+            border: solid 1px $border-color;
+            border-collapse: collapse;
+            border-top: none;
+            padding: 2px;
+            &.rv-location {
+                flex: 0 0 40%;
+            }
+            &.rv-guest {
+                flex: 0 0 30%;
+            }
+            &.rv-price {
+                flex: 0 0 30%;
+            }
+            label {
+                display: block;
+                text-transform: uppercase;
+                color: $background-color;
+            }
+        }
+    }
+}

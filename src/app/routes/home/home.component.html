@@ -1,0 +1,25 @@
+<div class="home-banner text-center">
+    <div class="container">
+        <h1>Trailer <span>Rentals from</span> Trailer Owners</h1>
+        <div class="row homefilter">
+            <rv-header-filter></rv-header-filter>
+        </div>
+    </div>
+</div>
+<div class="feature-rv text-center">
+    <div class="container">
+        <div class="feature-rv-title">
+            <h1>Choose from Our Featured <span>Trailer Rentals</span></h1>
+        </div>
+        <div class="feature-rv-body">
+            <div class="feature-rv-box" *ngFor="let item of rvList">
+                <rv-gridview [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [year]="item.year" [guest]="item.guest" [routerLink]="['/rent-trailer/rv-list/1']"> </rv-gridview>
+
+
+            </div>
+            <div class=" view-btn ">
+                <button class="btn btn-primary ">View More</button>
+            </div>
+        </div>
+    </div>
+</div>
