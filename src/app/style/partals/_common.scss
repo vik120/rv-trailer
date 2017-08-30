@@ -21,17 +21,27 @@
         }
     }
 }
-.icon{
-    svg{
+
+.icon {
+    svg {
         width: 20px;
         height: 20px;
-
-        path{
+        path {
             fill: $secondary-color;
         }
     }
 }
 
-.full-width{
+.full-width {
     width: $full;
+}
+
+.midbody {
+    background: #fff;
+}
+
+.input-group-addon {
+    color: $white-color;
+    background: $background-color;
+    border-color: $background-color;
 }

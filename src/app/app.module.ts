@@ -34,6 +34,8 @@ import { SignupRenterComponent } from './shared/signup-renter/signup-renter.comp
 import { SignupOwnerComponent } from './shared/signup-owner/signup-owner.component';
 import { ListTrailerComponent } from './routes/list-trailer/list-trailer.component';
 import { TrailerSpecificationComponent } from './shared/trailer-specification/trailer-specification.component';
+import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
+import { ContactUsComponent } from './routes/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { TrailerSpecificationComponent } from './shared/trailer-specification/tr
      SignupOwnerComponent,
      ListTrailerComponent,
      TrailerSpecificationComponent,
+     TrailerLocationComponent,
+     ContactUsComponent,
   ],
   imports: [
     BrowserModule,

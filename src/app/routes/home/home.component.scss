@@ -1,6 +1,7 @@
 @import '../../style/style';
 .home-banner {
     @include background-image('rv-banner.jpg', 0 0, $white-color);
+    background-size: cover;
     padding: $space-xl 0;
     color: $white-color;
     text-align: center;

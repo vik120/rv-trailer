@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'app works!';
+  brandSlideVisible: boolean;
+  ngOnInit() {
+    this.brandSlideVisible = true;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppComponent } from '../../shared/app/app.component';
 
 @Component({
   selector: 'rv-list-trailer',
@@ -8,9 +9,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ListTrailerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appComponent: AppComponent) { }
 
   ngOnInit() {
+    this.appComponent.brandSlideVisible = false;
   }
 
 }
