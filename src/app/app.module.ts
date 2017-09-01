@@ -8,7 +8,7 @@ import { Routing } from './app.routing';
 
 /* plugins */
 
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { TypeaheadModule, DatepickerModule  } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
@@ -36,6 +36,9 @@ import { ListTrailerComponent } from './routes/list-trailer/list-trailer.compone
 import { TrailerSpecificationComponent } from './shared/trailer-specification/trailer-specification.component';
 import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
 import { ContactUsComponent } from './routes/contact-us/contact-us.component';
+import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.component';
+import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
+import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
      TrailerSpecificationComponent,
      TrailerLocationComponent,
      ContactUsComponent,
+     TrailerDetailComponent,
+     TrailerPricingComponent,
+     TrailerPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +76,7 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
     MyDatePickerModule,
     RatingModule,
     IonRangeSliderModule,
+    DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot()
   ],
   providers: [],

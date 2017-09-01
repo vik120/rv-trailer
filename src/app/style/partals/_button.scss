@@ -13,6 +13,7 @@
         display: inline-block;
         vertical-align: middle;
         line-height: 0;
+        margin-right: $space-s;
         svg {
             width: 35px;
             height: 35px;
@@ -24,7 +25,8 @@
         }
     }
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
         background: #f01c00;
         border: solid 1px #f01c00;
         color: $white-color;
@@ -48,6 +50,7 @@
         display: inline-block;
         vertical-align: middle;
         line-height: 0;
+        margin-right: $space-s;
         svg {
             width: 35px;
             height: 35px;
@@ -59,7 +62,8 @@
         }
     }
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
         background: #f01c00;
         border: solid 1px #f01c00;
         color: $white-color;
@@ -68,7 +72,7 @@
                 path,
                 rect,
                 circle {
-                    fill: #f01c00;
+                    fill: $white-color;
                 }
             }
         }
@@ -95,7 +99,8 @@
         }
     }
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
         background: #f01c00;
         border: solid 1px #f01c00;
         color: $white-color;
