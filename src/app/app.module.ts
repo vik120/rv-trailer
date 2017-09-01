@@ -1,8 +1,9 @@
+import { ApiService } from './api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {Router, RouterLinkActive } from '@angular/router';
+import { RouterModule, Routes, Router, RouterLinkActive } from '@angular/router';
 
 import { Routing } from './app.routing';
 
@@ -12,6 +13,13 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
+
+/* Firebase Dependencey */
+
+import { Observable } from 'rxjs/Observable';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 /* components */
 
@@ -37,6 +45,19 @@ import { TrailerSpecificationComponent } from './shared/trailer-specification/tr
 import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
 import { ContactUsComponent } from './routes/contact-us/contact-us.component';
 
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD7fA0nS4hMW1cTLyKIfvx1lfj8V4BTz0U",
+  authDomain: "authentication-5d867.firebaseapp.com",
+  databaseURL: "https://authentication-5d867.firebaseio.com",
+  projectId: "authentication-5d867",
+  storageBucket: "authentication-5d867.appspot.com",
+  messagingSenderId: "494284030141"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +82,9 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
      TrailerSpecificationComponent,
      TrailerLocationComponent,
      ContactUsComponent,
+     AdminLoginComponent,
+     AdminHeaderComponent,
+     DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +94,13 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
     MyDatePickerModule,
     RatingModule,
     IonRangeSliderModule,
-    TypeaheadModule.forRoot()
+    HttpModule,
+    ReactiveFormsModule,
+    TypeaheadModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig, 'my-app'),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
 import { RvsListingComponent } from './routes/rvs-listing/rvs-listing.component';
 import { HomeComponent } from './routes/home/home.component';
@@ -12,6 +13,8 @@ import { ListTrailerComponent } from './routes/list-trailer/list-trailer.compone
 import { TrailerSpecificationComponent } from './shared/trailer-specification/trailer-specification.component';
 import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
 import { ContactUsComponent } from './routes/contact-us/contact-us.component';
+
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 export const Routing = RouterModule.forRoot([
     {
@@ -80,6 +83,22 @@ export const Routing = RouterModule.forRoot([
         path: 'contact-us',
         component: ContactUsComponent
     },
+
+    {
+        path: 'admin',
+        component: AdminLoginComponent
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent,
+        children: [
+            {
+                path: '',
+                component: DashboardComponent
+            },
+        ]
+    },
+
     {
         path: '404',
         component: NotFoundComponent
