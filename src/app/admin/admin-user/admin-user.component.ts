@@ -1,0 +1,42 @@
+import { ApiService } from './../../api.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
+@Component({
+  selector: 'rv-admin-user',
+  templateUrl: './admin-user.component.html',
+  styleUrls: ['./admin-user.component.scss']
+})
+export class AdminUserComponent implements OnInit {
+
+users: any = [];
+
+  constructor(public router: Router,
+              public apiService: ApiService,
+              private route: ActivatedRoute
+              ) { }
+
+  ngOnInit() {
+
+    this.getUserList();
+  }
+
+  getUserList() {
+    this.apiService.getAllUsers().then((res) => {
+      this.users = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  deleteUser(id) {
+  this.apiService.deleteUser(id).then((result) => {
+   // this.router.navigateByUrl('./admin-user.component.html');
+    window.location.reload();
+  }, (err) => {
+    console.log(err);
+  });
+}
+
+}

@@ -1,0 +1,44 @@
+<rv-admin-sidebar></rv-admin-sidebar>
+
+<div style="margin-left:5%;padding:1px 16px;height:1000px;">
+
+<br><br>
+<div class="container">
+  <div class="jumbotron">
+  <h2>All User List <a href="admin/add-user"><button type="button" class="btn btn-info navbar-right">Add User</button></a></h2><hr>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Lastname</th>
+        <th>E-mail</th>
+        <th>Approved</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td> <input class="form-check-input" [(ngModel)]="user.approved" type="checkbox"> </td>
+
+        <td>
+            <button class="btn btn-success btn-sm" type="button" [routerLink]="['/admin/view-user', user._id]">VIEW</button>
+            <button class="btn btn-primary btn-sm" type="button" [routerLink]="['/admin/edit-user', user._id]">EDIT</button>
+            <button class="btn btn-danger btn-sm" type="button" (click)="deleteUser(user._id)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
