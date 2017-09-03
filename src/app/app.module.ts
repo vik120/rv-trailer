@@ -12,6 +12,7 @@ import { TypeaheadModule, DatepickerModule  } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
+import { OwlModule } from 'ngx-owl-carousel';
 
 /* components */
 
@@ -39,6 +40,7 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
 import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.component';
 import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
 import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
+import { TestimonialBoxComponent } from './shared/testimonial-box/testimonial-box.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.comp
      TrailerDetailComponent,
      TrailerPricingComponent,
      TrailerPhotoComponent,
+     TestimonialBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.comp
     MyDatePickerModule,
     RatingModule,
     IonRangeSliderModule,
+    OwlModule,
     DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot()
   ],
