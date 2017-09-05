@@ -41,6 +41,8 @@ import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.c
 import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
 import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
 import { TestimonialBoxComponent } from './shared/testimonial-box/testimonial-box.component';
+import { BlogComponent } from './routes/blog/blog.component';
+import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { TestimonialBoxComponent } from './shared/testimonial-box/testimonial-bo
      TrailerPricingComponent,
      TrailerPhotoComponent,
      TestimonialBoxComponent,
+     BlogComponent,
+     BlogDetailComponent,
   ],
   imports: [
     BrowserModule,

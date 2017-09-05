@@ -15,6 +15,8 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
 import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.component';
 import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
 import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
+import { BlogComponent } from './routes/blog/blog.component';
+import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
 
 export const Routing = RouterModule.forRoot([
     {
@@ -95,6 +97,14 @@ export const Routing = RouterModule.forRoot([
     {
         path: 'contact-us',
         component: ContactUsComponent
+    },
+    {
+        path: 'blog',
+        component: BlogComponent
+    },
+    {
+        path: 'blog/:id',
+        component: BlogDetailComponent
     },
     {
         path: '404',
