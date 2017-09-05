@@ -21,6 +21,11 @@ import { ListTrailerComponent } from './routes/list-trailer/list-trailer.compone
 import { TrailerSpecificationComponent } from './shared/trailer-specification/trailer-specification.component';
 import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
 import { ContactUsComponent } from './routes/contact-us/contact-us.component';
+import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.component';
+import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
+import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
+import { BlogComponent } from './routes/blog/blog.component';
+import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
@@ -84,7 +89,20 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'location',
                 component: TrailerLocationComponent
+            },
+            {
+                path: 'details',
+                component: TrailerDetailComponent
+            },
+            {
+                path: 'pricing',
+                component: TrailerPricingComponent
+            },
+            {
+                path: 'photo',
+                component: TrailerPhotoComponent
             }
+
         ]
     },
     {
@@ -131,6 +149,14 @@ export const Routing = RouterModule.forRoot([
         component: AdminChangePassComponent
     },
 
+    {
+        path: 'blog',
+        component: BlogComponent
+    },
+    {
+        path: 'blog/:id',
+        component: BlogDetailComponent
+    },
     {
         path: '404',
         component: NotFoundComponent

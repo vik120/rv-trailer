@@ -14,10 +14,11 @@ import { AuthGuard } from './guards/auth.guard';
 
 /* plugins */
 
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { TypeaheadModule, DatepickerModule  } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
+
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 /* Firebase Dependencey */
@@ -26,6 +27,9 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
+import { OwlModule } from 'ngx-owl-carousel';
+
 
 /* components */
 
@@ -50,6 +54,12 @@ import { ListTrailerComponent } from './routes/list-trailer/list-trailer.compone
 import { TrailerSpecificationComponent } from './shared/trailer-specification/trailer-specification.component';
 import { TrailerLocationComponent } from './shared/trailer-location/trailer-location.component';
 import { ContactUsComponent } from './routes/contact-us/contact-us.component';
+import { TrailerDetailComponent } from './shared/trailer-detail/trailer-detail.component';
+import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricing.component';
+import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
+import { TestimonialBoxComponent } from './shared/testimonial-box/testimonial-box.component';
+import { BlogComponent } from './routes/blog/blog.component';
+import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -96,6 +106,7 @@ const firebaseConfig = {
      TrailerLocationComponent,
      ContactUsComponent,
 
+
      AdminLoginComponent,
      AdminHeaderComponent,
      DashboardComponent,
@@ -106,7 +117,15 @@ const firebaseConfig = {
      AdminEditUserComponent,
      AdminForgotPassComponent,
      AdminChangePassComponent,
-  ],
+
+     TrailerDetailComponent,
+     TrailerPricingComponent,
+     TrailerPhotoComponent,
+     TestimonialBoxComponent,
+     BlogComponent,
+     BlogDetailComponent,
+
+    ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -115,12 +134,17 @@ const firebaseConfig = {
     MyDatePickerModule,
     RatingModule,
     IonRangeSliderModule,
+
     HttpModule,
     ReactiveFormsModule,
     TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, 'my-app'),
     AngularFireAuthModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    OwlModule,
+    DatepickerModule.forRoot() ,
+    TypeaheadModule.forRoot()
+
   ],
   providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard],
   bootstrap: [AppComponent]

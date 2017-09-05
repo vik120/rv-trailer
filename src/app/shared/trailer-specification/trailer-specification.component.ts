@@ -8,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class TrailerSpecificationComponent implements OnInit {
 
-  public trailerType = 1;
+  public trailerType: string = 'traveler';
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class TrailerSpecificationComponent implements OnInit {
   }
 
   trailerspec(value){
-  	this.trailerType = value;
+    this.trailerType = value;
   }
 
 }
