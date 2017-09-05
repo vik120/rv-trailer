@@ -22,8 +22,8 @@ rForm: FormGroup;
       'lastname' : [null, Validators.required],
       'email' : [null, Validators.required],
       'password' : [null, Validators.required],
-      'newsletter_owner' : [ false ],
-      'newsletter_renter' : [ false ],
+      'owner' : [ false ],
+      'renter' : [ false ],
       'approved' : [ false ],
       'validate' : ''
     });

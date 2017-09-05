@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'rv-admin-login',
   templateUrl: './admin-login.component.html',
@@ -71,6 +72,23 @@ form: FormGroup;
         email: this.form.get('email').value,
         password: this.form.get('password').value
       }
+
+
+    this.apiService.login(user).subscribe(data => {
+      if (!data.success) {
+        this.messageClass = 'alert alert-danger';
+        this.message = 'Username or Password are Not Found.';
+        this.processing = false;
+        this.enableForm();
+      } else {
+        this.messageClass = 'alert alert-success';
+        this.message = 'Success';
+        this.apiService.storeUserData(data.token, data.user);
+        setTimeout(() => {
+            this.router.navigate(['admin/dashboard']);
+           }, 2000);
+      }
+    });
 
     }
 

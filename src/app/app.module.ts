@@ -4,18 +4,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, Router, RouterLinkActive } from '@angular/router';
-
 import { Routing } from './app.routing';
 
+/* Guard Services */
 import { ClientNotAuthGuard } from './guards/clientNotAuth.guard';
 import { ClientAuthGuard } from './guards/clientAuth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { AuthGuard } from './guards/auth.guard';
-
-
-import { FlashMessagesModule } from 'angular2-flash-messages';
-
-
 
 /* plugins */
 
@@ -23,6 +18,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 /* Firebase Dependencey */
 
@@ -58,6 +54,13 @@ import { ContactUsComponent } from './routes/contact-us/contact-us.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminChangePassComponent } from './admin/admin-change-pass/admin-change-pass.component';
+import { AdminForgotPassComponent } from './admin/admin-forgot-pass/admin-forgot-pass.component';
+import { AdminEditUserComponent } from './admin/admin-edit-user/admin-edit-user.component';
+import { AdminViewUserComponent } from './admin/admin-view-user/admin-view-user.component';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7fA0nS4hMW1cTLyKIfvx1lfj8V4BTz0U",
@@ -92,9 +95,17 @@ const firebaseConfig = {
      TrailerSpecificationComponent,
      TrailerLocationComponent,
      ContactUsComponent,
+
      AdminLoginComponent,
      AdminHeaderComponent,
      DashboardComponent,
+     AdminSidebarComponent,
+     AdminUserComponent,
+     AdminAddUserComponent,
+     AdminViewUserComponent,
+     AdminEditUserComponent,
+     AdminForgotPassComponent,
+     AdminChangePassComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +119,8 @@ const firebaseConfig = {
     ReactiveFormsModule,
     TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, 'my-app'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FlashMessagesModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

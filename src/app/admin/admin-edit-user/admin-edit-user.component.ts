@@ -23,8 +23,8 @@ export class AdminEditUserComponent implements OnInit {
       'lastname' : [null, Validators.required],
       'email' : [null, Validators.required],
       'password' : [null, Validators.required],
-      'newsletter_owner' : [ false ],
-      'newsletter_renter' : [ false ],
+      'owner' : [ false ],
+      'renter' : [ false ],
       'approved' : [ false ],
       'validate' : ''
     });
@@ -32,11 +32,6 @@ export class AdminEditUserComponent implements OnInit {
   }
 
   ngOnInit() {
-
-      // this.apiService.getAllUsers().subscribe(users => {
-      // this.users = users;
-      // console.log(this.users);
-      // });
 
       this.getUsers(this.route.snapshot.params['id']);
   }

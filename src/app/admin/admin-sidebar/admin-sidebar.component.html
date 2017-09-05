@@ -3,7 +3,8 @@
   <li><a class="active" href="admin/user">Users</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a href="#" [routerLink]="['/admin/change-password']">Change Password</a></li>
+  <li><a href="#" (click)="onLogoutClick()">Logout</a></li>
 </ul>
 <router-outlet></router-outlet>
 

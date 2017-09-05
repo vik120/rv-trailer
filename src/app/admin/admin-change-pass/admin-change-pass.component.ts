@@ -3,43 +3,40 @@ import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
 
-
 @Component({
-  selector: 'rv-admin-view-user',
-  templateUrl: './admin-view-user.component.html',
-  styleUrls: ['./admin-view-user.component.scss']
+  selector: 'rv-admin-change-pass',
+  templateUrl: './admin-change-pass.component.html',
+  styleUrls: ['./admin-change-pass.component.scss']
 })
-export class AdminViewUserComponent implements OnInit {
+export class AdminChangePassComponent implements OnInit {
 
-  rForm: FormGroup;
+rForm: FormGroup;
   users: any = [];
 
   constructor(private fb: FormBuilder,
               public router: Router,
               public apiService: ApiService,
               private route: ActivatedRoute) {
-
       this.rForm = fb.group({
-      'firstname' : [null, Validators.required],
-      'lastname' : [null, Validators.required],
-      'email' : [null, Validators.required],
       'password' : [null, Validators.required],
-      'owner' : [ false ],
-      'renter' : [ false ],
-      'approved' : [ false ],
       'validate' : ''
     });
   }
 
   ngOnInit() {
 
-      this.getUsers(this.route.snapshot.params['id']);
+    this.apiService.viewPassword().subscribe(changePass => {
+      this.users = changePass.user;
+      // this.id = changePass.user._id;
+    });
+
   }
 
-  getUsers(id) {
-    this.apiService.showUser(id).then((res) => {
-      this.users = res;
-      console.log(this.users);
+  changePassword(id){
+    this.apiService.changePassword(id, this.users).then(result => {
+      let id = result['_id'];
+      console.log(id);
+      this.router.navigate(['admin/change-password']);
     }, (err) => {
       console.log(err);
     });
