@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from './../../api.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'rv-signup-owner',
@@ -16,7 +17,8 @@ rForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               public router:Router,
-              public apiService:ApiService) {
+              public apiService:ApiService,
+              private flashMessagesService: FlashMessagesService) {
 
       this.rForm = fb.group({
       'firstname' : [null, Validators.required],
@@ -41,6 +43,7 @@ rForm: FormGroup;
       this.router.navigate(['/login']);
     }, (err) => {
       console.log(err);
+      this.flashMessagesService.show('This E-mail Id is Registered.', {cssClass: 'alert-danger'});
     });
   }
 

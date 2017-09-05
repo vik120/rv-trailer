@@ -10,7 +10,9 @@ var UserSchema = new Schema({
     newsletter_owner: {type: Boolean},
     newsletter_renter: {type: Boolean},
     approved: {type: Boolean},
-    admin: {type: Boolean, default: false}
+    admin: {type: Boolean, default: false},
+    owner: {type: Boolean, default: false},
+    renter: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('User', UserSchema);
