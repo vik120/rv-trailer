@@ -54,36 +54,86 @@ router.delete('/user/:id', function(req, res, next) {
 });
 
 router.post('/login', (req, res) => {
-  if(!req.body.email) {
-    res.json({ success: false, message: ' No Username Was Provided' });
-  } else {
-    if(!req.body.password) {
-      res.json({ success: false, message: ' No Password Was Provided' });
-    } else {
-      User.findOne({ email: req.body.email.toLowerCase() }, (err, user) => {
+      User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password}, {admin: true} ]}, (err, user) => {
         if(err) {
           res.json({success: false, message: err });
         } else {
           if(!user) {
-            res.json({ success: false, message: 'Username not Found.'});
-          } else {
-              User.findOne({ password: req.body.password }, (err, password) => {
-                if(err) {
-                  res.json({success: false, message: err });
-                } else {
-                if(!password) {
-                  res.json({ success: false, message: 'password not Found.'});
-                } else {
-                    const token = jwt.sign({ userId: user._id },'secret', {expiresIn: '24h' });
-                    res.json({ success: true, message: 'Success', token: token, user: { email: user.email } });
-                }
-              }
-            });
-          }
+            res.json({ success: false});
+            } else {
+                const token = jwt.sign({ userId: user._id },'secret', {expiresIn: '24h' });
+                res.json({ success: true, token: token, user: { email: user.email } });
+            }
         }
-      });
-    }
+    });
+});
+
+router.post('/clientLogin', (req, res) => {
+      User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password} ]}, (err, user) => {
+        if(err) {
+          res.json({success: false, message: err });
+        } else {
+          if(!user) {
+            res.json({ success: false});
+            } else {
+                const token = jwt.sign({ userId: user._id },'secret', {expiresIn: '24h' });
+                res.json({ success: true, token: token, user: { email: user.email } });
+            }
+        }
+    });
+});
+
+
+router.use((req, res, next) => {
+  const token = req.headers['authorization'];
+  if(!token) {
+    res.json({ success: false });
+  } else {
+    jwt.verify(token, 'secret', (err, decoded) => {
+      if(err) {
+        res.json({success: false });
+      } else {
+        req.decoded = decoded;
+        next();
+      }
+    });
   }
+});
+
+// router.post('/changePass', (req, res) => {
+//   User.findOne({_id: req.decoded.userId }).update('password').exec((err, user) => {
+//     if(err) {
+//       res.json({ success: false});
+//     } else {
+//       if (!user) {
+//         res.json({ success: false});
+//       }else {
+//         res.json({ success: true});
+//       }
+//     }
+//   })
+// });
+
+router.get('/viewPass', (req, res) => {
+  User.findOne({_id: req.decoded.userId }).select('email password').exec((err, user) => {
+    if(err) {
+      res.json({ success: false});
+    } else {
+      if (!user) {
+        res.json({ success: false});
+      }else {
+        res.json({ success: true, user: user});
+      }
+    }
+  })
+});
+
+router.put('/changePass', function(req, res, next) {
+  User.findOne(req.id, req.body, function (err, post) {
+    console.log(req.id);
+    if (err) return next(err);
+    res.json(post);
+  });
 });
 
 module.exports = router;

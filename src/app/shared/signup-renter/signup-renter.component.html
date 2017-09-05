@@ -1,25 +1,26 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmit()">
 <div class="form-group">
     <label>First Name</label>
-    <input type="text" class="form-control" placeholder="First Name" />
+    <input type="text" class="form-control" formControlName="firstname" id="firstname" placeholder="First Name" />
 </div>
 <div class="form-group">
     <label>Last Name</label>
-    <input type="text" class="form-control" placeholder="Last Name" />
+    <input type="text" class="form-control" formControlName="lastname" id="lastname"  placeholder="Last Name" />
 </div>
 <div class="form-group">
     <label>E-mail*</label>
-    <input type="text" class="form-control" placeholder="E-mail/Username" />
+    <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-mail/Username" />
 </div>
 <div class="form-group">
     <label>Password*</label>
-    <input type="password" class="form-control" placeholder="Password" />
+    <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" />
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
     <label>Confirm Password*</label>
-    <input type="password" class="form-control" placeholder="Confirm Password" />
-</div>
+    <input type="password" class="form-control" formControlName="firstname" id="firstname" placeholder="Confirm Password" />
+</div> -->
 <div class="form-group">
-    <button class="btn btn-primary">Create Account</button>
+    <button [disabled]="!rForm.valid" class="btn btn-primary">Create Account</button>
 </div>
 <div class="signup-social">
     <label>or sign up with :</label>

@@ -20,8 +20,9 @@
                     <a href="#">EN</a>
                 </div>
                 <div class="header-btn">
-                    <button class="btn btn-border-white" [routerLink]="['/login']">Sign In</button>
-                    <button class="btn btn-border-white" [routerLink]="['/signup']">Sign Up</button>
+                    <button *ngIf="!apiService.loggedIn()"  class="btn btn-border-white" [routerLink]="['/login']">Sign In</button>
+                    <button *ngIf="!apiService.loggedIn()"  class="btn btn-border-white" [routerLink]="['/signup/renter']">Sign Up</button>
+                    <button *ngIf="apiService.loggedIn()"  class="btn btn-border-white" (click)="onLogoutClick()">Log Out</button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
 
