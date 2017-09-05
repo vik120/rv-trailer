@@ -1,3 +1,11 @@
+import { AdminChangePassComponent } from './admin/admin-change-pass/admin-change-pass.component';
+import { AdminForgotPassComponent } from './admin/admin-forgot-pass/admin-forgot-pass.component';
+import { AdminEditUserComponent } from './admin/admin-edit-user/admin-edit-user.component';
+import { AdminViewUserComponent } from './admin/admin-view-user/admin-view-user.component';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
 import { RvsListingComponent } from './routes/rvs-listing/rvs-listing.component';
@@ -86,17 +94,41 @@ export const Routing = RouterModule.forRoot([
 
     {
         path: 'admin',
-        component: AdminLoginComponent
+        component: AdminLoginComponent,
+        canActivate: [NotAuthGuard]
     },
     {
-        path: 'dashboard',
+        path: 'admin/dashboard',
         component: DashboardComponent,
-        children: [
-            {
-                path: '',
-                component: DashboardComponent
-            },
-        ]
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/user',
+        component: AdminUserComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/add-user',
+        component: AdminAddUserComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/view-user/:id',
+        component: AdminViewUserComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/edit-user/:id',
+        component: AdminEditUserComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin/forgot',
+        component: AdminForgotPassComponent
+    },
+    {
+        path: 'admin/change-password',
+        component: AdminChangePassComponent
     },
 
     {

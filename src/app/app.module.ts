@@ -122,7 +122,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     FlashMessagesModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
