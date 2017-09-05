@@ -7,6 +7,16 @@ import { RouterModule, Routes, Router, RouterLinkActive } from '@angular/router'
 
 import { Routing } from './app.routing';
 
+import { ClientNotAuthGuard } from './guards/clientNotAuth.guard';
+import { ClientAuthGuard } from './guards/clientAuth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
+import { AuthGuard } from './guards/auth.guard';
+
+
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
+
+
 /* plugins */
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
