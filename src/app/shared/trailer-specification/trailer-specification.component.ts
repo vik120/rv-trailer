@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'rv-trailer-specification',
@@ -8,15 +11,42 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class TrailerSpecificationComponent implements OnInit {
 
-  public trailerType: string = 'traveler';
+  rForm: FormGroup;
+  users: any = [];
+  user: any = [];
+  listing: any = [];
 
-  constructor() { }
+  public trailerType: string = 'traveler';
+  RV_Cottage : string = 'RV Cottage';
+  Travel_Trailer : string = 'Travel Trailer';
+  Motor_Home : string = 'Motor Home';
+
+  constructor(private fb: FormBuilder,
+              public router:Router,
+              public apiService:ApiService)
+              {
+
+                this.rForm = fb.group({
+                  'make' : [null, Validators.required],
+                  'model' : [null, Validators.required],
+                  'year' : [null, Validators.required],
+                  'length' : [null, Validators.required],
+                  'gross_weight' : [null, Validators.required],
+                  'tough_weight' : [null, Validators.required],
+                  'guest' : [null, Validators.required],
+                  'validate' : ''
+              });
+  }
 
   ngOnInit() {
   }
 
-  trailerspec(value){
-    this.trailerType = value;
+
+  onSubmitStep1() {
+
+        let formValues = this.rForm.value;
+        this.listing = localStorage.getItem('listing');
+        localStorage.setItem('listing', JSON.stringify(formValues));
   }
 
 }

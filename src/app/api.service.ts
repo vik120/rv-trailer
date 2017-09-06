@@ -115,7 +115,7 @@ export class ApiService {
 
   storeUserData(token, user) {
     localStorage.setItem('token', token);
-    localStorage.setItem('usre', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
   }
@@ -136,6 +136,16 @@ export class ApiService {
             reject(err);
           });
     });
+  }
+
+  onSubmitStep1() {
+    var listing = JSON.parse(localStorage.getItem('listing'));
+    return listing;
+  }
+
+    onSubmitStep2() {
+    var listing12 = JSON.parse(localStorage.getItem('listing12'));
+    return listing12;
   }
 
 }

@@ -62,7 +62,7 @@ router.post('/login', (req, res) => {
             res.json({ success: false});
             } else {
                 const token = jwt.sign({ userId: user._id },'secret', {expiresIn: '24h' });
-                res.json({ success: true, token: token, user: { email: user.email } });
+                res.json({ success: true, token: token, user: { id: user._id } });
             }
         }
     });
@@ -77,7 +77,7 @@ router.post('/clientLogin', (req, res) => {
             res.json({ success: false});
             } else {
                 const token = jwt.sign({ userId: user._id },'secret', {expiresIn: '24h' });
-                res.json({ success: true, token: token, user: { email: user.email } });
+                res.json({ success: true, token: token, user: { id: user._id } });
             }
         }
     });

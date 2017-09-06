@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'rv-trailer-location',
@@ -8,9 +12,42 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class TrailerLocationComponent implements OnInit {
 
-  constructor() { }
+  rForm: FormGroup;
+  listing: any = [];
+  users: any = [];
+  user: any = [];
+  step1: any = [];
+
+  constructor(private fb: FormBuilder,
+              public router:Router,
+              public apiService:ApiService)
+              {
+             //   this.listing = this.apiService.onSubmitStep1();
+               // console.log(this.listing);
+
+                this.listing = JSON.parse(localStorage.getItem('listing'));
+
+           //     this.apiService.storeUserData(data.token, data.user);
+
+                this.rForm = fb.group({
+                  'street' : [null, Validators.required],
+                  'city' : [null, Validators.required],
+                  'province' : [null, Validators.required],
+                  'postal' : [null, Validators.required],
+              });
+
+
+              }
 
   ngOnInit() {
+  }
+
+    onSubmitStep2() {
+      const location = this.rForm.value;
+      this.listing['location'] = location;
+
+      localStorage.setItem('listing', JSON.stringify(this.listing));
+     // console.log(this.listing);
   }
 
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'rv-trailer-detail',
@@ -6,9 +9,17 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
   styleUrls: ['./trailer-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class TrailerDetailComponent implements OnInit {
 
-  constructor() { }
+  listing: any = [];
+
+  constructor(private fb: FormBuilder,
+              public router:Router,
+              public apiService:ApiService)
+              {
+                this.listing = localStorage.getItem('listing');
+              }
 
   ngOnInit() {
   }

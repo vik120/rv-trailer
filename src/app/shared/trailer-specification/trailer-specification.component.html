@@ -1,3 +1,4 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmitStep1()">
 <div class="specification-box">
     <h4 class="title text-uppercase">Trailer Specification</h4>
     <div class="clearfix specification-btn">
@@ -25,7 +26,7 @@
                             </g>
                         </g>
                     </svg>
-              </i> RV Cottage
+              </i> {{ RV_Cottage }}
           </button>
         <button class="btn btn-border-red" (click)="trailerspec(traveler)" [ngClass]="{'btn-primary': trailerType == 'traveler'}">
             <i class="icon">
@@ -39,7 +40,7 @@
                             </g>
                         </g>
                     </svg>
-              </i> Travel Trailer
+              </i> {{ Travel_Trailer }}
           </button>
         <button class="btn btn-border-red" (click)="trailerspec(motor)" [ngClass]="{'btn-primary': trailerType == 'motor'}">
             <i class="icon">
@@ -53,7 +54,7 @@
                             </g>
                         </g>
                     </svg>
-              </i> Motor Home
+              </i> {{ Motor_Home}}
           </button>
     </div>
     <div class="trailer-type" *ngIf="trailerType === 'traveler'">
@@ -101,51 +102,52 @@
 
     <div class="clearfix row">
         <div class="col-sm-4 form-group">
-            <input type="text" class="form-control" placeholder="Make" />
+            <input type="text" class="form-control" formControlName="make" placeholder="Make" />
         </div>
         <div class="col-sm-4 form-group">
-            <input type="text" class="form-control" placeholder="Modal" />
+            <input type="text" class="form-control" formControlName="model" placeholder="Modal" />
         </div>
         <div class="col-sm-4 form-group">
-            <select class="form-control">
-                <option value="">Year</option>
+            <select class="form-control" formControlName="year" placeholder="Year">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
             </select>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Length" />
+                <input type="text" class="form-control" formControlName="length" placeholder="Length" />
                 <span class="input-group-addon">Ft</span>
             </div>
         </div>
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Gross Weight" />
+                <input type="text" class="form-control" formControlName="gross_weight" placeholder="Gross Weight" />
                 <span class="input-group-addon">LB</span>
             </div>
         </div>
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Tough Weight" />
+                <input type="text" class="form-control" formControlName="tough_weight" placeholder="Tough Weight" />
                 <span class="input-group-addon">LB</span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4 form-group">
-            <select class="form-control">
-                <option value="">Guest</option>
+            <select class="form-control" formControlName="guest">
+                <option value="Guest">Guest</option>
             </select>
         </div>
         <div class="col-sm-4 form-group">
-            <select class="form-control">
-                <option value="">Slide out</option>
+            <select class="form-control" formControlName="guest">
+                <option value="slide_out">Slide out</option>
             </select>
         </div>
 
     </div>
     <div class="clearfix specific-btn">
-        <button class="btn btn-primary btn-lg">NEXT</button>
+        <button type=submit [disabled]="!rForm.valid" class="btn btn-primary btn-lg">NEXT</button>
     </div>
 </div>
