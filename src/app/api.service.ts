@@ -138,7 +138,7 @@ export class ApiService {
     });
   }
 
-  onSubmitStep1() {
+  onSubmitSpecification() {
     var listing = JSON.parse(localStorage.getItem('listing'));
     return listing;
   }

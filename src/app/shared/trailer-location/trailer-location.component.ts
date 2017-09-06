@@ -22,32 +22,26 @@ export class TrailerLocationComponent implements OnInit {
               public router:Router,
               public apiService:ApiService)
               {
-             //   this.listing = this.apiService.onSubmitStep1();
-               // console.log(this.listing);
 
                 this.listing = JSON.parse(localStorage.getItem('listing'));
 
-           //     this.apiService.storeUserData(data.token, data.user);
-
-                this.rForm = fb.group({
-                  'street' : [null, Validators.required],
-                  'city' : [null, Validators.required],
-                  'province' : [null, Validators.required],
-                  'postal' : [null, Validators.required],
-              });
-
+                  this.rForm = fb.group({
+                    'street' : [null, Validators.required],
+                    'city' : [null, Validators.required],
+                    'province' : [null, Validators.required],
+                    'postal' : [null, Validators.required],
+                  });
 
               }
 
   ngOnInit() {
   }
 
-    onSubmitStep2() {
+    onSubmitLocation() {
       const location = this.rForm.value;
       this.listing['location'] = location;
-
       localStorage.setItem('listing', JSON.stringify(this.listing));
-     // console.log(this.listing);
+      this.router.navigate(['list-trailer/details']);
   }
 
 }

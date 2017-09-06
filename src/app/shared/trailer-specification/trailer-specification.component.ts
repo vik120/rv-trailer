@@ -22,9 +22,18 @@ export class TrailerSpecificationComponent implements OnInit {
   Motor_Home : string = 'Motor Home';
 
   constructor(private fb: FormBuilder,
-              public router:Router,
-              public apiService:ApiService)
+              public router: Router,
+              public apiService: ApiService)
               {
+
+                const getListing = localStorage.getItem('listing');
+
+                // if ( getListing.length === 0 ) {
+                //   this.listing = localStorage.setItem('listing', this.listing);
+                // } else {
+                //   this.listing = localStorage.getItem('listing');
+                // }
+
 
                 this.rForm = fb.group({
                   'make' : [null, Validators.required],
@@ -34,7 +43,7 @@ export class TrailerSpecificationComponent implements OnInit {
                   'gross_weight' : [null, Validators.required],
                   'tough_weight' : [null, Validators.required],
                   'guest' : [null, Validators.required],
-                  'validate' : ''
+
               });
   }
 
@@ -42,11 +51,18 @@ export class TrailerSpecificationComponent implements OnInit {
   }
 
 
-  onSubmitStep1() {
+  onSubmitSpecification() {
+      const listingSpecification  = this.rForm.value;
 
-        let formValues = this.rForm.value;
-        this.listing = localStorage.getItem('listing');
-        localStorage.setItem('listing', JSON.stringify(formValues));
+      console.log(listingSpecification);
+      // //this.listing["specification"] = specification;
+
+
+      this.listing['listingSpecification'] = listingSpecification;
+        console.log(this.listing);
+      localStorage.setItem('listing', this.listing);
+
+      this.router.navigate(['list-trailer/location']);
   }
 
 }

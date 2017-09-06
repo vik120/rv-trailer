@@ -1,124 +1,24 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmitLocation()">
 <div class="trailer-detail">
     <h4 class="title text-uppercase">Trailer Detail</h4>
     <div class="clearfix row detail-top">
         <div class="col-sm-7 form-group">
             <label>AD Title*</label>
-            <input type="text" class="form-control" />
+            <input formControlName="ad_title"  type="text" class="form-control" />
         </div>
         <div class="col-sm-7 form-group">
             <label>AD Description*</label>
-            <textarea class="form-control"></textarea>
+            <textarea formControlName="ad_description"  class="form-control"></textarea>
         </div>
     </div>
     <h5>Features</h5>
     <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_1" />
-            <label for="feature_1">Wifi</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_2" />
-            <label for="feature_2">Built-in Speakers</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_3" />
-            <label for="feature_3">TV/DVD</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_4" />
-            <label for="feature_4">CD Player</label>
+        <div class="col-sm-3 form-group" *ngFor="let listingFeature of listingFeatures">
+            <input type="checkbox" name="feature" value="{{listingFeature}}"  />
+            <label for="feature"> {{ listingFeature.name }} </label>
         </div>
     </div>
-    <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_5" />
-            <label for="feature_5">Vanity</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_6" />
-            <label for="feature_6">Pet Friendly</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_7" />
-            <label for="feature_7">Dish Washer</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_8" />
-            <label for="feature_8">Bathtub</label>
-        </div>
-    </div>
-    <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_9" />
-            <label for="feature_9">Family/Kid Friendly</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_10" />
-            <label for="feature_10">Outside Shower</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_11" />
-            <label for="feature_11">Smoke Free</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_12" />
-            <label for="feature_12">Bluetooth</label>
-        </div>
-    </div>
-    <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_13" />
-            <label for="feature_13">Pull-out sofa Bed</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_14" />
-            <label for="feature_14">Outdoor Kitchenette</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_15" />
-            <label for="feature_15">Delivery Avilable</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_16" />
-            <label for="feature_16">Lines Provided</label>
-        </div>
-    </div>
-    <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_17" />
-            <label for="feature_17">Heating / Cooling</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_18" />
-            <label for="feature_18">BBQ</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_19" />
-            <label for="feature_19">Automatic Awning</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_20" />
-            <label for="feature_20">Camping Chairs</label>
-        </div>
-    </div>
-    <div class="row checkbox">
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_21" />
-            <label for="feature_21">Basic Cookwaer / Cultery</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_22" />
-            <label for="feature_22">Closets and Storage Space</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_23" />
-            <label for="feature_23">Full Winter Rental Avilable</label>
-        </div>
-        <div class="col-sm-3 form-group">
-            <input type="checkbox" id="feature_24" />
-            <label for="feature_24">Boardgames and Movies</label>
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-sm-6 form-group">
             <select class="form-control">
@@ -148,7 +48,7 @@
 
     <div class="clearfix details-btn">
         <button class="btn btn-border-red btn-lg">Back</button>
-        <button class="btn btn-primary btn-lg">Next</button>
+        <button [disabled]="!rForm.valid" type="submit" class="btn btn-primary btn-lg">Next</button>
     </div>
 
 </div>

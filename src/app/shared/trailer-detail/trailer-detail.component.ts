@@ -13,15 +13,40 @@ import { Router } from '@angular/router';
 export class TrailerDetailComponent implements OnInit {
 
   listing: any = [];
+  rForm: FormGroup;
+
+
+  listingFeatures: any[] = [
+     {name: 'Brijesh'},
+     {name: 'Kirti'},
+  ];
+
+  //name = "kjj";
+
+
 
   constructor(private fb: FormBuilder,
               public router:Router,
               public apiService:ApiService)
               {
                 this.listing = localStorage.getItem('listing');
+
+                this.rForm = this.fb.group({
+                    'ad_title' : [null, Validators.required],
+                    'ad_description' : [null, Validators.required],
+                    'province' : [null, Validators.required],
+                    'postal' : [null, Validators.required],
+                });
+
               }
 
+
+
   ngOnInit() {
+  }
+
+  onSubmitLocation(){
+
   }
 
 }
