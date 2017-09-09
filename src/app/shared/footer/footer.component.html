@@ -10,9 +10,9 @@
                     <div class="col-sm-4">
                         <h5>Trailer Head</h5>
                         <ul>
-                            <li><a href="#">About</a></li>
+                            <li><a [routerLink]="['/about-us']">About</a></li>
                             <li><a [routerLink]="['/blog']">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a [routerLink]="['/contact-us']">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4">
@@ -29,8 +29,8 @@
                         <ul>
                             <li><a href="#">Listing a Trailer</a></li>
                             <li><a href="#">Renting a Trailer</a></li>
-                            <li><a href="#">Trailer Renter FAQ</a></li>
-                            <li><a href="#">Trailer Owner FAQ</a></li>
+                            <li><a [routerLink]="['/faq-renter']">Trailer Renter FAQ</a></li>
+                            <li><a [routerLink]="['/faq-owner']">Trailer Owner FAQ</a></li>
                         </ul>
                     </div>
                 </div>

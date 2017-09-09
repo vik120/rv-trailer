@@ -8,7 +8,7 @@ import { Routing } from './app.routing';
 
 /* plugins */
 
-import { TypeaheadModule, DatepickerModule  } from 'ngx-bootstrap';
+import { TypeaheadModule, DatepickerModule, AccordionModule   } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
@@ -18,7 +18,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppComponent } from './shared/app/app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { RvsListingComponent } from './routes/rvs-listing/rvs-listing.component';
+import { RvsListingComponent } from './shared/rvs-listing/rvs-listing.component';
 import { FilterComponent } from './shared/filter/filter.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BrandslideComponent } from './shared/brandslide/brandslide.component';
@@ -43,6 +43,10 @@ import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.comp
 import { TestimonialBoxComponent } from './shared/testimonial-box/testimonial-box.component';
 import { BlogComponent } from './routes/blog/blog.component';
 import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
+import { RvComponent } from './routes/rv/rv.component';
+import { AboutUsComponent } from './routes/about-us/about-us.component';
+import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
+import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +78,10 @@ import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component'
      TestimonialBoxComponent,
      BlogComponent,
      BlogDetailComponent,
+     RvComponent,
+     AboutUsComponent,
+     FaqRenterComponent,
+     FaqOwnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +92,7 @@ import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component'
     RatingModule,
     IonRangeSliderModule,
     OwlModule,
+    AccordionModule.forRoot(),
     DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot()
   ],
