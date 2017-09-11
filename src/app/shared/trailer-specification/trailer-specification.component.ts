@@ -53,15 +53,11 @@ export class TrailerSpecificationComponent implements OnInit {
 
   onSubmitSpecification() {
       const listingSpecification  = this.rForm.value;
-
       console.log(listingSpecification);
-      // //this.listing["specification"] = specification;
-
-
-      this.listing['listingSpecification'] = listingSpecification;
-        console.log(this.listing);
-      localStorage.setItem('listing', this.listing);
-
+        // this.listing["specification"] = specification;
+       //  this.listing['listingSpecification'] = listingSpecification;
+      //    console.log(this.listing);
+      localStorage.setItem('listing', JSON.stringify(listingSpecification));
       this.router.navigate(['list-trailer/location']);
   }
 

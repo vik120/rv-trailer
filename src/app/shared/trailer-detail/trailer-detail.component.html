@@ -1,4 +1,4 @@
-<form [formGroup]="rForm" (ngSubmit)="onSubmitLocation()">
+<form [formGroup]="rForm" (ngSubmit)="onSubmitDetail()">
 <div class="trailer-detail">
     <h4 class="title text-uppercase">Trailer Detail</h4>
     <div class="clearfix row detail-top">
@@ -14,14 +14,14 @@
     <h5>Features</h5>
     <div class="row checkbox">
         <div class="col-sm-3 form-group" *ngFor="let listingFeature of listingFeatures">
-            <input type="checkbox" name="feature" value="{{listingFeature}}"  />
+            <input type="checkbox" name="feature" value="{{listingFeature}}" id="feature" />
             <label for="feature"> {{ listingFeature.name }} </label>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6 form-group">
-            <select class="form-control">
+            <select class="form-control" formControlName="province">
                 <option>Number of beds</option>
                 <option>1</option>
                 <option>2</option>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-sm-6 form-group">
-            <select class="form-control">
+            <select class="form-control" formControlName="postal">
                 <option>Number of bathrooms</option>
                 <option>1</option>
                 <option>2</option>

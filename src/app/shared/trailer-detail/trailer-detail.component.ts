@@ -9,27 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./trailer-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-
 export class TrailerDetailComponent implements OnInit {
 
-  listing: any = [];
   rForm: FormGroup;
-
+  listing: any = [];
+  users: any = [];
+  user: any = [];
+  step1: any = [];
 
   listingFeatures: any[] = [
      {name: 'Brijesh'},
      {name: 'Kirti'},
   ];
 
-  //name = "kjj";
-
-
-
   constructor(private fb: FormBuilder,
-              public router:Router,
-              public apiService:ApiService)
+              public router: Router,
+              public apiService: ApiService)
               {
-                this.listing = localStorage.getItem('listing');
+                this.listing = JSON.parse(localStorage.getItem('listing'));
 
                 this.rForm = this.fb.group({
                     'ad_title' : [null, Validators.required],
@@ -40,13 +37,17 @@ export class TrailerDetailComponent implements OnInit {
 
               }
 
-
-
   ngOnInit() {
   }
 
-  onSubmitLocation(){
-
+  onSubmitDetail() {
+     const detail = this.rForm.value;
+     this.listing['detail'] = detail;
+     console.log(this.listing);
+     localStorage.setItem('listing', JSON.stringify(this.listing));
+     this.router.navigate(['list-trailer/pricing']);
   }
+
+
 
 }

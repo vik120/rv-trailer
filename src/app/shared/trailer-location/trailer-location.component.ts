@@ -3,7 +3,6 @@ import { ApiService } from './../../api.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'rv-trailer-location',
   templateUrl: './trailer-location.component.html',
@@ -19,8 +18,8 @@ export class TrailerLocationComponent implements OnInit {
   step1: any = [];
 
   constructor(private fb: FormBuilder,
-              public router:Router,
-              public apiService:ApiService)
+              public router: Router,
+              public apiService: ApiService)
               {
 
                 this.listing = JSON.parse(localStorage.getItem('listing'));
@@ -37,11 +36,11 @@ export class TrailerLocationComponent implements OnInit {
   ngOnInit() {
   }
 
-    onSubmitLocation() {
-      const location = this.rForm.value;
-      this.listing['location'] = location;
-      localStorage.setItem('listing', JSON.stringify(this.listing));
-      this.router.navigate(['list-trailer/details']);
+  onSubmitLocation() {
+     const location = this.rForm.value;
+     this.listing['location'] = location;
+     localStorage.setItem('listing', JSON.stringify(this.listing));
+     this.router.navigate(['list-trailer/details']);
   }
 
 }
