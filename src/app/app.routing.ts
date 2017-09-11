@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
-import { RvsListingComponent } from './routes/rvs-listing/rvs-listing.component';
+import { RvsListingComponent } from './shared/rvs-listing/rvs-listing.component';
 import { HomeComponent } from './routes/home/home.component';
  import { NotFoundComponent } from './routes/not-found/not-found.component';
 import { RvListsComponent } from './shared/rv-lists/rv-lists.component';
@@ -26,6 +26,10 @@ import { TrailerPricingComponent } from './shared/trailer-pricing/trailer-pricin
 import { TrailerPhotoComponent } from './shared/trailer-photo/trailer-photo.component';
 import { BlogComponent } from './routes/blog/blog.component';
 import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
+import { AboutUsComponent } from './routes/about-us/about-us.component';
+
+import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
+import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
@@ -156,6 +160,18 @@ export const Routing = RouterModule.forRoot([
     {
         path: 'blog/:id',
         component: BlogDetailComponent
+    },
+    {
+        path: 'about-us',
+        component: AboutUsComponent
+    },
+    {
+        path: 'faq-renter',
+        component: FaqRenterComponent
+    },
+    {
+        path: 'faq-owner',
+        component: FaqOwnerComponent
     },
     {
         path: '404',
