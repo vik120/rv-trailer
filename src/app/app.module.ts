@@ -79,6 +79,7 @@ import { AdminCmsPageComponent } from './admin/admin-cms-page/admin-cms-page.com
 import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-cms-page.component';
 import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
+import { EditorComponent } from './helper/editor/editor.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7fA0nS4hMW1cTLyKIfvx1lfj8V4BTz0U",
@@ -140,6 +141,7 @@ const firebaseConfig = {
      AdminAddCmsPageComponent,
      AdminViewCmsPageComponent,
      AdminEditCmsPageComponent,
+     EditorComponent,
   ],
 
   imports: [
