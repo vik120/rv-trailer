@@ -11,6 +11,7 @@ export class ApiService {
 
   authToken;
   user;
+  cmspage;
   options;
 
   headers:any = {'Content-Type': 'application/json'};
@@ -146,6 +147,78 @@ export class ApiService {
     onSubmitStep2() {
     var listing12 = JSON.parse(localStorage.getItem('listing12'));
     return listing12;
+  }
+
+
+  addListTrailer(data) {
+    return new Promise((resolve, reject) => {
+        this.http.post('/api/list_trailers', data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+   getAllCmsPages() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/api/cmspage')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+      });
+    }
+
+  showCmsPage(id) {
+    return new Promise((resolve, reject) => {
+        this.http.get('/api/cmspage/' + id)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addCmsPage(data) {
+    return new Promise((resolve, reject) => {
+        this.http.post('/api/savecmspage', data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+    updateCmsPage(id, data) {
+    return new Promise((resolve, reject) => {
+        this.http.put('/api/cmspage/' + id, data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+    deleteCmsPage(id) {
+    return new Promise((resolve, reject) => {
+        this.http.delete('/api/cmspage/'+ id)
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
   }
 
 }
