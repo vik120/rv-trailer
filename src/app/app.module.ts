@@ -75,6 +75,11 @@ import { AdminViewUserComponent } from './admin/admin-view-user/admin-view-user.
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+
+import { SubscribePlanComponent } from './routes/subscribe-plan/subscribe-plan.component';
+import { TermsConditionComponent } from './routes/terms-condition/terms-condition.component';
+import { PrivacyPolicyComponent } from './routes/privacy-policy/privacy-policy.component';
+
 import { AdminCmsPageComponent } from './admin/admin-cms-page/admin-cms-page.component';
 import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-cms-page.component';
 import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
@@ -137,11 +142,20 @@ const firebaseConfig = {
      AboutUsComponent,
      FaqRenterComponent,
      FaqOwnerComponent,
+
+     SubscribePlanComponent,
+     TermsConditionComponent,
+     PrivacyPolicyComponent,
+
      AdminCmsPageComponent,
      AdminAddCmsPageComponent,
      AdminViewCmsPageComponent,
+<<<<<<< HEAD
      AdminEditCmsPageComponent,
      EditorComponent,
+=======
+     AdminEditCmsPageComponent,
+>>>>>>> 552319480e929361178cb2d278b8f0bffa5d773c
   ],
 
   imports: [

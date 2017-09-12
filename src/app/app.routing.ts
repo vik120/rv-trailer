@@ -31,6 +31,13 @@ import { BlogComponent } from './routes/blog/blog.component';
 import { BlogDetailComponent } from './routes/blog-detail/blog-detail.component';
 import { AboutUsComponent } from './routes/about-us/about-us.component';
 
+import { TermsConditionComponent } from './routes/terms-condition/terms-condition.component';
+import { PrivacyPolicyComponent } from './routes/privacy-policy/privacy-policy.component';
+
+
+import { SubscribePlanComponent } from './routes/subscribe-plan/subscribe-plan.component';
+
+
 import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
 import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 
@@ -164,11 +171,6 @@ export const Routing = RouterModule.forRoot([
     { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
     { path: 'admin/edit-cmspage/:id', component: AdminEditCmsPageComponent },
 
-
-
-
-
-
     {
         path: 'blog',
         component: BlogComponent
@@ -188,6 +190,18 @@ export const Routing = RouterModule.forRoot([
     {
         path: 'faq-owner',
         component: FaqOwnerComponent
+    },
+	{
+        path: 'subscribe-plan',
+        component: SubscribePlanComponent
+    },
+	{
+        path: 'privacy-policy',
+        component: PrivacyPolicyComponent
+    },
+	{
+        path: 'term-conditions',
+        component: TermsConditionComponent
     },
     {
         path: '404',
