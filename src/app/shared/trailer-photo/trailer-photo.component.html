@@ -1,3 +1,4 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmitPhoto()">
 <div class="trailer-photo">
     <h4 class="title text-uppercase">Add photos</h4>
     <div class="trailer-photo-content">
@@ -5,11 +6,13 @@
 
         <h5>Add a new file *</h5>
 
-        <div class="input-file">
-            <input type="file" />
-            <input type="text" placeholder="choose file" disabled class="form-control" />
+        <!-- <div class="input-file">
+            <input type="file" formControllerName="photo" />
+            <input type="text" formControlName="photo" placeholder="choose file" disabled class="form-control" />
             <button class="btn btn-primary">Upload</button>
-        </div>
+        </div> -->
+
+         <input type="text" formControlName="photo" placeholder="choose file" class="form-control" />
     </div>
     <div class="clearfix trailer-photo-btn">
         <button class="btn btn-border-red btn-lg">Back</button>
@@ -17,3 +20,4 @@
         <button class="btn btn-primary btn-lg">Publish</button>
     </div>
 </div>
+</form>

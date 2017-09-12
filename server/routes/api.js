@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 var Admin = require('../models/admin');
+var CmsPage = require('../models/cmspage');
 
 
 
@@ -52,6 +53,75 @@ router.delete('/user/:id', function(req, res, next) {
     res.json(post);
   });
 });
+
+router.get('/viewPass', (req, res) => {
+  User.findOne({_id: req.decoded.userId }).select('email password').exec((err, user) => {
+    if(err) {
+      res.json({ success: false});
+    } else {
+      if (!user) {
+        res.json({ success: false});
+      }else {
+        res.json({ success: true, user: user});
+      }
+    }
+  })
+});
+
+router.put('/changePass', function(req, res, next) {
+  User.findOne(req.id, req.body, function (err, post) {
+    console.log(req.id);
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+
+router.get('/cmspage', function(req, res, next) {
+  CmsPage.find({}, function(err, cmspages){
+    if (err) return next(err);
+    res.json(cmspages);
+  });
+});
+
+router.get('/cmspage/:id', function(req, res, next) {
+  CmsPage.findById(req.params.id, function (err, cmspages) {
+    if (err) return next(err);
+    res.json(cmspages);
+  });
+});
+
+router.put('/cmspage/:id', function(req, res, next) {
+  CmsPage.findByIdAndUpdate(req.params.id, req.body, function (err, cmspages) {
+    if (err) return next(err);
+    res.json(cmspages);
+  });
+});
+
+router.post('/savecmspage', function(req, res, next) {
+  CmsPage.create(req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.delete('/cmspage/:id', function(req, res, next) {
+  CmsPage.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+
+router.post('/list_trailers', function(req, res, next) {
+  ListTrailer.create(req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+
+
 
 router.post('/login', (req, res) => {
       User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password}, {admin: true} ]}, (err, user) => {
@@ -114,26 +184,6 @@ router.use((req, res, next) => {
 //   })
 // });
 
-router.get('/viewPass', (req, res) => {
-  User.findOne({_id: req.decoded.userId }).select('email password').exec((err, user) => {
-    if(err) {
-      res.json({ success: false});
-    } else {
-      if (!user) {
-        res.json({ success: false});
-      }else {
-        res.json({ success: true, user: user});
-      }
-    }
-  })
-});
 
-router.put('/changePass', function(req, res, next) {
-  User.findOne(req.id, req.body, function (err, post) {
-    console.log(req.id);
-    if (err) return next(err);
-    res.json(post);
-  });
-});
 
 module.exports = router;

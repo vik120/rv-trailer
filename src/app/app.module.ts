@@ -75,9 +75,16 @@ import { AdminViewUserComponent } from './admin/admin-view-user/admin-view-user.
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+ 
 import { SubscribePlanComponent } from './routes/subscribe-plan/subscribe-plan.component';
 import { TermsConditionComponent } from './routes/terms-condition/terms-condition.component';
 import { PrivacyPolicyComponent } from './routes/privacy-policy/privacy-policy.component'; 
+ 
+import { AdminCmsPageComponent } from './admin/admin-cms-page/admin-cms-page.component';
+import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-cms-page.component';
+import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
+import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
+ 
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7fA0nS4hMW1cTLyKIfvx1lfj8V4BTz0U",
@@ -135,9 +142,15 @@ const firebaseConfig = {
      AboutUsComponent,
      FaqRenterComponent,
      FaqOwnerComponent,
+ 
      SubscribePlanComponent,
      TermsConditionComponent,
-     PrivacyPolicyComponent 
+     PrivacyPolicyComponent,
+ 
+     AdminCmsPageComponent,
+     AdminAddCmsPageComponent,
+     AdminViewCmsPageComponent,
+     AdminEditCmsPageComponent, 
   ],
 
   imports: [

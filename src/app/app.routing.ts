@@ -1,3 +1,6 @@
+import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
+import { AdminCmsPageComponent } from './admin/admin-cms-page/admin-cms-page.component';
+import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-cms-page.component';
 import { AdminChangePassComponent } from './admin/admin-change-pass/admin-change-pass.component';
 import { AdminForgotPassComponent } from './admin/admin-forgot-pass/admin-forgot-pass.component';
 import { AdminEditUserComponent } from './admin/admin-edit-user/admin-edit-user.component';
@@ -39,6 +42,7 @@ import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
 import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
 
 export const Routing = RouterModule.forRoot([
     {
@@ -159,6 +163,13 @@ export const Routing = RouterModule.forRoot([
         path: 'admin/change-password',
         component: AdminChangePassComponent
     },
+    {
+        path: 'admin/cmspage',
+        component: AdminCmsPageComponent
+    },
+    { path: 'admin/add-cmspage', component: AdminAddCmsPageComponent },
+    { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
+    { path: 'admin/edit-cmspage/:id', component: AdminEditCmsPageComponent },
 
     {
         path: 'blog',

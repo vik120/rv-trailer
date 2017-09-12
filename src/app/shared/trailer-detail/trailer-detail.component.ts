@@ -18,8 +18,8 @@ export class TrailerDetailComponent implements OnInit {
   step1: any = [];
 
   listingFeatures: any[] = [
-     {name: 'Brijesh'},
-     {name: 'Kirti'},
+     {feature: 'Brijesh'},
+     {feature: 'Kirti'},
   ];
 
   constructor(private fb: FormBuilder,
@@ -31,8 +31,9 @@ export class TrailerDetailComponent implements OnInit {
                 this.rForm = this.fb.group({
                     'ad_title' : [null, Validators.required],
                     'ad_description' : [null, Validators.required],
-                    'province' : [null, Validators.required],
-                    'postal' : [null, Validators.required],
+                    'feature' : [null, Validators.required],
+                    'no_of_beds' : [null, Validators.required],
+                    'no_of_bathrooms' : [null, Validators.required],
                 });
 
               }

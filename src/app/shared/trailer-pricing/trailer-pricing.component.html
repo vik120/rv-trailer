@@ -1,3 +1,4 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmitPricing()">
 <div class="trailer-pricing">
     <h4 class="title text-uppercase">
         Trailer Pricing
@@ -7,14 +8,14 @@
             <label>Security Deposit*</label>
             <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" formControlName="security_deposit"/>
             </div>
         </div>
         <div class="form-group">
             <label>Delivery Charges*</label>
             <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" formControlName="delivery_charges"/>
                 <span class="input-group-addon">/Hour</span>
             </div>
         </div>
@@ -24,21 +25,21 @@
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="high_rate_hour"/>
                         <span class="input-group-addon">/Hour</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="high_rate_week"/>
                         <span class="input-group-addon">/Week</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="high_rate_month"/>
                         <span class="input-group-addon">/Month</span>
                     </div>
                 </div>
@@ -50,21 +51,21 @@
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="low_rate_hour"/>
                         <span class="input-group-addon">/Hour</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="low_rate_week"/>
                         <span class="input-group-addon">/Week</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="low_rate_month"/>
                         <span class="input-group-addon">/Month</span>
                     </div>
                 </div>
@@ -77,13 +78,13 @@
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon">From</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="highest_season_date_range_from"/>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon">To</span>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" formControlName="highest_season_date_range_to"/>
 
                     </div>
                 </div>
@@ -94,6 +95,7 @@
     </div>
     <div class="clearfix pricing-btn">
         <button class="btn btn-border-red btn-lg">Back</button>
-        <button class="btn btn-primary btn-lg">Next</button>
+        <button class="btn btn-primary btn-lg" [disabled]="!rForm.valid" type="submit">Next</button>
     </div>
 </div>
+</form>

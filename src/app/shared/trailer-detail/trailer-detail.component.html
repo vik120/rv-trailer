@@ -14,14 +14,14 @@
     <h5>Features</h5>
     <div class="row checkbox">
         <div class="col-sm-3 form-group" *ngFor="let listingFeature of listingFeatures">
-            <input type="checkbox" name="feature" value="{{listingFeature}}" id="feature" />
-            <label for="feature"> {{ listingFeature.name }} </label>
+            <input type="checkbox" formControlName="feature" value="{{listingFeature}}" id="feature" />
+            <label for="feature"> {{ listingFeature.feature }} </label>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6 form-group">
-            <select class="form-control" formControlName="province">
+            <select class="form-control" formControlName="no_of_beds">
                 <option>Number of beds</option>
                 <option>1</option>
                 <option>2</option>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-sm-6 form-group">
-            <select class="form-control" formControlName="postal">
+            <select class="form-control" formControlName="no_of_bathrooms">
                 <option>Number of bathrooms</option>
                 <option>1</option>
                 <option>2</option>
