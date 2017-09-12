@@ -8,6 +8,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  showMenu: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

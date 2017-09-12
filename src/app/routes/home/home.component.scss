@@ -9,13 +9,22 @@
         text-transform: uppercase;
         font-weight: 900;
         font-size: $extra-large + $medium;
+        @media(max-width: $break-lg) {
+            font-size: $extra-large + $very-small;
+        }
+        @media(max-width: $break-md) {
+            font-size: $extra-large;
+        }
         span {
             color: $background-color;
         }
     }
     .homefilter {
         text-align: left;
-        margin-top: $space-xl
+        margin-top: $space-xl;
+        @media(max-width: $break-sm) {
+            margin-top: $space-s * 2;
+        }
     }
 }
 
