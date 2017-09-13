@@ -8,14 +8,14 @@
             <label>Security Deposit*</label>
             <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" formControlName="security_deposit"/>
+                <input type="text" class="form-control" [(ngModel)]="listing.security_deposit" formControlName="pricing_security_deposit"/>
             </div>
         </div>
         <div class="form-group">
             <label>Delivery Charges*</label>
             <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" formControlName="delivery_charges"/>
+                <input type="text" class="form-control" [(ngModel)]="listing.delivery_charges" formControlName="pricing_delivery_charges"/>
                 <span class="input-group-addon">/Hour</span>
             </div>
         </div>
@@ -25,21 +25,21 @@
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="high_rate_hour"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.high_rate_hour" formControlName="pricing_high_rate_hour"/>
                         <span class="input-group-addon">/Hour</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="high_rate_week"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.high_rate_week" formControlName="pricing_high_rate_week"/>
                         <span class="input-group-addon">/Week</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="high_rate_month"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.high_rate_month" formControlName="pricing_high_rate_month"/>
                         <span class="input-group-addon">/Month</span>
                     </div>
                 </div>
@@ -51,21 +51,21 @@
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="low_rate_hour"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.low_rate_hour" formControlName="pricing_low_rate_hour"/>
                         <span class="input-group-addon">/Hour</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="low_rate_week"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.low_rate_week" formControlName="pricing_low_rate_week"/>
                         <span class="input-group-addon">/Week</span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" formControlName="low_rate_month"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.low_rate_month" formControlName="pricing_low_rate_month"/>
                         <span class="input-group-addon">/Month</span>
                     </div>
                 </div>
@@ -78,13 +78,13 @@
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon">From</span>
-                        <input type="text" class="form-control" formControlName="highest_season_date_range_from"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.highest_season_date_range_from" formControlName="pricing_highest_season_date_range_from"/>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon">To</span>
-                        <input type="text" class="form-control" formControlName="highest_season_date_range_to"/>
+                        <input type="text" class="form-control" [(ngModel)]="listing.highest_season_date_range_to" formControlName="pricing_highest_season_date_range_to"/>
 
                     </div>
                 </div>
@@ -94,7 +94,7 @@
 
     </div>
     <div class="clearfix pricing-btn">
-        <button class="btn btn-border-red btn-lg">Back</button>
+        <button class="btn btn-border-red btn-lg" [routerLink]="['/list-trailer/details']">Back</button>
         <button class="btn btn-primary btn-lg" [disabled]="!rForm.valid" type="submit">Next</button>
     </div>
 </div>

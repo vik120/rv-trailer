@@ -13,9 +13,6 @@ export class TrailerDetailComponent implements OnInit {
 
   rForm: FormGroup;
   listing: any = [];
-  users: any = [];
-  user: any = [];
-  step1: any = [];
 
   listingFeatures: any[] = [
      {feature: 'Brijesh'},
@@ -29,11 +26,11 @@ export class TrailerDetailComponent implements OnInit {
                 this.listing = JSON.parse(localStorage.getItem('listing'));
 
                 this.rForm = this.fb.group({
-                    'ad_title' : [null, Validators.required],
-                    'ad_description' : [null, Validators.required],
-                    'feature' : [null, Validators.required],
-                    'no_of_beds' : [null, Validators.required],
-                    'no_of_bathrooms' : [null, Validators.required],
+                    'details_ad_title' : [null, Validators.required],
+                    'details_ad_description' : [null, Validators.required],
+                    'details_feature' : [null, Validators.required],
+                    'details_no_of_beds' : [null, Validators.required],
+                    'details_no_of_bathrooms' : [null, Validators.required],
                 });
 
               }

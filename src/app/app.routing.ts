@@ -163,10 +163,7 @@ export const Routing = RouterModule.forRoot([
         path: 'admin/change-password',
         component: AdminChangePassComponent
     },
-    {
-        path: 'admin/cmspage',
-        component: AdminCmsPageComponent
-    },
+    { path: 'admin/cmspage', component: AdminCmsPageComponent },
     { path: 'admin/add-cmspage', component: AdminAddCmsPageComponent },
     { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
     { path: 'admin/edit-cmspage/:id', component: AdminEditCmsPageComponent },

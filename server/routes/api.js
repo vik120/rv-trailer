@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var Admin = require('../models/admin');
 var CmsPage = require('../models/cmspage');
+var ListTrailer = require('../models/product');
+
 
 
 

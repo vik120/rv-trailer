@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 export class TrailerPhotoComponent implements OnInit {
 
 rForm: FormGroup;
-  listing: any = [];
-  listing1 : any = [];
+listing: any = [];
 
   constructor(private fb: FormBuilder,
               public router: Router,
@@ -22,27 +21,38 @@ rForm: FormGroup;
                 this.listing = JSON.parse(localStorage.getItem('listing'));
                 this.rForm = fb.group({
                     'photo' : [null],
-                    });
+                });
               }
 
   ngOnInit() {
   }
 
+  // onSubmitPhoto() {
+  //    const photo = this.rForm.value;
+  //    console.log(photo);
+  //    this.listing['photo'] = photo;
+  //    console.log(this.listing);
+
+  //    this.apiService.addListTrailer(this.listing).then((result) => {
+  //     const id = result['_id'];
+  //     this.router.navigate(['/']);
+  //    }, (err) => {
+  //     console.log(err);
+  //   });
+
+  // }
+
   onSubmitPhoto() {
-     const photo = this.rForm.value;
-     console.log(photo);
-     this.listing['photo'] = photo;
-     localStorage.setItem('listing', JSON.stringify(this.listing));
-    //localStorage.setItem('listing', this.listing);
-    console.log("All Lising Details :" + this.listing);
 
-     this.listing1 = JSON.parse(localStorage.getItem('listing'));
-     console.log("get Item" + this.listing1);
+    const photo = this.rForm.value;
+    console.log(this.listing);
+    const photo_data = Object.assign({}, this.listing, photo);
+    console.log(photo_data);
 
-    this.apiService.addListTrailer(this.listing).then((result) => {
+    this.apiService.addListTrailer(photo_data).then((result) => {
       const id = result['_id'];
       this.router.navigate(['/']);
-    }, (err) => {
+     }, (err) => {
       console.log(err);
     });
 

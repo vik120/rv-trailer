@@ -12,12 +12,12 @@
             <button class="btn btn-primary">Upload</button>
         </div> -->
 
-         <input type="text" formControlName="photo" placeholder="choose file" class="form-control" />
+         <input type="text" [(ngModel)]="listing.photo"  formControlName="photo" placeholder="choose file" class="form-control" />
     </div>
     <div class="clearfix trailer-photo-btn">
-        <button class="btn btn-border-red btn-lg">Back</button>
-        <button class="btn btn-border-red btn-lg">Preview</button>
-        <button class="btn btn-primary btn-lg">Publish</button>
+        <button class="btn btn-border-red btn-lg" [routerLink]="['/list-trailer/pricing']">Back</button>
+        <!-- <button class="btn btn-border-red btn-lg">Preview</button> -->
+        <button type=submit [disabled]="!rForm.valid" class="btn btn-primary btn-lg">Publish</button>
     </div>
 </div>
 </form>

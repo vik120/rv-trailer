@@ -102,13 +102,13 @@
 
     <div class="clearfix row">
         <div class="col-sm-4 form-group">
-            <input type="text" class="form-control" formControlName="make" placeholder="Make" />
+            <input type="text" class="form-control" [(ngModel)]="listing.specification_make" formControlName="specification_make" placeholder="Make" />
         </div>
         <div class="col-sm-4 form-group">
-            <input type="text" class="form-control" formControlName="model" placeholder="Modal" />
+            <input type="text" class="form-control" [(ngModel)]="listing.specification_model" formControlName="specification_model" placeholder="Modal" />
         </div>
         <div class="col-sm-4 form-group">
-            <select class="form-control" formControlName="year" placeholder="Year">
+            <select class="form-control" [(ngModel)]="listing.specification_year" formControlName="specification_year" placeholder="Year">
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
             </select>
@@ -117,31 +117,31 @@
     <div class="row">
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" formControlName="length" placeholder="Length" />
+                <input type="text" class="form-control" [(ngModel)]="listing.specification_length" formControlName="specification_length" placeholder="Length" />
                 <span class="input-group-addon">Ft</span>
             </div>
         </div>
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" formControlName="gross_weight" placeholder="Gross Weight" />
+                <input type="text" class="form-control" [(ngModel)]="listing.specification_gross_weight" formControlName="specification_gross_weight" placeholder="Gross Weight" />
                 <span class="input-group-addon">LB</span>
             </div>
         </div>
         <div class="col-sm-4 form-group">
             <div class="input-group">
-                <input type="text" class="form-control" formControlName="tough_weight" placeholder="Tough Weight" />
+                <input type="text" class="form-control" [(ngModel)]="listing.specification_tough_weight" formControlName="specification_tough_weight" placeholder="Tough Weight" />
                 <span class="input-group-addon">LB</span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4 form-group">
-            <select class="form-control" formControlName="guest">
+            <select class="form-control" [(ngModel)]="listing.specification_guest" formControlName="specification_guest">
                 <option value="Guest">Guest</option>
             </select>
         </div>
         <div class="col-sm-4 form-group">
-            <select class="form-control" formControlName="slide_out">
+            <select class="form-control" [(ngModel)]="listing.specification_slide_out" formControlName="specification_slide_out">
                 <option value="slide_out">Slide out</option>
             </select>
         </div>

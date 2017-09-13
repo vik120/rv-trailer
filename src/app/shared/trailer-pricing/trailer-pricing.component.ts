@@ -23,16 +23,16 @@ export class TrailerPricingComponent implements OnInit {
                 this.listing = JSON.parse(localStorage.getItem('listing'));
 
                   this.rForm = fb.group({
-                    'security_deposit' : [null, Validators.required],
-                    'delivery_charges' : [null, Validators.required],
-                    'high_rate_hour' : [null, Validators.required],
-                    'high_rate_week' : [null, Validators.required],
-                    'high_rate_month' : [null, Validators.required],
-                    'low_rate_hour' : [null, Validators.required],
-                    'low_rate_week' : [null, Validators.required],
-                    'low_rate_month' : [null, Validators.required],
-                    'highest_season_date_range_from' : [null, Validators.required],
-                    'highest_season_date_range_to' : [null, Validators.required]
+                    'pricing_security_deposit' : [null, Validators.required],
+                    'pricing_delivery_charges' : [null, Validators.required],
+                    'pricing_high_rate_hour' : [null, Validators.required],
+                    'pricing_high_rate_week' : [null, Validators.required],
+                    'pricing_high_rate_month' : [null, Validators.required],
+                    'pricing_low_rate_hour' : [null, Validators.required],
+                    'pricing_low_rate_week' : [null, Validators.required],
+                    'pricing_low_rate_month' : [null, Validators.required],
+                    'pricing_highest_season_date_range_from' : [null, Validators.required],
+                    'pricing_highest_season_date_range_to' : [null, Validators.required]
                   });
 
               }

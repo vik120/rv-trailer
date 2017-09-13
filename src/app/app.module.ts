@@ -150,12 +150,11 @@ const firebaseConfig = {
      AdminCmsPageComponent,
      AdminAddCmsPageComponent,
      AdminViewCmsPageComponent,
-<<<<<<< HEAD
+
      AdminEditCmsPageComponent,
      EditorComponent,
-=======
      AdminEditCmsPageComponent,
->>>>>>> 552319480e929361178cb2d278b8f0bffa5d773c
+
   ],
 
   imports: [

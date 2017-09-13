@@ -5,13 +5,13 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="form-label">Street*</label>
-                <input formControlName="street" type="text" class="form-control" />
+                <input class="form-control" [(ngModel)]="listing.location_street" formControlName="location_street" type="text"  />
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="form-label">City*</label>
-                <input type="text" formControlName="city" class="form-control" />
+                <input type="text" class="form-control" [(ngModel)]="listing.location_city" formControlName="location_city" />
             </div>
         </div>
     </div>
@@ -19,18 +19,18 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="form-label">Province*</label>
-                <input type="text" formControlName="province" class="form-control" />
+                <input type="text" class="form-control" [(ngModel)]="listing.location_province" formControlName="location_province" />
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="form-label">Postal <CODE></CODE>*</label>
-                <input type="text" formControlName="postal" class="form-control" />
+                <input type="text" class="form-control" [(ngModel)]="listing.location_postal" formControlName="location_postal" />
             </div>
         </div>
     </div>
     <div class="clearfix location-btn">
-        <button class="btn btn-border-red btn-lg">Back</button>
+        <button class="btn btn-border-red btn-lg" [routerLink]="['/list-trailer/specification']">Back</button>
         <button [disabled]="!rForm.valid" type="submit" class="btn btn-primary btn-lg">Next</button>
     </div>
 </div>

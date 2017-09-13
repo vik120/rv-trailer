@@ -4,24 +4,24 @@
     <div class="clearfix row detail-top">
         <div class="col-sm-7 form-group">
             <label>AD Title*</label>
-            <input formControlName="ad_title"  type="text" class="form-control" />
+            <input [(ngModel)]="listing.details_ad_title" formControlName="details_ad_title"  type="text" class="form-control" />
         </div>
         <div class="col-sm-7 form-group">
             <label>AD Description*</label>
-            <textarea formControlName="ad_description"  class="form-control"></textarea>
+            <textarea [(ngModel)]="listing.details_ad_description" formControlName="details_ad_description"  class="form-control"></textarea>
         </div>
     </div>
     <h5>Features</h5>
     <div class="row checkbox">
         <div class="col-sm-3 form-group" *ngFor="let listingFeature of listingFeatures">
-            <input type="checkbox" formControlName="feature" value="{{listingFeature}}" id="feature" />
+            <input type="checkbox" [(ngModel)]="listing.details_feature" formControlName="details_feature" value="{{listingFeature}}" id="feature" />
             <label for="feature"> {{ listingFeature.feature }} </label>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6 form-group">
-            <select class="form-control" formControlName="no_of_beds">
+            <select class="form-control" [(ngModel)]="listing.details_no_of_beds" formControlName="details_no_of_beds">
                 <option>Number of beds</option>
                 <option>1</option>
                 <option>2</option>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-sm-6 form-group">
-            <select class="form-control" formControlName="no_of_bathrooms">
+            <select class="form-control" [(ngModel)]="listing.details_no_of_bathrooms" formControlName="details_no_of_bathrooms">
                 <option>Number of bathrooms</option>
                 <option>1</option>
                 <option>2</option>
@@ -47,7 +47,7 @@
 
 
     <div class="clearfix details-btn">
-        <button class="btn btn-border-red btn-lg">Back</button>
+        <button class="btn btn-border-red btn-lg" [routerLink]="['/list-trailer/location']">Back</button>
         <button [disabled]="!rForm.valid" type="submit" class="btn btn-primary btn-lg">Next</button>
     </div>
 

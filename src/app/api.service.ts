@@ -144,7 +144,7 @@ export class ApiService {
     return listing;
   }
 
-    onSubmitStep2() {
+ onSubmitStep2() {
     var listing12 = JSON.parse(localStorage.getItem('listing12'));
     return listing12;
   }

@@ -15,6 +15,7 @@ export class TrailerSpecificationComponent implements OnInit {
   users: any = [];
   user: any = [];
   listing: any = [];
+  getListing: any = [];
 
   public trailerType: string = 'traveler';
   RV_Cottage : string = 'RV Cottage';
@@ -26,7 +27,7 @@ export class TrailerSpecificationComponent implements OnInit {
               public apiService: ApiService)
               {
 
-                const getListing = localStorage.getItem('listing');
+                this.listing = JSON.parse(localStorage.getItem('listing'));
 
                 // if ( getListing.length === 0 ) {
                 //   this.listing = localStorage.setItem('listing', this.listing);
@@ -36,20 +37,20 @@ export class TrailerSpecificationComponent implements OnInit {
 
 
                 this.rForm = fb.group({
-                  'make' : [null, Validators.required],
-                  'model' : [null, Validators.required],
-                  'year' : [null, Validators.required],
-                  'length' : [null, Validators.required],
-                  'gross_weight' : [null, Validators.required],
-                  'tough_weight' : [null, Validators.required],
-                  'guest' : [null, Validators.required],
+                  'specification_make' : [null, Validators.required],
+                  'specification_model' : [null, Validators.required],
+                  'specification_year' : [null, Validators.required],
+                  'specification_length' : [null, Validators.required],
+                  'specification_gross_weight' : [null, Validators.required],
+                  'specification_tough_weight' : [null, Validators.required],
+                  'specification_guest' : [null, Validators.required],
+                  'specification_slide_out' : [null, Validators.required],
 
               });
   }
 
   ngOnInit() {
   }
-
 
   onSubmitSpecification() {
       const listingSpecification  = this.rForm.value;

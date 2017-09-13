@@ -13,9 +13,6 @@ export class TrailerLocationComponent implements OnInit {
 
   rForm: FormGroup;
   listing: any = [];
-  users: any = [];
-  user: any = [];
-  step1: any = [];
 
   constructor(private fb: FormBuilder,
               public router: Router,
@@ -23,12 +20,14 @@ export class TrailerLocationComponent implements OnInit {
               {
 
                 this.listing = JSON.parse(localStorage.getItem('listing'));
+                console.log('ravi');
+                console.log(this.listing);
 
                   this.rForm = fb.group({
-                    'street' : [null, Validators.required],
-                    'city' : [null, Validators.required],
-                    'province' : [null, Validators.required],
-                    'postal' : [null, Validators.required],
+                    'location_street' : [null, Validators.required],
+                    'location_city' : [null, Validators.required],
+                    'location_province' : [null, Validators.required],
+                    'location_postal' : [null, Validators.required],
                   });
 
               }

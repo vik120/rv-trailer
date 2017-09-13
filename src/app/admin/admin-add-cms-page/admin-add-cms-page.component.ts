@@ -55,13 +55,13 @@ text = "";
   }
 
   onSubmitNewCmsPage() {
-    // this.apiService.addCmsPage(this.rForm.value).then((result) => {
-       console.log(this.rForm.value);
-    //    let id = result['_id'];
-    //    this.router.navigate(['admin/cmspage']);
-    //  }, (err) => {
-    //    console.log(err);
-    //  });
+     this.apiService.addCmsPage(this.rForm.value).then((result) => {
+      console.log(this.rForm.value);
+        let id = result['_id'];
+        this.router.navigate(['admin/cmspage']);
+      }, (err) => {
+        console.log(err);
+      });
   }
 
     onSubmit() {
