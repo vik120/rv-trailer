@@ -33,7 +33,7 @@ var ListTrailerSchema = new Schema({
     pricing_low_rate_month: {type: String},
     pricing_highest_season_date_range_from: {type: String},
     pricing_highest_season_date_range_to: {type: String},
-    photos: {type: String},
+    photo: {type: String},
 });
 
 module.exports = mongoose.model('ListTrailer', ListTrailerSchema);

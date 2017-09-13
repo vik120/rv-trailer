@@ -46,6 +46,4 @@ export class TrailerDetailComponent implements OnInit {
      this.router.navigate(['list-trailer/pricing']);
   }
 
-
-
 }
