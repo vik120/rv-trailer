@@ -19,7 +19,7 @@ var ListTrailerSchema = new Schema({
     location_postal: {type: String},
     details_ad_title: {type: String},
     details_ad_description: {type: String},
-    details_feature: {type: String},
+    details_feature: {type: Boolean},
     details_province: {type: String},
     details_no_of_beds: {type: String},
     details_no_of_bathrooms: {type: String},
