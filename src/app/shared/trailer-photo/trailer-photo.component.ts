@@ -19,6 +19,8 @@ listing: any = [];
               public apiService: ApiService)
               {
                 this.listing = JSON.parse(localStorage.getItem('listing'));
+                console.log('kirti123');
+                console.log(this.listing);
                 this.rForm = fb.group({
                     'photo' : [null],
                 });

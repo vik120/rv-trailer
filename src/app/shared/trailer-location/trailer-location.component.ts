@@ -37,7 +37,9 @@ export class TrailerLocationComponent implements OnInit {
 
   onSubmitLocation() {
      const location = this.rForm.value;
+     console.log(location);
      this.listing['location'] = location;
+     console.log(this.listing['location']);
      localStorage.setItem('listing', JSON.stringify(this.listing));
      this.router.navigate(['list-trailer/details']);
   }

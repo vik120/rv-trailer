@@ -24,8 +24,10 @@ export class TrailerDetailComponent implements OnInit {
               public apiService: ApiService)
               {
                 this.listing = JSON.parse(localStorage.getItem('listing'));
+                console.log('step3');
+                console.log(this.listing);
 
-                this.rForm = this.fb.group({
+                this.rForm = fb.group({
                     'details_ad_title' : [null, Validators.required],
                     'details_ad_description' : [null, Validators.required],
                     'details_feature' : [null, Validators.required],
@@ -40,7 +42,9 @@ export class TrailerDetailComponent implements OnInit {
 
   onSubmitDetail() {
      const detail = this.rForm.value;
+     console.log(detail);
      this.listing['detail'] = detail;
+     console.log(this.listing['detail']);
      console.log(this.listing);
      localStorage.setItem('listing', JSON.stringify(this.listing));
      this.router.navigate(['list-trailer/pricing']);

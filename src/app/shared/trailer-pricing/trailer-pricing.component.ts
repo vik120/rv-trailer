@@ -10,19 +10,20 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class TrailerPricingComponent implements OnInit {
-  public bsValue: any ;
 
   rForm: FormGroup;
   listing: any = [];
 
-  constructor(private fb: FormBuilder,
+
+    constructor(private fb: FormBuilder,
               public router: Router,
               public apiService: ApiService)
               {
-
                 this.listing = JSON.parse(localStorage.getItem('listing'));
+                console.log('step 4');
+                console.log(this.listing);
 
-                  this.rForm = fb.group({
+                this.rForm = fb.group({
                     'pricing_security_deposit' : [null, Validators.required],
                     'pricing_delivery_charges' : [null, Validators.required],
                     'pricing_high_rate_hour' : [null, Validators.required],
@@ -32,8 +33,8 @@ export class TrailerPricingComponent implements OnInit {
                     'pricing_low_rate_week' : [null, Validators.required],
                     'pricing_low_rate_month' : [null, Validators.required],
                     'pricing_highest_season_date_range_from' : [null, Validators.required],
-                    'pricing_highest_season_date_range_to' : [null, Validators.required]
-                  });
+                    'pricing_highest_season_date_range_to' : [null, Validators.required],
+                });
 
               }
 
@@ -41,8 +42,11 @@ export class TrailerPricingComponent implements OnInit {
   }
 
   onSubmitPricing() {
-     const pricing = this.rForm.value;
-     this.listing['pricing'] = pricing;
+
+     const pricingSubmit = this.rForm.value;
+     this.listing['pricingSubmit'] = pricingSubmit;
+     console.log(this.listing['pricingSubmit']);
+     console.log(this.listing);
      localStorage.setItem('listing', JSON.stringify(this.listing));
      this.router.navigate(['list-trailer/photo']);
   }
