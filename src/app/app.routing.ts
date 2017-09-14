@@ -24,6 +24,8 @@ import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 import { DashboardRenterComponent } from './routes/dashboard-renter/dashboard-renter.component';
 import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
+import { UserMessageComponent } from './shared/user-message/user-message.component';
+import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 
 export const Routing = RouterModule.forRoot([
     {
@@ -126,7 +128,7 @@ export const Routing = RouterModule.forRoot([
         component: FaqOwnerComponent
     },
     {
-        path: 'owner',
+        path: 'renter',
         component: DashboardRenterComponent,
         children: [
             {
@@ -140,6 +142,14 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'favourite',
                 component: UserFavouriteComponent
+            },
+            {
+                path: 'message',
+                component: UserMessageComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailComponent
             }
         ]
     },

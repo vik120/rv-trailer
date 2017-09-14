@@ -50,6 +50,8 @@ import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
 import { DashboardRenterComponent } from './routes/dashboard-renter/dashboard-renter.component';
 import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
+import { UserMessageComponent } from './shared/user-message/user-message.component';
+import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.c
      DashboardRenterComponent,
      AboutUserComponent,
      UserFavouriteComponent,
+     UserMessageComponent,
+     MsgDetailComponent,
   ],
   imports: [
     BrowserModule,
