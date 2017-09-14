@@ -47,6 +47,9 @@ import { RvComponent } from './routes/rv/rv.component';
 import { AboutUsComponent } from './routes/about-us/about-us.component';
 import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
 import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
+import { DashboardRenterComponent } from './routes/dashboard-renter/dashboard-renter.component';
+import { AboutUserComponent } from './shared/about-user/about-user.component';
+import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +85,9 @@ import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
      AboutUsComponent,
      FaqRenterComponent,
      FaqOwnerComponent,
+     DashboardRenterComponent,
+     AboutUserComponent,
+     UserFavouriteComponent,
   ],
   imports: [
     BrowserModule,
