@@ -10,7 +10,9 @@ export class FaqOwnerComponent implements OnInit {
 
   constructor() { }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
 }

@@ -36,7 +36,9 @@ export class RvlistListviewComponent implements OnInit {
 
   constructor() { }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
 }

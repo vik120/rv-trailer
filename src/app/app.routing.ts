@@ -40,6 +40,11 @@ import { SubscribePlanComponent } from './routes/subscribe-plan/subscribe-plan.c
 
 import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
 import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
+import { DashboardRenterComponent } from './routes/dashboard-renter/dashboard-renter.component';
+import { AboutUserComponent } from './shared/about-user/about-user.component';
+import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
+import { UserMessageComponent } from './shared/user-message/user-message.component';
+import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
@@ -199,6 +204,32 @@ export const Routing = RouterModule.forRoot([
 	{
         path: 'term-conditions',
         component: TermsConditionComponent
+    },
+    {
+        path: 'renter',
+        component: DashboardRenterComponent,
+        children: [
+            {
+                path: '',
+                component: AboutUserComponent
+            },
+            {
+                path: 'about',
+                component: AboutUserComponent
+            },
+            {
+                path: 'favourite',
+                component: UserFavouriteComponent
+            },
+            {
+                path: 'message',
+                component: UserMessageComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailComponent
+            }
+        ]
     },
     {
         path: '404',

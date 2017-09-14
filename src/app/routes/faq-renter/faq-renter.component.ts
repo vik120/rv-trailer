@@ -13,7 +13,9 @@ export class FaqRenterComponent implements OnInit {
     this.app.brandSlideVisible = false;
    }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
 }

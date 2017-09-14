@@ -10,7 +10,9 @@ export class SignupComponent implements OnInit {
 
   constructor() { }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
 }

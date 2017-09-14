@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'rv-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'rv-user-favourite',
+  templateUrl: './user-favourite.component.html',
+  styleUrls: ['./user-favourite.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent implements OnInit {
+export class UserFavouriteComponent implements OnInit {
 
-   public rvList: any[] = [
+  public rvList: any[] = [
     {
-      rvimage: 'rv-2.jpg',
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       ownerImage: 'owner-1.png'
     },
     {
-      rvimage: 'rv-3.jpg',
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       ownerImage: 'owner-1.png'
     },
     {
-      rvimage: 'rv-4.jpg',
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
       ownerImage: 'owner-1.png'
     },
     {
-      rvimage: 'rv-5.jpg',
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       ownerImage: 'owner-1.png'
     },
     {
-      rvimage: 'rv-6.jpg',
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -65,7 +65,29 @@ export class HomeComponent implements OnInit {
       ownerImage: 'owner-1.png'
     },
     {
-      rvimage: 'rv-7.jpg',
+      rvimage: 'rv-1.jpg',
+      rvName: 'Abella Airstream',
+      rvPrice: '150/hour',
+      location: 'nanaimo, Columbia',
+      rating: 3,
+      year: 2016,
+      guest: 5,
+      ownerName: 'Rezmi Bell',
+      ownerImage: 'owner-1.png'
+    },
+    {
+      rvimage: 'rv-1.jpg',
+      rvName: 'Abella Airstream',
+      rvPrice: '150/hour',
+      location: 'nanaimo, Columbia',
+      rating: 3,
+      year: 2016,
+      guest: 5,
+      ownerName: 'Rezmi Bell',
+      ownerImage: 'owner-1.png'
+    },
+    {
+      rvimage: 'rv-1.jpg',
       rvName: 'Abella Airstream',
       rvPrice: '150/hour',
       location: 'nanaimo, Columbia',
@@ -77,33 +99,10 @@ export class HomeComponent implements OnInit {
     }
   ]
 
-  testimonials: any[] = [
-    {
-      userPic: 'user-1.png',
-      userName: 'Anne Doe',
-      userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-    },
-    {
-      userPic: 'user-2.png',
-      userName: 'Jhon Doe',
-      userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-    },
-    {
-      userPic: 'user-3.png',
-      userName: 'Mark Leo',
-      userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-    },
-    {
-      userPic: 'user-2.png',
-      userName: 'Johnny Aston',
-      userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-    },
-  ]
+
   constructor() { }
 
-  brandSlideVisible: boolean;
   ngOnInit() {
-    this.brandSlideVisible = true;
   }
 
 }

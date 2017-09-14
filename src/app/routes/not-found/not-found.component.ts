@@ -9,7 +9,9 @@ export class NotFoundComponent implements OnInit {
 
   constructor() { }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
 }

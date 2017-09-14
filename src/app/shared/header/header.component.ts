@@ -12,7 +12,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(public router:Router,
+  showMenu: boolean = false;
+
+   constructor(public router:Router,
               public apiService:ApiService,
               private formBuilder: FormBuilder,
               private flashMessagesService: FlashMessagesService

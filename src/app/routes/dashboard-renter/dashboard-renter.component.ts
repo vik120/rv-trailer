@@ -2,22 +2,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 
 @Component({
-  selector: 'rv-about-us',
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss'],
+  selector: 'rv-dashboard-renter',
+  templateUrl: './dashboard-renter.component.html',
+  styleUrls: ['./dashboard-renter.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AboutUsComponent implements OnInit {
+export class DashboardRenterComponent implements OnInit {
 
   constructor(private app: AppComponent) {
     this.app.brandSlideVisible = false;
    }
 
-  brandSlideVisible: boolean;
+
   ngOnInit() {
-    this.brandSlideVisible = true;
   }
 
 }
-
-

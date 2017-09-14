@@ -11,8 +11,11 @@ export class ListTrailerComponent implements OnInit {
 
   constructor(public appComponent: AppComponent) { }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
     this.appComponent.brandSlideVisible = false;
+    this.brandSlideVisible = true;
   }
+
 
 }

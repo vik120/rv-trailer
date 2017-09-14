@@ -30,5 +30,8 @@
         text-transform: uppercase;
         font-weight: 700;
         padding: 10px 25px;
+        @media(max-width: $break-sm) {
+            margin-top: $space-n;
+        }
     }
 }

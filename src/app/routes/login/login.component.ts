@@ -63,7 +63,9 @@ export class LoginComponent implements OnInit {
     this.form.controls['password'].enable();
   }
 
+  brandSlideVisible: boolean;
   ngOnInit() {
+    this.brandSlideVisible = true;
   }
 
     onLoginSubmit() {

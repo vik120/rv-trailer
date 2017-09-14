@@ -12,10 +12,16 @@ header {
                 padding: $space-m 0px;
                 border-bottom: solid 4px transparent;
                 text-transform: uppercase;
+                @media(max-width: $break-sm) {
+                    padding: 0;
+                }
                 &:hover {
                     background: none;
                     color: $background-color;
                     border-color: $background-color;
+                    @media(max-width: $break-sm) {
+                        border-color: transparent;
+                    }
                 }
             }
             &:hover,
@@ -24,6 +30,9 @@ header {
                 &>a {
                     color: $background-color;
                     border-color: $background-color;
+                    @media(max-width: $break-sm) {
+                        border-color: transparent;
+                    }
                 }
             }
         }
@@ -40,6 +49,9 @@ header {
             text-transform: uppercase;
             font-size: $small;
             border-width: 2px;
+        }
+        @media(max-width: $break-sm) {
+            float: none;
         }
     }
     .navbar-brand {
@@ -66,6 +78,11 @@ header {
                 color: $white-color;
                 font-weight: 600;
             }
+        }
+    }
+    .navbar-header {
+        .navbar-toggle {
+            margin-top: $space-m + $space-vs
         }
     }
 }

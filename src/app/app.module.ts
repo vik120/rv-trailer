@@ -64,6 +64,11 @@ import { RvComponent } from './routes/rv/rv.component';
 import { AboutUsComponent } from './routes/about-us/about-us.component';
 import { FaqRenterComponent } from './routes/faq-renter/faq-renter.component';
 import { FaqOwnerComponent } from './routes/faq-owner/faq-owner.component';
+import { DashboardRenterComponent } from './routes/dashboard-renter/dashboard-renter.component';
+import { AboutUserComponent } from './shared/about-user/about-user.component';
+import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
+import { UserMessageComponent } from './shared/user-message/user-message.component';
+import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -143,6 +148,7 @@ const firebaseConfig = {
      FaqRenterComponent,
      FaqOwnerComponent,
 
+
      SubscribePlanComponent,
      TermsConditionComponent,
      PrivacyPolicyComponent,
@@ -154,6 +160,13 @@ const firebaseConfig = {
      AdminEditCmsPageComponent,
      EditorComponent,
      AdminEditCmsPageComponent,
+
+
+     DashboardRenterComponent,
+     AboutUserComponent,
+     UserFavouriteComponent,
+     UserMessageComponent,
+     MsgDetailComponent,
 
   ],
 
