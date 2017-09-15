@@ -18,7 +18,6 @@ import { TypeaheadModule, DatepickerModule, AccordionModule   } from 'ngx-bootst
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
-
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 /* Firebase Dependencey */
@@ -27,7 +26,6 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-
 import { OwlModule } from 'ngx-owl-carousel';
 
 
