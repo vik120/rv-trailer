@@ -45,7 +45,15 @@ import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
 import { UserMessageComponent } from './shared/user-message/user-message.component';
 import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
+import { UserReviewComponent } from './shared/user-review/user-review.component';
 
+import { DashboardOwnerComponent } from './routes/dashboard-owner/dashboard-owner.component';
+import { AboutOwnerComponent } from './shared/about-owner/about-owner.component';
+import { OwnerMsgComponent } from './shared/owner-msg/owner-msg.component';
+import { MsgDetailOwnerComponent } from './shared/msg-detail-owner/msg-detail-owner.component';
+import { OwnerReviewComponent } from './shared/owner-review/owner-review.component';
+import { OwnerPackageComponent } from './shared/owner-package/owner-package.component';
+import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
 
@@ -217,10 +225,7 @@ export const Routing = RouterModule.forRoot([
                 path: 'about',
                 component: AboutUserComponent
             },
-            {
-                path: 'favourite',
-                component: UserFavouriteComponent
-            },
+            
             {
                 path: 'message',
                 component: UserMessageComponent
@@ -228,6 +233,49 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'message/:id',
                 component: MsgDetailComponent
+            },
+             {
+                path: 'review',
+                component: UserReviewComponent
+            }
+        ]
+    },
+    {
+        path: 'owner',
+        component: DashboardOwnerComponent,
+        children: [
+            {
+                path: '',
+                component: AboutOwnerComponent
+            },
+            {
+                path: 'about',
+                component: AboutOwnerComponent
+            },
+            {
+                path: 'favourite',
+                component: UserFavouriteComponent
+            },
+            {
+                path: 'my-ads',
+                component: OwnerAdsComponent
+            },
+            {
+                path: 'message',
+                component: OwnerMsgComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailOwnerComponent
+            },
+
+            {
+                path: 'package',
+                component: OwnerPackageComponent
+            },
+            {
+                path: 'review',
+                component: OwnerReviewComponent
             }
         ]
     },
