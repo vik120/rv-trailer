@@ -4,18 +4,33 @@
     &-box {
         display: flex;
         border: solid 1px $border-color;
+        @media(max-width: $break-sm) {
+            display: block;
+        }
         &-left {
             flex: 0 0 25%;
             max-width: 25%;
             border-right: solid 1px $border-color;
+            @media(max-width: $break-sm) {
+                flex: none;
+                max-width: none;
+                text-align: center;
+            }
             li {
                 border-bottom: solid 1px $border-color;
+                @media(max-width: $break-sm) {
+                    display: inline-block;
+                }
                 a {
                     display: block;
                     padding: $space-s $space-n;
                     color: $background-color;
                     font-size: $small;
                     position: relative;
+                    @media(max-width: $break-sm) {
+                        font-size: 0px;
+                        padding: $space-s $space-vs;
+                    }
                     &:after {
                         font-family: FontAwesome;
                         font-size: inherit;
@@ -37,6 +52,9 @@
                         position: relative;
                         vertical-align: middle;
                         margin-right: $space-n;
+                        @media(max-width: $break-sm) {
+                            margin-right: 0px;
+                        }
                         svg {
                             width: 40px;
                             height: 40px;
@@ -69,6 +87,10 @@
             max-width: 75%;
             padding: $space-n $space-m;
             background: $body-bg;
+            @media(max-width: $break-sm) {
+                flex: none;
+                max-width: none;
+            }
         }
     }
 }

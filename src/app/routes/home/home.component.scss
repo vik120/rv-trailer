@@ -46,6 +46,9 @@
         display: inline-block;
         vertical-align: top;
         margin: 13px;
+        @media(max-width: $break-sm) {
+            width: 100%;
+        }
     }
     .view-btn {
         margin-top: $space-m;
