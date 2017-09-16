@@ -3,6 +3,11 @@
     margin: $space-m 0;
     .btn {
         text-transform: uppercase;
+        @media(max-width: $break-sm) {
+            margin-left: 0px !important;
+            min-width: 200px;
+            margin-bottom: $space-s;
+        }
     }
 }
 

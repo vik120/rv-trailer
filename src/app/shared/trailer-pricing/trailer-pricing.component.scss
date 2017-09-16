@@ -2,5 +2,8 @@
 .trailer-pricing {
     &-form {
         margin: $space-n 0;
+        .pricing-box-space {
+            margin-bottom: $space-s;
+        }
     }
 }

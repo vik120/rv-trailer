@@ -225,7 +225,10 @@ export const Routing = RouterModule.forRoot([
                 path: 'about',
                 component: AboutUserComponent
             },
-            
+            {
+                path: 'favourite',
+                component: UserFavouriteComponent
+            },
             {
                 path: 'message',
                 component: UserMessageComponent

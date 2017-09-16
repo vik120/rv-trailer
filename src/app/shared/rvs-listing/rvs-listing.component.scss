@@ -30,6 +30,10 @@
         margin: auto;
         height: 59px;
         z-index: 2;
+        @media(max-width: $break-sm) {
+            position: relative;
+            padding: $space-xl 0px;
+        }
     }
 }
 
