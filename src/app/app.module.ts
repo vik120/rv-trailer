@@ -52,6 +52,8 @@ import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
 import { UserMessageComponent } from './shared/user-message/user-message.component';
 import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
+import { DashboardOwnerComponent } from './routes/dashboard-owner/dashboard-owner.component';
+import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
      UserFavouriteComponent,
      UserMessageComponent,
      MsgDetailComponent,
+     DashboardOwnerComponent,
+     OwnerAdsComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,8 @@ import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
 import { UserMessageComponent } from './shared/user-message/user-message.component';
 import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
+import { DashboardOwnerComponent } from './routes/dashboard-owner/dashboard-owner.component';
+import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 
 export const Routing = RouterModule.forRoot([
     {
@@ -142,6 +144,28 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'favourite',
                 component: UserFavouriteComponent
+            },
+            {
+                path: 'message',
+                component: UserMessageComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'owner',
+        component: DashboardOwnerComponent,
+        children: [
+            {
+                path: '',
+                component: AboutUserComponent
+            },
+            {
+                path: 'my-ads',
+                component: OwnerAdsComponent
             },
             {
                 path: 'message',
