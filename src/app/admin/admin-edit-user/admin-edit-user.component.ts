@@ -48,7 +48,7 @@ export class AdminEditUserComponent implements OnInit {
   updateUser(id) {
     this.apiService.updateUser(id, this.users).then((result) => {
       let id = result['_id'];
-      this.router.navigate(['admin/user']);
+      this.router.navigate(['admin/list-trailer']);
     }, (err) => {
       console.log(err);
     });

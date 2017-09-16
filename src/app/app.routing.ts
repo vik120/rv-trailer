@@ -1,3 +1,7 @@
+import { AdminViewListTrailerComponent } from './admin/admin-view-list-trailer/admin-view-list-trailer.component';
+import { AdminEditListTrailerComponent } from './admin/admin-edit-list-trailer/admin-edit-list-trailer.component';
+import { AdminAddListTrailerComponent } from './admin/admin-add-list-trailer/admin-add-list-trailer.component';
+import { AdminListTrailerComponent } from './admin/admin-list-trailer/admin-list-trailer.component';
 import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
 import { AdminCmsPageComponent } from './admin/admin-cms-page/admin-cms-page.component';
 import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-cms-page.component';
@@ -172,6 +176,10 @@ export const Routing = RouterModule.forRoot([
     { path: 'admin/add-cmspage', component: AdminAddCmsPageComponent },
     { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
     { path: 'admin/edit-cmspage/:id', component: AdminEditCmsPageComponent },
+    { path: 'admin/list-trailer', component: AdminListTrailerComponent },
+    { path: 'admin/add-list-trailer', component: AdminAddListTrailerComponent },
+    { path: 'admin/edit-list-trailer/:id', component: AdminEditListTrailerComponent },
+    { path: 'admin/view-list-trailer/:id', component: AdminViewListTrailerComponent },
 
     {
         path: 'blog',

@@ -114,6 +114,12 @@ router.delete('/cmspage/:id', function(req, res, next) {
   });
 });
 
+router.get('/list_trailers', function(req, res, next) {
+  ListTrailer.find({}, function(err, listtrailers){
+    if (err) return next(err);
+    res.json(listtrailers);
+  });
+});
 
 router.post('/list_trailers', function(req, res, next) {
   ListTrailer.create(req.body, function (err, post) {
@@ -121,6 +127,29 @@ router.post('/list_trailers', function(req, res, next) {
     res.json(post);
   });
 });
+
+router.get('/list_trailers/:id', function(req, res, next) {
+  ListTrailer.findById(req.params.id, function (err, listtrailers) {
+    if (err) return next(err);
+    res.json(listtrailers);
+  });
+});
+
+router.put('/list_trailers/:id', function(req, res, next) {
+  ListTrailer.findByIdAndUpdate(req.params.id, req.body, function (err, listtrailers) {
+    if (err) return next(err);
+    res.json(listtrailers);
+  });
+});
+
+router.delete('/list_trailers/:id', function(req, res, next) {
+  ListTrailer.findByIdAndRemove(req.params.id, req.body, function (err, listtrailers) {
+    if (err) return next(err);
+    res.json(listtrailers);
+  });
+});
+
+
 
 
 

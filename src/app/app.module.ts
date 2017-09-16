@@ -88,6 +88,10 @@ import { AdminAddCmsPageComponent } from './admin/admin-add-cms-page/admin-add-c
 import { AdminViewCmsPageComponent } from './admin/admin-view-cms-page/admin-view-cms-page.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
 import { EditorComponent } from './helper/editor/editor.component';
+import { AdminListTrailerComponent } from './admin/admin-list-trailer/admin-list-trailer.component';
+import { AdminAddListTrailerComponent } from './admin/admin-add-list-trailer/admin-add-list-trailer.component';
+import { AdminEditListTrailerComponent } from './admin/admin-edit-list-trailer/admin-edit-list-trailer.component';
+import { AdminViewListTrailerComponent } from './admin/admin-view-list-trailer/admin-view-list-trailer.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7fA0nS4hMW1cTLyKIfvx1lfj8V4BTz0U",
@@ -165,6 +169,10 @@ const firebaseConfig = {
      UserFavouriteComponent,
      UserMessageComponent,
      MsgDetailComponent,
+     AdminListTrailerComponent,
+     AdminAddListTrailerComponent,
+     AdminEditListTrailerComponent,
+     AdminViewListTrailerComponent,
 
   ],
 

@@ -221,6 +221,53 @@ export class ApiService {
     });
   }
 
+  getAllListTrailer() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/api/list_trailers')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+      });
+    }
+
+  showListTrailer(id) {
+    return new Promise((resolve, reject) => {
+        this.http.get('/api/list_trailers/' + id)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  updateListTrailer(id, data) {
+    return new Promise((resolve, reject) => {
+        this.http.put('/api/list_trailers/' + id, data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
+    deleteListTrailer(id) {
+    return new Promise((resolve, reject) => {
+        this.http.delete('/api/list_trailers/'+ id)
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+    });
+  }
+
 }
 
 

@@ -85,7 +85,7 @@ form: FormGroup;
         this.message = 'Success';
         this.apiService.storeUserData(data.token, data.user);
         setTimeout(() => {
-            this.router.navigate(['admin/dashboard']);
+            this.router.navigate(['admin/user']);
            }, 2000);
       }
     });
