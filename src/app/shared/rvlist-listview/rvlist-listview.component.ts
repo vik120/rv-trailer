@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'rv-listview',
@@ -34,11 +36,26 @@ export class RvlistListviewComponent implements OnInit {
   public rate:number = 3;
   public isReadonly: boolean= true;
 
-  constructor() { }
+  listtrailers: any = [];
+
+  constructor(public router: Router,
+              public apiService: ApiService,
+              private route: ActivatedRoute
+              ) { }
 
   brandSlideVisible: boolean;
   ngOnInit() {
     this.brandSlideVisible = true;
+    this.getListTrailerList();
+  }
+
+    getListTrailerList() {
+    this.apiService.getAllListTrailer().then((res) => {
+      this.listtrailers = res;
+      console.log(this.listtrailers);
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 }

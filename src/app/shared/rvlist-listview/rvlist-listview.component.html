@@ -1,17 +1,18 @@
-<div class="clearfix rvlist">
+<div class="clearfix rvlist" *ngFor="let listtrailer of listtrailers">
     <figure class="rvlist-figure">
         <img src="assets/images/{{ rvimage }}" *ngIf="rvimage != 'undefined' || rvimage != ''" />
     </figure>
     <div class="rvlist-content rv-info">
         <div class="clearfix rv-info-top">
             <div class="rv-info-top-left">
-                <h6>{{rvName}}</h6>
-                <p class="rv-price">Price: {{ rvPrice }}</p>
-                <p class="rv-location">Location: <label>{{ location }}</label></p>
+                <h6>{{ listtrailer.specification_name }}</h6>
+                <p class="rv-price">Price: {{ listtrailer.pricing_high_rate_hour }} / Hours</p>
+                <p class="rv-location">Location: <label>{{ listtrailer.location_street}}</label></p>
+                <label>{{ listtrailer.location_city }}</label>
             </div>
             <div class="rv-owner-info rv-info-top-right text-center">
                 <figure><img src="assets/images/{{ ownerImage }}" /></figure>
-                <h6>{{ ownerName }}</h6>
+                <h6>{{ listtrailer.details_ad_title }}</h6>
                 <div class="star-rating">
                     <rating [(ngModel)]="rating" [max]="max" [readonly]="isReadonly"></rating>
                 </div>
@@ -20,8 +21,8 @@
         </div>
         <div class="rv-info-bottom">
 
-            <div class="rv-modal">year <br /> {{ year }}</div>
-            <div class="rv-guest">guest <br /> {{ guest }}</div>
+            <div class="rv-modal">year <br /> {{ listtrailer.specification_year }}</div>
+            <div class="rv-guest">guest <br /> {{ listtrailer.specification_guest }}</div>
             <div class="rv-btn btn btn-primary">Rent IT</div>
 
         </div>
