@@ -20,7 +20,7 @@ export class TrailerSpecificationComponent implements OnInit {
   public trailerType: string = 'traveler';
   RV_Cottage : string = 'RV Cottage';
   Travel_Trailer : string = 'Travel Trailer';
-  Motor_Home : string = 'Motor Home';
+  Motor_Home : string = 'Motor Home'; 
 
   constructor(private fb: FormBuilder,
               public router: Router,
@@ -60,6 +60,10 @@ export class TrailerSpecificationComponent implements OnInit {
       //    console.log(this.listing);
       localStorage.setItem('listing', JSON.stringify(listingSpecification));
       this.router.navigate(['list-trailer/location']);
+  }
+
+  trailerspec(value){
+    this.trailerType = value;
   }
 
 }
