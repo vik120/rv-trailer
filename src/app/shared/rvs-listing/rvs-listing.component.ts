@@ -97,7 +97,7 @@ export class RvsListingComponent implements OnInit {
       ownerName: 'Rezmi Bell',
       ownerImage: 'owner-1.png'
     }
-  ]
+  ];
 
   constructor() { }
 

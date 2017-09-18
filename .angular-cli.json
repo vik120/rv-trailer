@@ -22,11 +22,13 @@
             "../node_modules/bootstrap/dist/css/bootstrap.css",
             "../node_modules/ion-rangeslider/css/ion.rangeSlider.css",
             "../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css",
-            "../node_modules/owl.carousel/dist/assets/owl.carousel.css"
+            "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
+            "../node_modules/fullcalendar/dist/fullcalendar.min.css"
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",
-            "../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js"
+            "../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js",
+            "../node_modules/bootstrap/dist/js/bootstrap.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

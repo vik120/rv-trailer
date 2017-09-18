@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
       ownerName: 'Rezmi Bell',
       ownerImage: 'owner-1.png'
     }
-  ]
+  ];
 
   testimonials: any[] = [
     {
@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit {
       userName: 'Johnny Aston',
       userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     },
-  ]
+  ];
   constructor() { }
 
   ngOnInit() {

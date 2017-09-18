@@ -29,28 +29,38 @@ import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 import { DashboardOwnerComponent } from './routes/dashboard-owner/dashboard-owner.component';
 import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 
+import { RvComponent } from './routes/rv/rv.component';
+
 export const Routing = RouterModule.forRoot([
     {
         path: '',
         component: HomeComponent
     },
+    // {
+    //     path: 'rv',
+    //     component: RvComponent,
+    //      children: [
+    //         {
+    //             path: '',
+    //             component: RvsListingComponent
+    //         },
+    //         {
+    //             path: 'rv-list',
+    //             component: RvsListingComponent
+    //         },
+    //         {
+    //             path: 'rv/:id',
+    //             component: RvDetailComponent
+    //         }
+    //     ]
+    // },
     {
-        path: 'rent-trailer',
-        component: RvsListingComponent,
-         children: [
-            {
-                path: '',
-                component: RvListsComponent
-            },
-            {
-                path: 'rv-list',
-                component: RvListsComponent
-            },
-            {
-                path: 'rv-list/:id',
-                component: RvDetailComponent
-            }
-        ]
+        path: 'rv',
+        component: RvsListingComponent
+    },
+    {
+        path: 'rv/:id',
+        component: RvDetailComponent
     },
     {
         path: 'login',
@@ -161,6 +171,10 @@ export const Routing = RouterModule.forRoot([
         children: [
             {
                 path: '',
+                component: AboutUserComponent
+            },
+            {
+                path: 'about',
                 component: AboutUserComponent
             },
             {

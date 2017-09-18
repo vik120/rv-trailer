@@ -8,11 +8,11 @@ import { Routing } from './app.routing';
 
 /* plugins */
 
-import { TypeaheadModule, DatepickerModule, AccordionModule   } from 'ngx-bootstrap';
+import { TypeaheadModule, DatepickerModule, AccordionModule, CarouselModule, RatingModule   } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
-import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
 import { OwlModule } from 'ngx-owl-carousel';
+import {CalendarComponent} from '../../node_modules/ap-angular2-fullcalendar/src/calendar/calendar';
 
 /* components */
 
@@ -96,6 +96,7 @@ import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
      MsgDetailComponent,
      DashboardOwnerComponent,
      OwnerAdsComponent,
+     CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +107,7 @@ import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
     RatingModule,
     IonRangeSliderModule,
     OwlModule,
+    CarouselModule.forRoot(),
     AccordionModule.forRoot(),
     DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot()
