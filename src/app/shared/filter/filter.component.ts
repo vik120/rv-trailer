@@ -30,4 +30,10 @@ export class FilterComponent implements OnInit {
   ngOnInit() {
   }
 
+  submitSearch(form){
+    console.log('kirti');
+    console.log(form.value);
+
+  }
+
 }
