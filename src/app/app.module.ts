@@ -14,7 +14,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 /* plugins */
 
-import { TypeaheadModule, DatepickerModule, AccordionModule   } from 'ngx-bootstrap';
+import { TypeaheadModule, DatepickerModule, AccordionModule, CarouselModule   } from 'ngx-bootstrap';
 import { MyDatePickerModule } from 'mydatepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
@@ -27,6 +27,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { OwlModule } from 'ngx-owl-carousel';
+import {CalendarComponent} from '../../node_modules/ap-angular2-fullcalendar/src/calendar/calendar';
 
 
 /* components */
@@ -194,7 +195,7 @@ const firebaseConfig = {
      OwnerReviewComponent,
      OwnerPackageComponent,
      OwnerAdsComponent,
-
+CalendarComponent
 
 
   ],
@@ -215,6 +216,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     FlashMessagesModule,
     OwlModule,
+    CarouselModule.forRoot(),
     AccordionModule.forRoot(),
     DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot()
