@@ -50,7 +50,6 @@ import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.c
 import { UserMessageComponent } from './shared/user-message/user-message.component';
 import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
 import { UserReviewComponent } from './shared/user-review/user-review.component';
-
 import { DashboardOwnerComponent } from './routes/dashboard-owner/dashboard-owner.component';
 import { AboutOwnerComponent } from './shared/about-owner/about-owner.component';
 import { OwnerMsgComponent } from './shared/owner-msg/owner-msg.component';
@@ -60,29 +59,37 @@ import { OwnerPackageComponent } from './shared/owner-package/owner-package.comp
 import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
-
+import { RvComponent } from './routes/rv/rv.component';
 export const Routing = RouterModule.forRoot([
     {
         path: '',
         component: HomeComponent
     },
+    // {
+    //     path: 'rv',
+    //     component: RvComponent,
+    //      children: [
+    //         {
+    //             path: '',
+    //             component: RvsListingComponent
+    //         },
+    //         {
+    //             path: 'rv-list',
+    //             component: RvsListingComponent
+    //         },
+    //         {
+    //             path: 'rv/:id',
+    //             component: RvDetailComponent
+    //         }
+    //     ]
+    // },
     {
-        path: 'rent-trailer',
-        component: RvsListingComponent,
-         children: [
-            {
-                path: '',
-                component: RvListsComponent
-            },
-            {
-                path: 'rv-list',
-                component: RvListsComponent
-            },
-            {
-                path: 'rv-list/:id',
-                component: RvDetailComponent
-            }
-        ]
+        path: 'rv',
+        component: RvsListingComponent
+    },
+    {
+        path: 'rv/:id',
+        component: RvDetailComponent
     },
     {
         path: 'login',
@@ -287,6 +294,32 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'review',
                 component: OwnerReviewComponent
+            }
+        ]
+    },
+    {
+        path: 'owner',
+        component: DashboardOwnerComponent,
+        children: [
+            {
+                path: '',
+                component: AboutUserComponent
+            },
+            {
+                path: 'about',
+                component: AboutUserComponent
+            },
+            {
+                path: 'my-ads',
+                component: OwnerAdsComponent
+            },
+            {
+                path: 'message',
+                component: UserMessageComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailComponent
             }
         ]
     },

@@ -1,4 +1,5 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {AppComponent} from '../../shared/app/app.component';
 
 @Component({
   selector: 'rv-dashboard-owner',
@@ -8,7 +9,10 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 })
 export class DashboardOwnerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private app: AppComponent) {
+    this.app.brandSlideVisible = false;
+   }
+
 
   ngOnInit() {
   }

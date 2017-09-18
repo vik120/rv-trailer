@@ -14,9 +14,10 @@ import { AuthGuard } from './guards/auth.guard';
 
 /* plugins */
 
-import { TypeaheadModule, DatepickerModule, AccordionModule, CarouselModule   } from 'ngx-bootstrap';
+
+import { TypeaheadModule, DatepickerModule, AccordionModule, CarouselModule, RatingModule } from 'ngx-bootstrap';
+
 import { MyDatePickerModule } from 'mydatepicker';
-import { RatingModule } from 'ngx-bootstrap/rating';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -28,7 +29,6 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { OwlModule } from 'ngx-owl-carousel';
 import {CalendarComponent} from '../../node_modules/ap-angular2-fullcalendar/src/calendar/calendar';
-
 
 /* components */
 
@@ -68,6 +68,7 @@ import { AboutUserComponent } from './shared/about-user/about-user.component';
 import { UserFavouriteComponent } from './shared/user-favourite/user-favourite.component';
 import { UserMessageComponent } from './shared/user-message/user-message.component';
 import { MsgDetailComponent } from './shared/msg-detail/msg-detail.component';
+
 import { UserReviewComponent } from './shared/user-review/user-review.component';
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
@@ -113,6 +114,7 @@ const firebaseConfig = {
   storageBucket: "authentication-5d867.appspot.com",
   messagingSenderId: "494284030141"
 };
+
 
 @NgModule({
   declarations: [
@@ -195,8 +197,7 @@ const firebaseConfig = {
      OwnerReviewComponent,
      OwnerPackageComponent,
      OwnerAdsComponent,
-CalendarComponent
-
+      CalendarComponent
 
   ],
 
