@@ -1,9 +1,9 @@
-<form #f="ngForm" (ngSubmit)="submitSearch(f)" >
-<div class="filter">
-    <div class="filter-location">
-        <label class="form-label">your location</label>
-        <div class="filter-field">
-            <i class="icon">
+<form>
+    <div class="filter">
+        <div class="filter-location">
+            <label class="form-label">your location</label>
+            <div class="filter-field">
+                <i class="icon">
 
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 54.757 54.757" style="enable-background:new 0 0 54.757 54.757;" xml:space="preserve">
@@ -18,36 +18,36 @@
               </svg>
             </i>
 
-            <input type="text" class="form-control" placeholder="Nanaimo, Columbia" [(ngModel)]="myLocation" [typeahead]="states" />
-        </div>
-        <label class="form-label">
+                <input type="text" name="location" class="form-control" placeholder="Nanaimo, Columbia" [(ngModel)]="myLocation" [typeahead]="states" />
+            </div>
+            <label class="form-label">
         Price Range
       </label>
-        <div class="filter-field">
-            <ion-range-slider #sliderElement type="single" [min]="myMinVar" max="5000" from="0" to="5000" grid="false">
+            <div class="filter-field">
+                <ion-range-slider #sliderElement type="single" [min]="myMinVar" max="5000" from="0" to="5000" grid="false">
 
-            </ion-range-slider>
-            <div class="clearfix range-values">
-                <div class="pull-left">$0</div>
-                <div class="pull-right">$5000</div>
+                </ion-range-slider>
+                <div class="clearfix range-values">
+                    <div class="pull-left">$0</div>
+                    <div class="pull-right">$5000</div>
+                </div>
+
             </div>
 
-        </div>
-
-        <label class="form-label">
+            <label class="form-label">
         Avilable Location
       </label>
-        <div class="filter-field">
+            <div class="filter-field">
 
-            <my-date-picker name="mydate" placeholder="Hire On"></my-date-picker>
-        </div>
-        <div class="filter-field">
-            <my-date-picker name="mydate" placeholder="Return On"></my-date-picker>
-        </div>
+                <my-date-picker name="mydate" placeholder="Hire On"></my-date-picker>
+            </div>
+            <div class="filter-field">
+                <my-date-picker name="mydate" placeholder="Return On"></my-date-picker>
+            </div>
 
-        <label class="form-label">Guest</label>
-        <div class="filter-field">
-            <select class="form-control">
+            <label class="form-label">Guest</label>
+            <div class="filter-field">
+                <select class="form-control">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -55,49 +55,50 @@
         <option>5</option>
         <option>5+</option>
       </select>
-        </div>
+            </div>
 
-        <label class="form-label">Rental</label>
-        <div class="filter-field checkbox">
-            <input type="checkbox" id="traveltrailer" />
-            <label for="traveltrailer">
+            <label class="form-label">Rental</label>
+            <div class="filter-field checkbox">
+                <input type="checkbox" id="traveltrailer" />
+                <label for="traveltrailer">
 
         TRAVEL TRAILER
       </label>
-        </div>
-        <div class="filter-field checkbox"><input type="checkbox" id="fifthwheel" />
-            <label for="fifthwheel">
+            </div>
+            <div class="filter-field checkbox"><input type="checkbox" id="fifthwheel" />
+                <label for="fifthwheel">
 
         FIFTH WHEEL
       </label>
-        </div>
-        <div class="filter-field checkbox"><input type="checkbox" id="tentrailer" />
-            <label for="tentrailer">
+            </div>
+            <div class="filter-field checkbox"><input type="checkbox" id="tentrailer" />
+                <label for="tentrailer">
 
        TENT TRAILER
       </label>
-        </div>
-        <div class="filter-field checkbox">
-            <input type="checkbox" id="vintagetrailer" />
-            <label for="vintagetrailer">
+            </div>
+            <div class="filter-field checkbox">
+                <input type="checkbox" id="vintagetrailer" />
+                <label for="vintagetrailer">
 
         VINTAGE
       </label>
-        </div>
-        <div class="filter-field checkbox"> <input type="checkbox" id="hybridtrailer" />
-            <label for="hybridtrailer">
+            </div>
+            <div class="filter-field checkbox"> <input type="checkbox" id="hybridtrailer" />
+                <label for="hybridtrailer">
 
         HYBRID
       </label>
-        </div>
-        <div class="filter-field checkbox"> <input type="checkbox" id="toytrailer" />
-            <label for="toytrailer">
+            </div>
+            <div class="filter-field checkbox"> <input type="checkbox" id="toytrailer" />
+                <label for="toytrailer">
 
        TOY HAULER
       </label>
+            </div>
         </div>
     </div>
-</div>
-  <button class="btn btn-primary full-width searchbtn">Search</button>
+    <button class="btn btn-primary full-width searchbtn">Search</button>
 
 </form>
+
