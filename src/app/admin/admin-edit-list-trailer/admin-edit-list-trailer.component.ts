@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
+import { FileUploader } from 'ng2-file-upload';
+
+// const URL = '/api/';
+//const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+const URL = 'http://localhost:3001/upload';
 
 @Component({
   selector: 'rv-admin-edit-list-trailer',
@@ -16,6 +21,8 @@ export class AdminEditListTrailerComponent implements OnInit {
      {feature: 'Brijesh'},
      {feature: 'Kirti'},
 ];
+public uploader:FileUploader = new FileUploader({url: URL});
+fileName: String;
 
   constructor(private fb: FormBuilder,
               public router: Router,
@@ -55,10 +62,23 @@ export class AdminEditListTrailerComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+    ngOnInit() {
 
       this.onSubmitListTrailer(this.route.snapshot.params['id']);
-  }
+
+      //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
+        this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
+        //overide the onCompleteItem property of the uploader so we are
+        //able to deal with the server response.
+        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+                //console.log("ImageUpload:uploaded:", item, status, response);
+           //   console.log(response);
+              const responseResult = JSON.parse(response);
+              this.fileName = responseResult.filename;
+              console.log(this.fileName);
+           //   console.log(responseResult.filename);
+      }
+    }
 
   onSubmitListTrailer(id) {
     this.apiService.showListTrailer(id).then((res) => {
