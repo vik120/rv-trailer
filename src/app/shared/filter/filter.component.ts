@@ -10,6 +10,7 @@ import {IMyDpOptions} from 'mydatepicker';
 })
 export class FilterComponent implements OnInit {
 
+  Listing: any;
   public myLocation:string;
   public states:string[] = ['Alabama', 'Alaska', 'Arizona', 'Arkansas',
     'California', 'Colorado',
