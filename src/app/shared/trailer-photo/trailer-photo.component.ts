@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+//const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+const URL = 'http://localhost:3001/upload';
 
 @Component({
   selector: 'rv-trailer-photo',
@@ -19,6 +20,7 @@ export class TrailerPhotoComponent implements OnInit {
 rForm: FormGroup;
 listing: any = [];
 public uploader:FileUploader = new FileUploader({url: URL});
+result: any;
 
 
   constructor(private fb: FormBuilder,
@@ -40,9 +42,16 @@ public uploader:FileUploader = new FileUploader({url: URL});
           //overide the onCompleteItem property of the uploader so we are 
           //able to deal with the server response.
           this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-                console.log("ImageUpload:uploaded:", item, status, response);
-            }
+                //console.log("ImageUpload:uploaded:", item, status, response);
+                console.log(response);
+                var responseResult = JSON.parse(response);
+                console.log(responseResult.filename);
           }
+
+          
+
+          
+        }
 
   // onSubmitPhoto() {
   //    const photo = this.rForm.value;
