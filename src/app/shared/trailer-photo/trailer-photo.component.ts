@@ -20,7 +20,7 @@ export class TrailerPhotoComponent implements OnInit {
 rForm: FormGroup;
 listing: any = [];
 public uploader:FileUploader = new FileUploader({url: URL});
-result: any;
+fileName: String;
 
 
   constructor(private fb: FormBuilder,
@@ -43,45 +43,32 @@ result: any;
           //able to deal with the server response.
           this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
                 //console.log("ImageUpload:uploaded:", item, status, response);
-                console.log(response);
-                var responseResult = JSON.parse(response);
-                console.log(responseResult.filename);
+             //   console.log(response);
+                const responseResult = JSON.parse(response);
+                this.fileName = responseResult.filename;
+                console.log(this.fileName);
+             //   console.log(responseResult.filename);
           }
-
-          
-
-          
         }
 
-  // onSubmitPhoto() {
-  //    const photo = this.rForm.value;
-  //    console.log(photo);
-  //    this.listing['photo'] = photo;
-  //    console.log(this.listing);
 
-  //    this.apiService.addListTrailer(this.listing).then((result) => {
-  //     const id = result['_id'];
-  //     this.router.navigate(['/']);
-  //    }, (err) => {
-  //     console.log(err);
-  //   });
+  onSubmitPhoto() {
 
-  // }
 
-  // onSubmitPhoto() {
+    console.log(this.fileName);
+    const photo = {"photo": this.fileName};
+  //  console.log(photo);
+   // console.log(this.listing);
+    const photo_data = Object.assign({}, this.listing, photo);
+    console.log(photo_data);
 
-  //   const photo = this.rForm.value;
-  //   console.log(this.listing);
-  //   const photo_data = Object.assign({}, this.listing, photo);
-  //   console.log(photo_data);
+    this.apiService.addListTrailer(photo_data).then((result) => {
+      const id = result['_id'];
+      this.router.navigate(['/']);
+     }, (err) => {
+  //    console.log(err);
+    });
 
-  //   this.apiService.addListTrailer(photo_data).then((result) => {
-  //     const id = result['_id'];
-  //     this.router.navigate(['/']);
-  //    }, (err) => {
-  //     console.log(err);
-  //   });
-
-  // }
+  }
 
 }

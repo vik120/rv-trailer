@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 var ListTrailerSchema = new Schema({
     specification_trailer_type: {type: Number},
     specification_trailer_sub_type: {type: String},
-    specification_trailer_sub_type: {type: String},
     specification_make: {type: String},
     specification_model: {type: String},
     specification_year: {type: String},
@@ -20,7 +19,6 @@ var ListTrailerSchema = new Schema({
     details_ad_title: {type: String},
     details_ad_description: {type: String},
     details_feature: {type: Boolean},
-    details_province: {type: String},
     details_no_of_beds: {type: String},
     details_no_of_bathrooms: {type: String},
     pricing_security_deposit: {type: String},
