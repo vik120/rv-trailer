@@ -145,48 +145,18 @@ export const Routing = RouterModule.forRoot([
         ]
     },
     {
-        path: 'contact-us',
-        component: ContactUsComponent
+      path: 'contact-us',
+      component: ContactUsComponent
     },
 
-    {
-        path: 'admin',
-        component: AdminLoginComponent,
-        canActivate: [NotAuthGuard]
-    },
-    {
-        path: 'admin/dashboard',
-        component: DashboardComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/user',
-        component: AdminUserComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/add-user',
-        component: AdminAddUserComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/view-user/:id',
-        component: AdminViewUserComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/edit-user/:id',
-        component: AdminEditUserComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/forgot',
-        component: AdminForgotPassComponent
-    },
-    {
-        path: 'admin/change-password',
-        component: AdminChangePassComponent
-    },
+    { path: 'admin', component: AdminLoginComponent, canActivate: [NotAuthGuard] },
+    { path: 'admin/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'admin/user', component: AdminUserComponent, canActivate: [AuthGuard] },
+    { path: 'admin/add-user', component: AdminAddUserComponent, canActivate: [AuthGuard] },
+    { path: 'admin/view-user/:id', component: AdminViewUserComponent, canActivate: [AuthGuard] },
+    { path: 'admin/edit-user/:id', component: AdminEditUserComponent, canActivate: [AuthGuard] },
+    { path: 'admin/forgot', component: AdminForgotPassComponent },
+    { path: 'admin/change-password', component: AdminChangePassComponent },
     { path: 'admin/cmspage', component: AdminCmsPageComponent },
     { path: 'admin/add-cmspage', component: AdminAddCmsPageComponent },
     { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
