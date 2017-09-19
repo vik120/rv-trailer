@@ -4,7 +4,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var multer  = require('multer')
+var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' })
 
 
@@ -15,6 +15,8 @@ const api = require('./server/routes/api');
 const app = express();
 // mongoose.connect('mongodb://mongodb://localhost/rvmarket', { useMongoClient: true });
 mongoose.connect('mongodb://brijeshmkt:Annu1999@ds153113.mlab.com:53113/rvmarket', { useMongoClient: true });
+
+
 
 // Parsers for POST data
 app.use(bodyParser.json());

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+var nodemailer = require('nodemailer');
 
 
 var User = require('../models/user');
@@ -10,7 +11,35 @@ var ListTrailer = require('../models/product');
 
 
 
+router.post('/sendmail', (req, res) => {
 
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'brijeshmkt@gmail.com',
+      pass: 'Mishra4321'
+    }
+  });
+  
+  
+  var mailOptions = {
+    from: 'brijeshmkt@gmail.com',
+    to: req.body.to,
+    subject: req.body.subject,
+    text: req.body.text
+  };
+  
+  console.log(mailOptions);
+  // transporter.sendMail(mailOptions, function(error, info){
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log('Email sent: ' + info.response);
+  //   }
+  // });
+
+
+});
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('api works');
