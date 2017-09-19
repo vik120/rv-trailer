@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="submitSearch(form)" #form="ngForm">
     <div class="filter">
         <div class="filter-location">
             <label class="form-label">your location</label>
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-primary full-width searchbtn">Search</button>
+    <button type="submit" class="btn btn-primary full-width searchbtn">Search</button>
 
 </form>
 
