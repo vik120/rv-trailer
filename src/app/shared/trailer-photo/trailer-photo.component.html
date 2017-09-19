@@ -6,7 +6,7 @@
 
         <h5>Add a new file *</h5>
 
-        <input type="file" name="photo" ng2FileSelect [uploader1]="uploader" />
+        <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
         <!-- button to trigger the file upload when submitted -->
         <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
               Upload
