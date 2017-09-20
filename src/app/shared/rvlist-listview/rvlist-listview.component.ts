@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RvlistListviewComponent implements OnInit {
 
+  listtrailers: any = [];
+
   @Input('rvInfo') element:{
     rvimage: any,
     rvName: string,
@@ -36,8 +38,6 @@ export class RvlistListviewComponent implements OnInit {
   public rate:number = 3;
   public isReadonly: boolean= true;
 
-  listtrailers: any = [];
-
   constructor(public router: Router,
               public apiService: ApiService,
               private route: ActivatedRoute
@@ -54,7 +54,7 @@ export class RvlistListviewComponent implements OnInit {
       this.listtrailers = res;
       console.log(this.listtrailers);
     }, (err) => {
-  //    console.log(err);
+      console.log(err);
     });
   }
 
