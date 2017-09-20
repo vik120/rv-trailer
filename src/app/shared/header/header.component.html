@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" (click)="this.showMenu = !this.showMenu">
                   <span class="sr-only">Toggle navigation</span>
@@ -12,7 +12,6 @@
                 <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.png" alt="" /></a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" [ngClass]="{'in': showMenu}">
                 <div class="header-lang">
 
@@ -22,7 +21,8 @@
                 <div class="header-btn">
                     <button *ngIf="!apiService.loggedIn()"  class="btn btn-border-white" [routerLink]="['/login']">Sign In</button>
                     <button *ngIf="!apiService.loggedIn()"  class="btn btn-border-white" [routerLink]="['/signup/renter']">Sign Up</button>
-                    <button *ngIf="apiService.loggedIn()"  class="btn btn-border-white" (click)="onLogoutClick()">Log Out</button>
+                    <button *ngIf="apiService.loggedIn()"  class="btn btn-border-white" (click)="onMyAccount()">My Account</button>
+               <!-- <button *ngIf="apiService.loggedIn()"  class="btn btn-border-white" (click)="onLogoutClick()">Log Out</button> -->
                 </div>
                 <ul class="nav navbar-nav navbar-right">
 

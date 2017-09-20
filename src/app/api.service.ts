@@ -34,20 +34,20 @@ export class ApiService {
   }
 
     getAllUsers() {
-    
+
       return this.http.get('/api/user')
         .map(res => res.json());
-        
-      
+
+
     }
 
 
     showUser(id) {
       let url:string = '/api/user/' + id;
-      
+
       return this.http.get(url).map( (res:Response) => res.json );
 
-    
+
   }
 
 
@@ -214,10 +214,9 @@ export class ApiService {
   }
 
   getAllListTrailer() {
-    let url:string = 'http://localhost:3001/api/trailers';
-
+    let url:string = '/api/trailers';
     return this.http.get(url)
-      .map( (res:Response) => res.json());
+      .map( (res: Response) => res.json());
 
     // return new Promise((resolve, reject) => {
     //   this.http.get('/api/list_trailers')

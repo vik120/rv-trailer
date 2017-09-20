@@ -20,15 +20,15 @@ router.post('/sendmail', (req, res) => {
       pass: 'Mishra4321'
     }
   });
-  
-  
+
+
   var mailOptions = {
     from: 'brijeshmkt@gmail.com',
     to: req.body.to,
     subject: req.body.subject,
     text: req.body.text
   };
-  
+
   console.log(mailOptions);
   // transporter.sendMail(mailOptions, function(error, info){
   //   if (error) {
@@ -46,6 +46,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
+<<<<<<< HEAD
   let location = req.query.location;
 
   
@@ -59,6 +60,10 @@ router.get('/search', function(req, res, next) {
   ListTrailer.find(query
     
     , function(err, trailers) {
+=======
+
+  ListTrailer.find({}, function(err, trailers) {
+>>>>>>> a2cb54df41e397a2af1f5844924da71d46110798
     if(err) return err;
 
     res.json(trailers);
@@ -164,11 +169,18 @@ router.delete('/cmspage/:id', function(req, res, next) {
 });
 
 router.get('/trailers', function(req, res, next) {
-  ListTrailer.find({}, function(err, listtrailers){
-    if (err) return next(err);
-    res.json(listtrailers);
+  ListTrailer.find({}, function(err, list){
+    if (err) return err;
+    res.json(list);
+
   });
 });
+
+
+
+
+
+
 
 router.post('/list_trailers', function(req, res, next) {
   ListTrailer.create(req.body, function (err, post) {
