@@ -20,18 +20,9 @@
                     <carousel>
 
                         <slide>
-                            <img src="assets/images/rv-8.jpg" alt="Second slide">
+                            <img src="/images/{{ renterdetail.photo }}" alt="Second slide">
+                            <!-- <img src="/images/{{ renterdetail.photo }}" *ngIf="rvimage != 'undefined' || rvimage != ''" /> -->
                         </slide>
-                        <!-- <slide>
-                            <img src="assets/images/rv-9.jpg" alt="Third slide">
-                        </slide>
-
-                        <slide>
-                            <img src="assets/images/rv-11.jpg" alt="Third slide">
-                        </slide>
-                        <slide>
-                            <img src="assets/images/rv-12.jpg" alt="Third slide">
-                        </slide> -->
                     </carousel>
                 </div>
                 <div class="trailer-name clearfix">
@@ -53,43 +44,43 @@
                 </div>
                 <div class="trailer-description">
                     <h3>Description</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>{{ renterdetail.details_ad_description }}</p>
                 </div>
                 <div class="trailer-rates">
                     <h3>Rates</h3>
                     <div class="row">
                         <div class="col-sm-4">
-                            <p> <strong>Nightly:</strong> $100 </p>
+                            <p> <strong>Hourly:</strong> ${{ renterdetail.pricing_low_rate_hour }} </p>
                         </div>
                         <div class="col-sm-4">
-                            <p> <strong>Weekly:</strong> $600</p>
+                            <p> <strong>Weekly:</strong> ${{ renterdetail.pricing_low_rate_week }}</p>
                         </div>
                         <div class="col-sm-4">
-                            <p> <strong>Monthly:</strong> $2000</p>
+                            <p> <strong>Monthly:</strong> ${{ renterdetail.pricing_low_rate_month }}</p>
                         </div>
                     </div>
                     <h5>High Session (06/01 To 06/05)</h5>
                     <div class="row">
                         <div class="col-sm-4">
-                            <p> <strong>Nightly:</strong> $120</p>
+                            <p> <strong>Hourly:</strong> ${{ renterdetail.pricing_high_rate_hour }}</p>
                         </div>
                         <div class="col-sm-4">
-                            <p> <strong>Weekly:</strong> $700</p>
+                            <p> <strong>Weekly:</strong> ${{ renterdetail.pricing_high_rate_week }}</p>
                         </div>
                         <div class="col-sm-4">
-                            <p><strong>Monthly:</strong> $3000</p>
+                            <p><strong>Monthly:</strong> ${{ renterdetail.pricing_high_rate_month }}</p>
                         </div>
                     </div>
                     <div class="security-deposit">
                         <label>
                         Security Deposit:
-                      </label> $1000
+                      </label> ${{ renterdetail.pricing_security_deposit }}
                     </div>
 
                     <div class="deliver-charges">
                         <label>
                           Deliver Charges:
-                    </label> $1000
+                    </label> ${{ renterdetail.pricing_delivery_charges }}
                     </div>
 
                 </div>
@@ -105,13 +96,13 @@
                         <i class="icon">
                           <img src="assets/svg/bed.svg" alt="Third slide">
                         </i>
-                        <label>No of Beds</label> 03
+                        <label>No of Beds</label> {{ renterdetail.details_no_of_beds }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/bathtub.svg" alt="Third slide">
                         </i>
-                        <label>No of Bathrooms</label> 03
+                        <label>No of Bathrooms</label> {{ renterdetail.details_no_of_bathrooms }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
@@ -216,19 +207,19 @@
                         <i class="icon">
                         <img src="assets/svg/caravan.svg" alt="Third slide">
                       </i>
-                        <label>Year</label> 2010
+                        <label>Year</label> {{ renterdetail.specification_year }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                         <img src="assets/svg/caravan.svg" alt="Third slide">
                       </i>
-                        <label>Make</label> Hearthland
+                        <label>Make</label> {{ renterdetail.specification_make }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                         <img src="assets/svg/caravan.svg" alt="Third slide">
                       </i>
-                        <label>Modal</label> Eagle Ride
+                        <label>Modal</label> {{ renterdetail.specification_model }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
@@ -240,13 +231,13 @@
                         <i class="icon">
                           <img src="assets/svg/freight.svg" alt="Third slide">
                       </i>
-                        <label>Slideouts</label> 04
+                        <label>Slideouts</label> {{ renterdetail.specification_slide_out }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/lengthen.svg" alt="">
                       </i>
-                        <label>Length</label> 36
+                        <label>Length</label> {{ renterdetail.specification_length }}
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
@@ -258,13 +249,13 @@
                         <i class="icon">
                         <img src="assets/svg/weight.svg" alt="">
                       </i>
-                        <label>Gross Weight</label> 500 lbs
+                        <label>Gross Weight</label> {{ renterdetail.specification_gross_weight }} lbs
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                         <img src="assets/svg/archive.svg" alt="">
                       </i>
-                        <label>Tougue Weight</label> 500 lbs
+                        <label>Tougue Weight</label> {{ renterdetail.specification_tough_weight }} lbs
                     </div>
 
 

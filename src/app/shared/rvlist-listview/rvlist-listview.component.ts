@@ -58,8 +58,4 @@ export class RvlistListviewComponent implements OnInit {
     });
   }
 
-  submitSearch(value) {
-
-  }
-
 }

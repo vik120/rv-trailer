@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from './../../api.service';
 
 @Component({
   selector: 'rv-detail',
@@ -8,6 +11,8 @@ import {AppComponent} from '../../shared/app/app.component';
   encapsulation: ViewEncapsulation.None
 })
 export class RvDetailComponent implements OnInit {
+
+  renterdetail: any = [];
 
   public max: number = 5;
   public rate: number = 4;
@@ -77,11 +82,24 @@ export class RvDetailComponent implements OnInit {
   };
 
 
-  constructor(private app: AppComponent) {
+  constructor(private app: AppComponent,
+              public router: Router,
+              public apiService: ApiService,
+              private route: ActivatedRoute) {
     this.app.brandSlideVisible = false;
    }
 
   ngOnInit() {
+    this.getRenterDetail(this.route.snapshot.params['id']);
+  }
+
+  getRenterDetail(id) {
+    this.apiService.showListTrailer(id).then((res) => {
+      this.renterdetail = res;
+      console.log(this.renterdetail);
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 }

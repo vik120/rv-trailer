@@ -1,6 +1,6 @@
 <div class="clearfix rvlist" *ngFor="let listtrailer of listtrailers">
     <figure class="rvlist-figure">
-        <img src="assets/images/{{ rvimage }}" *ngIf="rvimage != 'undefined' || rvimage != ''" />
+        <img src="/images/{{ listtrailer.photo }}" *ngIf="rvimage != 'undefined' || rvimage != ''" />
     </figure>
     <div class="rvlist-content rv-info">
         <div class="clearfix rv-info-top">
