@@ -153,12 +153,18 @@ router.delete('/cmspage/:id', function(req, res, next) {
 });
 
 router.get('/trailers', function(req, res, next) {
-  ListTrailer.find({}, function(err, listtrailers){
-    if (err) return next(err);
-    res.json(listtrailers);
+  ListTrailer.find({}, function(err, list){
+    if (err) return err;
+    res.json(list);
 
   });
 });
+
+
+
+
+
+
 
 router.post('/list_trailers', function(req, res, next) {
   ListTrailer.create(req.body, function (err, post) {

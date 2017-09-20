@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.getUserData(this.logindata.id);
+    if (this.logindata.id) {
+      this.getUserData(this.logindata.id);
+    }
   }
 
   getUserData(id) {
