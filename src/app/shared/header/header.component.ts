@@ -16,17 +16,15 @@ export class HeaderComponent implements OnInit {
   logindata: any = [];
   user: any = [];
 
-   constructor(public router:Router,
-              public apiService:ApiService,
+   constructor(public router: Router,
+              public apiService: ApiService,
               private formBuilder: FormBuilder,
-              private flashMessagesService: FlashMessagesService
-            ) {
-              this.logindata = JSON.parse(localStorage.getItem('user'));
-              console.log(this.logindata);
-             }
+              private flashMessagesService: FlashMessagesService)
+              {
+                this.logindata = JSON.parse(localStorage.getItem('user'));
+              }
 
   ngOnInit() {
-    console.log(this.logindata);
     this.getUserData(this.logindata.id);
   }
 
@@ -41,9 +39,9 @@ export class HeaderComponent implements OnInit {
 
   onMyAccount() {
     if (this.user.renter === 'renter') {
-        this.router.navigate(['renter']);
+        this.router.navigate(['/renter']);
     }else {
-        this.router.navigate(['owner']);
+        this.router.navigate(['/owner']);
     }
   }
 

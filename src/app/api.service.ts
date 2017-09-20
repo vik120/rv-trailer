@@ -214,7 +214,7 @@ export class ApiService {
   }
 
   getAllListTrailer() {
-    let url:string = 'http://165.227.23.237:3001/api/trailers';
+    let url:string = '/api/trailers';
 
     return this.http.get(url)
       .map( (res:Response) => res.json());
