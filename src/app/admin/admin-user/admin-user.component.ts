@@ -23,7 +23,7 @@ users: any = [];
   }
 
   getUserList() {
-    this.apiService.getAllUsers().then((res) => {
+    this.apiService.getAllUsers().subscribe((res) => {
       this.users = res;
     }, (err) => {
       console.log(err);

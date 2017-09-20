@@ -34,28 +34,20 @@ export class ApiService {
   }
 
     getAllUsers() {
-    return new Promise((resolve, reject) => {
-      this.http.get('/api/user')
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-      });
+    
+      return this.http.get('/api/user')
+        .map(res => res.json());
+        
+      
     }
 
 
     showUser(id) {
-    return new Promise((resolve, reject) => {
-        this.http.get('/api/user/' + id)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res)
-        }, (err) => {
-          reject(err);
-        });
-    });
+      let url:string = '/api/user/' + id;
+      
+      return this.http.get(url).map( (res:Response) => res.json );
+
+    
   }
 
 
@@ -222,15 +214,20 @@ export class ApiService {
   }
 
   getAllListTrailer() {
-    return new Promise((resolve, reject) => {
-      this.http.get('/api/list_trailers')
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-      });
+    let url:string = 'http://localhost:3001/api/trailers';
+
+    return this.http.get(url)
+      .map( (res:Response) => res.json());
+
+    // return new Promise((resolve, reject) => {
+    //   this.http.get('/api/list_trailers')
+    //     .map(res => res.json())
+    //     .subscribe(res => {
+    //       resolve(res);
+    //     }, (err) => {
+    //       reject(err);
+    //     });
+    //   });
     }
 
   showListTrailer(id) {

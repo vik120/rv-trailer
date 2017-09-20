@@ -37,7 +37,7 @@ export class AdminViewUserComponent implements OnInit {
   }
 
   getUsers(id) {
-    this.apiService.showUser(id).then((res) => {
+    this.apiService.showUser(id).subscribe((res) => {
       this.users = res;
       console.log(this.users);
     }, (err) => {

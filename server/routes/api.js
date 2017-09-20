@@ -45,6 +45,15 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+router.get('/search', function(req, res, next) {
+  
+  ListTrailer.find({}, function(err, trailers) {
+    if(err) return err;
+
+    res.json(trailers);
+  })
+});
+
 /* GET ALL User */
 router.get('/user', function(req, res, next) {
   User.find({}, function(err, users){
@@ -143,7 +152,7 @@ router.delete('/cmspage/:id', function(req, res, next) {
   });
 });
 
-router.get('/list_trailers', function(req, res, next) {
+router.get('/trailers', function(req, res, next) {
   ListTrailer.find({}, function(err, listtrailers){
     if (err) return next(err);
     res.json(listtrailers);
