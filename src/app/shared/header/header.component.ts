@@ -21,13 +21,23 @@ export class HeaderComponent implements OnInit {
               private formBuilder: FormBuilder,
               private flashMessagesService: FlashMessagesService)
               {
-                this.logindata = JSON.parse(localStorage.getItem('user'));
+                
+                
+
+                if(this.logindata  === null ) {
+                  console.log()
+                } else {
+                  this.logindata = JSON.parse(localStorage.getItem('user'));
+                }
+                
               }
 
   ngOnInit() {
-    if (this.logindata.id) {
-      this.getUserData(this.logindata.id);
+    
+    if(this.logindata  !== null ) {
+      this.getUserData(this.logindata.id); 
     }
+    
   }
 
   getUserData(id) {

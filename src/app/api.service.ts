@@ -16,6 +16,12 @@ export class ApiService {
 
   headers:any = {'Content-Type': 'application/json'};
 
+  //This is for local
+  mainURL:String = 'http://localhost:3001';
+
+  //This is for server
+  //mainURL:String = 'http://165.227.23.237:3001';
+
   constructor(private http: Http) { }
 
   createAuthenticationHeaders(){
@@ -214,7 +220,7 @@ export class ApiService {
   }
 
   getAllListTrailer() {
-    let url:string = '/api/trailers';
+    let url:string = this.mainURL + '/api/trailers';
     return this.http.get(url)
       .map( (res: Response) => res.json());
 
