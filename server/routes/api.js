@@ -46,8 +46,19 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
+  let location = req.query.location;
+
   
-  ListTrailer.find({}, function(err, trailers) {
+  //console.log(location);
+
+  query = { location_city: {$where: location}};
+
+  //query['$where'] = {location_city: location};
+  console.log(query);
+
+  ListTrailer.find(query
+    
+    , function(err, trailers) {
     if(err) return err;
 
     res.json(trailers);
