@@ -52,7 +52,6 @@ export class RvlistListviewComponent implements OnInit {
     getListTrailerList() {
     this.apiService.getAllListTrailer().subscribe((res) => {
       this.listtrailers = res;
-      console.log(this.listtrailers);
     }, (err) => {
       console.log(err);
     });

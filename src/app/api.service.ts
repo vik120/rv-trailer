@@ -34,20 +34,20 @@ export class ApiService {
   }
 
     getAllUsers() {
-    
+
       return this.http.get('/api/user')
         .map(res => res.json());
-        
-      
+
+
     }
 
 
     showUser(id) {
       let url:string = '/api/user/' + id;
-      
+
       return this.http.get(url).map( (res:Response) => res.json );
 
-    
+
   }
 
 
@@ -214,7 +214,7 @@ export class ApiService {
   }
 
   getAllListTrailer() {
-    let url:string = 'http://localhost:3001/api/trailers';
+    let url:string = 'http://165.227.23.237:3001/api/trailers';
 
     return this.http.get(url)
       .map( (res:Response) => res.json());
