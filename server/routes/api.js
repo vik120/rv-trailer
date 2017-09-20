@@ -46,24 +46,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
-<<<<<<< HEAD
-  let location = req.query.location;
-
-  
-  //console.log(location);
-
-  query = { location_city: {$where: location}};
-
-  //query['$where'] = {location_city: location};
-  console.log(query);
-
-  ListTrailer.find(query
-    
-    , function(err, trailers) {
-=======
 
   ListTrailer.find({}, function(err, trailers) {
->>>>>>> a2cb54df41e397a2af1f5844924da71d46110798
     if(err) return err;
 
     res.json(trailers);
