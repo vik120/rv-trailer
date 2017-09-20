@@ -13,20 +13,40 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class HeaderComponent implements OnInit {
 
   showMenu: boolean = false;
+  logindata: any = [];
+  user: any = [];
 
    constructor(public router:Router,
               public apiService:ApiService,
               private formBuilder: FormBuilder,
               private flashMessagesService: FlashMessagesService
-            ) { }
-
-  onLogoutClick() {
-    this.apiService.logout();
-    this.flashMessagesService.show('You are Logged Out', {cssClass: 'alert-info'});
-    this.router.navigate(['/']);
-  }
+            ) {
+              this.logindata = JSON.parse(localStorage.getItem('user'));
+              console.log(this.logindata);
+             }
 
   ngOnInit() {
+    console.log(this.logindata);
+    this.getUserData(this.logindata.id);
+  }
+
+  getUserData(id) {
+    this.apiService.showUser(id).subscribe((res) => {
+      this.user = res;
+      console.log(this.user);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  onMyAccount() {
+    if (this.user.renter === 'renter') {
+        this.router.navigate(['renter']);
+    }else {
+        this.router.navigate(['owner']);
+    }
   }
 
 }
+
+
