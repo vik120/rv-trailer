@@ -23,8 +23,7 @@
 
             <div class="rv-modal">year <br /> {{ listtrailer.specification_year }}</div>
             <div class="rv-guest">guest <br /> {{ listtrailer.specification_guest }}</div>
-            <div class="rv-btn btn btn-primary">Rent IT</div>
-
+            <button class="rv-btn btn btn-primary" type="button" [routerLink]="['/rv/', listtrailer._id]">Rent IT</button>
         </div>
     </div>
 </div>
