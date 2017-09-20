@@ -54,7 +54,7 @@ export class RvlistListviewComponent implements OnInit {
       this.listtrailers = res;
       console.log(this.listtrailers);
     }, (err) => {
-      console.log(err);
+  //    console.log(err);
     });
   }
 
