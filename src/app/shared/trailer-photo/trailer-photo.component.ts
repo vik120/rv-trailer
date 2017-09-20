@@ -64,7 +64,7 @@ fileName: String;
 
     this.apiService.addListTrailer(photo_data).then((result) => {
       const id = result['_id'];
-      this.router.navigate(['/']);
+      this.router.navigate(['/rv']);
      }, (err) => {
   //    console.log(err);
     });

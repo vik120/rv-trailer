@@ -59,7 +59,7 @@
               </i> {{ Motor_Home}}
           </button>
         </div>
-        <div class="trailer-type" *ngIf="trailerType === 'rvCottage'">
+        <div class="trailer-type" *ngIf="trailerType === 'rvTrailer'">
             <div class="checkbox">
                 <input type="checkbox" id="travel_trailer" />
                 <label for="travel_trailer">Travel Trailer</label>
@@ -139,18 +139,26 @@
         <div class="row">
             <div class="col-sm-4 form-group">
                 <select class="form-control" [(ngModel)]="listing.specification_guest" formControlName="specification_guest">
-                <option value="Guest">Guest</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
             </div>
             <div class="col-sm-4 form-group">
                 <select class="form-control" [(ngModel)]="listing.specification_slide_out" formControlName="specification_slide_out">
-                <option value="slide_out">Slide out</option>
+                <option value="1">1 Slide out</option>
+                <option value="2">2 Slide out</option>
+                <option value="3">3 Slide out</option>
+                <option value="4">4 Slide out</option>
+                <option value="5">5 Slide out</option>
             </select>
             </div>
 
         </div>
         <div class="clearfix specific-btn">
-            <button type=submit [disabled]="!rForm.valid" form="rForm" class="btn btn-primary btn-lg">NEXT</button>
+            <button type=submit [disabled]="!rForm.valid" class="btn btn-primary btn-lg">NEXT</button>
         </div>
     </div>
 </form>
