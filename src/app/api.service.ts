@@ -215,9 +215,8 @@ export class ApiService {
 
   getAllListTrailer() {
     let url:string = '/api/trailers';
-
     return this.http.get(url)
-      .map( (res:Response) => res.json());
+      .map( (res: Response) => res.json());
 
     // return new Promise((resolve, reject) => {
     //   this.http.get('/api/list_trailers')

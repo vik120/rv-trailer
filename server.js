@@ -4,6 +4,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+mongoose.set('debug', true);
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' })
 
@@ -27,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(function(req, res, next) { //allow cross origin requests
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://165.227.23.237:3001");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", true);
   next();

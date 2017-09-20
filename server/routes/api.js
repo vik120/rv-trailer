@@ -20,15 +20,15 @@ router.post('/sendmail', (req, res) => {
       pass: 'Mishra4321'
     }
   });
-  
-  
+
+
   var mailOptions = {
     from: 'brijeshmkt@gmail.com',
     to: req.body.to,
     subject: req.body.subject,
     text: req.body.text
   };
-  
+
   console.log(mailOptions);
   // transporter.sendMail(mailOptions, function(error, info){
   //   if (error) {
@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
-  
+
   ListTrailer.find({}, function(err, trailers) {
     if(err) return err;
 
@@ -156,6 +156,7 @@ router.get('/trailers', function(req, res, next) {
   ListTrailer.find({}, function(err, listtrailers){
     if (err) return next(err);
     res.json(listtrailers);
+
   });
 });
 
