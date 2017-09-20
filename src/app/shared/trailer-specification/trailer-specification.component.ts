@@ -27,7 +27,7 @@ export class TrailerSpecificationComponent implements OnInit {
               public apiService: ApiService)
               {
 
-                this.listing = JSON.parse(localStorage.getItem('listing'));
+                //this.listing = JSON.parse(localStorage.getItem('listing'));
 
                 // if ( getListing.length === 0 ) {
                 //   this.listing = localStorage.setItem('listing', this.listing);
@@ -62,6 +62,10 @@ export class TrailerSpecificationComponent implements OnInit {
       this.router.navigate(['list-trailer/location']);
   }
 
+  trailerspec(value){
+    console.log(value);
+    this.trailerType = value;
+  }
 
 
 }

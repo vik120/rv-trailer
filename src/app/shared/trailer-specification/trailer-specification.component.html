@@ -2,7 +2,7 @@
     <div class="specification-box">
         <h4 class="title text-uppercase">Trailer Specification</h4>
         <div class="clearfix specification-btn">
-            <button  class="btn btn-border-red">
+            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvCottage')">
             <i class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="50px" height="50px">
                         <g>
@@ -28,7 +28,7 @@
                     </svg>
               </i> {{ RV_Cottage }}
           </button>
-            <button  class="btn btn-border-red" (click)="trailerspec(traveler)" [ngClass]="{'btn-primary': trailerType == 'traveler'}">
+            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvTrailer')" [ngClass]="{'btn-primary': trailerType == 'traveler'}">
             <i class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
                         <g>
@@ -42,7 +42,9 @@
                     </svg>
               </i> {{ Travel_Trailer }}
           </button>
-            <button   class="btn btn-border-red" (click)="trailerspec(motor)" [ngClass]="{'btn-primary': trailerType == 'motor'}">
+
+            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvmotor')" [ngClass]="{'btn-primary': trailerType == 'motor'}">
+
             <i class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
                         <g>
@@ -57,7 +59,7 @@
               </i> {{ Motor_Home}}
           </button>
         </div>
-        <div class="trailer-type" *ngIf="trailerType === 'traveler'">
+        <div class="trailer-type" *ngIf="trailerType === 'rvCottage'">
             <div class="checkbox">
                 <input type="checkbox" id="travel_trailer" />
                 <label for="travel_trailer">Travel Trailer</label>
@@ -84,7 +86,7 @@
             </div>
         </div>
 
-        <div class="trailer-type" *ngIf="trailerType === 'motor'">
+        <div class="trailer-type" *ngIf="trailerType === 'rvmotor'">
             <div class="checkbox">
                 <input type="checkbox" id="class_a" />
                 <label for="class_a">Class A</label>
