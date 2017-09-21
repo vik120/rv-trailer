@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onMyAccount() {
+    console.log(this.user.renter);
     if (this.user.renter === 'renter') {
         this.router.navigate(['/renter']);
     }else {
