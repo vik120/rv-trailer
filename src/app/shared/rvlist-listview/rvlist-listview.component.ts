@@ -56,7 +56,9 @@ export class RvlistListviewComponent implements OnInit {
         
         console.log('I am from home');
         console.log(params.location);
-        this.searchTrailers(params.location);
+        console.log(params.from);
+        console.log(params.to);
+        this.searchTrailers(params);
       } else {
         this.getListTrailerList();
         console.log('I am not from home');
@@ -70,12 +72,13 @@ export class RvlistListviewComponent implements OnInit {
     
   }
 
-  searchTrailers(location) {
-    let searchTerm = {location: location};
-    this.apiService.searchTrailers(searchTerm).subscribe((res) => {
+  searchTrailers(params) {
+    //let searchTerm = {location: params.location};
+    console.log(params);
+    this.apiService.searchTrailers(params).subscribe((res) => {
       
       this.listtrailers = res;
-      console.log(this.listtrailers);
+      //console.log(this.listtrailers);
     });
   }
 

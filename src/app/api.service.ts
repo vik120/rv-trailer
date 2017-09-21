@@ -220,9 +220,17 @@ mainURL:String = 'http://localhost:3001';
   }
 
   searchTrailers(searchTerms) {
-    
+    console.log(searchTerms.from);  
     let params = new URLSearchParams();
     params.set('location', searchTerms.location);
+
+    if(searchTerms.from) {
+      params.set('from', searchTerms.from);
+      params.set('to', searchTerms.to);
+
+    }
+    
+
     params.toString();
     
     let url:string = this.mainURL + '/api/search?'+ params;

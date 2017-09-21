@@ -48,6 +48,9 @@ router.get('/', (req, res) => {
 router.get('/search', function(req, res, next) {
   
   location = req.query.location.split(',');
+  from = req.query.from;
+  to = req.query.to;
+  
   //console.log(location);
   //var array = myString.split(',');
 
@@ -56,8 +59,24 @@ router.get('/search', function(req, res, next) {
 
   console.log(city);
   console.log(province);
+  console.log(from);
+  console.log(to);
+
+  // if(from !== undefined && to !== undefined) {
+  //   dateRange = {}
+  // }
   
-  query = {$and: [{location_city: city, location_province: province}]}
+  searchObject = {};
+  searchObject.location_city = city;
+  searchObject.location_province = province;
+
+  if(from !== undefined && to !== undefined) {
+    searchObject.pricing_highest_season_date_range_from = from;
+    searchObject.pricing_highest_season_date_range_to = to;
+  }
+
+
+  query = {$and: [searchObject]}
   ListTrailer.find(query, function(err, trailers) {
     if(err) return err;
 
