@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'rv-home',
@@ -7,6 +9,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+
+  listtrailers: any = [];
 
    public rvList: any[] = [
     {
@@ -99,11 +103,24 @@ export class HomeComponent implements OnInit {
       userWords: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     },
   ];
-  constructor() { }
+
+
+    constructor(public router: Router,
+              public apiService: ApiService,
+              private route: ActivatedRoute
+              ) { }
 
   brandSlideVisible: boolean;
   ngOnInit() {
     this.brandSlideVisible = true;
+    this.getListTrailerList();
+  }
+
+    getListTrailerList() {
+    this.apiService.getAllListTrailer().subscribe((res) => {
+      this.listtrailers = res;
+      console.log(this.listtrailers);
+    });
   }
 
 }

@@ -34,7 +34,7 @@ export class RvlistListviewComponent implements OnInit {
   @Input() ownerName: string;
   @Input() ownerImage: any;
 
-  public max:number = 5;
+  public max:number = 10;
   public rate:number = 3;
   public isReadonly: boolean= true;
 
