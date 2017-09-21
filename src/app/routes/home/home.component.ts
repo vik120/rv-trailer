@@ -12,75 +12,6 @@ export class HomeComponent implements OnInit {
 
   listtrailers: any = [];
 
-   public rvList: any[] = [
-    {
-      rvimage: 'rv-2.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-3.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-4.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-5.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-6.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-7.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    }
-  ];
-
   testimonials: any[] = [
     {
       userPic: 'user-1.png',
@@ -106,17 +37,18 @@ export class HomeComponent implements OnInit {
 
 
     constructor(public router: Router,
-              public apiService: ApiService,
-              private route: ActivatedRoute
-              ) { }
+                public apiService: ApiService,
+                private route: ActivatedRoute
+               ) { }
 
   brandSlideVisible: boolean;
+
   ngOnInit() {
     this.brandSlideVisible = true;
     this.getListTrailerList();
   }
 
-    getListTrailerList() {
+  getListTrailerList() {
     this.apiService.getAllListTrailer().subscribe((res) => {
       this.listtrailers = res;
       console.log(this.listtrailers);
