@@ -21,6 +21,8 @@ export class HeaderFilterComponent implements OnInit {
     
     this.searchForm = this.fb.group({
       'location': ['', Validators.required],
+      'from': [''],
+      'to': [''],
       
     });
    }
@@ -32,7 +34,12 @@ export class HeaderFilterComponent implements OnInit {
   searchLocation() {
     //console.log(this.searchForm.value);
     let formValues = this.searchForm.value;
-    this.router.navigate(['/rv', {location: formValues.location, homeSearch: true}]); 
+    this.router.navigate(['/rv', { 
+      location: formValues.location,
+      from: formValues.from,
+      to: formValues.to,
+       homeSearch: true
+      }]); 
 
     //this.router.navigate( [ 'Details', { id: company.id }] );
     return false;
