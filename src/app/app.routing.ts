@@ -1,3 +1,4 @@
+import { UserDashboardComponent } from './routes/user-dashboard/user-dashboard.component';
 import { AdminViewListTrailerComponent } from './admin/admin-view-list-trailer/admin-view-list-trailer.component';
 import { AdminEditListTrailerComponent } from './admin/admin-edit-list-trailer/admin-edit-list-trailer.component';
 import { AdminAddListTrailerComponent } from './admin/admin-add-list-trailer/admin-add-list-trailer.component';
@@ -293,6 +294,37 @@ export const Routing = RouterModule.forRoot([
             }
         ]
     },
+
+        {
+        path: 'user-dashboard',
+        component: UserDashboardComponent,
+        children: [
+            {
+                path: '',
+                component: AboutUserComponent
+            },
+            {
+                path: 'about',
+                component: AboutUserComponent
+            },
+            {
+                path: 'my-ads',
+                component: OwnerAdsComponent
+            },
+            {
+                path: 'message',
+                component: UserMessageComponent
+            },
+            {
+                path: 'message/:id',
+                component: MsgDetailComponent
+            }
+        ]
+    },
+
+
+
+
     {
         path: '404',
         component: NotFoundComponent
