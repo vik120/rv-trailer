@@ -9,20 +9,20 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 export class GridviewComponent implements OnInit {
 
   @Input('rvInfo') element:{
-    rvimage: any,
+    photo: any,
     rvName: string,
     rvPrice: string,
-    location: string, 
+    location: string,
     year: number,
-    guest: number 
+    guest: number
   }
 
-  @Input() rvimage: any;
+  @Input() photo: any;
   @Input() rvName: string;
   @Input() rvPrice: string;
-  @Input() location: string; 
+  @Input() location: string;
   @Input() year: number;
-  @Input() guest: number; 
+  @Input() guest: number;
 
   constructor() { }
 
