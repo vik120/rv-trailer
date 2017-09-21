@@ -44,15 +44,12 @@ mainURL:String = 'http://localhost:3001';
       return this.http.get('/api/user')
         .map(res => res.json());
 
-
     }
 
 
     showUser(id) {
-      let url:string = '/api/user/' + id;
-
-      return this.http.get(url).map( (res:Response) => res.json );
-
+      let url: string = '/api/user/' + id;
+      return this.http.get(url).map( (res: Response) => res.json ());
 
   }
 
@@ -220,11 +217,11 @@ mainURL:String = 'http://localhost:3001';
   }
 
   searchTrailers(searchTerms) {
-    
+
     let params = new URLSearchParams();
     params.set('location', searchTerms.location);
     params.toString();
-    
+
     let url:string = this.mainURL + '/api/search?'+ params;
     console.log(url);
     return this.http.get(url)
