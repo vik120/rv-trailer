@@ -27,7 +27,8 @@ rForm: FormGroup;
       'password' : [null, Validators.required],
       'owner' : [ true ],
       'approved' : [ false ],
-      'validate' : ''
+      'validate' : '',
+      'type': 'owner'
     });
 
   }

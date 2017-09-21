@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   email: string;
   loggedInUser:any;
-  logindata: any = [];
 
   constructor(public af: AngularFireAuth,
               public router:Router,
@@ -36,11 +35,6 @@ export class LoginComponent implements OnInit {
               private formBuilder: FormBuilder)
               {
                 this.createForm();
-                if(this.logindata  === null ) {
-                  console.log()
-                } else {
-                  this.logindata = JSON.parse(localStorage.getItem('user'));
-                }
               }
 
   facebookLogin() {
@@ -87,7 +81,6 @@ export class LoginComponent implements OnInit {
         password: this.form.get('password').value
       }
 
-
     this.apiService.clientLogin(user).subscribe(data => {
       if (!data.success) {
         this.messageClass = 'alert alert-danger';
@@ -96,8 +89,6 @@ export class LoginComponent implements OnInit {
         this.enableForm();
       } else {
        // this.getUserByEmail();
-        console.log(this.loggedInUser);
-
         this.messageClass = 'alert alert-success';
         this.message = 'Success';
         this.apiService.storeUserData(data.token, data.user);

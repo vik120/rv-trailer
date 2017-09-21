@@ -56,7 +56,7 @@ export class ApiService {
 
     addUser(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/saveuser', data)
+        this.http.post( this.mainURL + '/api/saveuser', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -152,7 +152,7 @@ export class ApiService {
 
   addListTrailer(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/list_trailers', data)
+        this.http.post(this.mainURL + '/api/list_trailers', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -164,7 +164,7 @@ export class ApiService {
 
    getAllCmsPages() {
     return new Promise((resolve, reject) => {
-      this.http.get('/api/cmspage')
+      this.http.get( this.mainURL + '/api/cmspage')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -176,7 +176,7 @@ export class ApiService {
 
   showCmsPage(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/api/cmspage/' + id)
+        this.http.get( this.mainURL + '/api/cmspage/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)
@@ -188,7 +188,7 @@ export class ApiService {
 
   addCmsPage(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/savecmspage', data)
+        this.http.post( this.mainURL + '/api/savecmspage', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -200,7 +200,7 @@ export class ApiService {
 
     updateCmsPage(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/api/cmspage/' + id, data)
+        this.http.put( this.mainURL + '/api/cmspage/' + id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -212,7 +212,7 @@ export class ApiService {
 
     deleteCmsPage(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/api/cmspage/'+ id)
+        this.http.delete( this.mainURL + '/api/cmspage/'+ id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {
@@ -259,7 +259,7 @@ export class ApiService {
 
   showListTrailer(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/api/list_trailers/' + id)
+        this.http.get( this.mainURL + '/api/list_trailers/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)
@@ -271,7 +271,7 @@ export class ApiService {
 
   updateListTrailer(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/api/list_trailers/' + id, data)
+        this.http.put( this.mainURL + '/api/list_trailers/' + id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -283,7 +283,7 @@ export class ApiService {
 
     deleteListTrailer(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/api/list_trailers/'+ id)
+        this.http.delete( this.mainURL + '/api/list_trailers/'+ id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {
