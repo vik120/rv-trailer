@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'rv-header-filter',
@@ -8,9 +11,32 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderFilterComponent implements OnInit {
 
-  constructor() { }
+  
+  public myForm: FormGroup; // our model driven form
+  public submitted: boolean;
+  searchForm:any;
+  //router:Router;
+
+  constructor(private fb: FormBuilder, public router: Router) {
+    
+    this.searchForm = this.fb.group({
+      'location': ['', Validators.required],
+      
+    });
+   }
 
   ngOnInit() {
+    
+  }
+
+  searchLocation() {
+    //console.log(this.searchForm.value);
+    let formValues = this.searchForm.value;
+    this.router.navigate(['/rv', {location: formValues.location, homeSearch: true}]); 
+
+    //this.router.navigate( [ 'Details', { id: company.id }] );
+    return false;
+    
   }
 
 }

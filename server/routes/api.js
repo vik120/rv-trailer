@@ -46,8 +46,19 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
+  
+  location = req.query.location.split(',');
+  //console.log(location);
+  //var array = myString.split(',');
 
-  ListTrailer.find({}, function(err, trailers) {
+  city = location[0].trim();
+  province = location[1].trim();
+
+  console.log(city);
+  console.log(province);
+  
+  query = {$and: [{location_city: city, location_province: province}]}
+  ListTrailer.find(query, function(err, trailers) {
     if(err) return err;
 
     res.json(trailers);
