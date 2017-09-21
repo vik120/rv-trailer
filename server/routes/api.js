@@ -46,11 +46,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search', function(req, res, next) {
-  
+
   location = req.query.location.split(',');
   from = req.query.from;
   to = req.query.to;
-  
+
   //console.log(location);
   //var array = myString.split(',');
 
@@ -65,7 +65,7 @@ router.get('/search', function(req, res, next) {
   // if(from !== undefined && to !== undefined) {
   //   dateRange = {}
   // }
-  
+
   searchObject = {};
   searchObject.location_city = city;
   searchObject.location_province = province;
@@ -99,6 +99,17 @@ router.get('/user/:id', function(req, res, next) {
     res.json(post);
   });
 });
+
+router.get('/userbyemail/:email',function(req, res, next) {
+  console.log('I am here');
+  console.log(req.params.email);
+  User.findOne({email : req.params.email }, function (err, user){
+    if (err) return err;
+
+    res.json(user);
+  });
+  //User.findOne()
+})
 
 /* SAVE User */
 router.post('/saveuser', function(req, res, next) {
@@ -191,10 +202,12 @@ router.get('/trailers', function(req, res, next) {
 });
 
 
-
-
-
-
+router.get('/trailersByUserId/:id', function(req, res, next) {
+  ListTrailer.find({user_id: req.params.id}, function (err, listtrailers) {
+    if (err) return next(err);
+    res.json(listtrailers);
+  });
+});
 
 router.post('/list_trailers', function(req, res, next) {
   ListTrailer.create(req.body, function (err, post) {

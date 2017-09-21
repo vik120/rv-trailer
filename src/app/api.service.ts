@@ -17,7 +17,7 @@ export class ApiService {
   headers:any = {'Content-Type': 'application/json'};
 
   //This is for local
-mainURL:String = 'http://localhost:3001';
+  mainURL: string = 'http://localhost:3001';
 
   //This is for server
   //mainURL:String = 'http://165.227.23.237:3001';
@@ -41,14 +41,14 @@ mainURL:String = 'http://localhost:3001';
 
     getAllUsers() {
 
-      return this.http.get('/api/user')
+      return this.http.get(this.mainURL + '/api/user')
         .map(res => res.json());
 
     }
 
 
     showUser(id) {
-      let url: string = '/api/user/' + id;
+      let url: string = this.mainURL + '/api/user/' + id;
       return this.http.get(url).map( (res: Response) => res.json ());
 
   }
@@ -90,13 +90,18 @@ mainURL:String = 'http://localhost:3001';
   }
 
   login(user) {
-      return this.http.post('/api/login', user)
+      return this.http.post( this.mainURL + '/api/login', user)
           .map(res => res.json());
   }
 
   clientLogin(user) {
-      return this.http.post('/api/clientLogin', user)
+      return this.http.post( this.mainURL + '/api/clientLogin', user)
           .map(res => res.json());
+  }
+
+  userByEmail(email) {
+    return this.http.get( this.mainURL + '/api/userbyemail/' + email )
+      .map(res => res.json());
   }
 
   logout() {

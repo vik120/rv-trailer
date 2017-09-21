@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   message;
   processing = false;
   form: FormGroup;
+  email: string;
+  loggedInUser:any;
+  logindata: any = [];
 
   constructor(public af: AngularFireAuth,
               public router:Router,
@@ -33,6 +36,11 @@ export class LoginComponent implements OnInit {
               private formBuilder: FormBuilder)
               {
                 this.createForm();
+                if(this.logindata  === null ) {
+                  console.log()
+                } else {
+                  this.logindata = JSON.parse(localStorage.getItem('user'));
+                }
               }
 
   facebookLogin() {
@@ -66,11 +74,12 @@ export class LoginComponent implements OnInit {
   brandSlideVisible: boolean;
   ngOnInit() {
     this.brandSlideVisible = true;
+
   }
 
     onLoginSubmit() {
     console.log(this.form.value);
-
+      this.email = this.form.get('email').value;
       this.processing = true;
       this.disableForm();
       const user = {
@@ -86,6 +95,9 @@ export class LoginComponent implements OnInit {
         this.processing = false;
         this.enableForm();
       } else {
+       // this.getUserByEmail();
+        console.log(this.loggedInUser);
+
         this.messageClass = 'alert alert-success';
         this.message = 'Success';
         this.apiService.storeUserData(data.token, data.user);
@@ -96,5 +108,15 @@ export class LoginComponent implements OnInit {
     });
 
 }
+
+// getUserByEmail() {
+//   this.apiService.userByEmail(this.email)
+//     .subscribe( data => {
+//       console.log('brijesh');
+//       console.log(data);
+//       localStorage.setItem('loggedInUser', data);
+//       this.loggedInUser = data;
+//     });
+// }
 
 }
