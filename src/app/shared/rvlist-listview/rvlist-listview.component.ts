@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { ApiService } from './../../api.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
 
 @Component({
   selector: 'rv-listview',
@@ -38,18 +39,47 @@ export class RvlistListviewComponent implements OnInit {
   public rate:number = 3;
   public isReadonly: boolean= true;
 
+  //homeSearchValues
+
   constructor(public router: Router,
               public apiService: ApiService,
-              private route: ActivatedRoute
+              private activatedRoute: ActivatedRoute
               ) { }
 
   brandSlideVisible: boolean;
   ngOnInit() {
+
+    //Get values of search coming from home page
+    this.activatedRoute.params.subscribe((params: Params) => {
+      
+      if(params.homeSearch === 'true') {
+        
+        console.log('I am from home');
+        console.log(params.location);
+        this.searchTrailers(params.location);
+      } else {
+        this.getListTrailerList();
+        console.log('I am not from home');
+      }
+      console.log(params.homeSearch);
+      
+    });
+
+
     this.brandSlideVisible = true;
-    this.getListTrailerList();
+    
   }
 
-    getListTrailerList() {
+  searchTrailers(location) {
+    let searchTerm = {location: location};
+    this.apiService.searchTrailers(searchTerm).subscribe((res) => {
+      
+      this.listtrailers = res;
+      console.log(this.listtrailers);
+    });
+  }
+
+  getListTrailerList() {
     this.apiService.getAllListTrailer().subscribe((res) => {
       this.listtrailers = res;
       console.log(this.listtrailers);

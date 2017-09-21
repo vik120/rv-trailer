@@ -1,5 +1,8 @@
 <div class="clearfix header-filter">
+    <form [formGroup]="searchForm" (ngSubmit)="searchLocation()">
+        
     <div class="col-sm-4">
+           
         <div class="field-search">
             <i class="icon">
 
@@ -15,7 +18,7 @@
                 </g>
               </svg>
             </i>
-            <input type="text" class="form-control" placeholder="NANAIMO, COLUMBIA" />
+            <input type="text" formControlName="location" name="location" class="form-control" placeholder="NANAIMO, COLUMBIA" />
         </div>
     </div>
     <div class="col-sm-3">
@@ -50,10 +53,11 @@
                 </g>
                 </svg>
             </i>
-            <input type="text" class="form-control" placeholder="Available Till" />
+            <input type="text"  class="form-control" placeholder="Available Till" />
         </div>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary">Search</button>
+        <button type="submit" [disabled]="!searchForm.valid"  class="btn btn-primary">Search</button>
     </div>
+  </form>
 </div>
