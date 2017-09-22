@@ -40,7 +40,7 @@ router.post('/sendmail', (req, res) => {
 
 
 });
-/* GET api listing. */
+
 router.get('/', (req, res) => {
   res.send('api works');
 });
@@ -84,7 +84,6 @@ router.get('/search', function(req, res, next) {
   })
 });
 
-/* GET ALL User */
 router.get('/user', function(req, res, next) {
   User.find({}, function(err, users){
     if (err) return next(err);
@@ -92,7 +91,6 @@ router.get('/user', function(req, res, next) {
   });
 });
 
-/* GET SINGLE User BY ID */
 router.get('/user/:id', function(req, res, next) {
   User.findById(req.params.id, function (err, post) {
     if (err) return next(err);
@@ -111,7 +109,6 @@ router.get('/userbyemail/:email',function(req, res, next) {
   //User.findOne()
 })
 
-/* SAVE User */
 router.post('/saveuser', function(req, res, next) {
   User.create(req.body, function (err, post) {
     if (err) return next(err);
@@ -119,7 +116,6 @@ router.post('/saveuser', function(req, res, next) {
   });
 });
 
-/* UPDATE User */
 router.put('/user/:id', function(req, res, next) {
   User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
@@ -127,7 +123,6 @@ router.put('/user/:id', function(req, res, next) {
   });
 });
 
-/* DELETE User */
 router.delete('/user/:id', function(req, res, next) {
   User.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
@@ -240,8 +235,6 @@ router.delete('/list_trailers/:id', function(req, res, next) {
 
 
 
-
-
 router.post('/login', (req, res) => {
       User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password}, {admin: true} ]}, (err, user) => {
         if(err) {
@@ -288,21 +281,5 @@ router.use((req, res, next) => {
     });
   }
 });
-
-// router.post('/changePass', (req, res) => {
-//   User.findOne({_id: req.decoded.userId }).update('password').exec((err, user) => {
-//     if(err) {
-//       res.json({ success: false});
-//     } else {
-//       if (!user) {
-//         res.json({ success: false});
-//       }else {
-//         res.json({ success: true});
-//       }
-//     }
-//   })
-// });
-
-
 
 module.exports = router;
