@@ -39,8 +39,6 @@ export class RvlistListviewComponent implements OnInit {
   public rate:number = 3;
   public isReadonly: boolean= true;
 
-  //homeSearchValues
-
   constructor(public router: Router,
               public apiService: ApiService,
               private activatedRoute: ActivatedRoute
@@ -53,39 +51,24 @@ export class RvlistListviewComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       
       if(params.homeSearch === 'true') {
-        
-        console.log('I am from home');
-        console.log(params.location);
-        console.log(params.from);
-        console.log(params.to);
         this.searchTrailers(params);
       } else {
         this.getListTrailerList();
-        console.log('I am not from home');
       }
-      console.log(params.homeSearch);
-      
     });
 
-
     this.brandSlideVisible = true;
-    
   }
 
   searchTrailers(params) {
-    //let searchTerm = {location: params.location};
-    console.log(params);
     this.apiService.searchTrailers(params).subscribe((res) => {
-      
-      this.listtrailers = res;
-      //console.log(this.listtrailers);
+    this.listtrailers = res;
     });
   }
 
   getListTrailerList() {
     this.apiService.getAllListTrailer().subscribe((res) => {
-      this.listtrailers = res;
-      console.log(this.listtrailers);
+    this.listtrailers = res;
     });
   }
 

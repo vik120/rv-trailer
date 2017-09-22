@@ -24,7 +24,7 @@
         Price Range
       </label>
             <div class="filter-field">
-                <ion-range-slider #sliderElement type="single" [min]="myMinVar" max="5000" from="0" to="5000" grid="false">
+                <ion-range-slider (onFinish)="myOnFinish($event)" #sliderElement type="single" [min]="myMinVar" max="5000" from="0" to="5000" grid="false">
 
                 </ion-range-slider>
                 <div class="clearfix range-values">

@@ -31,6 +31,10 @@ export class FilterComponent implements OnInit {
   ngOnInit() {
   }
 
+  myOnFinish(event) {
+    console.log(event);
+  }
+
   submitSearch(form){
     console.log('kirti');
     console.log(form.value);
