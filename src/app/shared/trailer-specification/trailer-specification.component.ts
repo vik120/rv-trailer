@@ -17,6 +17,7 @@ export class TrailerSpecificationComponent implements OnInit {
   listing: any = [];
   getListing: any = [];
 
+  
   public trailerType: string = 'traveler';
   RV_Cottage : string = 'RV Cottage';
   Travel_Trailer : string = 'Travel Trailer';
@@ -45,12 +46,24 @@ export class TrailerSpecificationComponent implements OnInit {
                   'specification_tough_weight' : [null, Validators.required],
                   'specification_guest' : [null, Validators.required],
                   'specification_slide_out' : [null, Validators.required],
+                  'traveltrailer': [null],
+                  'fifthwheel': [null],
+                  'tenttrailer': [null],
+                  'vintage': [null],
+                  'hybrid': [null],
+                  'toyhauler': [null]
+                  
+                  
+
+                  
 
               });
   }
 
   ngOnInit() {
   }
+
+  
 
   onSubmitSpecification() {
       const listingSpecification  = this.rForm.value;

@@ -60,29 +60,33 @@
           </button>
         </div>
         <div class="trailer-type" *ngIf="trailerType === 'rvTrailer'">
+
             <div class="checkbox">
-                <input type="checkbox" id="travel_trailer" />
-                <label for="travel_trailer">Travel Trailer</label>
+                <input type="checkbox" formControlName="traveltrailer" id="traveltrailer" value="traveltrailer" />
+                <label for="traveltrailer">Travel Trailer</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="fifth_wheel" />
-                <label for="fifth_wheel">Fifth Wheel</label>
+                <input type="checkbox" formControlName="fifthwheel" id="fifthwheel" value="fifthwheel" />
+                <label for="fifthwheel">Fifth Wheel</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="tent_trailer" />
-                <label for="tent_trailer">Tent Trailer</label>
+                    <input type="checkbox" formControlName="tenttrailer" id="tenttrailer" value="tenttrailer" />
+                    
+                <label for="tenttrailer">Tent Trailer</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="vintage" />
+                    <input type="checkbox" formControlName="vintage" id="vintage" value="vintage" />
                 <label for="vintage">Vintage</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="hybrid" />
+                    <input type="checkbox" formControlName="hybrid" id="hybrid" value="hybrid" />
+                    
                 <label for="hybrid">Hybrid</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" id="toy_hauler" />
-                <label for="toy_hauler">Toy Hauler</label>
+                    <input type="checkbox" formControlName="toyhauler" id="toyhauler" value="toyhauler" />
+                    
+                <label for="toyhauler">Toy Hauler</label>
             </div>
         </div>
 

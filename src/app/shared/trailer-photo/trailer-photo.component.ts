@@ -56,7 +56,7 @@ userID: any = [];
   onSubmitPhoto() {
 
 
-    console.log(this.fileName);
+    //console.log(this.fileName);
     const photo = {'photo': this.fileName};
     this.userID = JSON.parse(localStorage.getItem('user'));
     const photo_data = Object.assign({}, this.listing, photo, {user_id: this.userID.id});
