@@ -318,6 +318,10 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'message/:id',
                 component: MsgDetailComponent
+            },
+            {
+                path: 'favourite',
+                component: UserFavouriteComponent
             }
         ]
     },

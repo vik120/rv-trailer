@@ -8,7 +8,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'rv-user-dashboard',
   templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.scss']
+  styleUrls: ['./user-dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UserDashboardComponent implements OnInit {
 
