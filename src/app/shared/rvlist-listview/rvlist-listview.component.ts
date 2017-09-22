@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { ApiService } from './../../api.service';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
+import { ApiService } from './../../api.service';
 
 @Component({
   selector: 'rv-listview',
@@ -38,12 +39,22 @@ export class RvlistListviewComponent implements OnInit {
   public max:number = 10;
   public rate:number = 3;
   public isReadonly: boolean= true;
+  public filterForm: FormGroup;
+
+  
 
   constructor(public router: Router,
               public apiService: ApiService,
-              private activatedRoute: ActivatedRoute
-              ) { }
+              private activatedRoute: ActivatedRoute,
+              public fbg: FormBuilder
+              ) { 
+                this.filterForm = this.fbg.group ({
+                  'location': ['', Validators.required]
+                })
+                console.log('this is loaded');
+              }
 
+  
   brandSlideVisible: boolean;
   ngOnInit() {
 
