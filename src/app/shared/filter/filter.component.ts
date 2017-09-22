@@ -26,9 +26,14 @@ export class FilterComponent implements OnInit {
     'Virginia', 'Washington',
     'West Virginia', 'Wisconsin', 'Wyoming'];
 
+  public search: Object = {};
   constructor() { }
 
   ngOnInit() {
+  }
+
+  filterSearch(){
+    console.log(this);
   }
 
   myOnFinish(event) {
