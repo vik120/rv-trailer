@@ -45,13 +45,19 @@ export class HeaderComponent implements OnInit {
   }
 
   onMyAccount() {
-    if (this.user.renter === true) {
-        this.router.navigate(['/renter']);
-    }else {
-        this.router.navigate(['/owner']);
-    }
+      this.router.navigate(['/user-dashboard']);
   }
 
 }
+
+    // onMyAccount() {
+    // if (this.user.renter === true) {
+    //     this.router.navigate(['/renter']);
+    // }else {
+    //     this.router.navigate(['/owner']);
+    // }
+
+
+
 
 

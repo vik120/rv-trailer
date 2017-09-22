@@ -29,7 +29,7 @@ export class UserDashboardComponent implements OnInit {
     this.apiService.logout();
     this.flashMessagesService.show('You are Logged Out', {cssClass: 'alert-info'});
     this.router.navigate(['/']);
-    window.location.reload();
+    // window.location.reload();
   }
 
 }

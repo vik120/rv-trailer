@@ -1,4 +1,6 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'rv-owner-ads',
@@ -8,9 +10,32 @@ import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 })
 export class OwnerAdsComponent implements OnInit {
 
-  constructor() { }
+  userDetails: any = [];
+  logindata:any;
+
+  constructor(public router: Router,
+              public apiService: ApiService,
+              private activatedRoute: ActivatedRoute
+              ) {
+                  if(this.logindata  === null ) {
+                    console.log();
+                  } else {
+                    this.logindata = JSON.parse(localStorage.getItem('user'));
+                  }
+              }
 
   ngOnInit() {
+    if (this.logindata  !== null ) {
+      const id = this.logindata.id;
+      this.getUserListDetail(id);
+    }
   }
+
+  getUserListDetail(id) {
+    this.apiService.ListByUserId(id).subscribe((res) => {
+      this.userDetails = res;
+    });
+  }
+
 
 }
