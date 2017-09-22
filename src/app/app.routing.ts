@@ -295,7 +295,7 @@ export const Routing = RouterModule.forRoot([
         ]
     },
 
-        {
+    {
         path: 'user-dashboard',
         component: UserDashboardComponent,
         children: [
