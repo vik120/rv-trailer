@@ -17,7 +17,7 @@ export class ApiService {
   headers:any = {'Content-Type': 'application/json'};
 
   //This is for local
-mainURL:String = 'http://localhost:3001';
+  mainURL: string = 'http://localhost:3001';
 
   //This is for server
   //mainURL:String = 'http://165.227.23.237:3001';
@@ -41,25 +41,22 @@ mainURL:String = 'http://localhost:3001';
 
     getAllUsers() {
 
-      return this.http.get('/api/user')
+      return this.http.get(this.mainURL + '/api/user')
         .map(res => res.json());
-
 
     }
 
 
     showUser(id) {
-      let url:string = '/api/user/' + id;
-
-      return this.http.get(url).map( (res:Response) => res.json );
-
+      let url: string = this.mainURL + '/api/user/' + id;
+      return this.http.get(url).map( (res: Response) => res.json ());
 
   }
 
 
     addUser(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/saveuser', data)
+        this.http.post( this.mainURL + '/api/saveuser', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -93,13 +90,18 @@ mainURL:String = 'http://localhost:3001';
   }
 
   login(user) {
-      return this.http.post('/api/login', user)
+      return this.http.post( this.mainURL + '/api/login', user)
           .map(res => res.json());
   }
 
   clientLogin(user) {
-      return this.http.post('/api/clientLogin', user)
+      return this.http.post( this.mainURL + '/api/clientLogin', user)
           .map(res => res.json());
+  }
+
+  userByEmail(email) {
+    return this.http.get( this.mainURL + '/api/userbyemail/' + email )
+      .map(res => res.json());
   }
 
   logout() {
@@ -150,7 +152,7 @@ mainURL:String = 'http://localhost:3001';
 
   addListTrailer(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/list_trailers', data)
+        this.http.post(this.mainURL + '/api/list_trailers', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -162,7 +164,7 @@ mainURL:String = 'http://localhost:3001';
 
    getAllCmsPages() {
     return new Promise((resolve, reject) => {
-      this.http.get('/api/cmspage')
+      this.http.get( this.mainURL + '/api/cmspage')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -174,7 +176,7 @@ mainURL:String = 'http://localhost:3001';
 
   showCmsPage(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/api/cmspage/' + id)
+        this.http.get( this.mainURL + '/api/cmspage/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)
@@ -186,7 +188,7 @@ mainURL:String = 'http://localhost:3001';
 
   addCmsPage(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/api/savecmspage', data)
+        this.http.post( this.mainURL + '/api/savecmspage', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -198,7 +200,7 @@ mainURL:String = 'http://localhost:3001';
 
     updateCmsPage(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/api/cmspage/' + id, data)
+        this.http.put( this.mainURL + '/api/cmspage/' + id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -210,7 +212,7 @@ mainURL:String = 'http://localhost:3001';
 
     deleteCmsPage(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/api/cmspage/'+ id)
+        this.http.delete( this.mainURL + '/api/cmspage/'+ id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {
@@ -220,7 +222,7 @@ mainURL:String = 'http://localhost:3001';
   }
 
   searchTrailers(searchTerms) {
-    console.log(searchTerms.from);  
+    console.log(searchTerms.from);
     let params = new URLSearchParams();
     params.set('location', searchTerms.location);
 
@@ -229,10 +231,10 @@ mainURL:String = 'http://localhost:3001';
       params.set('to', searchTerms.to);
 
     }
-    
+
 
     params.toString();
-    
+
     let url:string = this.mainURL + '/api/search?'+ params;
     console.log(url);
     return this.http.get(url)
@@ -257,7 +259,7 @@ mainURL:String = 'http://localhost:3001';
 
   showListTrailer(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/api/list_trailers/' + id)
+        this.http.get( this.mainURL + '/api/list_trailers/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)
@@ -269,7 +271,7 @@ mainURL:String = 'http://localhost:3001';
 
   updateListTrailer(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/api/list_trailers/' + id, data)
+        this.http.put( this.mainURL + '/api/list_trailers/' + id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -281,7 +283,7 @@ mainURL:String = 'http://localhost:3001';
 
     deleteListTrailer(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/api/list_trailers/'+ id)
+        this.http.delete( this.mainURL + '/api/list_trailers/'+ id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {

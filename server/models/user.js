@@ -12,7 +12,8 @@ var UserSchema = new Schema({
     approved: {type: Boolean},
     admin: {type: Boolean, default: false},
     owner: {type: Boolean, default: false},
-    renter: {type: Boolean, default: false}
+    renter: {type: Boolean, default: false},
+    type: {type: String}
 });
 
 module.exports = mongoose.model('User', UserSchema);

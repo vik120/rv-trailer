@@ -28,7 +28,8 @@ export class SignupRenterComponent implements OnInit {
       'password' : [null, Validators.required],
       'renter' : [ true ],
       'approved' : [ false ],
-      'validate' : ''
+      'validate' : '',
+      'type': 'renter'
     });
 
   }
@@ -43,7 +44,7 @@ export class SignupRenterComponent implements OnInit {
       alert('Please Loggin With Your Email and Password');
       this.router.navigate(['/login']);
     }, (err) => {
-      console.log("Duplicate username");
+      console.log(err);
         this.flashMessagesService.show('This E-mail Id is Registered.', {cssClass: 'alert-danger'});
     });
   }

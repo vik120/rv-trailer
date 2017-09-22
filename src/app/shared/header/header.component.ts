@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   showMenu: boolean = false;
   logindata: any = [];
   user: any = [];
+  userdetails: any = [];
 
    constructor(public router: Router,
               public apiService: ApiService,
@@ -31,25 +32,20 @@ export class HeaderComponent implements OnInit {
               }
 
   ngOnInit() {
-
     if (this.logindata  !== null ) {
-      this.getUserData(this.logindata.id);
-    }
-
+      const id = this.logindata.id;
+      this.getUserData(id);
+     }
   }
 
   getUserData(id) {
     this.apiService.showUser(id).subscribe((res) => {
       this.user = res;
-      console.log(this.user);
-    }, (err) => {
-      console.log(err);
     });
   }
 
   onMyAccount() {
-    console.log(this.user.renter);
-    if (this.user.renter === 'renter') {
+    if (this.user.renter === true) {
         this.router.navigate(['/renter']);
     }else {
         this.router.navigate(['/owner']);

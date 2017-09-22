@@ -21,6 +21,7 @@ rForm: FormGroup;
 listing: any = [];
 public uploader:FileUploader = new FileUploader({url: URL});
 fileName: String;
+userID: any = [];
 
 
   constructor(private fb: FormBuilder,
@@ -56,17 +57,16 @@ fileName: String;
 
 
     console.log(this.fileName);
-    const photo = {"photo": this.fileName};
-  //  console.log(photo);
-   // console.log(this.listing);
-    const photo_data = Object.assign({}, this.listing, photo);
+    const photo = {'photo': this.fileName};
+    this.userID = JSON.parse(localStorage.getItem('user'));
+    const photo_data = Object.assign({}, this.listing, photo, {user_id: this.userID.id});
     console.log(photo_data);
 
     this.apiService.addListTrailer(photo_data).then((result) => {
       const id = result['_id'];
       this.router.navigate(['/rv']);
      }, (err) => {
-  //    console.log(err);
+      console.log(err);
     });
 
   }
