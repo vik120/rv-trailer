@@ -18,6 +18,10 @@ var ListTrailerSchema = new Schema({
     toyhauler: {type: String, default: false},
     traveltrailer: {type: String, default: false},
     vintage: {type: String, default: false},
+    motor_class_a: {type: String, default: false},
+    motor_class_b: {type: String, default: false},
+    motor_class_c: {type: String, default: false},
+    
     location_street: {type: String},
     location_city: {type: String },
     location_province: {type: String},

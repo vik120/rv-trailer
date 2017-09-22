@@ -51,7 +51,11 @@ export class TrailerSpecificationComponent implements OnInit {
                   'tenttrailer': [null],
                   'vintage': [null],
                   'hybrid': [null],
-                  'toyhauler': [null]
+                  'toyhauler': [null],
+                  'motor_class_a': [null],
+                  'motor_class_b': [null],
+                  'motor_class_c': [null],
+                  
                   
                   
 
