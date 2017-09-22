@@ -240,7 +240,7 @@ router.post('/favourite', function(req, res, next) {
   });
 });
 
-router.post('/favourite1', function(req, res, next) {
+router.get('/favourite1', function(req, res, next) {
   Favourite.find({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, function (err, favourite) {
         if(err) {
           res.json({success: false, message: err });
