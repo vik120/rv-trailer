@@ -302,10 +302,10 @@ export class ApiService {
       .map(res => res.json());
   }
 
-  CurrentFavourite(favourite) {
-      let url: string = this.mainURL + '/api/favourite1/' + favourite;
-      return this.http.get(url).map( (res: Response) => res.json ());
-  }
+  // CurrentFavourite(favourite) {
+  //     let url: string = this.mainURL + '/api/favourite1/' +  favourite;
+  //     return this.http.get(url).map( (res: Response) => res.json ());
+  // }
 
 }
 

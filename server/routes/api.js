@@ -240,18 +240,33 @@ router.post('/favourite', function(req, res, next) {
   });
 });
 
-router.get('/favourite1', function(req, res, next) {
-  Favourite.find({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, function (err, favourite) {
+// router.get('/favourite1', function(req, res, next) {
+//   Favourite.findOne({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, function (err, favourite) {
+//         if(err) {
+//           res.json({success: false, message: err });
+//         } else {
+//           if(!favourite) {
+//             res.json({ success: false});
+//             } else {
+//                 res.json(favourite);
+//                 console.log(favourite);
+//             }
+//         }
+//   });
+// });
+
+router.post('/favourite', (req, res) => {
+      User.findOne({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, (err, favourite) => {
         if(err) {
           res.json({success: false, message: err });
         } else {
           if(!favourite) {
             res.json({ success: false});
             } else {
-                res.json(favourite);
+                res.json({ success: true, token: token, favourite: { id: favourite._id } });
             }
         }
-  });
+    });
 });
 
 // router.get('/favourite', function(req, res, next) {

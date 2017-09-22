@@ -110,16 +110,23 @@ export class RvDetailComponent implements OnInit {
       };
       console.log(favourite);
 
-        // if(){
+    // this.apiService.addFavourite(favourite).subscribe((result) => {
+    //   let id = result['_id'];
+    // }, (err) => {
+    //   console.log(err);
+    // });
 
-        // } else {
-        //   this.apiService.addFavourite(favourite).subscribe((result) => {
-        //   let id = result['_id'];
-        //   }, (err) => {
-        //   console.log(err);
-        // });
-        // }
+    this.apiService.addFavourite(favourite).subscribe(data => {
+      if (!data.success) {
+        console.log('this is unfavourite');
+
+      } else {
+          console.log('this is favourite');
+      }
+    });
+
   }
+
 
 
 }

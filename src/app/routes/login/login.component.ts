@@ -81,6 +81,9 @@ export class LoginComponent implements OnInit {
         password: this.form.get('password').value
       }
 
+      console.log('khushi');
+      console.log(user);
+
     this.apiService.clientLogin(user).subscribe(data => {
       if (!data.success) {
         this.messageClass = 'alert alert-danger';
