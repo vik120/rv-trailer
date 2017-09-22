@@ -8,6 +8,7 @@ var User = require('../models/user');
 var Admin = require('../models/admin');
 var CmsPage = require('../models/cmspage');
 var ListTrailer = require('../models/product');
+var Favourite = require('../models/favourite');
 
 
 
@@ -232,6 +233,34 @@ router.delete('/list_trailers/:id', function(req, res, next) {
   });
 });
 
+router.post('/favourite', function(req, res, next) {
+  Favourite.create(req.body, function (err, favourite) {
+    if (err) return next(err);
+    res.json(favourite);
+  });
+});
+
+router.post('/favourite1', function(req, res, next) {
+  Favourite.find({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, function (err, favourite) {
+        if(err) {
+          res.json({success: false, message: err });
+        } else {
+          if(!favourite) {
+            res.json({ success: false});
+            } else {
+                res.json(favourite);
+            }
+        }
+  });
+});
+
+// router.get('/favourite', function(req, res, next) {
+//   Favourite.find({}, function(err, favourite){
+//     if (err) return err;
+//     res.json(favourite);
+
+//   });
+// });
 
 
 

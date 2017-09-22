@@ -11,7 +11,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class OwnerAdsComponent implements OnInit {
 
   userDetails: any = [];
-  logindata:any;
+  logindata: any;
 
   constructor(public router: Router,
               public apiService: ApiService,

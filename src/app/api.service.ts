@@ -297,6 +297,16 @@ export class ApiService {
       return this.http.get(url).map( (res: Response) => res.json ());
   }
 
+  addFavourite(favourite) {
+      return this.http.post( this.mainURL + '/api/favourite/', favourite)
+      .map(res => res.json());
+  }
+
+  CurrentFavourite(favourite) {
+      let url: string = this.mainURL + '/api/favourite1/' + favourite;
+      return this.http.get(url).map( (res: Response) => res.json ());
+  }
+
 }
 
 

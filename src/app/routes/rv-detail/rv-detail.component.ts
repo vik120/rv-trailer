@@ -85,9 +85,10 @@ export class RvDetailComponent implements OnInit {
   constructor(private app: AppComponent,
               public router: Router,
               public apiService: ApiService,
-              private route: ActivatedRoute) {
-    this.app.brandSlideVisible = false;
-   }
+              private route: ActivatedRoute
+              ) {
+                  this.app.brandSlideVisible = false;
+            }
 
   ngOnInit() {
     this.getRenterDetail(this.route.snapshot.params['id']);
@@ -101,5 +102,24 @@ export class RvDetailComponent implements OnInit {
       console.log(err);
     });
   }
+
+  onFavouriteClick() {
+      const favourite = {
+        user_id: this.renterdetail.user_id,
+        trailer_id: this.renterdetail._id
+      };
+      console.log(favourite);
+
+        // if(){
+
+        // } else {
+        //   this.apiService.addFavourite(favourite).subscribe((result) => {
+        //   let id = result['_id'];
+        //   }, (err) => {
+        //   console.log(err);
+        // });
+        // }
+  }
+
 
 }
