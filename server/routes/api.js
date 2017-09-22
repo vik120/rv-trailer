@@ -240,43 +240,21 @@ router.post('/favourite', function(req, res, next) {
   });
 });
 
-// router.get('/favourite1', function(req, res, next) {
-//   Favourite.findOne({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, function (err, favourite) {
-//         if(err) {
-//           res.json({success: false, message: err });
-//         } else {
-//           if(!favourite) {
-//             res.json({ success: false});
-//             } else {
-//                 res.json(favourite);
-//                 console.log(favourite);
-//             }
-//         }
-//   });
-// });
+router.post('/getfavourite', function(req, res) {
+  //console.log(req.body.user_id);
 
-router.post('/favourite', (req, res) => {
-      User.findOne({ $and: [ {user_id: req.body.user_id}, {trailer_id: req.body.trailer_id} ]}, (err, favourite) => {
-        if(err) {
-          res.json({success: false, message: err });
-        } else {
-          if(!favourite) {
-            res.json({ success: false});
-            } else {
-                res.json({ success: true, token: token, favourite: { id: favourite._id } });
-            }
-        }
-    });
+  Favourite.findOne({user_id: req.body.user_id, trailer_id: req.body.trailer_id} , function (err, favourite) {
+    if (err) return next(err);
+    res.json(favourite);
+  });
 });
 
-// router.get('/favourite', function(req, res, next) {
-//   Favourite.find({}, function(err, favourite){
-//     if (err) return err;
-//     res.json(favourite);
-
-//   });
-// });
-
+router.delete('/delfavourite/:id', function(req, res) {
+  Favourite.findByIdAndRemove(req.params.id, req.body, function (err, favourite) {
+    if (err) return next(err);
+    res.json(favourite);
+  });
+});
 
 
 router.post('/login', (req, res) => {

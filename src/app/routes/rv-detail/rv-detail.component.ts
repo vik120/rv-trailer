@@ -81,6 +81,9 @@ export class RvDetailComponent implements OnInit {
     ]
   };
 
+  public isFavourite = true;
+  public favourite = {};
+  public fav_id: string;
 
   constructor(private app: AppComponent,
               public router: Router,
@@ -92,6 +95,7 @@ export class RvDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getRenterDetail(this.route.snapshot.params['id']);
+    this.checkFavourite();
   }
 
   getRenterDetail(id) {
@@ -110,19 +114,53 @@ export class RvDetailComponent implements OnInit {
       };
       console.log(favourite);
 
-    // this.apiService.addFavourite(favourite).subscribe((result) => {
-    //   let id = result['_id'];
-    // }, (err) => {
-    //   console.log(err);
+    this.apiService.addFavourite(favourite).subscribe((result) => {
+      let id = result['_id'];
+      console.log(id);
+    }, (err) => {
+      console.log(err);
+    });
+
+    // this.apiService.addFavourite(favourite).subscribe(data => {
+    //   if (!data.success) {
+    //     console.log('this is favourite');
+    //     console.log(data);
+
+    //   } else {
+    //       console.log('this is unfavourite');
+    //       console.log(data);
+    //   }
     // });
 
-    this.apiService.addFavourite(favourite).subscribe(data => {
-      if (!data.success) {
-        console.log('this is unfavourite');
+  }
 
-      } else {
-          console.log('this is favourite');
+  checkFavourite() {
+
+    let user = JSON.parse(localStorage.getItem('user'));
+    let user_id = user.id;
+    let trailer_id =  this.route.snapshot.params['id'];
+
+    let params = {user_id: user_id, trailer_id: trailer_id };
+    console.log(params);
+
+    this.apiService.getFav(params).subscribe((result) => {
+      console.log(result);
+      if (result.success == false ) {
+        this.isFavourite = false;
+        console.log("show fav icon");
       }
+
+      console.log("do not show fav icon");
+      this.fav_id = result._id;
+      console.log(this.fav_id);
+    });
+
+  }
+
+  delFav() {
+    let id = this.fav_id;
+    this.apiService.delFav(id).subscribe((result) => {
+        console.log(result);
     });
 
   }
