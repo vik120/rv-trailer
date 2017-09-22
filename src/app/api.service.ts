@@ -162,7 +162,7 @@ export class ApiService {
     });
   }
 
-   getAllCmsPages() {
+  getAllCmsPages() {
     return new Promise((resolve, reject) => {
       this.http.get( this.mainURL + '/api/cmspage')
         .map(res => res.json())
@@ -290,6 +290,11 @@ export class ApiService {
             reject(err);
           });
     });
+  }
+
+  ListByUserId(id) {
+      let url: string = this.mainURL + '/api/trailersByUserId/' + id;
+      return this.http.get(url).map( (res: Response) => res.json ());
   }
 
 }

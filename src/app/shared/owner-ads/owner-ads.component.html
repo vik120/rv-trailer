@@ -2,69 +2,13 @@
     <h3>My Ads</h3>
     <div class="owner-ads">
         <!-- Ad box -->
-        <div class="ad-box">
+        <div class="ad-box" *ngFor = "let userDetail of userDetails" >
             <div class="ad-box-top">
-
+                 <img src="/images/{{userDetail.photo}}">
             </div>
             <div class="ad-box-bottom text-center">
-                <h6>Arizona Express</h6>
-                <div class="ad-box-bottom-action">
-                    <button class="btn btn-border-grey">
-                      Edit
-                  </button>
-                    <button class="btn btn-border-grey">
 
-                    Delete
-                  </button>
-                </div>
-            </div>
-        </div>
-        <!-- end of ad box -->
-        <!-- Ad box -->
-        <div class="ad-box">
-            <div class="ad-box-top">
-
-            </div>
-            <div class="ad-box-bottom text-center">
-                <h6>Arizona Express</h6>
-                <div class="ad-box-bottom-action">
-                    <button class="btn btn-border-grey">
-                      Edit
-                  </button>
-                    <button class="btn btn-border-grey">
-
-                    Delete
-                  </button>
-                </div>
-            </div>
-        </div>
-        <!-- end of ad box -->
-        <!-- Ad box -->
-        <div class="ad-box">
-            <div class="ad-box-top">
-
-            </div>
-            <div class="ad-box-bottom text-center">
-                <h6>Arizona Express</h6>
-                <div class="ad-box-bottom-action">
-                    <button class="btn btn-border-grey">
-                      Edit
-                  </button>
-                    <button class="btn btn-border-grey">
-
-                    Delete
-                  </button>
-                </div>
-            </div>
-        </div>
-        <!-- end of ad box -->
-        <!-- Ad box -->
-        <div class="ad-box">
-            <div class="ad-box-top">
-
-            </div>
-            <div class="ad-box-bottom text-center">
-                <h6>Arizona Express</h6>
+                <h6>{{userDetail.specification_make}}</h6>
                 <div class="ad-box-bottom-action">
                     <button class="btn btn-border-grey">
                       Edit
@@ -79,7 +23,7 @@
         <!-- end of ad box -->
     </div>
     <div class="adbtn text-center">
-        <button class="btn btn-border-grey btn-lg">
+        <button class="btn btn-border-grey btn-lg" [routerLink]="['/list-trailer']">
          <i class="icon">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 31.059 31.059" style="enable-background:new 0 0 31.059 31.059;" xml:space="preserve">

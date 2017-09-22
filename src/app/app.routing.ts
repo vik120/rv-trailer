@@ -187,114 +187,18 @@ export const Routing = RouterModule.forRoot([
         path: 'faq-owner',
         component: FaqOwnerComponent
     },
-	{
+    {
         path: 'subscribe-plan',
         component: SubscribePlanComponent
     },
-	{
+    {
         path: 'privacy-policy',
         component: PrivacyPolicyComponent
     },
-	{
+    {
         path: 'term-conditions',
         component: TermsConditionComponent
     },
-    {
-        path: 'renter',
-        component: DashboardRenterComponent,
-        children: [
-            {
-                path: '',
-                component: AboutUserComponent
-            },
-            {
-                path: 'about',
-                component: AboutUserComponent
-            },
-            {
-                path: 'favourite',
-                component: UserFavouriteComponent
-            },
-            {
-                path: 'message',
-                component: UserMessageComponent
-            },
-            {
-                path: 'message/:id',
-                component: MsgDetailComponent
-            },
-             {
-                path: 'review',
-                component: UserReviewComponent
-            }
-        ]
-    },
-    {
-        path: 'owner',
-        component: DashboardOwnerComponent,
-        children: [
-            {
-                path: '',
-                component: AboutOwnerComponent
-            },
-            {
-                path: 'about',
-                component: AboutOwnerComponent
-            },
-            {
-                path: 'favourite',
-                component: UserFavouriteComponent
-            },
-            {
-                path: 'my-ads',
-                component: OwnerAdsComponent
-            },
-            {
-                path: 'message',
-                component: OwnerMsgComponent
-            },
-            {
-                path: 'message/:id',
-                component: MsgDetailOwnerComponent
-            },
-
-            {
-                path: 'package',
-                component: OwnerPackageComponent
-            },
-            {
-                path: 'review',
-                component: OwnerReviewComponent
-            }
-        ]
-    },
-    {
-        path: 'owner',
-        component: DashboardOwnerComponent,
-        children: [
-            {
-                path: '',
-                component: AboutUserComponent
-            },
-            {
-                path: 'about',
-                component: AboutUserComponent
-            },
-            {
-                path: 'my-ads',
-                component: OwnerAdsComponent
-            },
-            {
-                path: 'message',
-                component: UserMessageComponent
-            },
-            {
-                path: 'message/:id',
-                component: MsgDetailComponent
-            }
-        ]
-    },
-
     {
         path: 'user-dashboard',
         component: UserDashboardComponent,
@@ -316,13 +220,23 @@ export const Routing = RouterModule.forRoot([
                 component: UserMessageComponent
             },
             {
+                path: 'package',
+                component: OwnerPackageComponent
+            },
+            {
                 path: 'message/:id',
                 component: MsgDetailComponent
+            },
+            {
+                path: 'review',
+                component: OwnerReviewComponent
+            },
+            {
+                path: 'favourite',
+                component: UserFavouriteComponent
             }
         ]
     },
-
-
 
 
     {
