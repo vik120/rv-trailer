@@ -1,3 +1,4 @@
+import { window } from 'rxjs/operator/window';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
@@ -108,9 +109,12 @@ export class RvDetailComponent implements OnInit {
   }
 
   onFavouriteClick() {
+    let user = JSON.parse(localStorage.getItem('user'));
+    let user_id = user.id;
+    let trailer_id =  this.route.snapshot.params['id'];
       const favourite = {
-        user_id: this.renterdetail.user_id,
-        trailer_id: this.renterdetail._id
+        user_id: user_id,
+        trailer_id: trailer_id
       };
       console.log(favourite);
 
@@ -121,16 +125,7 @@ export class RvDetailComponent implements OnInit {
       console.log(err);
     });
 
-    // this.apiService.addFavourite(favourite).subscribe(data => {
-    //   if (!data.success) {
-    //     console.log('this is favourite');
-    //     console.log(data);
-
-    //   } else {
-    //       console.log('this is unfavourite');
-    //       console.log(data);
-    //   }
-    // });
+    location.reload();
 
   }
 
@@ -145,14 +140,16 @@ export class RvDetailComponent implements OnInit {
 
     this.apiService.getFav(params).subscribe((result) => {
       console.log(result);
-      if (result.success == false ) {
+      if (result === null ) {
         this.isFavourite = false;
-        console.log("show fav icon");
-      }
+        console.log('show fav icon');
 
-      console.log("do not show fav icon");
-      this.fav_id = result._id;
-      console.log(this.fav_id);
+      } else {
+        console.log('do not show fav icon');
+        this.fav_id = result._id;
+        this.isFavourite = true;
+        console.log(this.fav_id);
+      }
     });
 
   }
@@ -162,7 +159,7 @@ export class RvDetailComponent implements OnInit {
     this.apiService.delFav(id).subscribe((result) => {
         console.log(result);
     });
-
+    location.reload();
   }
 
 

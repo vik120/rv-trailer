@@ -251,7 +251,7 @@ router.post('/getfavourite', function(req, res) {
 
 router.delete('/delfavourite/:id', function(req, res) {
   Favourite.findByIdAndRemove(req.params.id, req.body, function (err, favourite) {
-    if (err) return next(err);
+    if (err) return err;
     res.json(favourite);
   });
 });
