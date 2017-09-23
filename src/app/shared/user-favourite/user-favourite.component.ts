@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppComponent} from '../../shared/app/app.component';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from './../../api.service';
 
 @Component({
   selector: 'rv-user-favourite',
@@ -99,10 +103,35 @@ export class UserFavouriteComponent implements OnInit {
     }
   ]
 
+  favDetails: any = [];
+  favData: any;
 
-  constructor() { }
+  constructor(private app: AppComponent,
+              public router: Router,
+              public apiService: ApiService,
+              private route: ActivatedRoute
+              ) {
+
+                  if (this.favData  === null ) {
+                    console.log();
+                  } else {
+                    this.favData = JSON.parse(localStorage.getItem('user'));
+                  }
+
+               }
 
   ngOnInit() {
+    if (this.favData  !== null ) {
+      const id = this.favData.id;
+      this.allFavouriteList(id);
+    }
+  }
+
+  allFavouriteList(id) {
+      this.apiService.ListByFavId(id).subscribe((res) => {
+      this.favDetails = res;
+      console.log(this.favDetails);
+    });
   }
 
 }

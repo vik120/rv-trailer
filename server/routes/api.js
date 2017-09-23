@@ -256,6 +256,13 @@ router.delete('/delfavourite/:id', function(req, res) {
   });
 });
 
+router.get('/favouritesByUserId/:id', function(req, res, next) {
+  Favourite.find({user_id: req.params.id}, function (err, favourite) {
+    if (err) return next(err);
+    res.json(favourite);
+  });
+});
+
 
 router.post('/login', (req, res) => {
       User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password}, {admin: true} ]}, (err, user) => {

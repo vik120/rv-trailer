@@ -297,6 +297,11 @@ export class ApiService {
       return this.http.get(url).map( (res: Response) => res.json ());
   }
 
+  ListByFavId(id) {
+      let url: string = this.mainURL + '/api/favouritesByUserId/' + id;
+      return this.http.get(url).map( (res: Response) => res.json ());
+  }
+
   addFavourite(favourite) {
       return this.http.post( this.mainURL + '/api/favourite/', favourite)
       .map(res => res.json());

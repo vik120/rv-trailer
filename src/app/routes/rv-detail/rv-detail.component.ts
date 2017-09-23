@@ -1,4 +1,3 @@
-import { window } from 'rxjs/operator/window';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
