@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
 
   onMyAccount() {
       this.router.navigate(['/user-dashboard']);
+      console.log('my account');
+      console.log(this.user);
   }
 
 }

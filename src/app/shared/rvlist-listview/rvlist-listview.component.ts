@@ -30,7 +30,7 @@ export class RvlistListviewComponent implements OnInit {
   @Input() rvName: string;
   @Input() rvPrice: string;
   @Input() location: string;
-  @Input() rating: number
+  @Input() rating: number;
   @Input() year: number;
   @Input() guest: number;
   @Input() ownerName: string;
@@ -41,26 +41,26 @@ export class RvlistListviewComponent implements OnInit {
   public isReadonly: boolean= true;
   public filterForm: FormGroup;
 
-  
+
 
   constructor(public router: Router,
               public apiService: ApiService,
               private activatedRoute: ActivatedRoute,
               public fbg: FormBuilder
-              ) { 
+              ) {
                 this.filterForm = this.fbg.group ({
                   'location': ['', Validators.required]
                 })
                 console.log('this is loaded');
               }
 
-  
+
   brandSlideVisible: boolean;
   ngOnInit() {
 
     //Get values of search coming from home page
     this.activatedRoute.params.subscribe((params: Params) => {
-      
+
       if(params.homeSearch === 'true') {
         this.searchTrailers(params);
       } else {
