@@ -26,7 +26,7 @@ export class UserDashboardComponent implements OnInit {
               ) {
                     this.app.brandSlideVisible = false;
                       if(this.logindata  === null ) {
-                        console.log()
+                        console.log();
                       } else {
                         this.logindata = JSON.parse(localStorage.getItem('user'));
                       }

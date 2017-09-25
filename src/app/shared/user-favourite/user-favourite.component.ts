@@ -103,8 +103,14 @@ export class UserFavouriteComponent implements OnInit {
     }
   ]
 
+
+
   favDetails: any = [];
-  favData: any;
+  userId: any;
+  public FavTrailer_id: any = [];
+  public user:any;
+  public favListArray:string[] = [];
+  private myIds: Array<Object>;
 
   constructor(private app: AppComponent,
               public router: Router,
@@ -112,26 +118,48 @@ export class UserFavouriteComponent implements OnInit {
               private route: ActivatedRoute
               ) {
 
-                  if (this.favData  === null ) {
-                    console.log();
-                  } else {
-                    this.favData = JSON.parse(localStorage.getItem('user'));
-                  }
 
                }
 
   ngOnInit() {
-    if (this.favData  !== null ) {
-      const id = this.favData.id;
-      this.allFavouriteList(id);
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user) {
+      this.userId = this.user.id;
     }
+
+    if (this.userId) {
+      //console.log(this.userId);
+      //this.getFav(this.userId);
+
+      this.apiService.ListByFavId(this.userId).subscribe( (result) => {
+      this.myIds = result;
+
+      });
+    }
+
+     console.log(this.myIds);
+
   }
 
-  allFavouriteList(id) {
-      this.apiService.ListByFavId(id).subscribe((res) => {
-      this.favDetails = res;
-      console.log(this.favDetails);
-    });
+  getFav(id) {
+      this.apiService.ListByFavId(id).subscribe( (result) => {
+       console.log(result);
+
+      });
+
+      console.log(this.myIds);
+
+  }
+
+  getAllFavTrailerList(FavTrailer_id) {
+    //  console.log('array passing');
+    // console.log(this.FavTrailer_id);
+
+  //     this.apiService.showFavListTrailer(FavTrailer_id).subscribe((res) => {
+  //       console.log('hey i am at dat');
+  //     this.favDetails = res;
+  //     console.log(this.favDetails);
+  // });
   }
 
 }

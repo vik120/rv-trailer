@@ -17,10 +17,10 @@ export class ApiService {
   headers:any = {'Content-Type': 'application/json'};
 
   //This is for local
-  mainURL: string = 'http://localhost:3001';
+  //mainURL: string = 'http://localhost:3001';
 
   //This is for server
-  //mainURL:String = 'http://165.227.23.237:3001';
+  mainURL: string = 'http://165.227.23.237:3001';
 
   constructor(private http: Http) { }
 
@@ -257,16 +257,26 @@ export class ApiService {
     //   });
     }
 
+  // showListTrailer(id) {
+  //   return new Promise((resolve, reject) => {
+  //       this.http.get( this.mainURL + '/api/list_trailers/' + id)
+  //         .map(res => res.json())
+  //         .subscribe(res => {
+  //           resolve(res)
+  //       }, (err) => {
+  //         reject(err);
+  //       });
+  //   });
+  // }
+
   showListTrailer(id) {
-    return new Promise((resolve, reject) => {
-        this.http.get( this.mainURL + '/api/list_trailers/' + id)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res)
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.get( this.mainURL + '/api/list_trailers/' + id)
+      .map(res => res.json());
+  }
+
+  showFavListTrailer(FavTrailer_id) {
+      return this.http.post( this.mainURL + '/api/list_trailersbyUserId/', FavTrailer_id)
+      .map(res => res.json());
   }
 
   updateListTrailer(id, data) {
@@ -281,7 +291,7 @@ export class ApiService {
     });
   }
 
-    deleteListTrailer(id) {
+  deleteListTrailer(id) {
     return new Promise((resolve, reject) => {
         this.http.delete( this.mainURL + '/api/list_trailers/'+ id)
           .subscribe(res => {

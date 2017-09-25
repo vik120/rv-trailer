@@ -99,7 +99,7 @@ export class RvDetailComponent implements OnInit {
   }
 
   getRenterDetail(id) {
-    this.apiService.showListTrailer(id).then((res) => {
+    this.apiService.showListTrailer(id).subscribe((res) => {
       this.renterdetail = res;
       console.log(this.renterdetail);
     }, (err) => {

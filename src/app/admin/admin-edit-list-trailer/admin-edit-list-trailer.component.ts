@@ -81,7 +81,7 @@ fileName: String;
     }
 
   onSubmitListTrailer(id) {
-    this.apiService.showListTrailer(id).then((res) => {
+    this.apiService.showListTrailer(id).subscribe((res) => {
       this.listtrailers = res;
       console.log(this.listtrailers);
     }, (err) => {

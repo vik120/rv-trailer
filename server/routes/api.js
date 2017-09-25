@@ -263,6 +263,14 @@ router.get('/favouritesByUserId/:id', function(req, res, next) {
   });
 });
 
+router.post('/list_trailersbyUserId/:FavTrailer_id', function(req, res) {
+  query = {_id: {$in: req.body } };
+  ListTrailer.find(query, function(err, trailers) {
+    if (err) return err;
+    res.json(trailers);
+  });
+});
+
 
 router.post('/login', (req, res) => {
       User.findOne({ $and: [ {email: req.body.email}, {password: req.body.password}, {admin: true} ]}, (err, user) => {

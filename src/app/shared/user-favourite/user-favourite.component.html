@@ -39,7 +39,36 @@
                 </div>
             </div>
             <div class="favourite-rv favourite-box-strip-right">
-                <rv-listview [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage"></rv-listview>
+                <!-- <rv-listview [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage"></rv-listview> -->
+                <div class="clearfix rvlist" *ngFor= "let favDetail of favDetails">
+                    <figure class="rvlist-figure">
+                        <img src="/images/{{ favDetail.photo }}" />
+                    </figure>
+                    <div class="rvlist-content rv-info">
+                        <div class="clearfix rv-info-top">
+                            <div class="rv-info-top-left">
+                                <h6>{{favDetail.specification_name}}</h6>
+                                <p class="rv-price">Price: {{ favDetail.pricing_high_rate_hour }} / Hours</p>
+                                <p class="rv-location">Location: <label>{{ favDetail.location_street }}</label></p>
+                            </div>
+                            <div class="rv-owner-info rv-info-top-right text-center">
+                                <figure><img src="assets/images/{{ favDetail.ownerImage }}" /></figure>
+                                <h6>{{ favDetail.firstname }} {{favDetail.lastname}}</h6>
+                                <div class="star-rating">
+                                    <rating [(ngModel)]="favDetail.rating" [max]="favDetail.max" [readonly]="favDetail.isReadonly"></rating>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rv-info-bottom">
+
+                            <div class="rv-modal">year <br /> {{ favDetail.specification_year }}</div>
+                            <div class="rv-guest">guest <br /> {{ favDetail.specification_guest }}</div>
+                            <div class="rv-btn btn btn-primary">Rent IT</div>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
