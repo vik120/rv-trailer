@@ -1,68 +1,54 @@
 @import '../../style/style';
-
-footer{
+footer {
     background: $background-color;
     color: $white-color;
     font-size: $extra-small;
     padding: $space-n 0 0;
-    
-    a{
+    a {
         color: $white-color;
-
-        &:hover{
+        &:hover {
             color: $white-color;
         }
     }
-
-    .footer-logo{
+    .footer-logo {
         text-align: center;
         margin-bottom: $space-n;
     }
 }
 
-.footer{
-    &-top{
-        h5{
+.footer {
+    &-top {
+        h5 {
             margin-bottom: $space-m
         }
-
-        &-mid{
+        &-mid {
             margin-top: $space-l;
-            li{
+            li {
                 margin-bottom: $space-s + $space-vs;
             }
         }
-
-        &-right{
+        &-right {
             margin-top: $space-l;
-
-            p{
-                font-size: $small;
+            p {
                 margin-bottom: $space-n;
             }
-
-            .newletterform{
+            .newletterform {
                 margin-bottom: $space-n
             }
-
-            .follow-us{
-                label{
+            .follow-us {
+                label {
                     display: inline-block;
                     vertical-align: middle;
                     margin-right: 10px;
                 }
-
-                a{
+                a {
                     display: inline-block;
                     vertical-align: middle;
                 }
             }
         }
-
-        
     }
-
-    &-bottom{
+    &-bottom {
         background: $black-color;
         text-align: center;
         color: $white-color;
