@@ -40,7 +40,7 @@ export class TrailerSpecificationComponent implements OnInit {
                 this.rForm = fb.group({
                   'specification_make' : [null, Validators.required],
                   'specification_model' : [null, Validators.required],
-                  'specification_year' : [null, Validators.required],
+                  'specification_year' : ['Year', Validators.required],
                   'specification_length' : [null, Validators.required],
                   'specification_gross_weight' : [null, Validators.required],
                   'specification_tough_weight' : [null, Validators.required],
