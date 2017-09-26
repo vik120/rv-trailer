@@ -12,9 +12,8 @@ import { Router } from '@angular/router';
 })
 export class AboutUserComponent implements OnInit {
 
-  public userDetails: any[] = [];
+  userDetails: any = [];
   logindata: any;
-  user: any = [];
 
   constructor(private app: AppComponent,
               public router:Router,

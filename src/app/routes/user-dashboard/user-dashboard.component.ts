@@ -43,7 +43,7 @@ export class UserDashboardComponent implements OnInit {
   getUserData(id) {
     this.apiService.showUser(id).subscribe((res) => {
       this.user = res;
-      console.log(this.user);
+      // console.log(this.user);
       if (this.user.type === 'renter') {
           this.isUserTypeRenter = true;
       } else {

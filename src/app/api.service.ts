@@ -47,10 +47,9 @@ export class ApiService {
     }
 
 
-    showUser(id) {
+  showUser(id) {
       let url: string = this.mainURL + '/api/user/' + id;
       return this.http.get(url).map( (res: Response) => res.json ());
-
   }
 
 
