@@ -1,10 +1,10 @@
-<div class="about-content clearfix">
-    <div class="about-content-top">
+<div class="about-content clearfix" *ngFor = "let user of userDetails">
+    <div class="about-content-top" >
         <div class="user">
             <figure class="user-pic"></figure>
             <div class="user-name">
                 <h5>Albert Barel</h5>
-                <p>(Renter)</p>
+                <p>{{user.type}}</p>
             </div>
         </div>
         <div class="about-btn clearfix">
@@ -58,7 +58,7 @@
                        c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293l1.226-1.226l7.779-2.123l26.351-26.35h0l0.447-0.447L54,13.097z
                         M57.73,6.539l-2.839,2.839l-4.243-4.243l2.839-2.839c0.384-0.384,1.009-0.383,1.393,0l2.85,2.85
                        C58.114,5.529,58.114,6.155,57.73,6.539z"/>
-                     
+
                     </svg>
                 </i> Edit Details
                 </a>
@@ -107,7 +107,7 @@
                       c-0.653,0-1.182-0.529-1.182-1.183s0.529-1.182,1.182-1.182s1.182,0.528,1.182,1.182S18.153,33.818,17.5,33.818z M26.021,30.625
                       H8.979V3.749h17.042V30.625z"/>
                   </g>
-                  
+
               </svg>
           </i> +61-1111-222-222
         </div>

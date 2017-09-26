@@ -128,16 +128,19 @@ export class UserFavouriteComponent implements OnInit {
     }
 
     if (this.userId) {
-      //console.log(this.userId);
+      console.log(this.userId);
       //this.getFav(this.userId);
 
       this.apiService.ListByFavId(this.userId).subscribe( (result) => {
       this.myIds = result;
+      console.log(this.myIds);
 
+        this.favListArray = result.find(myIds => myIds.trailer_id === 1);
+        console.log(this.favListArray);
       });
     }
 
-     console.log(this.myIds);
+
 
   }
 

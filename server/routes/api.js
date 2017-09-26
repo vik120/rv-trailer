@@ -256,9 +256,9 @@ router.delete('/delfavourite/:id', function(req, res) {
   });
 });
 
-router.get('/favouritesByUserId/:id', function(req, res, next) {
+router.get('/favouritesByUserId/:id', function(req, res) {
   Favourite.find({user_id: req.params.id}, function (err, favourite) {
-    if (err) return next(err);
+    if (err) return err;
     res.json(favourite);
   });
 });

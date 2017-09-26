@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
 })
 export class AboutUserComponent implements OnInit {
 
-  logindata: any = [];
-  users: any = [];
+  public userDetails: any[] = [];
+  logindata: any;
+  user: any = [];
 
   constructor(private app: AppComponent,
               public router:Router,
@@ -36,8 +37,10 @@ export class AboutUserComponent implements OnInit {
 
   getUserData(id) {
     this.apiService.showUser(id).subscribe((res) => {
-      this.users = res;
+      this.userDetails = res;
+      console.log(this.userDetails);
     });
+    console.log(this.userDetails);
   }
 
 }
