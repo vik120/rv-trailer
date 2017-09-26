@@ -13,9 +13,9 @@
           <flash-messages></flash-messages>
             <h2>Choose from Our Featured <span>Trailer Rentals</span></h2>
         </div>
-        <div class="feature-rv-body">
+        <div class="feature-rv-body" *ngFor="let doller of dollers">
             <div class="feature-rv-box" *ngFor="let listtrailer of listtrailers">
-                <rv-gridview [rvInfo]="listtrailer" [photo]="listtrailer.photo" [rvName]="listtrailer.details_ad_title" [rvPrice]="listtrailer.pricing_security_deposit" [location]="listtrailer.location_street" [year]="listtrailer.specification_year" [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
+                <rv-gridview [rvInfo]="listtrailer" [photo]="listtrailer.photo" [rvName]= " listtrailer.details_ad_title" [rvPrice]=" doller.doller_sign + listtrailer.pricing_security_deposit" [location]="listtrailer.location_street" [year]="listtrailer.specification_year" [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
 
             </div>
             <div class=" view-btn ">
