@@ -240,6 +240,17 @@ export class ApiService {
       .map( (res: Response) => res.json());
   }
 
+  myFav(user_id) {
+    return this.http.get( this.mainURL + '/api/fav/' + user_id)
+    .map( (res: Response) => res.json());
+  }
+
+  getTrailersByIds(ids) {
+    console.log(ids);
+    return this.http.post( this.mainURL + '/api/trailersbyids/', ids)
+      .map( res => res.json() );
+  }
+
   getAllListTrailer() {
     let url:string = this.mainURL + '/api/trailers';
     return this.http.get(url)

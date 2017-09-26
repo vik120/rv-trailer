@@ -22,6 +22,8 @@ router.post('/sendmail', (req, res) => {
     }
   });
 
+  
+
 
   var mailOptions = {
     from: 'brijeshmkt@gmail.com',
@@ -44,6 +46,30 @@ router.post('/sendmail', (req, res) => {
 
 router.get('/', (req, res) => {
   res.send('api works');
+});
+
+router.get('/fav/:user_id', (req, res) => {
+  let user_id = req.params.user_id;
+  let query = {'user_id': user_id}
+
+  
+  
+  Favourite.find(query, { trailer_id : 1}, function(err, fav) {
+    res.json(fav);
+  });
+
+});
+
+router.post('/trailersbyids', (req, res) => {
+  
+  console.log(req.body);
+  
+  let query = { '_id': { $in: req.body } };
+
+  ListTrailer.find(query, function(err, trailers){
+    
+    res.json(trailers);
+  });
 });
 
 router.get('/search', function(req, res, next) {

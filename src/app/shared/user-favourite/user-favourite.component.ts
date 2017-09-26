@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
@@ -12,157 +13,110 @@ import { ApiService } from './../../api.service';
 })
 export class UserFavouriteComponent implements OnInit {
 
-  public rvList: any[] = [
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    },
-    {
-      rvimage: 'rv-1.jpg',
-      rvName: 'Abella Airstream',
-      rvPrice: '150/hour',
-      location: 'nanaimo, Columbia',
-      rating: 3,
-      year: 2016,
-      guest: 5,
-      ownerName: 'Rezmi Bell',
-      ownerImage: 'owner-1.png'
-    }
-  ]
+  public rvList: any[] = [];
+  private userId: string;
 
+  public lists: any;
 
-
-  favDetails: any = [];
-  userId: any;
-  public FavTrailer_id: any = [];
-  public user:any;
-  public favListArray:string[] = [];
-  private myIds: Array<Object>;
-
-  constructor(private app: AppComponent,
-              public router: Router,
-              public apiService: ApiService,
-              private route: ActivatedRoute
-              ) {
-
-
-               }
+  constructor(public apiService: ApiService, private http: Http) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    if (this.user) {
-      this.userId = this.user.id;
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      this.userId = user.id;
     }
 
-    if (this.userId) {
-      console.log(this.userId);
-      //this.getFav(this.userId);
-
-      this.apiService.ListByFavId(this.userId).subscribe( (result) => {
-      this.myIds = result;
-      console.log(this.myIds);
-
-        this.favListArray = result.find(myIds => myIds.trailer_id === 1);
-        console.log(this.favListArray);
+    this.getFavIds()
+      .then( data => {
+        console.log(data);
+        let ids = data;
+        this.apiService.getTrailersByIds(ids).subscribe( (response) => {
+          console.log(response);
+          this.rvList = response;
+        });
       });
-    }
+  }
+
+  getFavIds() {
+    this.userId = '59c62d269f6def33938d40d3';
+
+    return new Promise((resolve, reject) => {
+      let favIds: string[] = [];
+      this.apiService.myFav(this.userId)
+        .subscribe( response => {
+          if (response.length === 0) {
+            console.log("no fav list found");
+          } else {
+            response.map(function (favObj){
+              favIds.push(favObj.trailer_id)
+            });
+
+            resolve(favIds);
+           
+          }
+          //console.log(response);
+          
+        });
+    
+
+    });
+      
+        
+    
+    
+  }
+
+  getFavTrailers(ids) {
+    //console.log(ids);
+
+    this.apiService.getTrailersByIds(ids).subscribe( result => {
+      console.log(result);
+    })
+  }
+
+  getTrailerByIds(ids) {
+    ids = ["59c0ece15f808253fff0f2aa", "59c101cc213c4665379ed8e6", "59c2750349d47a36a610ae85"];
 
 
 
   }
 
-  getFav(id) {
-      this.apiService.ListByFavId(id).subscribe( (result) => {
-       console.log(result);
+    // if (this.userId) {
+    //   console.log(this.userId);
+    //   //this.getFav(this.userId);
 
-      });
+    //   this.apiService.ListByFavId(this.userId).subscribe( (result) => {
+    //   this.myIds = result;
+    //   console.log(this.myIds);
 
-      console.log(this.myIds);
+    //     this.favListArray = result.find(myIds => myIds.trailer_id === 1);
+    //     console.log(this.favListArray);
+    //   });
+    //}
 
-  }
 
-  getAllFavTrailerList(FavTrailer_id) {
-    //  console.log('array passing');
-    // console.log(this.FavTrailer_id);
 
-  //     this.apiService.showFavListTrailer(FavTrailer_id).subscribe((res) => {
-  //       console.log('hey i am at dat');
-  //     this.favDetails = res;
-  //     console.log(this.favDetails);
-  // });
-  }
+  
+
+  // getFav(id) {
+  //     this.apiService.ListByFavId(id).subscribe( (result) => {
+  //      console.log(result);
+
+  //     });
+
+  //     console.log(this.myIds);
+
+  // }
+
+  // getAllFavTrailerList(FavTrailer_id) {
+  //   //  console.log('array passing');
+  //   // console.log(this.FavTrailer_id);
+
+  // //     this.apiService.showFavListTrailer(FavTrailer_id).subscribe((res) => {
+  // //       console.log('hey i am at dat');
+  // //     this.favDetails = res;
+  // //     console.log(this.favDetails);
+  // // });
+  // }
 
 }
