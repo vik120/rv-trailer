@@ -24,7 +24,9 @@ export class RvsListingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  brandSlideVisible: boolean;
 
+  ngOnInit() {
+    this.brandSlideVisible = true;
+  }
 }
