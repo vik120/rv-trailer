@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-sm-6 form-group">
             <select class="form-control" [(ngModel)]="listing.details_no_of_beds" formControlName="details_no_of_beds">
-                <option>Number of beds</option>
+                <option value="" disabled="true" [selected]="!listing.details_no_of_beds">Numbers of Beds</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -34,7 +34,7 @@
 
         <div class="col-sm-6 form-group">
             <select class="form-control" [(ngModel)]="listing.details_no_of_bathrooms" formControlName="details_no_of_bathrooms">
-                <option>Number of bathrooms</option>
+                <option value="" disabled="true" [selected]="!listing.details_no_of_bathrooms">Numbers of Bathrooms</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>

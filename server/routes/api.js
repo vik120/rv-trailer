@@ -22,7 +22,7 @@ router.post('/sendmail', (req, res) => {
     }
   });
 
-  
+
 
 
   var mailOptions = {
@@ -52,8 +52,8 @@ router.get('/fav/:user_id', (req, res) => {
   let user_id = req.params.user_id;
   let query = {'user_id': user_id}
 
-  
-  
+
+
   Favourite.find(query, { trailer_id : 1}, function(err, fav) {
     res.json(fav);
   });
@@ -61,13 +61,13 @@ router.get('/fav/:user_id', (req, res) => {
 });
 
 router.post('/trailersbyids', (req, res) => {
-  
+
   console.log(req.body);
-  
+
   let query = { '_id': { $in: req.body } };
 
   ListTrailer.find(query, function(err, trailers){
-    
+
     res.json(trailers);
   });
 });

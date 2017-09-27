@@ -93,7 +93,10 @@ export class RvDetailComponent implements OnInit {
                   this.app.brandSlideVisible = false;
             }
 
+              brandSlideVisible: boolean;
+
   ngOnInit() {
+    this.brandSlideVisible = true;
     this.getRenterDetail(this.route.snapshot.params['id']);
     this.checkFavourite();
   }

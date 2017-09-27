@@ -7,9 +7,9 @@
         <div class="clearfix rv-info-top">
             <div class="rv-info-top-left">
                 <h6>{{ listtrailer.specification_name }}</h6>
-                <p class="rv-price">Price: $ {{ listtrailer.pricing_high_rate_hour }} / Hours</p>
-                <p class="rv-location">Location: <label>{{ listtrailer.location_street}}</label></p>
-                <label>{{ listtrailer.location_city }}</label>
+                <p class="rv-price">Price: $ {{ listtrailer.pricing_high_rate_hour }} / Night</p>
+                <p class="rv-location">Location: <label>{{ listtrailer.location_city}}</label></p>
+                <label>{{ listtrailer.location_province }}</label>
             </div>
             <div class="rv-owner-info rv-info-top-right text-center">
                 <figure><img src="assets/images/{{ ownerImage }}" /></figure>
@@ -22,8 +22,8 @@
         </div>
         <div class="rv-info-bottom">
 
-            <div class="rv-modal">year <br /> {{ listtrailer.specification_year }}</div>
             <div class="rv-guest">guest <br /> {{ listtrailer.specification_guest }}</div>
+            <div class="rv-modal"></div>
             <button class="rv-btn btn btn-primary" type="button" [routerLink]="['/rv/', listtrailer._id]">Rent IT</button>
         </div>
     </div>

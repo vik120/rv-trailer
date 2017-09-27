@@ -28,7 +28,7 @@
                     </svg>
               </i> {{ RV_Cottage }}
           </button>
-            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvTrailer')" [ngClass]="{'btn-primary': trailerType == 'traveler'}">
+            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvTrailer')" [ngClass]="{'btn-primary': trailerType === 'traveler'}">
             <i class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
                         <g>
@@ -43,7 +43,7 @@
               </i> {{ Travel_Trailer }}
           </button>
 
-            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvmotor')" [ngClass]="{'btn-primary': trailerType == 'motor'}">
+            <button type="button" class="btn btn-border-red" (click)="trailerspec('rvmotor')" [ngClass]="{'btn-primary': trailerType === 'motor'}">
 
             <i class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px">
@@ -114,7 +114,8 @@
                 <input type="text" class="form-control" [(ngModel)]="listing.specification_model" formControlName="specification_model" placeholder="Model" />
             </div>
             <div class="col-sm-4 form-group">
-                <select class="form-control" [(ngModel)]="listing.specification_year" formControlName="specification_year">
+                <select class="form-control" [(ngModel)]="listing.specification_year" placeholder="Year" formControlName="specification_year">
+                <option value="" disabled="true" [selected]="!listing.specification_year">Year</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
             </select>
@@ -135,7 +136,7 @@
             </div>
             <div class="col-sm-4 form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="listing.specification_tough_weight" formControlName="specification_tough_weight" placeholder="Tough Weight" />
+                    <input type="text" class="form-control" [(ngModel)]="listing.specification_tough_weight" formControlName="specification_tough_weight" placeholder="Tongue Weight" />
                     <span class="input-group-addon">LB</span>
                 </div>
             </div>
@@ -143,6 +144,7 @@
         <div class="row">
             <div class="col-sm-4 form-group">
                 <select class="form-control" [(ngModel)]="listing.specification_guest" formControlName="specification_guest">
+                <option value="" disabled="true" [selected]="!listing.specification_guest">Guest</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -152,6 +154,7 @@
             </div>
             <div class="col-sm-4 form-group">
                 <select class="form-control" [(ngModel)]="listing.specification_slide_out" formControlName="specification_slide_out">
+                <option value="" disabled="true" [selected]="!listing.specification_slide_out">Slide out</option>
                 <option value="1">1 Slide out</option>
                 <option value="2">2 Slide out</option>
                 <option value="3">3 Slide out</option>
