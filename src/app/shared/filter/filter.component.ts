@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import {IMyDpOptions} from 'mydatepicker';
-
 
 @Component({
   selector: 'rv-filter',
@@ -8,7 +7,7 @@ import {IMyDpOptions} from 'mydatepicker';
   styleUrls: ['./filter.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
   Listing: any;
   public myLocation:string;
@@ -26,24 +25,29 @@ export class FilterComponent implements OnInit {
     'Virginia', 'Washington',
     'West Virginia', 'Wisconsin', 'Wyoming'];
 
-  public search: Object = {};
+  public price: any;
   constructor() { }
 
-  ngOnInit() {
-  }
+  filterSearch(form) {
+    let filterParams: any = {
+      location: form.value.location,
+      dateFrom: form.value.dateFrom.formatted,
+      dateTo: form.value.dateTo.formatted,
+      numberOfGuest: form.value.numberOfGuest
+      };
+    filterParams.traveltrailer = form.value.traveltrailer;
+    filterParams.fifthwheel = form.value.fifthwheel;
+    filterParams.tentrailer = form.value.tentrailer;
+    filterParams.vintagetrailer = form.value.vintagetrailer;
+    filterParams.hybridtrailer = form.value.hybridtrailer;
+    filterParams.toytrailer = form.value.toytrailer;
+    filterParams.price = this.price;
+    console.log(filterParams);
 
-  filterSearch(){
-    console.log(this);
   }
 
   myOnFinish(event) {
-    console.log(event);
-  }
-
-  submitSearch(form){
-    console.log('kirti');
-    console.log(form.value);
-
+    this.price = event.from;
   }
 
 }
