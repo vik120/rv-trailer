@@ -15,7 +15,6 @@ export class UserFavouriteComponent implements OnInit {
 
   public rvList: any[] = [];
   private userId: string;
-
   public lists: any;
 
   constructor(public apiService: ApiService, private http: Http) { }
@@ -52,71 +51,9 @@ export class UserFavouriteComponent implements OnInit {
             });
 
             resolve(favIds);
-           
           }
           //console.log(response);
-          
         });
-    
-
     });
-      
-        
-    
-    
   }
-
-  getFavTrailers(ids) {
-    //console.log(ids);
-
-    this.apiService.getTrailersByIds(ids).subscribe( result => {
-      console.log(result);
-    })
-  }
-
-  getTrailerByIds(ids) {
-    ids = ["59c0ece15f808253fff0f2aa", "59c101cc213c4665379ed8e6", "59c2750349d47a36a610ae85"];
-
-
-
-  }
-
-    // if (this.userId) {
-    //   console.log(this.userId);
-    //   //this.getFav(this.userId);
-
-    //   this.apiService.ListByFavId(this.userId).subscribe( (result) => {
-    //   this.myIds = result;
-    //   console.log(this.myIds);
-
-    //     this.favListArray = result.find(myIds => myIds.trailer_id === 1);
-    //     console.log(this.favListArray);
-    //   });
-    //}
-
-
-
-  
-
-  // getFav(id) {
-  //     this.apiService.ListByFavId(id).subscribe( (result) => {
-  //      console.log(result);
-
-  //     });
-
-  //     console.log(this.myIds);
-
-  // }
-
-  // getAllFavTrailerList(FavTrailer_id) {
-  //   //  console.log('array passing');
-  //   // console.log(this.FavTrailer_id);
-
-  // //     this.apiService.showFavListTrailer(FavTrailer_id).subscribe((res) => {
-  // //       console.log('hey i am at dat');
-  // //     this.favDetails = res;
-  // //     console.log(this.favDetails);
-  // // });
-  // }
-
 }
