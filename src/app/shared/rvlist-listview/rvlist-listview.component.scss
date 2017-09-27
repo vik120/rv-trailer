@@ -89,17 +89,20 @@
             justify-content: center;
             align-content: center;
             text-align: center;
-            .rv-modal,
             .rv-guest,
             .rv-btn {
                 flex: 0 0 33.333%;
                 max-width: 33.333%;
                 text-transform: uppercase;
                 font-weight: bold;
-            }
-            .rv-guest {
                 border-left: solid 1px $border-color;
-                border-right: solid 1px $border-color;
+            //    border-right: solid 1px $border-color;
+            }
+            .rv-modal, {
+              flex: 0 0 33.333%;
+                max-width: 33.333%;
+                text-transform: uppercase;
+                font-weight: bold;
             }
         }
     }
