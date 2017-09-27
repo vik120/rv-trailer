@@ -3,8 +3,8 @@
         <div class="user">
             <figure class="user-pic"></figure>
             <div class="user-name">
-                <h5>Albert Barel</h5>
-                <p>(renter)</p>
+                <h5>{{ userDetails.firstname }} {{ userDetails.lastname }}</h5>
+                <p>({{userDetails.type}})</p>
             </div>
         </div>
         <div class="about-btn clearfix">
@@ -47,7 +47,7 @@
                     </svg>
                 </i> View Profile
                 </a>
-                <a href="#" class="btn btn-border-grey">
+                <a href="#" class="btn btn-border-grey" [routerLink]="['/user-dashboard/edit_user_details']">
                     <i class="icon">
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 60.017 60.017" style="enable-background:new 0 0 60.017 60.017;" xml:space="preserve">

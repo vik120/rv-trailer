@@ -1,3 +1,4 @@
+import { EditAboutUserComponent } from './shared/edit-about-user/edit-about-user.component';
 import { UserDashboardComponent } from './routes/user-dashboard/user-dashboard.component';
 import { AdminViewListTrailerComponent } from './admin/admin-view-list-trailer/admin-view-list-trailer.component';
 import { AdminEditListTrailerComponent } from './admin/admin-edit-list-trailer/admin-edit-list-trailer.component';
@@ -234,7 +235,13 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'favourite',
                 component: UserFavouriteComponent
+            },
+            {
+                path: 'edit_user_details',
+                component: EditAboutUserComponent
             }
+
+
         ]
     },
 

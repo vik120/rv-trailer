@@ -37,7 +37,6 @@ export class UserFavouriteComponent implements OnInit {
   }
 
   getFavIds() {
-    this.userId = '59c62d269f6def33938d40d3';
 
     return new Promise((resolve, reject) => {
       let favIds: string[] = [];

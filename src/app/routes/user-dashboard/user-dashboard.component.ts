@@ -43,13 +43,11 @@ export class UserDashboardComponent implements OnInit {
   getUserData(id) {
     this.apiService.showUser(id).subscribe((res) => {
       this.user = res;
-      // console.log(this.user);
       if (this.user.type === 'renter') {
           this.isUserTypeRenter = true;
       } else {
           this.isUserTypeRenter = false;
       }
-
     });
   }
 
@@ -57,7 +55,6 @@ export class UserDashboardComponent implements OnInit {
     this.apiService.logout();
     this.flashMessagesService.show('You are Logged Out', {cssClass: 'alert-info'});
     this.router.navigate(['/']);
-    // window.location.reload();
   }
 
 }

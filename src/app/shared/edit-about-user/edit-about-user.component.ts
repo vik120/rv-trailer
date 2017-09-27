@@ -5,12 +5,11 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'rv-about-user',
-  templateUrl: './about-user.component.html',
-  styleUrls: ['./about-user.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'rv-edit-about-user',
+  templateUrl: './edit-about-user.component.html',
+  styleUrls: ['./edit-about-user.component.scss']
 })
-export class AboutUserComponent implements OnInit {
+export class EditAboutUserComponent implements OnInit {
 
   userDetails: any = [];
   logindata: any;
