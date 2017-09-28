@@ -48,6 +48,19 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+
+router.post('/filterSearch', (req, res) => {
+  
+    console.log(req.body);
+  
+    //let query = { '_id': { $in: req.body } };
+  
+    ListTrailer.find({}, function(err, trailers){
+  
+      res.json(trailers);
+    }).limit(2);
+  });
+
 router.get('/fav/:user_id', (req, res) => {
   let user_id = req.params.user_id;
   let query = {'user_id': user_id}
