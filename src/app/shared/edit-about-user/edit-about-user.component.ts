@@ -42,9 +42,9 @@ export class EditAboutUserComponent implements OnInit {
                     'photo' : [null],
                     'firstname' : [null],
                     'lastname' : [null],
-                    'about_user' : [null],
+                    'about_user_description' : [null],
                     'user_address' : [null],
-                    'contact_no' : [null],
+                    'user_contact_no' : [null],
                 });
               }
 
@@ -72,8 +72,20 @@ export class EditAboutUserComponent implements OnInit {
 
   onSubmitUserDetails(){
     const photo = {'photo': this.fileName};
-    const photo_data = Object.assign({}, this.rForm.value, photo);
-    console.log(photo_data);
+    const user123 = JSON.parse(localStorage.getItem('user'));
+    let id = user123.id
+    const user_data = Object.assign({}, this.rForm.value, photo);
+console.log(id);
+console.log(user_data);
+
+    this.apiService.updateUser(id, user_data).then((result) => {
+      // let id = result['_id'];
+      let id = result;
+      console.log(id);
+      this.router.navigate(['admin/list-trailer']);
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 

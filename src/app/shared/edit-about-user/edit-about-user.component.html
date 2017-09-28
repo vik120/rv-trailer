@@ -12,9 +12,9 @@
 
     <div class="about-content-mid ">
         <h5>About Me</h5>
-            <input [(ngModel)]="userDetails.details_ad_title"  formControlName="firstname" id="firstname" type="text" class="form-control" placeholder="First Name"/><br>
-            <input [(ngModel)]="userDetails.details_ad_title"  formControlName="lastname" id="lastname" type="text" class="form-control" placeholder="Last Name"/><br>
-            <textarea rows="7" formControlName="about_user" id="about_user" [(ngModel)]="userDetails.details_ad_description"  class="form-control"  placeholder="Description"></textarea>
+            <input [(ngModel)]="userDetails.firstname"  formControlName="firstname" id="firstname" type="text" class="form-control" placeholder="First Name"/><br>
+            <input [(ngModel)]="userDetails.lastname"  formControlName="lastname" id="lastname" type="text" class="form-control" placeholder="Last Name"/><br>
+            <textarea rows="7" formControlName="about_user_description" id="about_user_description" [(ngModel)]="userDetails.about_user_description"  class="form-control"  placeholder="Description"></textarea>
     </div>
     <div class="about-content-bottom">
         <h5>Contact Details</h5>
@@ -41,7 +41,7 @@
                 </g>
               </svg>
           </i>
-            <textarea rows="3" formControlName="user_address" id="user_address" [(ngModel)]="userDetails.details_ad_description"  class="form-control" placeholder="Address"></textarea>
+            <textarea rows="3" [(ngModel)]="userDetails.user_address" formControlName="user_address" id="user_address"  class="form-control" placeholder="Address"></textarea>
 
         </div>
         <div class="info-strip col-sm-7 form-group">
@@ -57,7 +57,7 @@
                   </g>
 
               </svg>
-          </i> <input type="text" formControlName="contact_no" id="contact_no" [(ngModel)]="userDetails.details_ad_title"   class="form-control" placeholder="Contact Number"/>
+          </i> <input type="text" formControlName="user_contact_no" id="user_contact_no" [(ngModel)]="userDetails.user_contact_no"   class="form-control" placeholder="Contact Number"/>
         </div>
     </div>
     <div class="about-content-bottom">
