@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
@@ -8,6 +8,7 @@ import {IMyDpOptions} from 'mydatepicker';
   encapsulation: ViewEncapsulation.None
 })
 export class FilterComponent {
+  @Output() myFilter = new EventEmitter() ;
 
   Listing: any;
   public myLocation:string;
@@ -42,7 +43,9 @@ export class FilterComponent {
     filterParams.hybridtrailer = form.value.hybridtrailer;
     filterParams.toytrailer = form.value.toytrailer;
     filterParams.price = this.price;
-    console.log(filterParams);
+    //console.log(filterParams);
+
+    this.myFilter.emit(filterParams);
 
   }
 

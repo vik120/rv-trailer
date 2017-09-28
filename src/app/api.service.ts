@@ -17,10 +17,10 @@ export class ApiService {
   headers:any = {'Content-Type': 'application/json'};
 
   //This is for local
-  // mainURL: string = 'http://localhost:3001';
+   mainURL: string = 'http://localhost:3001';
 
   //This is for server
-   mainURL: string = 'http://165.227.23.237:3001';
+   //mainURL: string = 'http://165.227.23.237:3001';
 
   constructor(private http: Http) { }
 
@@ -37,6 +37,11 @@ export class ApiService {
   loadToken() {
     const token = localStorage.getItem('token');
     this.authToken = token;
+  }
+
+  filterSearch(params) {
+    return this.http.post(this.mainURL + '/api/filterSearch', params)
+    .map(res => res.json());
   }
 
     getAllUsers() {
