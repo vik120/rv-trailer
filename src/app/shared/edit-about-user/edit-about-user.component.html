@@ -1,3 +1,4 @@
+<form [formGroup]="rForm" (ngSubmit)="onSubmitUserDetails()">
 <div class="about-content clearfix">
     <div class="about-content-top" >
         <h5>Add a Photo *</h5><br>
@@ -11,9 +12,9 @@
 
     <div class="about-content-mid ">
         <h5>About Me</h5>
-            <input [(ngModel)]="userDetails.details_ad_title"  type="text" class="form-control" placeholder="First Name"/><br>
-            <input [(ngModel)]="userDetails.details_ad_title"  type="text" class="form-control" placeholder="Last Name"/><br>
-            <textarea rows="7" [(ngModel)]="userDetails.details_ad_description"  class="form-control"  placeholder="Description"></textarea>
+            <input [(ngModel)]="userDetails.details_ad_title"  formControlName="firstname" id="firstname" type="text" class="form-control" placeholder="First Name"/><br>
+            <input [(ngModel)]="userDetails.details_ad_title"  formControlName="lastname" id="lastname" type="text" class="form-control" placeholder="Last Name"/><br>
+            <textarea rows="7" formControlName="about_user" id="about_user" [(ngModel)]="userDetails.details_ad_description"  class="form-control"  placeholder="Description"></textarea>
     </div>
     <div class="about-content-bottom">
         <h5>Contact Details</h5>
@@ -40,7 +41,7 @@
                 </g>
               </svg>
           </i>
-            <textarea rows="3" [(ngModel)]="userDetails.details_ad_description"  class="form-control" placeholder="Address"></textarea>
+            <textarea rows="3" formControlName="user_address" id="user_address" [(ngModel)]="userDetails.details_ad_description"  class="form-control" placeholder="Address"></textarea>
 
         </div>
         <div class="info-strip col-sm-7 form-group">
@@ -56,10 +57,11 @@
                   </g>
 
               </svg>
-          </i> <input [(ngModel)]="userDetails.details_ad_title"  type="text" class="form-control" placeholder="Contact Number"/>
+          </i> <input type="text" formControlName="contact_no" id="contact_no" [(ngModel)]="userDetails.details_ad_title"   class="form-control" placeholder="Contact Number"/>
         </div>
     </div>
     <div class="about-content-bottom">
-        <button type="button" class="btn btn-success btn-lg btn-primary" [disabled]="!uploader.getNotUploadedItems().length">Update User Details</button>
+        <button type=submit [disabled]="!rForm.valid"  class="btn btn-primary btn-lg">Update User Details</button>
     </div>
 </div>
+</form>

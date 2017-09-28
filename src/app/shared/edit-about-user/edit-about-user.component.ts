@@ -4,6 +4,14 @@ import { ApiService } from '../../api.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { FileUploader } from 'ng2-file-upload';
+
+// const URL = '/api/';
+//const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+const URL = 'http://localhost:3001/upload';
+
+// const URL: string = 'http://165.227.23.237:3001';
+
 @Component({
   selector: 'rv-edit-about-user',
   templateUrl: './edit-about-user.component.html',
@@ -11,11 +19,16 @@ import { Router } from '@angular/router';
 })
 export class EditAboutUserComponent implements OnInit {
 
+  rForm: FormGroup;
   userDetails: any = [];
   logindata: any;
+  public uploader:FileUploader = new FileUploader({url: URL});
+  fileName: String;
+  userID: any = [];
 
   constructor(private app: AppComponent,
               public router:Router,
+              private fb: FormBuilder,
               public apiService:ApiService,
               private formBuilder: FormBuilder
               ) {
@@ -24,12 +37,30 @@ export class EditAboutUserComponent implements OnInit {
                       } else {
                         this.logindata = JSON.parse(localStorage.getItem('user'));
                       }
+
+                this.rForm = fb.group({
+                    'photo' : [null],
+                    'firstname' : [null],
+                    'lastname' : [null],
+                    'about_user' : [null],
+                    'user_address' : [null],
+                    'contact_no' : [null],
+                });
               }
 
   ngOnInit() {
       if (this.logindata  !== null ) {
         const id = this.logindata.id;
         this.getUserData(id);
+     }
+    this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
+     this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+           //console.log("ImageUpload:uploaded:", item, status, response);
+        //   console.log(response);
+           const responseResult = JSON.parse(response);
+           this.fileName = responseResult.filename;
+           console.log(this.fileName);
+        //   console.log(responseResult.filename);
      }
   }
 
@@ -38,5 +69,12 @@ export class EditAboutUserComponent implements OnInit {
       this.userDetails = res;
     });
   }
+
+  onSubmitUserDetails(){
+    const photo = {'photo': this.fileName};
+    const photo_data = Object.assign({}, this.rForm.value, photo);
+    console.log(photo_data);
+  }
+
 
 }
