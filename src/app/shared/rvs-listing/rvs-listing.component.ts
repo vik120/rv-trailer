@@ -32,6 +32,7 @@ export class RvsListingComponent implements OnInit {
 
   ngOnInit() {
     this.brandSlideVisible = true;
+    this.allItems();
   }
 
   filterSearch(params) {
@@ -49,6 +50,13 @@ export class RvsListingComponent implements OnInit {
         console.log(result);
         this.items = result;
       });
+  }
+
+  allItems() {
+    this.apiService.getAllListTrailer()
+          .subscribe( (result) => {
+            this.items = result;
+          });
   }
 
 }

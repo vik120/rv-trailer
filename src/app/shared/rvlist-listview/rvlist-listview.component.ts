@@ -64,7 +64,7 @@ export class RvlistListviewComponent implements OnInit {
       if(params.homeSearch === 'true') {
         this.searchTrailers(params);
       } else {
-        this.getListTrailerList();
+        // this.getListTrailerList();
       }
     });
 
@@ -77,10 +77,10 @@ export class RvlistListviewComponent implements OnInit {
     });
   }
 
-  getListTrailerList() {
-    this.apiService.getAllListTrailer().subscribe((res) => {
-    this.listtrailers = res;
-    });
-  }
+  // getListTrailerList() {
+  //   this.apiService.getAllListTrailer().subscribe((res) => {
+  //   this.listtrailers = res;
+  //   });
+  // }
 
 }
