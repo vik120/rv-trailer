@@ -342,6 +342,9 @@ export class ApiService {
       .map(res => res.json());
   }
 
+  getPackages() {
+    return this.http.get( this.mainURL + '/api/Packages/')
+      .map(res => res.json());
+  }
+
 }
-
-

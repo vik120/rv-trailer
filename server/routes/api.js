@@ -9,16 +9,15 @@ var Admin = require('../models/admin');
 var CmsPage = require('../models/cmspage');
 var ListTrailer = require('../models/product');
 var Favourite = require('../models/favourite');
-
-
+var Package = require('../models/package');
 
 router.post('/sendmail', (req, res) => {
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'brijeshmkt@gmail.com',
-      pass: 'Mishra4321'
+      user: 'kirti.coderadobe@gmail.com',
+      pass: 'coder4321'
     }
   });
 
@@ -50,13 +49,13 @@ router.get('/', (req, res) => {
 
 
 router.post('/filterSearch', (req, res) => {
-  
+
     console.log(req.body);
-  
+
     //let query = { '_id': { $in: req.body } };
-  
+
     ListTrailer.find({}, function(err, trailers){
-  
+
       res.json(trailers);
     }).limit(2);
   });
@@ -309,6 +308,30 @@ router.post('/list_trailersbyUserId/:FavTrailer_id', function(req, res) {
     res.json(trailers);
   });
 });
+
+// router.get('/allPackageDetail', function (req, res) {
+
+//   Package.find({}, function(err, package) {
+//     if (err) return err;
+//     res.json(package);
+//   });
+
+//   });
+
+router.get('/allPackageDetail', function(req, res, next) {
+  Package.find({}, function(err, package){
+    if (err) return next(err);
+    res.json(package);
+  });
+});
+
+router.get('/Packages', (req, res) => {
+  Package.find({}, (err, package) => {
+    if (err) return err;
+    res.json(package);
+  });
+});
+
 
 
 router.post('/login', (req, res) => {
