@@ -40,6 +40,8 @@ export class ListTrailerComponent implements OnInit {
 
     console.log(id);
      this.getUserData(id);
+    } else {
+      this.router.navigate(['signup/renter']);
     }
   }
 
