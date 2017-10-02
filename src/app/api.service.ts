@@ -72,7 +72,7 @@ export class ApiService {
 
   updateUser(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/api/user/' + id, data)
+        this.http.put(this.mainURL + '/api/user/' + id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);

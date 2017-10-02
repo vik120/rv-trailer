@@ -17,7 +17,7 @@ export class TrailerSpecificationComponent implements OnInit {
   listing: any = [];
   getListing: any = [];
 
-  
+
   public trailerType: string = 'traveler';
   RV_Cottage : string = 'RV Cottage';
   Travel_Trailer : string = 'Travel Trailer';
@@ -55,11 +55,6 @@ export class TrailerSpecificationComponent implements OnInit {
                   'motor_class_a': [null],
                   'motor_class_b': [null],
                   'motor_class_c': [null],
-                  
-                  
-                  
-
-                  
 
               });
   }
@@ -67,7 +62,7 @@ export class TrailerSpecificationComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
   onSubmitSpecification() {
       const listingSpecification  = this.rForm.value;

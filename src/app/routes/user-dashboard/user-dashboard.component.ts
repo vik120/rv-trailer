@@ -34,10 +34,10 @@ export class UserDashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    // if (this.logindata  !== null ) {
-    //   const id = this.logindata.id;
-    //   this.getUserData(id);
-    //  }
+    if (this.logindata  !== null ) {
+      const id = this.logindata.id;
+      this.getUserData(id);
+     }
   }
 
   getUserData(id) {

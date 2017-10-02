@@ -193,6 +193,11 @@ export const Routing = RouterModule.forRoot([
         component: SubscribePlanComponent
     },
     {
+        path: 'subscribe-plan/:id',
+        component: SubscribePlanComponent
+    },
+
+    {
         path: 'privacy-policy',
         component: PrivacyPolicyComponent
     },

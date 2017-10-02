@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppComponent } from '../../shared/app/app.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from './../../api.service';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import {AppComponent} from '../../shared/app/app.component';
 
 @Component({
   selector: 'rv-list-trailer',
@@ -9,13 +12,47 @@ import { AppComponent } from '../../shared/app/app.component';
 })
 export class ListTrailerComponent implements OnInit {
 
-  constructor(public appComponent: AppComponent) { }
+  user: any = [];
+  logindata: any = [];
+
+  constructor(private app: AppComponent,
+              private apiService: ApiService,
+              public router: Router,
+              private fb: FormBuilder,
+              private route: ActivatedRoute)
+              {
+                this.app.brandSlideVisible = false;
+                    this.app.brandSlideVisible = false;
+                      if(this.logindata  === null ) {
+                        console.log();
+                      } else {
+                        this.logindata = JSON.parse(localStorage.getItem('user'));
+                      }
+              }
 
   brandSlideVisible: boolean;
   ngOnInit() {
-    this.appComponent.brandSlideVisible = false;
+    this.app.brandSlideVisible = false;
     this.brandSlideVisible = true;
+
+    if (this.logindata  !== null ) {
+    const id = this.logindata.id;
+
+    console.log(id);
+     this.getUserData(id);
+    }
   }
 
+  getUserData(id) {
+    this.apiService.showUser(id).subscribe((res) => {
+      this.user = res;
+           console.log(this.user);
+      if (this.user.package_id === null) {
+          this.router.navigate(['subscribe-plan']);
+      } else {
+          this.router.navigate(['list-trailer']);
+      }
+    });
+  }
 
 }

@@ -17,8 +17,8 @@ var UserSchema = new Schema({
     photo: {type: String},
     about_user_description: {type: String},
     user_address: {type: String},
-    user_contact_no: {type: String}
-
+    user_contact_no: {type: String},
+    package_id: {type: String, default: null}
 });
 
 module.exports = mongoose.model('User', UserSchema);

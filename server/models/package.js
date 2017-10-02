@@ -3,8 +3,9 @@ var Schema = mongoose.Schema;
 
 var PackageSchema = new Schema({
     name: {type: String},
-    listing: {type: Number},
-    edit_listing: {type: Boolean},
+    prise: {type: Number},
+    listing: {type: String},
+    edit_listing: {type: String},
     chat: {type: Boolean}
 });
 
