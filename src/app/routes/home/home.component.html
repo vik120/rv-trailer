@@ -1,7 +1,7 @@
 <rv-header></rv-header>
 <div class="home-banner text-center">
     <div class="container">
-        <h1><span>Trailer</span> Rentals from <span>Trailer</span> Owners</h1>
+        <h1>Trailer <span>Rentals</span> from Trailer <span>Owners</span></h1>
         <div class="row homefilter">
             <rv-header-filter></rv-header-filter>
         </div>
@@ -10,12 +10,13 @@
 <div class="feature-rv text-center">
     <div class="container">
         <div class="feature-rv-title">
-          <flash-messages></flash-messages>
+            <flash-messages></flash-messages>
             <h2>Choose from Our Featured <span>Trailer Rentals</span></h2>
         </div>
         <div class="feature-rv-body" *ngFor="let doller of dollers">
             <div class="feature-rv-box" *ngFor="let listtrailer of listtrailers ">
-                <rv-gridview [rvInfo]="listtrailer" [photo]="listtrailer.photo" [rvName]= " listtrailer.details_ad_title" [rvPrice]=" doller.doller_sign + listtrailer.pricing_security_deposit" [location]="listtrailer.location_city" [year]="listtrailer.specification_year" [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
+                <rv-gridview [rvInfo]="listtrailer" [photo]="listtrailer.photo" [rvName]=" listtrailer.details_ad_title" [rvPrice]=" doller.doller_sign + listtrailer.pricing_security_deposit" [location]="listtrailer.location_city" [year]="listtrailer.specification_year"
+                    [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
 
             </div>
             <div class=" view-btn ">
@@ -140,7 +141,7 @@
         </h2>
         <div class="testimonial-content">
             <div class="testimonial-content-top">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
             </div>
             <div class="testimonial-content-bottom">
                 <owl-carousel [options]="{dots: true, navigation: true, slideBy : 1 , autoplay: true, loop: true, responsive: {

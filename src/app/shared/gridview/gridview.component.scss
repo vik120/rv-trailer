@@ -4,6 +4,10 @@
         position: relative;
         height: 286px;
         width: 100%;
+        background: $white-color;
+        border: solid 1px $border-color;
+        border-bottom: none;
+        overflow: hidden;
         cursor: pointer;
         * {
             cursor: pointer;
