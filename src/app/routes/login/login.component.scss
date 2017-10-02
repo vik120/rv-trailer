@@ -26,6 +26,11 @@
         text-transform: uppercase;
         color: $secondary-color;
         font-size: $small;
-        margin-right: $space-n
+        margin-right: $space-n;
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
     }
 }

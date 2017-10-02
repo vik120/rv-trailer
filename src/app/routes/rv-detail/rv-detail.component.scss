@@ -5,6 +5,11 @@
     &-slider {
         width: $full;
         position: relative;
+        .item {
+            img {
+                width: $full;
+            }
+        }
     }
     &-name {
         background: $background-color;
