@@ -28,7 +28,11 @@ rForm: FormGroup;
       'owner' : [ true ],
       'approved' : [ false ],
       'validate' : '',
-      'type': 'owner'
+      'type': 'owner',
+      'photo': [null],
+      'about_user_description': [null],
+      'user_address': [null],
+      'user_contact_no': [null],
     });
 
   }

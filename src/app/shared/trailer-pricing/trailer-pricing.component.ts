@@ -24,16 +24,16 @@ export class TrailerPricingComponent implements OnInit {
                 console.log(this.listing);
 
                 this.rForm = fb.group({
-                    'pricing_security_deposit' : [null, Validators.required],
-                    'pricing_delivery_charges' : [null, Validators.required],
-                    'pricing_high_rate_hour' : [null, Validators.required],
-                    'pricing_high_rate_week' : [null, Validators.required],
-                    'pricing_high_rate_month' : [null, Validators.required],
-                    'pricing_low_rate_hour' : [null, Validators.required],
-                    'pricing_low_rate_week' : [null, Validators.required],
-                    'pricing_low_rate_month' : [null, Validators.required],
-                    'pricing_highest_season_date_range_from' : [null, Validators.required],
-                    'pricing_highest_season_date_range_to' : [null, Validators.required],
+                    'pricing_security_deposit' : [null],
+                    'pricing_delivery_charges' : [null],
+                    'pricing_high_rate_hour' : [null],
+                    'pricing_high_rate_week' : [null],
+                    'pricing_high_rate_month' : [null],
+                    'pricing_low_rate_hour' : [null],
+                    'pricing_low_rate_week' : [null],
+                    'pricing_low_rate_month' : [null],
+                    'pricing_highest_season_date_range_from' : [null],
+                    'pricing_highest_season_date_range_to' : [null],
                 });
 
               }

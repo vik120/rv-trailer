@@ -11,6 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   listtrailers: any = [];
+  dollers: any[] = [
+    {
+      doller_sign: '$',
+    }
+  ]
 
   testimonials: any[] = [
     {
@@ -51,6 +56,7 @@ export class HomeComponent implements OnInit {
   getListTrailerList() {
     this.apiService.getAllListTrailer().subscribe((res) => {
       this.listtrailers = res;
+      this.listtrailers.length - 1;
       console.log(this.listtrailers);
     });
   }

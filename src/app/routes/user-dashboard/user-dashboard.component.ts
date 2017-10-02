@@ -24,32 +24,30 @@ export class UserDashboardComponent implements OnInit {
               private formBuilder: FormBuilder,
               private flashMessagesService: FlashMessagesService
               ) {
-                    this.app.brandSlideVisible = false;
-                      if(this.logindata  === null ) {
-                        console.log()
-                      } else {
-                        this.logindata = JSON.parse(localStorage.getItem('user'));
-                      }
+                    // this.app.brandSlideVisible = false;
+                    //   if(this.logindata  === null ) {
+                    //     console.log();
+                    //   } else {
+                    //     this.logindata = JSON.parse(localStorage.getItem('user'));
+                    //   }
               }
 
 
   ngOnInit() {
-    if (this.logindata  !== null ) {
-      const id = this.logindata.id;
-      this.getUserData(id);
-     }
+    // if (this.logindata  !== null ) {
+    //   const id = this.logindata.id;
+    //   this.getUserData(id);
+    //  }
   }
 
   getUserData(id) {
     this.apiService.showUser(id).subscribe((res) => {
       this.user = res;
-      console.log(this.user);
       if (this.user.type === 'renter') {
           this.isUserTypeRenter = true;
       } else {
           this.isUserTypeRenter = false;
       }
-
     });
   }
 
@@ -57,7 +55,6 @@ export class UserDashboardComponent implements OnInit {
     this.apiService.logout();
     this.flashMessagesService.show('You are Logged Out', {cssClass: 'alert-info'});
     this.router.navigate(['/']);
-    // window.location.reload();
   }
 
 }

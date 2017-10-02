@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="filterSearch()">
+<form #f="ngForm" (ngSubmit)="filterSearch(f)">
     <div class="filter">
         <div class="filter-location">
             <label class="form-label">your location</label>
@@ -18,83 +18,96 @@
               </svg>
             </i>
 
-                <input type="text" [(ngModel)]="search.location" name="location" class="form-control" placeholder="Nanaimo, Columbia" [typeahead]="states" />
+                <input type="text" ngModel name="location" class="form-control" placeholder="Nanaimo, Columbia" [typeahead]="states" />
             </div>
             <label class="form-label">
         Price Range
       </label>
             <div class="filter-field">
-                <ion-range-slider (onFinish)="myOnFinish($event)" #sliderElement type="single" [min]="myMinVar" max="5000" from="0" to="5000" grid="false">
+                <ion-range-slider (onFinish)="myOnFinish($event)" #sliderElement type="single" [min]="myMinVar" max="500" from="0" to="500" grid="false">
 
                 </ion-range-slider>
                 <div class="clearfix range-values">
                     <div class="pull-left">$0</div>
-                    <div class="pull-right">$5000</div>
+                    <div class="pull-right">$500</div>
                 </div>
 
             </div>
 
             <label class="form-label">
+<<<<<<< HEAD
                 Available Location
+=======
+        Available Location
+>>>>>>> 7fe85be8d6106cea642701da57ca16dfbeb8eb7b
       </label>
             <div class="filter-field">
 
-                <my-date-picker [(ngModel)]="search.dateFrom" name="dateFrom" placeholder="Hire On"></my-date-picker>
+                <my-date-picker ngModel name="dateFrom" placeholder="Hire On"></my-date-picker>
             </div>
             <div class="filter-field">
-                <my-date-picker [(ngModel)]="search.dateTo" name="dateTo" placeholder="Return On"></my-date-picker>
+                <my-date-picker ngModel name="dateTo" placeholder="Return On"></my-date-picker>
             </div>
 
             <label class="form-label">Guest</label>
             <div class="filter-field">
-                <select [(ngModel)]="search.numberOfGuest" name="numberOfGuest" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>5+</option>
+                <<<<<<< HEAD <select [(ngModel)]="search.numberOfGuest" name="numberOfGuest" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>5+</option>
+                    =======
+                    <select ngModel name="numberOfGuest" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">5+</option>
+>>>>>>> 7fe85be8d6106cea642701da57ca16dfbeb8eb7b
       </select>
             </div>
 
             <label class="form-label">Rental</label>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.traveltrailer" name="rentalType" id="traveltrailer" value="traveltrailer" />
+                <input type="checkbox" ngModel name="traveltrailer" id="traveltrailer" value="traveltrailer" />
                 <label for="traveltrailer">
 
         TRAVEL TRAILER
       </label>
             </div>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.fifthwheel" name="rentalType" id="fifthwheel" value="fifthwheel" />
+                <input type="checkbox" ngModel name="fifthwheel" id="fifthwheel" value="fifthwheel" />
                 <label for="fifthwheel">
 
         FIFTH WHEEL
       </label>
             </div>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.tentrailer" name="rentalType" id="tentrailer" />
+                <input type="checkbox" ngModel name="tentrailer" id="tentrailer" />
                 <label for="tentrailer">
 
        TENT TRAILER
       </label>
             </div>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.vintagetrailer" name="rentalType" id="vintagetrailer" />
+                <input type="checkbox" ngModel name="vintagetrailer" id="vintagetrailer" />
                 <label for="vintagetrailer">
 
         VINTAGE
       </label>
             </div>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.hybridtrailer" name="rentalType" id="hybridtrailer" />
+                <input type="checkbox" ngModel name="hybridtrailer" id="hybridtrailer" />
                 <label for="hybridtrailer">
 
         HYBRID
       </label>
             </div>
             <div class="filter-field checkbox">
-                <input type="checkbox" [(ngModel)]="search.toytrailer" name="rentalType" id="toytrailer" />
+                <input type="checkbox" ngModel name="toytrailer" id="toytrailer" />
                 <label for="toytrailer">
 
        TOY HAULER 

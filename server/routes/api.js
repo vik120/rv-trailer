@@ -9,18 +9,19 @@ var Admin = require('../models/admin');
 var CmsPage = require('../models/cmspage');
 var ListTrailer = require('../models/product');
 var Favourite = require('../models/favourite');
-
-
+var Package = require('../models/package');
 
 router.post('/sendmail', (req, res) => {
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'brijeshmkt@gmail.com',
-      pass: 'Mishra4321'
+      user: 'kirti.coderadobe@gmail.com',
+      pass: 'coder4321'
     }
   });
+
+
 
 
   var mailOptions = {
@@ -44,6 +45,43 @@ router.post('/sendmail', (req, res) => {
 
 router.get('/', (req, res) => {
   res.send('api works');
+});
+
+
+router.post('/filterSearch', (req, res) => {
+
+    console.log(req.body);
+
+    //let query = { '_id': { $in: req.body } };
+
+    ListTrailer.find({}, function(err, trailers){
+
+      res.json(trailers);
+    }).limit(2);
+  });
+
+router.get('/fav/:user_id', (req, res) => {
+  let user_id = req.params.user_id;
+  let query = {'user_id': user_id}
+
+
+
+  Favourite.find(query, { trailer_id : 1}, function(err, fav) {
+    res.json(fav);
+  });
+
+});
+
+router.post('/trailersbyids', (req, res) => {
+
+  console.log(req.body);
+
+  let query = { '_id': { $in: req.body } };
+
+  ListTrailer.find(query, function(err, trailers){
+
+    res.json(trailers);
+  });
 });
 
 router.get('/search', function(req, res, next) {
@@ -256,12 +294,44 @@ router.delete('/delfavourite/:id', function(req, res) {
   });
 });
 
-router.get('/favouritesByUserId/:id', function(req, res, next) {
+router.get('/favouritesByUserId/:id', function(req, res) {
   Favourite.find({user_id: req.params.id}, function (err, favourite) {
-    if (err) return next(err);
+    if (err) return err;
     res.json(favourite);
   });
 });
+
+router.post('/list_trailersbyUserId/:FavTrailer_id', function(req, res) {
+  query = {_id: {$in: req.body } };
+  ListTrailer.find(query, function(err, trailers) {
+    if (err) return err;
+    res.json(trailers);
+  });
+});
+
+// router.get('/allPackageDetail', function (req, res) {
+
+//   Package.find({}, function(err, package) {
+//     if (err) return err;
+//     res.json(package);
+//   });
+
+//   });
+
+router.get('/allPackageDetail', function(req, res, next) {
+  Package.find({}, function(err, package){
+    if (err) return next(err);
+    res.json(package);
+  });
+});
+
+router.get('/Packages', (req, res) => {
+  Package.find({}, (err, package) => {
+    if (err) return err;
+    res.json(package);
+  });
+});
+
 
 
 router.post('/login', (req, res) => {

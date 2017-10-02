@@ -1,3 +1,4 @@
+import { ApiService } from './../../api.service';
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 
@@ -9,13 +10,24 @@ import {AppComponent} from '../../shared/app/app.component';
 })
 export class SubscribePlanComponent implements OnInit {
 
-  constructor(private app: AppComponent) {
-    this.app.brandSlideVisible = false;
-   }
+  packages: any[] = [];
+
+  constructor(private app: AppComponent,
+              private apiService: ApiService)
+              {
+                this.app.brandSlideVisible = false;
+              }
 
   brandSlideVisible: boolean;
   ngOnInit() {
     this.brandSlideVisible = true;
+    this.getPackagePlanDetails();
+  }
+
+  getPackagePlanDetails() {
+    this.apiService.getPackages().subscribe((res) => {
+      this.packages = res;
+    });
   }
 
 }

@@ -13,7 +13,12 @@ var UserSchema = new Schema({
     admin: {type: Boolean, default: false},
     owner: {type: Boolean, default: false},
     renter: {type: Boolean, default: false},
-    type: {type: String}
+    type: {type: String},
+    photo: {type: String},
+    about_user_description: {type: String},
+    user_address: {type: String},
+    user_contact_no: {type: String}
+
 });
 
 module.exports = mongoose.model('User', UserSchema);

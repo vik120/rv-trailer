@@ -14,13 +14,13 @@ export class ApiService {
   cmspage;
   options;
 
-  headers:any = {'Content-Type': 'application/json'};
+  headers: any = {'Content-Type': 'application/json'};
 
-  //This is for local
-  mainURL: string = 'http://localhost:3001';
+  // This is for local
+   mainURL: string = 'http://localhost:3001';
 
-  //This is for server
-  //mainURL:String = 'http://165.227.23.237:3001';
+  // This is for server
+  //mainURL: string = 'http://165.227.23.237:3001';
 
   constructor(private http: Http) { }
 
@@ -39,6 +39,11 @@ export class ApiService {
     this.authToken = token;
   }
 
+  filterSearch(params) {
+    return this.http.post(this.mainURL + '/api/filterSearch', params)
+    .map(res => res.json());
+  }
+
     getAllUsers() {
 
       return this.http.get(this.mainURL + '/api/user')
@@ -47,10 +52,9 @@ export class ApiService {
     }
 
 
-    showUser(id) {
+  showUser(id) {
       let url: string = this.mainURL + '/api/user/' + id;
       return this.http.get(url).map( (res: Response) => res.json ());
-
   }
 
 
@@ -241,6 +245,17 @@ export class ApiService {
       .map( (res: Response) => res.json());
   }
 
+  myFav(user_id) {
+    return this.http.get( this.mainURL + '/api/fav/' + user_id)
+    .map( (res: Response) => res.json());
+  }
+
+  getTrailersByIds(ids) {
+    console.log(ids);
+    return this.http.post( this.mainURL + '/api/trailersbyids/', ids)
+      .map( res => res.json() );
+  }
+
   getAllListTrailer() {
     let url:string = this.mainURL + '/api/trailers';
     return this.http.get(url)
@@ -257,16 +272,26 @@ export class ApiService {
     //   });
     }
 
+  // showListTrailer(id) {
+  //   return new Promise((resolve, reject) => {
+  //       this.http.get( this.mainURL + '/api/list_trailers/' + id)
+  //         .map(res => res.json())
+  //         .subscribe(res => {
+  //           resolve(res)
+  //       }, (err) => {
+  //         reject(err);
+  //       });
+  //   });
+  // }
+
   showListTrailer(id) {
-    return new Promise((resolve, reject) => {
-        this.http.get( this.mainURL + '/api/list_trailers/' + id)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res)
-        }, (err) => {
-          reject(err);
-        });
-    });
+    return this.http.get( this.mainURL + '/api/list_trailers/' + id)
+      .map(res => res.json());
+  }
+
+  showFavListTrailer(FavTrailer_id) {
+      return this.http.post( this.mainURL + '/api/list_trailersbyUserId/', FavTrailer_id)
+      .map(res => res.json());
   }
 
   updateListTrailer(id, data) {
@@ -281,7 +306,7 @@ export class ApiService {
     });
   }
 
-    deleteListTrailer(id) {
+  deleteListTrailer(id) {
     return new Promise((resolve, reject) => {
         this.http.delete( this.mainURL + '/api/list_trailers/'+ id)
           .subscribe(res => {
@@ -317,6 +342,9 @@ export class ApiService {
       .map(res => res.json());
   }
 
+  getPackages() {
+    return this.http.get( this.mainURL + '/api/Packages/')
+      .map(res => res.json());
+  }
+
 }
-
-

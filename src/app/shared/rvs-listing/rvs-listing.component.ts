@@ -1,4 +1,6 @@
+import { ApiService } from './../../api.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'rvs-listing',
@@ -22,9 +24,39 @@ export class RvsListingComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  public items: any[];
+
+  constructor(private apiService: ApiService) { }
+
+  brandSlideVisible: boolean;
 
   ngOnInit() {
+    this.brandSlideVisible = true;
+    this.allItems();
+  }
+
+  filterSearch(params) {
+    console.log("I am from filter search");
+    console.log(params);
+
+    //Search listing and get data
+
+    this.getItems(params);
+  }
+
+  getItems(params) {
+    this.apiService.filterSearch(params)
+      .subscribe( (result) => {
+        console.log(result);
+        this.items = result;
+      });
+  }
+
+  allItems() {
+    this.apiService.getAllListTrailer()
+          .subscribe( (result) => {
+            this.items = result;
+          });
   }
 
 }

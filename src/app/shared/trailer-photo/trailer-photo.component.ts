@@ -7,7 +7,10 @@ import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-const URL = 'http://localhost:3001/upload';
+// const URL = 'http://localhost:3001/upload';
+
+const URL: string = 'http://165.227.23.237:3001';
+
 
 @Component({
   selector: 'rv-trailer-photo',
@@ -38,10 +41,7 @@ userID: any = [];
 
 
         ngOnInit() {
-          //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
           this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
-          //overide the onCompleteItem property of the uploader so we are
-          //able to deal with the server response.
           this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
                 //console.log("ImageUpload:uploaded:", item, status, response);
              //   console.log(response);

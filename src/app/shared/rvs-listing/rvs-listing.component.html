@@ -10,12 +10,11 @@
     </div>
 </div>
 
-<div class="rv-topsearch">
+<!-- <div class="rv-topsearch">
     <div class="rv-topsearch-in">
         <rv-header-filter></rv-header-filter>
-
     </div>
-</div>
+</div> -->
 
 <div class="rvlist-bottom">
     <div class="container">
@@ -52,7 +51,7 @@
                         <h4>Find Best Trailer Rental</h4>
                     </div>
                     <div class="filter-box-body clearfix">
-                        <rv-filter></rv-filter>
+                        <rv-filter (myFilter)="filterSearch($event)"></rv-filter>
                         <!-- <button class="btn btn-primary full-width searchbtn">Search</button> -->
                     </div>
                 </div>
@@ -83,9 +82,13 @@
 
             </div>
             <div class="col-sm-8">
-                <rv-listview *ngFor="let item of rvList" [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage">
+                  <rv-listview *ngFor="let item of items" [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage">
 
                 </rv-listview>
+<!--
+                <div *ngFor="let item of items">
+                        {{ item | json }} <br>
+                </div> -->
 
                 <div class=" view-btn ">
                     <button class="btn btn-primary ">View More</button>
@@ -94,4 +97,5 @@
         </div>
     </div>
 </div>
-
+<rv-brandslide *ngIf="brandSlideVisible"></rv-brandslide>
+<rv-footer></rv-footer>
