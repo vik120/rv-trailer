@@ -84,7 +84,7 @@ fileName: String;
     const Listing_Data = Object.assign({}, this.rForm.value, photo);
     console.log(Listing_Data);
 
-    this.apiService.addListTrailer(Listing_Data).then((result) => {
+    this.apiService.addListTrailer(Listing_Data).subscribe((result) => {
      // console.log(this.rForm.value);
       let id = result['_id'];
       this.router.navigate(['admin/list-trailer']);
