@@ -16,6 +16,7 @@ export class TrailerSpecificationComponent implements OnInit {
   user: any = [];
   listing: any = [];
   getListing: any = [];
+  logindata: any = [];
 
 
   public trailerType: string = 'rvCottage';
@@ -28,14 +29,13 @@ export class TrailerSpecificationComponent implements OnInit {
               public apiService: ApiService)
               {
 
-               // this.listing = JSON.parse(localStorage.getItem('listing'));
+              //  this.listing = JSON.parse(localStorage.getItem('listing'));
 
-                // if ( getListing.length === 0 ) {
+                // if ( this.getListing.length === 0 ) {
                 //   this.listing = localStorage.setItem('listing', this.listing);
                 // } else {
                 //   this.listing = localStorage.getItem('listing');
                 // }
-
 
                 this.rForm = fb.group({
                   'specification_make' : [null, Validators.required],

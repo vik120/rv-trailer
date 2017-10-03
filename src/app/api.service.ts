@@ -20,12 +20,12 @@ export class ApiService {
    mainURL: string = 'http://localhost:3001';
 
   // This is for server
-  //mainURL: string = 'http://165.227.23.237:3001';
+  // mainURL: string = 'http://165.227.23.237:3001';
 
   constructor(private http: Http) { }
 
-  createAuthenticationHeaders(){
-    this.loadToken()
+  createAuthenticationHeaders() {
+    this.loadToken();
     this.options = new RequestOptions({
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -155,16 +155,11 @@ export class ApiService {
 
 
   addListTrailer(data) {
-    return new Promise((resolve, reject) => {
-        this.http.post(this.mainURL + '/api/list_trailers', data)
-          .map(res => res.json())
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
-    });
+      return this.http.post( this.mainURL + '/api/list_trailers/', data)
+      .map(res => res.json());
   }
+
+
 
   getAllCmsPages() {
     return new Promise((resolve, reject) => {

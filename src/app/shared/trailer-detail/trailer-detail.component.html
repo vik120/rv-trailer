@@ -1,4 +1,4 @@
-<form [formGroup]="rForm" (ngSubmit)="onSubmitDetail()">
+ <form [formGroup]="rForm" (ngSubmit)="onSubmitDetail()">
     <div class="trailer-detail">
         <h4 class="title text-uppercase">Trailer Detail</h4>
         <div class="clearfix row detail-top">
@@ -13,11 +13,12 @@
         </div>
         <h5>Features</h5>
         <div class="row checkbox">
-            <div class="col-sm-3 form-group" *ngFor="let listingFeature of listingFeatures">
-                <input type="checkbox" [(ngModel)]="listing.details_feature" formControlName="details_feature" value="{{listingFeature}}" id="feature" />
-                <label for="feature"> {{ listingFeature.feature }} </label>
-            </div>
+          <div class="col-sm-3 form-group" *ngFor="let data of listingFeatures; let id = index">
+            <input type="checkbox" name={{data?.feature}}   id={{data?.feature}} value={{data.feature}} (change)="onChange(data.feature, $event.target.checked)"/>
+             <label for="{{data?.feature}}">{{data?.feature}} </label><br>
+          </div>
         </div>
+        {{ listingFeatures | json}}
 
         <div class="row">
             <div class="col-sm-6 form-group">
@@ -52,3 +53,4 @@
         </div>
 
     </div>
+ </form>

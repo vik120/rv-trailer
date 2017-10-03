@@ -225,7 +225,7 @@ const firebaseConfig = {
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
     DatepickerModule.forRoot() ,
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
 
   ],
   providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard],

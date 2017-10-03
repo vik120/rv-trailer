@@ -7,9 +7,9 @@ import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-// const URL = 'http://localhost:3001/upload';
+const URL = 'http://localhost:3001/upload';
 
-const URL: string = 'http://165.227.23.237:3001';
+// const URL: string = 'http://165.227.23.237:3001';
 
 
 @Component({
@@ -62,7 +62,7 @@ userID: any = [];
     const photo_data = Object.assign({}, this.listing, photo, {user_id: this.userID.id});
     console.log(photo_data);
 
-    this.apiService.addListTrailer(photo_data).then((result) => {
+    this.apiService.addListTrailer(photo_data).subscribe((result) => {
       const id = result['_id'];
       this.router.navigate(['/rv']);
      }, (err) => {

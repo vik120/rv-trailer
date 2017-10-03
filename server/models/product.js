@@ -21,14 +21,14 @@ var ListTrailerSchema = new Schema({
     motor_class_a: {type: String, default: false},
     motor_class_b: {type: String, default: false},
     motor_class_c: {type: String, default: false},
-    
+
     location_street: {type: String},
     location_city: {type: String },
     location_province: {type: String},
     location_postal: {type: String},
     details_ad_title: {type: String},
     details_ad_description: {type: String},
-    details_feature: {type: Boolean},
+    details_feature: {type : Array , "default" : []},
     details_no_of_beds: {type: String},
     details_no_of_bathrooms: {type: String},
     pricing_security_deposit: {type: String},

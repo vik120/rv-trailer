@@ -1,6 +1,14 @@
 <rv-header></rv-header>
 <section class="login-wrap">
     <div class="container">
+      <div style="margin-left:150px;">
+        <div class="row show-hide-message">
+          <div [ngClass]="messageClass">
+            {{ message }}
+          </div>
+        </div>
+      </div>
+
         <div class="login">
           <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
             <h2 class="title">LOGIN</h2>
@@ -22,14 +30,6 @@
                 <button (click)="googleLogin()"><img src="assets/images/gplus.png" alt="Facebook" /></button>
             </div>
         </div>
-
-      <div style="margin-left:150px;">
-        <div class="row show-hide-message">
-          <div [ngClass]="messageClass">
-            {{ message }}
-          </div>
-        </div>
-      </div>
 
     </div>
 </section>
