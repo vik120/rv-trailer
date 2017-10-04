@@ -20,17 +20,14 @@ export class TrailerSpecificationComponent implements OnInit {
   allListing: any = [];
 
 
-  public trailerType: string = 'rvCottage';
+  public trailerType: string = 'RV Cottage';
   RV_Cottage : string = 'RV Cottage';
   Travel_Trailer : string = 'Travel Trailer';
   Motor_Home : string = 'Motor Home';
 
   constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService)
-              {
-
-
+              public apiService: ApiService) {
 
                 this.rForm = fb.group({
                   'specification_make' : [null, Validators.required],
@@ -54,6 +51,7 @@ export class TrailerSpecificationComponent implements OnInit {
                   'rvTrailer': [null],
                   'rvmotor':[null]
               });
+
   }
 
   ngOnInit() {
@@ -69,13 +67,14 @@ export class TrailerSpecificationComponent implements OnInit {
 
 
   onSubmitSpecification() {
-      if(this.trailerType == null) {
+      if (this.trailerType == null) {
         this.trailerType = 'RV Cottage';
-      }else{
+      }else {
         this.trailerType = this.trailerType;
       }
-        let rvCottage = {'rvCottage': this.trailerType};
-        let listingSpecification  =  Object.assign({}, this.rForm.value, rvCottage);
+      console.log(this.trailerType);
+        let rv_type = {'rv_type': this.trailerType};
+        let listingSpecification  =  Object.assign({}, this.rForm.value, rv_type);
         // console.log(listingSpecification);
         // this.listing["specification"] = listingSpecification;
         // console.log(this.listing);

@@ -17,7 +17,7 @@ export class RvDetailComponent implements OnInit {
   public max: number = 5;
   public rate: number = 4;
   public isReadonly: boolean = true;
-  calendarOptions:Object = {
+  calendarOptions: Object = {
     height: 'parent',
     fixedWeekCount : false,
     defaultDate: '2016-09-12',

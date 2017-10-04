@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ListTrailerSchema = new Schema({
+    rv_type: {type: String},
     specification_trailer_type: {type: Number},
     specification_trailer_sub_type: {type: String},
     specification_make: {type: String},

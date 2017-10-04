@@ -84,7 +84,7 @@ export class ApiService {
 
   deleteUser(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/api/user/'+ id)
+        this.http.delete('/api/user/' + id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {
@@ -159,8 +159,6 @@ export class ApiService {
       .map(res => res.json());
   }
 
-
-
   getAllCmsPages() {
     return new Promise((resolve, reject) => {
       this.http.get( this.mainURL + '/api/cmspage')
@@ -230,7 +228,6 @@ export class ApiService {
       params.set('to', searchTerms.to);
 
     }
-
 
     params.toString();
 
