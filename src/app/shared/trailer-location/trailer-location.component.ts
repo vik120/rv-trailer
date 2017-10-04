@@ -13,14 +13,20 @@ export class TrailerLocationComponent implements OnInit {
 
   rForm: FormGroup;
   listing: any = [];
+  allListing: any = [];
 
   constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService)
-              {
+              public apiService: ApiService) {
 
-                this.listing = JSON.parse(localStorage.getItem('listing'));
-                console.log('ravi');
+                this.allListing = localStorage.getItem('listing');
+                if (this.allListing === null || this.allListing.length === 0) {
+                    console.log();
+                } else {
+                  this.listing = JSON.parse(localStorage.getItem('listing'));
+                }
+
+                console.log('step 2');
                 console.log(this.listing);
 
                   this.rForm = fb.group({
@@ -29,7 +35,6 @@ export class TrailerLocationComponent implements OnInit {
                     'location_province' : [null, Validators.required],
                     'location_postal' : [null, Validators.required],
                   });
-
               }
 
   ngOnInit() {

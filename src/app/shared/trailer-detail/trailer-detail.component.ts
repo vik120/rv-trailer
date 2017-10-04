@@ -12,16 +12,25 @@ import { Router } from '@angular/router';
 export class TrailerDetailComponent implements OnInit {
 
   rForm: FormGroup;
-  listing: any;
+  listing: any = [];
   features: any;
+  allListing: any = [];
 
-  listingFeatures: any = [{feature: 'Brijesh'}, {feature: 'Kirti'}];
+  listingFeatures: any = [{feature: 'Wifi'}, {feature: 'Built-in Speakers'}, {feature: 'TV/DVD'}, {feature: 'CD Player'}, {feature: 'Vanity'}, {feature: 'Pet Friendly'}, {feature: 'Dish Washer'}, {feature: 'Bathtub'}, {feature: 'Family/Kid Friendly'}, {feature: 'Outside Shower'}, {feature: 'Smoke Free'}, {feature: 'Bluetooth'},
+                          {feature: 'Pull-out sofa Bed'}, {feature: 'Outdoor Kitchenette'}, {feature: 'Delivery Avilable'}, {feature: 'Lines Provided'}, {feature: 'Heating / Cooling'}, {feature: 'BBQ'}, {feature: 'Automatic Awning'}, {feature: 'Camping Chairs'}, {feature: 'Basic Cookwaer / Cultery'},
+                          {feature: 'Closets and Storage Space'}, {feature: 'Full Winter Rental Avilable'}, {feature: 'Boardgames and Movies'}];
 
   constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService)
-              {
-              //  this.listing = JSON.parse(localStorage.getItem('listing'));
+              public apiService: ApiService) {
+
+                this.allListing = localStorage.getItem('listing');
+                if (this.allListing === null || this.allListing.length === 0) {
+                    console.log();
+                } else {
+                  this.listing = JSON.parse(localStorage.getItem('listing'));
+                }
+
                 console.log('step3');
                 console.log(this.listing);
 

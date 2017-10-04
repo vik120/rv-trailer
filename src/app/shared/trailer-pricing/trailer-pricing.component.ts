@@ -13,13 +13,20 @@ export class TrailerPricingComponent implements OnInit {
 
   rForm: FormGroup;
   listing: any = [];
+  allListing: any = [];
 
 
     constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService)
-              {
-                this.listing = JSON.parse(localStorage.getItem('listing'));
+              public apiService: ApiService) {
+
+                this.allListing = localStorage.getItem('listing');
+                if (this.allListing === null || this.allListing.length === 0) {
+                    console.log();
+                } else {
+                  this.listing = JSON.parse(localStorage.getItem('listing'));
+                }
+
                 console.log('step 4');
                 console.log(this.listing);
 
@@ -35,14 +42,12 @@ export class TrailerPricingComponent implements OnInit {
                     'pricing_highest_season_date_range_from' : [null],
                     'pricing_highest_season_date_range_to' : [null],
                 });
-
               }
 
   ngOnInit() {
   }
 
   onSubmitPricing() {
-
      const pricingSubmit = this.rForm.value;
      this.listing['pricingSubmit'] = pricingSubmit;
      console.log(this.listing['pricingSubmit']);

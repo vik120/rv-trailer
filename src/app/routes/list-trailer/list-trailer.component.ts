@@ -28,6 +28,7 @@ export class ListTrailerComponent implements OnInit {
                       } else {
                         this.logindata = JSON.parse(localStorage.getItem('user'));
                       }
+
               }
 
   brandSlideVisible: boolean;

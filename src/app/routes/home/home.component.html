@@ -17,7 +17,6 @@
             <div class="feature-rv-box" *ngFor="let listtrailer of listtrailers ">
                 <rv-gridview [rvInfo]="listtrailer" [photo]="listtrailer.photo" [rvName]=" listtrailer.details_ad_title" [rvPrice]=" doller.doller_sign + listtrailer.pricing_security_deposit" [location]="listtrailer.location_city" [year]="listtrailer.specification_year"
                     [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
-
             </div>
             <div class=" view-btn ">
                 <button class="btn btn-primary btn-lg">View More</button>

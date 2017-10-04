@@ -7,9 +7,9 @@ import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-// const URL = 'http://localhost:3001/upload';
+const URL = 'http://localhost:3001/upload';
 
-const URL: string = 'http://165.227.23.237:3001';
+// const URL: string = 'http://165.227.23.237:3001';
 
 
 @Component({
@@ -22,18 +22,29 @@ export class TrailerPhotoComponent implements OnInit {
 
 rForm: FormGroup;
 listing: any = [];
-public uploader:FileUploader = new FileUploader({url: URL});
+public uploader: FileUploader = new FileUploader({url: URL});
 fileName: String;
 userID: any = [];
+allListing: any = [];
+photo: any;
+photoname: String;
 
 
   constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService)
-              {
-                this.listing = JSON.parse(localStorage.getItem('listing'));
-                console.log('kirti123');
+              public apiService: ApiService) {
+
+                this.allListing = localStorage.getItem('listing');
+
+                if (this.allListing === null || this.allListing.length === 0) {
+                    console.log();
+                } else {
+                  this.listing = JSON.parse(localStorage.getItem('listing'));
+                }
+
+                console.log('step5');
                 console.log(this.listing);
+
                 this.rForm = fb.group({
                     'photo' : [null],
                 });
@@ -41,25 +52,27 @@ userID: any = [];
 
 
         ngOnInit() {
-          this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
-          this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-                //console.log("ImageUpload:uploaded:", item, status, response);
-             //   console.log(response);
+          this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+          this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+            // console.log("ImageUpload:uploaded:", item, status, response);
+            //  console.log(response);
                 const responseResult = JSON.parse(response);
                 this.fileName = responseResult.filename;
                 console.log(this.fileName);
-             //   console.log(responseResult.filename);
-          }
+          };
         }
 
 
   onSubmitPhoto() {
+    if (this.fileName === null || this.fileName === undefined) {
+      this.photoname = 'noimage.jpg';
+      this.photo = {'photo': this.photoname};
+    } else {
+      this.photo = {'photo': this.fileName};
+    }
 
-
-    //console.log(this.fileName);
-    const photo = {'photo': this.fileName};
     this.userID = JSON.parse(localStorage.getItem('user'));
-    const photo_data = Object.assign({}, this.listing, photo, {user_id: this.userID.id});
+    const photo_data = Object.assign({}, this.listing, this.photo, {user_id: this.userID.id});
     console.log(photo_data);
 
     this.apiService.addListTrailer(photo_data).subscribe((result) => {
@@ -68,7 +81,6 @@ userID: any = [];
      }, (err) => {
       console.log(err);
     });
-
   }
 
 }

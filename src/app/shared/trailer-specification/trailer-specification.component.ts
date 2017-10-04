@@ -17,6 +17,7 @@ export class TrailerSpecificationComponent implements OnInit {
   listing: any = [];
   getListing: any = [];
   logindata: any = [];
+  allListing: any = [];
 
 
   public trailerType: string = 'rvCottage';
@@ -29,13 +30,7 @@ export class TrailerSpecificationComponent implements OnInit {
               public apiService: ApiService)
               {
 
-              //  this.listing = JSON.parse(localStorage.getItem('listing'));
 
-                // if ( this.getListing.length === 0 ) {
-                //   this.listing = localStorage.setItem('listing', this.listing);
-                // } else {
-                //   this.listing = localStorage.getItem('listing');
-                // }
 
                 this.rForm = fb.group({
                   'specification_make' : [null, Validators.required],
@@ -62,26 +57,30 @@ export class TrailerSpecificationComponent implements OnInit {
   }
 
   ngOnInit() {
-
     console.log(this.trailerType);
+
+    this.allListing = localStorage.getItem('listing');
+    if (this.allListing === null || this.allListing.length === 0) {
+        console.log();
+    } else {
+      this.listing = JSON.parse(localStorage.getItem('listing'));
+    }
   }
 
 
-
   onSubmitSpecification() {
-        if(this.trailerType == null) {
-          this.trailerType = 'RV Cottage';
-        }else{
-          this.trailerType = this.trailerType;
-        }
-      let rvCottage = {'rvCottage': this.trailerType};
-      let listingSpecification  =  Object.assign({}, this.rForm.value, rvCottage);
-      console.log(listingSpecification);
-        // this.listing["specification"] = specification;
-       //  this.listing['listingSpecification'] = listingSpecification;
-      //    console.log(this.listing);
-      localStorage.setItem('listing', JSON.stringify(listingSpecification));
-      this.router.navigate(['list-trailer/location']);
+      if(this.trailerType == null) {
+        this.trailerType = 'RV Cottage';
+      }else{
+        this.trailerType = this.trailerType;
+      }
+        let rvCottage = {'rvCottage': this.trailerType};
+        let listingSpecification  =  Object.assign({}, this.rForm.value, rvCottage);
+        // console.log(listingSpecification);
+        // this.listing["specification"] = listingSpecification;
+        // console.log(this.listing);
+        localStorage.setItem('listing', JSON.stringify(listingSpecification));
+        this.router.navigate(['list-trailer/location']);
   }
 
   trailerspec(value) {
