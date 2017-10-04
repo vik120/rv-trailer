@@ -25,14 +25,26 @@ export class RvsListingComponent implements OnInit {
   ];
 
   public items: any[];
+  userDetails: any[] = [];
+  logindata: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+                      if (this.logindata  === null ) {
+                        console.log();
+                      } else {
+                        this.logindata = JSON.parse(localStorage.getItem('user'));
+                      }
+  }
 
   brandSlideVisible: boolean;
 
   ngOnInit() {
     this.brandSlideVisible = true;
     this.allItems();
+    if (this.logindata  !== null ) {
+        const id = this.logindata.id;
+        this.getUserData(id);
+     }
   }
 
   filterSearch(params) {
@@ -57,6 +69,12 @@ export class RvsListingComponent implements OnInit {
           .subscribe( (result) => {
             this.items = result;
           });
+  }
+
+  getUserData(id) {
+    this.apiService.showUser(id).subscribe((res) => {
+      this.userDetails = res;
+    });
   }
 
 }

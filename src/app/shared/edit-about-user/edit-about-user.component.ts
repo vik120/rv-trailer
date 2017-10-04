@@ -75,14 +75,14 @@ export class EditAboutUserComponent implements OnInit {
     const user123 = JSON.parse(localStorage.getItem('user'));
     let id = user123.id
     const user_data = Object.assign({}, this.rForm.value, photo);
-console.log(id);
-console.log(user_data);
+    console.log(id);
+    console.log(user_data);
 
     this.apiService.updateUser(id, user_data).then((result) => {
       // let id = result['_id'];
       let id = result;
       console.log(id);
-      this.router.navigate(['admin/list-trailer']);
+      this.router.navigate(['user-dashboard/about']);
     }, (err) => {
       console.log(err);
     });

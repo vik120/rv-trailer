@@ -13,7 +13,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class SignupOwnerComponent implements OnInit {
 
 rForm: FormGroup;
-  user: {};
+user: {};
+photo: any;
 
   constructor(private fb: FormBuilder,
               public router:Router,
@@ -41,7 +42,10 @@ rForm: FormGroup;
   }
 
   onSubmit() {
-    this.apiService.addUser(this.rForm.value).then((result) => {
+    let photoname = 'userphoto.png';
+    this.photo = {'photo': photoname};
+    const signup_data = Object.assign({}, this.rForm.value, this.photo);
+    this.apiService.addUser(signup_data).then((result) => {
      // console.log(this.rForm.value);
       let id = result['_id'];
       alert('Please Loggin With Your Email and Password');

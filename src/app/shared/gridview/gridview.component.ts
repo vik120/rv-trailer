@@ -14,13 +14,15 @@ export class GridviewComponent implements OnInit {
     rvPrice: string,
     location: string,
     year: number,
-    guest: number
+    guest: number,
+    province: string;
   }
 
   @Input() photo: any;
   @Input() rvName: string;
   @Input() rvPrice: string;
   @Input() location: string;
+  @Input() province: string;
   @Input() year: number;
   @Input() guest: number;
 

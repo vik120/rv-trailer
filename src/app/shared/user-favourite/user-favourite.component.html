@@ -41,7 +41,7 @@
             <div class="favourite-rv favourite-box-strip-right">
                 <!-- <rv-listview [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage"></rv-listview> -->
                 <div class="clearfix rvlist">
-                    
+
                     <figure class="rvlist-figure">
                         <img src="/images/{{ item.photo }}" />
                     </figure>
@@ -63,10 +63,9 @@
                         </div>
                         <div class="rv-info-bottom">
 
-                            <div class="rv-modal">year <br /> {{ item.specification_year }}</div>
                             <div class="rv-guest">guest <br /> {{ item.specification_guest }}</div>
-                            <div class="rv-btn btn btn-primary">Rent IT</div>
-
+                            <div class="rv-modal"></div>
+                            <button class="rv-btn btn btn-primary" type="button" [routerLink]="['/rv/', item._id]">Rent IT</button>
                         </div>
                     </div>
                 </div>

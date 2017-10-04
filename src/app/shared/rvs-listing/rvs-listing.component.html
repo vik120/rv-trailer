@@ -82,13 +82,42 @@
 
             </div>
             <div class="col-sm-8">
-                  <rv-listview *ngFor="let item of items" [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage">
+                <!-- <rv-listview *ngFor="let item of items" [rvInfo]="item" [rvimage]="item.rvimage" [rvName]="item.rvName" [rvPrice]="item.rvPrice" [location]="item.location" [rating]="item.rating" [year]="item.year" [guest]="item.guest" [ownerName]="item.ownerName" [ownerImage]="item.ownerImage">
 
-                </rv-listview>
+                </rv-listview> -->
 <!--
                 <div *ngFor="let item of items">
                         {{ item | json }} <br>
                 </div> -->
+                <div class="clearfix rvlist" *ngFor="let item of items; let i = index;">
+                    <figure class="rvlist-figure">
+                        <img src="/images/{{ item.photo }}" />
+                    </figure>
+                    <div class="rvlist-content rv-info">
+                        <div class="clearfix rv-info-top">
+                            <div class="rv-info-top-left">
+                                <h6>{{ item.specification_name }}</h6>
+                                <p class="rv-price">Price: $ {{ item.pricing_high_rate_hour }} / Night</p>
+                                <p class="rv-location">Location: <label>{{ item.location_city}}</label></p>
+                                <label>{{ item.location_province }} </label>
+                            </div>
+                            <div class="rv-owner-info rv-info-top-right text-center">
+                                 <!-- <figure><img src="/images/{{ userDetail.photo }}" /></figure> -->
+                                <h6>{{ item.details_ad_title }}</h6>
+                                <div class="star-rating">
+                                     <rating [(ngModel)]="rating" [max]="max" [readonly]="isReadonly"></rating>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rv-info-bottom">
+
+                            <div class="rv-guest">guest <br /> {{ item.specification_guest }}</div>
+                            <div class="rv-modal"></div>
+                            <button class="rv-btn btn btn-primary" type="button" [routerLink]="['/rv/', item._id]">Rent IT</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class=" view-btn ">
                     <button class="btn btn-primary ">View More</button>

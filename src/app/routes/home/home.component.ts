@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
     {
       doller_sign: '$',
     }
-  ]
+  ];
+  spacs: any[] = [
+  {
+    spacis: ' , ',
+  } ]
 
   testimonials: any[] = [
     {
