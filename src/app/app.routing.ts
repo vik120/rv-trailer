@@ -121,7 +121,9 @@ export const Routing = RouterModule.forRoot([
         children: [
             {
                 path: '',
-                component: TrailerSpecificationComponent
+				redirectTo: 'TrailerSpecification',
+				pathMatch:'full'
+                
             },
             {
                 path: 'specification',
