@@ -17,6 +17,7 @@ export class RvDetailComponent implements OnInit {
   public max: number = 5;
   public rate: number = 4;
   public isReadonly: boolean = true;
+  public features: string[];
   calendarOptions: Object = {
     height: 'parent',
     fixedWeekCount : false,
@@ -105,6 +106,7 @@ export class RvDetailComponent implements OnInit {
     this.apiService.showListTrailer(id).subscribe((res) => {
       this.renterdetail = res;
       console.log(this.renterdetail);
+      this.features = this.renterdetail.details_feature;
     }, (err) => {
       console.log(err);
     });

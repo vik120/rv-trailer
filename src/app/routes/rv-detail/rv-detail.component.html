@@ -7,7 +7,7 @@
             <li><a [routerLink]="['/']">Home</a></li>
             <li><a [routerLink]="['/rv']">rv</a></li>
             <li class="active">{{renterdetail.rv_type}}</li>
-            <!-- {{renterdetail.details_feature}} -->
+             {{renterdetail.details_feature}}
         </ol>
     </div>
 </div>
@@ -118,97 +118,145 @@
                         <i class="icon">
                           <img src="assets/svg/bathtub1.svg" alt="Third slide">
                         </i>
-                        <label>Bathtubs</label> 03
+                        <label>Bathtubs</label>
+                        <div *ngIf="features?.indexOf('Bathtub') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/dishwasher.svg" alt="">
                         </i>
-                        <label>Dishwashers</label> 03
+                        <label>Dishwashers</label>
+                        <div *ngIf="features?.indexOf('Dish Washer') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/television.svg" alt="Third slide">
                         </i>
-                        <label>Television</label> Yes
+                        <label>Television</label>
+                        <div *ngIf="features?.indexOf('TV/DVD') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                               <img src="assets/svg/compact-disc.svg" alt="">
                         </i>
-                        <label>CD Player</label> Yes
+                        <label>CD Player</label>
+                        <div *ngIf="features?.indexOf('TV/DVD') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/vanity-case.svg" alt="">
                         </i>
-                        <label>Vanity</label> Yes
+                        <label>Vanity</label>
+                        <div *ngIf="features?.indexOf('Vanity') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/ac.svg" alt="">
                         </i>
-                        <label>Heating/Cooling</label> Yes
+                        <label>Heating/Cooling</label>
+                        <div *ngIf="features?.indexOf('Heating / Cooling') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/archive.svg" alt="">
                         </i>
-                        <label>Closet and Storage Space</label> Yes
+                        <label>Closet and Storage Space</label>
+                        <div *ngIf="features?.indexOf('Closets and Storage Space') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/pet.svg" alt="">
                         </i>
-                        <label>Pet Friendly</label> Yes
+                        <label>Pet Friendly</label>
+                        <div *ngIf="features?.indexOf('Pet Friendly') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/smoke.svg" alt="">
                         </i>
-                        <label>Smoke Free</label> Yes
+                        <label>Smoke Free</label>
+                        <div *ngIf="features?.indexOf('Smoke Free') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/bluetooth.svg" alt="">
                         </i>
-                        <label>Bluetooth</label> No
+                        <label>Bluetooth</label>
+                        <div *ngIf="features?.indexOf('Bluetooth') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/sofa.svg" alt="">
                         </i>
-                        <label>Pull-out Sofa Bed</label> Yes
+                        <label>Pull-out Sofa Bed</label>
+                        <div *ngIf="features?.indexOf('Pull-out sofa Bed') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/shower.svg" alt="">
                         </i>
-                        <label>Outdoor Shower</label> Yes
+                        <label>Outdoor Shower</label>
+                        <div *ngIf="features?.indexOf('Outside Shower') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/grill.svg" alt="">
                         </i>
-                        <label>BBQ</label> Yes
+                        <label>BBQ</label>
+                        <div *ngIf="features?.indexOf('BBQ') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/stove.svg" alt="">
                         </i>
-                        <label>Outdoor Kitchenette</label> No
+                        <label>Outdoor Kitchenette</label>
+                        <div *ngIf="features?.indexOf('Outdoor Kitchenette') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                             <img src="assets/svg/tent.svg" alt="">
                         </i>
-                        <label>Automatic Awning</label> Yes
+                        <label>Automatic Awning</label>
+                        <div *ngIf="features?.indexOf('Automatic Awning') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
                           <img src="assets/svg/speakers.svg" alt="">
                       </i>
-                        <label>Built-in Speaker System</label> No
+                        <label>Built-in Speaker System</label>
+                        <div *ngIf="features?.indexOf('Built-in Speakers') > -1 then ifYes else ifNo"></div>
+                        <ng-template #ifYes>Yes</ng-template>
+                        <ng-template #ifNo>No</ng-template>
                     </div>
                 </div>
                 <div class="trailer-features clearfix">
