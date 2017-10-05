@@ -24,12 +24,12 @@ export class UserDashboardComponent implements OnInit {
               private formBuilder: FormBuilder,
               private flashMessagesService: FlashMessagesService
               ) {
-                    // this.app.brandSlideVisible = false;
-                    //   if(this.logindata  === null ) {
-                    //     console.log();
-                    //   } else {
-                    //     this.logindata = JSON.parse(localStorage.getItem('user'));
-                    //   }
+                    this.app.brandSlideVisible = false;
+                      if(this.logindata  === null ) {
+                        console.log();
+                      } else {
+                        this.logindata = JSON.parse(localStorage.getItem('user'));
+                      }
               }
 
 

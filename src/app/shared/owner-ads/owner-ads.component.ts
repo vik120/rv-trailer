@@ -37,5 +37,13 @@ export class OwnerAdsComponent implements OnInit {
     });
   }
 
+  deleteListTrailer(id) {
+  this.apiService.deleteListTrailer(id).then((result) => {
+    window.location.reload();
+  }, (err) => {
+    console.log(err);
+  });
+}
+
 
 }

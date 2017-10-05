@@ -55,4 +55,8 @@ export class UserFavouriteComponent implements OnInit {
         });
     });
   }
+
+  deleteListTrailer(){
+
+  }
 }
