@@ -37,7 +37,6 @@ export class UserFavouriteComponent implements OnInit {
   }
 
   getFavIds() {
-
     return new Promise((resolve, reject) => {
       let favIds: string[] = [];
       this.apiService.myFav(this.userId)
@@ -56,7 +55,7 @@ export class UserFavouriteComponent implements OnInit {
     });
   }
 
-  deleteListTrailer(){
-
+  deleteListTrailer() {
+    console.log('kirti');
   }
 }
