@@ -7,7 +7,6 @@
             <li><a [routerLink]="['/']">Home</a></li>
             <li><a [routerLink]="['/rv']">rv</a></li>
             <li class="active">{{renterdetail.rv_type}}</li>
-             {{renterdetail.details_feature}}
         </ol>
     </div>
 </div>
@@ -21,7 +20,6 @@
 
                         <slide>
                             <img src="/images/{{ renterdetail.photo }}" alt="Second slide">
-                            <!-- <img src="/images/{{ renterdetail.photo }}" *ngIf="rvimage != 'undefined' || rvimage != ''" /> -->
                         </slide>
                     </carousel>
                 </div>
@@ -283,7 +281,7 @@
                         <i class="icon">
                         <img src="assets/svg/bed.svg" alt="">
                       </i>
-                        <label>Sleep</label> 10
+                        <label>Sleep</label> Yes
                     </div>
                     <div class="trailer-features-icon text-center">
                         <i class="icon">
