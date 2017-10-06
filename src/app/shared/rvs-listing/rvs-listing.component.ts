@@ -27,6 +27,7 @@ export class RvsListingComponent implements OnInit {
   public items: any[];
   userDetails: any[] = [];
   logindata: any;
+  rating: number;
 
   constructor(private apiService: ApiService) {
                       if (this.logindata  === null ) {
@@ -75,6 +76,10 @@ export class RvsListingComponent implements OnInit {
     this.apiService.showUser(id).subscribe((res) => {
       this.userDetails = res;
     });
+  }
+
+  ratingClick() {
+    console.log("kp");
   }
 
 }

@@ -105,7 +105,9 @@
                                  <!-- <figure><img src="/images/{{ userDetail.photo }}" /></figure> -->
                                 <h6>{{ item.details_ad_title }}</h6>
                                 <div class="star-rating">
-                                     <rating [(ngModel)]="rating" [max]="max" [readonly]="isReadonly"></rating>
+                                      <rating [(ngModel)]="rating"></rating>
+                                     <!-- <rating (click)=ratingClick()></rating> -->
+
                                 </div>
                             </div>
 
