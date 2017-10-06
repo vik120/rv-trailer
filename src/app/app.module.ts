@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RecaptchaModule } from 'ng2-recaptcha';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { RouterModule, Routes, Router, RouterLinkActive } from '@angular/router';
 import { Routing } from './app.routing';
@@ -214,6 +215,7 @@ const firebaseConfig = {
     MyDatePickerModule,
     RatingModule,
     IonRangeSliderModule,
+    RecaptchaModule.forRoot(),
 
     HttpModule,
     ReactiveFormsModule,

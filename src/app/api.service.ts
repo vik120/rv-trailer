@@ -39,6 +39,12 @@ export class ApiService {
     this.authToken = token;
   }
 
+  //Messages
+  createMessage(params){
+    return this.http.post(this.mainURL + '/api/message', params)
+    .map(res => res.json());
+  }
+
   filterSearch(params) {
     return this.http.post(this.mainURL + '/api/filterSearch', params)
     .map(res => res.json());

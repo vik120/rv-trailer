@@ -10,6 +10,7 @@ var CmsPage = require('../models/cmspage');
 var ListTrailer = require('../models/product');
 var Favourite = require('../models/favourite');
 var Package = require('../models/package');
+var Message = require('../models/message');
 
 router.post('/sendmail', (req, res) => {
 
@@ -47,6 +48,12 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+router.post('/message', (req, res) => {
+  console.log(req.body);
+  Message.create(req.body, function (err, post) {
+    res.json(post);
+  });
+});
 
 router.post('/filterSearch', (req, res) => {
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { RecaptchaModule } from 'ng2-recaptcha';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
 
@@ -29,6 +30,8 @@ export class RvDetailComponent implements OnInit {
   public isFavourite = true;
   public favourite = {};
   public fav_id: string;
+  private listing_id: string;
+  private user_id: string;
 
   constructor(private app: AppComponent,
               public router: Router,
@@ -43,13 +46,37 @@ export class RvDetailComponent implements OnInit {
   ngOnInit() {
     this.brandSlideVisible = true;
     this.getRenterDetail(this.route.snapshot.params['id']);
+    this.listing_id = this.route.snapshot.params['id'];
     this.checkFavourite();
+
+    
   }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+}
+
+onSubmit(form) {
+  
+  //console.log(this.listing_id);
+  
+  form.value.listing_id = this.listing_id; 
+  form.value.user_id = this.user_id;
+  //console.log(form.value);
+  
+  this.apiService.createMessage(form.value)
+  .subscribe( (response) => console.log(response));
+  
+
+}
+
+
 
   getRenterDetail(id) {
     this.apiService.showListTrailer(id).subscribe((res) => {
       this.renterdetail = res;
       console.log(this.renterdetail);
+      this.user_id = this.renterdetail.user_id;
       this.features = this.renterdetail.details_feature;
     }, (err) => {
       console.log(err);
