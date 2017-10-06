@@ -4,10 +4,10 @@
         <div class="col-sm-6 col-md-5 pull-right actionbox">
           <form>
             <div class="checkbox">
-                <input type="checkbox" id="selectall" />
+                <input type="checkbox" id="selectall" (change)="changeEvent($event)"/>
                 <label for="selectall">Select All</label>
             </div>
-            <button disabled class="btn btn-border-grey" (click)="deleteListTrailer()">
+            <button [disabled]="toggleBool" class="btn btn-border-grey" (click)="deleteListTrailer()">
               <i class="icon">
                   <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 486.4 486.4" style="enable-background:new 0 0 486.4 486.4;" xml:space="preserve">

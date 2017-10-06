@@ -118,12 +118,10 @@ export const Routing = RouterModule.forRoot([
     {
         path: 'list-trailer',
         component: ListTrailerComponent,
-        children: [
+            children: [
             {
                 path: '',
-				redirectTo: 'TrailerSpecification',
-				pathMatch:'full'
-                
+                component: TrailerSpecificationComponent
             },
             {
                 path: 'specification',

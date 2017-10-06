@@ -64,9 +64,17 @@ router.get('/fav/:user_id', (req, res) => {
   let user_id = req.params.user_id;
   let query = {'user_id': user_id}
 
-
-
   Favourite.find(query, { trailer_id : 1}, function(err, fav) {
+    res.json(fav);
+  });
+
+});
+
+router.delete('/deleteAllFav/:user_id', (req, res) => {
+  let user_id = req.params.user_id;
+  let query = {'user_id': user_id}
+
+  Favourite.findByIdAndRemove(query, { trailer_id : 1}, req.body, function(err, fav) {
     res.json(fav);
   });
 

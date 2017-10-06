@@ -16,6 +16,7 @@ export class UserFavouriteComponent implements OnInit {
   public rvList: any[] = [];
   private userId: string;
   public lists: any;
+  public toggleBool = true;
 
   constructor(public apiService: ApiService, private http: Http) { }
 
@@ -57,5 +58,16 @@ export class UserFavouriteComponent implements OnInit {
 
   deleteListTrailer() {
     console.log('kirti');
+    this.apiService.deleteAllmyFav(this.userId).subscribe((response) => {
+      console.log('Delete All Fav by User id');
+    });
+  }
+
+  changeEvent(event) {
+      if (event.target.checked) {
+          this.toggleBool = false;
+      } else {
+          this.toggleBool = true;
+      }
   }
 }

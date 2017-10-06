@@ -207,9 +207,9 @@ export class ApiService {
     });
   }
 
-    deleteCmsPage(id) {
-    return new Promise((resolve, reject) => {
-        this.http.delete( this.mainURL + '/api/cmspage/'+ id)
+  deleteCmsPage(id) {
+  return new Promise((resolve, reject) => {
+        this.http.delete( this.mainURL + '/api/cmspage/' + id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {
@@ -239,6 +239,11 @@ export class ApiService {
 
   myFav(user_id) {
     return this.http.get( this.mainURL + '/api/fav/' + user_id)
+    .map( (res: Response) => res.json());
+  }
+
+  deleteAllmyFav(user_id) {
+    return this.http.delete( this.mainURL + '/api/deleteAllFav/' + user_id)
     .map( (res: Response) => res.json());
   }
 
