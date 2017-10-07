@@ -25,14 +25,15 @@
                         </g>
                       </g>
                     </svg>
-                </i> 
+                </i>
                 Remove
               </button>
         </div>
     </div>
     <div class="user-message-body table-responsive clearfix">
         <table class="table table-condensed msglist">
-            <tbody>
+            <tbody *ngFor="let messageDetail of messageDetails">
+
                 <tr draggable="true" [routerLink]="['/renter/message/1']">
                     <td width="5%">
                         <div class="checkbox">
@@ -45,90 +46,19 @@
                     </td>
 
                     <td class="sender-name" width="10%">
-                        Jason Tayler
+                        {{ messageDetail.name }}
                     </td>
 
                     <td width="62%">
 
 
-                        <div class="content"><span class="specialtxt"><b>people are looking at your LinkedIn profile</b></span><span class="y2">&nbsp;-&nbsp;Boxbe This message is eligible for Automatic Cleanup! (messages-noreply@linkedin.com) Add cleanup rule | More info</span></div>
+                        <div class="content"><span class="specialtxt"><b>{{ messageDetail.message}}</b></span></div>
 
                     </td>
                     <td class="yf xY " width="5%">&nbsp;</td>
-                    <td class="text-right" width="8%"><b>3:35 pm</b></td>
+                    <td class="text-right" width="12%"><b>{{ messageDetail.date | date:'dd/MM/yyyy hh:mm a'}}</b></td>
                 </tr>
-                <tr class="active" [routerLink]="['/renter/message/1']" draggable="true">
-                    <td width="5%">
-                        <div class="checkbox">
-                            <input type="checkbox" id="msg-1">
-                            <label for="msg-2"></label>
-                        </div>
-                    </td>
-                    <td width="10%">
-                        <img src="assets/images/dummy.png" alt="" />
-                    </td>
 
-                    <td class="sender-name" width="10%">
-                        Jason Tayler
-                    </td>
-
-                    <td width="62%">
-
-
-                        <div class="content"><span class="specialtxt"><b>people are looking at your LinkedIn profile</b></span><span class="y2">&nbsp;-&nbsp;Boxbe This message is eligible for Automatic Cleanup! (messages-noreply@linkedin.com) Add cleanup rule | More info</span></div>
-
-                    </td>
-                    <td class="yf xY " width="5%">&nbsp;</td>
-                    <td class="text-right" width="8%"><b>3:35 pm</b></td>
-                </tr>
-                <tr draggable="true" [routerLink]="['/renter/message/1']">
-                    <td width="5%">
-                        <div class="checkbox">
-                            <input type="checkbox" id="msg-1">
-                            <label for="msg-3"></label>
-                        </div>
-                    </td>
-                    <td width="10%">
-                        <img src="assets/images/dummy.png" alt="" />
-                    </td>
-
-                    <td class="sender-name" width="10%">
-                        Jason Tayler
-                    </td>
-
-                    <td width="62%">
-
-
-                        <div class="content"><span class="specialtxt"><b>people are looking at your LinkedIn profile</b></span><span class="y2">&nbsp;-&nbsp;Boxbe This message is eligible for Automatic Cleanup! (messages-noreply@linkedin.com) Add cleanup rule | More info</span></div>
-
-                    </td>
-                    <td class="yf xY " width="5%">&nbsp;</td>
-                    <td class="text-right" width="8%"><b>3:35 pm</b></td>
-                </tr>
-                <tr draggable="true" [routerLink]="['/renter/message/1']">
-                    <td width="5%">
-                        <div class="checkbox">
-                            <input type="checkbox" id="msg-1">
-                            <label for="msg-4"></label>
-                        </div>
-                    </td>
-                    <td width="10%">
-                        <img src="assets/images/dummy.png" alt="" />
-                    </td>
-
-                    <td class="sender-name" width="10%">
-                        Jason Tayler
-                    </td>
-
-                    <td width="62%">
-
-
-                        <div class="content"><span class="specialtxt"><b>people are looking at your LinkedIn profile</b></span><span class="y2">&nbsp;-&nbsp;Boxbe This message is eligible for Automatic Cleanup! (messages-noreply@linkedin.com) Add cleanup rule | More info</span></div>
-
-                    </td>
-                    <td class="yf xY " width="5%">&nbsp;</td>
-                    <td class="text-right" width="8%"><b>3:35 pm</b></td>
-                </tr>
             </tbody>
         </table>
     </div>

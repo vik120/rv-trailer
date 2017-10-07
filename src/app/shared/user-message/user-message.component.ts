@@ -1,4 +1,6 @@
+import { Http } from '@angular/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
 
 @Component({
   selector: 'rv-user-message',
@@ -8,12 +10,27 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class UserMessageComponent implements OnInit {
 
-  constructor() { }
+  messageDetails: any = [];
+
+  constructor(public apiService: ApiService,
+              private http: Http ) { }
 
   ngOnInit() {
-    console.log('I am here');
-
-    
+   this.getMessageById();
   }
+
+  getMessageById() {
+    let user = JSON.parse(localStorage.getItem('user'));
+    let ids = user.id;
+    console.log(ids);
+      this.apiService.messagesByUserId(ids).subscribe( (response) => {
+       this.messageDetails = response;
+       console.log(this.messageDetails);
+      });
+  }
+
+stringAsDate(dateStr: string) {
+  return new Date(dateStr);
+}
 
 }
