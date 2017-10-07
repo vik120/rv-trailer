@@ -54,12 +54,10 @@ export class ApiService {
     .map(res => res.json());
   }
 
-    getAllUsers() {
-
-      return this.http.get(this.mainURL + '/api/user')
-        .map(res => res.json());
-
-    }
+  getAllUsers() {
+    return this.http.get(this.mainURL + '/api/user')
+      .map(res => res.json());
+  }
 
 
   showUser(id) {
@@ -68,7 +66,7 @@ export class ApiService {
   }
 
 
-    addUser(data) {
+  addUser(data) {
     return new Promise((resolve, reject) => {
         this.http.post( this.mainURL + '/api/saveuser', data)
           .map(res => res.json())
@@ -205,7 +203,7 @@ export class ApiService {
     });
   }
 
-    updateCmsPage(id, data) {
+  updateCmsPage(id, data) {
     return new Promise((resolve, reject) => {
         this.http.put( this.mainURL + '/api/cmspage/' + id, data)
           .map(res => res.json())
@@ -241,7 +239,7 @@ export class ApiService {
 
     params.toString();
 
-    let url:string = this.mainURL + '/api/search?'+ params;
+    let url:string = this.mainURL + '/api/search?' + params;
     console.log(url);
     return this.http.get(url)
       .map( (res: Response) => res.json());

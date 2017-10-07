@@ -140,13 +140,9 @@ router.delete('/deleteAllFav/:user_id', (req, res) => {
 });
 
 router.post('/trailersbyids', (req, res) => {
-
   console.log(req.body);
-
   let query = { '_id': { $in: req.body } };
-
   ListTrailer.find(query, function(err, trailers){
-
     res.json(trailers);
   });
 });
@@ -347,7 +343,6 @@ router.post('/favourite', function(req, res, next) {
 
 router.post('/getfavourite', function(req, res) {
   //console.log(req.body.user_id);
-
   Favourite.findOne({user_id: req.body.user_id, trailer_id: req.body.trailer_id} , function (err, favourite) {
     if (err) return next(err);
     res.json(favourite);
