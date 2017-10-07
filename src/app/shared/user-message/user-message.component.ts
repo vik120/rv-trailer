@@ -11,6 +11,9 @@ export class UserMessageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('I am here');
+
+    
   }
 
 }

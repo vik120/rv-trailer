@@ -45,6 +45,10 @@ export class ApiService {
     .map(res => res.json());
   }
 
+  messagesByUserId() {
+    
+  }
+
   filterSearch(params) {
     return this.http.post(this.mainURL + '/api/filterSearch', params)
     .map(res => res.json());

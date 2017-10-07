@@ -12,6 +12,15 @@ var Favourite = require('../models/favourite');
 var Package = require('../models/package');
 var Message = require('../models/message');
 
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'kirti.coderadobe@gmail.com',
+    pass: 'coder4321'
+  }
+});
+
 router.post('/sendmail', (req, res) => {
 
   var transporter = nodemailer.createTransport({
@@ -29,17 +38,17 @@ router.post('/sendmail', (req, res) => {
     from: 'brijeshmkt@gmail.com',
     to: req.body.to,
     subject: req.body.subject,
-    text: req.body.text
+    text: "Hello text"
   };
 
   console.log(mailOptions);
-  // transporter.sendMail(mailOptions, function(error, info){
-  //   if (error) {
-  //     console.log(error);
-  //   } else {
-  //     console.log('Email sent: ' + info.response);
-  //   }
-  // });
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
 
 
 });
@@ -53,7 +62,50 @@ router.post('/message', (req, res) => {
   Message.create(req.body, function (err, post) {
     res.json(post);
   });
+
+  // Send mail details
+  var mailOptions = {
+    from: 'brijeshmkt@gmail.com',
+    to: req.body.email,
+    subject: "Your contact request to trailer owner",
+    text: JSON.stringify(req.body.message)
+  };
+
+  if(req.body.sendCopy) {
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  }
+
 });
+
+router.get('/messagebyuserid/:user_id', (req, res) => {
+  user_id = req.params.user_id;
+  
+  console.log(user_id);
+  
+
+  let query = { "user_id": user_id};
+
+
+  Message.find(query, function (err, messages) { 
+    if(err) return err;
+    
+    res.json(messages);
+  });
+
+  // Message.find(query, function(err, messages){
+    
+  //   if(err) return err;
+    
+  //   res.json(messages);
+  // });
+
+})
 
 router.post('/filterSearch', (req, res) => {
 
