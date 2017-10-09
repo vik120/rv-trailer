@@ -87,7 +87,7 @@ router.get('/messagebyuserid/:user_id', (req, res) => {
   user_id = req.params.user_id;
   console.log(user_id);
   let query = { "user_id": user_id};
-  Message.find(query, function (err, messages) {
+  Message.find(query).sort([['date','descending']]).exec(function (err, messages) {
     if(err) return err;
       res.json(messages);
   });

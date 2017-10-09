@@ -40,7 +40,7 @@ export class ApiService {
   }
 
   //Messages
-  createMessage(params){
+  createMessage(params) {
     return this.http.post(this.mainURL + '/api/message', params)
     .map(res => res.json());
   }

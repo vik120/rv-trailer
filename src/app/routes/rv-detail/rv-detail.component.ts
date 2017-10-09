@@ -60,17 +60,15 @@ onSubmit(form) {
 
 console.log(this.listing_id);
 
-  // form.value.listing_id = this.listing_id;
-  // form.value.user_id = this.user_id;
-  // console.log(form.value);
+  form.value.listing_id = this.listing_id;
+  form.value.user_id = this.user_id;
+  console.log(form.value);
 
-  // this.apiService.createMessage(form.value)
-  // .subscribe( (response) => console.log(response));
+  this.apiService.createMessage(form.value)
+  .subscribe( (response) => console.log(response));
 
 
 }
-
-
 
   getRenterDetail(id) {
     this.apiService.showListTrailer(id).subscribe((res) => {
