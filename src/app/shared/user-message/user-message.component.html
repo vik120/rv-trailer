@@ -34,18 +34,20 @@
         <table class="table table-condensed msglist">
             <tbody *ngFor="let messageDetail of messageDetails">
 
-                <tr draggable="true" [routerLink]="['/renter/message/1']">
+                <tr draggable="true">
                     <td width="5%">
                         <div class="checkbox">
-                            <input type="checkbox" id="msg-1">
-                            <label for="msg-1"></label>
+                            <!-- <input type="checkbox" id="msg-1">
+                            <label for="msg-1"></label> -->
+                            <input type="checkbox"  id={{messageDetail?._id}} />
+                            <label for="{{messageDetail?._id}}"></label><br>
                         </div>
                     </td>
                     <td width="10%">
                         <img src="assets/images/dummy.png" alt="" />
                     </td>
 
-                    <td class="sender-name" width="10%">
+                    <td class="sender-name" width="10%"  [routerLink]="['/renter/message/1']">
                         {{ messageDetail.name }}
                     </td>
 

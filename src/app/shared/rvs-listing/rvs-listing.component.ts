@@ -24,10 +24,13 @@ export class RvsListingComponent implements OnInit {
     }
   ];
 
-  public items: any[];
+  items: any[] = [];
   userDetails: any[] = [];
   logindata: any;
   rating: number;
+  counter: number;
+  item: any[] = [];
+  listLimit = 10;
 
   constructor(private apiService: ApiService) {
                       if (this.logindata  === null ) {
@@ -51,9 +54,6 @@ export class RvsListingComponent implements OnInit {
   filterSearch(params) {
     console.log("I am from filter search");
     console.log(params);
-
-    //Search listing and get data
-
     this.getItems(params);
   }
 
@@ -66,7 +66,8 @@ export class RvsListingComponent implements OnInit {
   }
 
   allItems() {
-    this.apiService.getAllListTrailer()
+
+    this.apiService.getAllListTrailer(this.listLimit)
           .subscribe( (result) => {
             this.items = result;
           });
@@ -79,7 +80,13 @@ export class RvsListingComponent implements OnInit {
   }
 
   ratingClick() {
-    console.log("kp");
+    console.log('kp');
+  }
+
+  loadMore() {
+    this.listLimit = this.items.length + 10;
+    console.log(this.listLimit);
+    this.allItems();
   }
 
 }

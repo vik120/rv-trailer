@@ -20,7 +20,7 @@
                     [guest]="listtrailer.specification_guest" [routerLink]="['/rv/', listtrailer._id]"> </rv-gridview>
             </div>
             <div class=" view-btn ">
-                <button class="btn btn-primary btn-lg">View More</button>
+                <button class="btn btn-primary" (click)="loadMore()">View More</button>
             </div>
         </div>
       </div>

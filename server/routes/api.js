@@ -110,7 +110,7 @@ router.post('/filterSearch', (req, res) => {
     ListTrailer.find({}, function(err, trailers){
 
       res.json(trailers);
-    }).limit(2);
+    }).skip(2).limit(2);
   });
 
 router.get('/fav/:user_id', (req, res) => {
@@ -284,12 +284,15 @@ router.delete('/cmspage/:id', function(req, res, next) {
   });
 });
 
-router.get('/trailers', function(req, res, next) {
+router.get('/trailers/:listlimit', function(req, res, next) {
+  let listlimit = parseInt(req.params.listlimit);
+  console.log(listlimit);
+
   ListTrailer.find({}, function(err, list){
     if (err) return err;
     res.json(list);
 
-  });
+  }).limit(listlimit);
 });
 
 

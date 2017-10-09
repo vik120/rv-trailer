@@ -263,8 +263,10 @@ export class ApiService {
       .map( res => res.json() );
   }
 
-  getAllListTrailer() {
-    let url:string = this.mainURL + '/api/trailers';
+  getAllListTrailer(listLimit = 10) {
+
+    let url:string = this.mainURL + '/api/trailers/'+ listLimit;
+    console.log(url);
     return this.http.get(url)
       .map( (res: Response) => res.json());
 
