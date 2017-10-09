@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   listtrailers: any = [];
-  listLimit = 10;
+  listLimit = 6;
   dollers: any[] = [
     {
       doller_sign: '$',
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadMore() {
-    this.listLimit = this.listtrailers.length + 10;
+    this.listLimit = this.listtrailers.length + 6;
     console.log(this.listLimit);
     this.getListTrailerList();
   }
