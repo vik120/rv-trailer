@@ -356,4 +356,9 @@ export class ApiService {
       .map(res => res.json());
   }
 
+  getNewsLetters(data) {
+      return this.http.post( this.mainURL + '/api/newsLetter', data)
+          .map(res => res.json());
+  }
+
 }

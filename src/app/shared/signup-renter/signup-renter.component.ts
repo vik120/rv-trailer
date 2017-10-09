@@ -22,10 +22,13 @@ export class SignupRenterComponent implements OnInit {
               public apiService:ApiService,
               private flashMessagesService: FlashMessagesService) {
 
-      this.rForm = fb.group({
+              let emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+      this.rForm = this.fb.group({
       'firstname' : [null, Validators.required],
       'lastname' : [null, Validators.required],
-      'email' : [null, Validators.required],
+      'email' : [null, [Validators.required, Validators.pattern(emailRegex)]],
       'password' : [null, Validators.required],
       'renter' : [ true ],
       'approved' : [ false ],

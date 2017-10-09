@@ -21,10 +21,13 @@ photo: any;
               public apiService:ApiService,
               private flashMessagesService: FlashMessagesService) {
 
+              // let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+                let emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
       this.rForm = fb.group({
       'firstname' : [null, Validators.required],
       'lastname' : [null, Validators.required],
-      'email' : [null, Validators.required],
+      'email' : [null, [Validators.required, Validators.pattern(emailRegex)]],
       'password' : [null, Validators.required],
       'owner' : [ true ],
       'approved' : [ false ],

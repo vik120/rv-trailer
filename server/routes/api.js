@@ -11,6 +11,7 @@ var ListTrailer = require('../models/product');
 var Favourite = require('../models/favourite');
 var Package = require('../models/package');
 var Message = require('../models/message');
+var NewsLetter = require('../models/newsletter');
 
 
 var transporter = nodemailer.createTransport({
@@ -178,6 +179,13 @@ router.get('/search', function(req, res, next) {
 
     res.json(trailers);
   })
+});
+
+router.post('/newsLetter', function(req, res, next) {
+  NewsLetter.create(req.body, function (err, newsletters) {
+    if (err) return next(err);
+    res.json(newsletters);
+  });
 });
 
 router.get('/user', function(req, res, next) {

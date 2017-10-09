@@ -10,9 +10,16 @@
     <label>Last Name</label>
     <input type="text" class="form-control" formControlName="lastname" id="lastname"  placeholder="Last Name" />
 </div>
-<div class="form-group">
+<div class="form-group" [ngClass]="{'has-error':!rForm.controls['email'].valid && rForm.controls['email'].touched}">
     <label>E-mail*</label>
-    <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-mail/Username" />
+    <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-mail/Username" [email]="true" email/>
+    <div *ngIf="rForm.controls['email'].hasError('required') && rForm.controls['email'].touched " class="alert alert-danger">
+       Please Insert Valid E-mail.
+    </div>
+    <div *ngIf="rForm.controls['email'].hasError('pattern') && rForm.controls['email'].touched " class="alert alert-danger">
+       Please Insert Valid E-mail.
+    </div>
+
 </div>
 <div class="form-group">
     <label>Password*</label>

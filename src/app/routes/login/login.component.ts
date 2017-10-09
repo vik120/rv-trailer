@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
   constructor(public af: AngularFireAuth,
               public router:Router,
               public apiService:ApiService,
-              private formBuilder: FormBuilder)
-              {
+              private formBuilder: FormBuilder) {
                 this.createForm();
+
               }
 
   facebookLogin() {
@@ -48,8 +48,10 @@ export class LoginComponent implements OnInit {
   }
 
   createForm() {
+    let emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
       this.form = this.formBuilder.group({
-      'email' : [null, Validators.required],
+      'email' : [null, [Validators.required, Validators.pattern(emailRegex)]],
       'password' : [null, Validators.required],
       'validate' : ''
     });

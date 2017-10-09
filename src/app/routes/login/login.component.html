@@ -13,9 +13,15 @@
         <div class="login">
           <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
             <h2 class="title">LOGIN</h2>
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':!form.controls['email'].valid && form.controls['email'].touched}">
                 <label>E-mail*</label>
                 <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-mail/Username" />
+                <div *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched " class="alert alert-danger">
+                   Please Insert Valid E-mail.
+                </div>
+                <div *ngIf="form.controls['email'].hasError('pattern') && form.controls['email'].touched " class="alert alert-danger">
+                   Please Insert Valid E-mail.
+                </div>
             </div>
             <div class="form-group">
                 <label>Password*</label>

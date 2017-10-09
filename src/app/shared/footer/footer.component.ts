@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from './../../api.service';
 
 @Component({
   selector: 'rv-footer',
@@ -8,9 +9,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form) {
+      this.apiService.getNewsLetters(form.value)
+      .subscribe( (response) => console.log(response));
   }
 
 }
