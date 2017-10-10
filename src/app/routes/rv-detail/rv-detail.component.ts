@@ -1,9 +1,10 @@
+import { RecaptchaModule } from 'ng2-recaptcha';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
-import { RecaptchaModule } from 'ng2-recaptcha';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
+import { FlashMessagesService } from 'angular2-flash-messages/module';
 
 @Component({
   selector: 'rv-detail',
@@ -32,11 +33,15 @@ export class RvDetailComponent implements OnInit {
   public fav_id: string;
   private listing_id: string;
   private user_id: string;
+  saveSuccess: boolean;
+
 
   constructor(private app: AppComponent,
               public router: Router,
               public apiService: ApiService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private flashMessagesService: FlashMessagesService,
+              private RecaptchaModule: RecaptchaModule
               ) {
                   this.app.brandSlideVisible = false;
             }
@@ -65,9 +70,16 @@ console.log(this.listing_id);
   console.log(form.value);
 
   this.apiService.createMessage(form.value)
-  .subscribe( (response) => console.log(response));
-
-
+  .subscribe( (response) => {
+    if (response) {
+        this.saveSuccess = true;
+        setTimeout(function() {
+          this.saveSuccess = false;
+        }.bind(this), 3000);
+    } else {
+        this.saveSuccess = false;
+    }
+  });
 }
 
   getRenterDetail(id) {

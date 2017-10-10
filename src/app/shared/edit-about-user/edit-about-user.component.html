@@ -57,7 +57,22 @@
                   </g>
 
               </svg>
-          </i> <input type="text" formControlName="user_contact_no" id="user_contact_no" [(ngModel)]="userDetails.user_contact_no"   class="form-control" placeholder="Contact Number"/>
+          </i> <div class="form-group" [ngClass]="{'has-error':!rForm.controls['user_contact_no'].valid && rForm.controls['user_contact_no'].touched}">
+                <input type="text" formControlName="user_contact_no" id="user_contact_no" [(ngModel)]="userDetails.user_contact_no"   class="form-control" placeholder="Contact Number"/>
+                <div *ngIf="rForm.controls['user_contact_no'].hasError('required') && rForm.controls['user_contact_no'].touched " class="alert alert-danger">
+                   Please Insert Valid 10 Digit Mobile Number.
+                </div>
+                <div *ngIf="rForm.controls['user_contact_no'].hasError('pattern') && rForm.controls['user_contact_no'].touched " class="alert alert-danger">
+                   Please Insert Valid 10 Digit Mobile Number.
+                </div>
+                <div *ngIf="rForm.controls['user_contact_no'].hasError('minLength') && rForm.controls['user_contact_no'].touched " class="alert alert-danger">
+                   Please Insert Valid 10 Digit Mobile Number.
+                </div>
+                <div *ngIf="rForm.controls['user_contact_no'].hasError('maxLength') && rForm.controls['user_contact_no'].touched " class="alert alert-danger">
+                   Please Insert Valid 10 Digit Mobile Number.
+                </div>
+
+              </div>
         </div>
     </div>
     <div class="about-content-bottom">

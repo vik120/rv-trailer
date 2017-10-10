@@ -81,9 +81,8 @@ export class LoginComponent implements OnInit {
       const user = {
         email: this.form.get('email').value,
         password: this.form.get('password').value
-      }
+      };
 
-      console.log('khushi');
       console.log(user);
 
     this.apiService.clientLogin(user).subscribe(data => {

@@ -1,3 +1,4 @@
+import { RecaptchaModule } from 'ng2-recaptcha';
 import { ApiService } from './api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -226,9 +227,10 @@ const firebaseConfig = {
     AccordionModule.forRoot(),
     DatepickerModule.forRoot() ,
     TypeaheadModule.forRoot(),
+    RecaptchaModule
 
   ],
-  providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard],
+  providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard, RecaptchaModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

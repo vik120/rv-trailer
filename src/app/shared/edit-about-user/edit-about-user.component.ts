@@ -26,6 +26,7 @@ export class EditAboutUserComponent implements OnInit {
   fileName: String;
   userID: any = [];
 
+
   constructor(private app: AppComponent,
               public router:Router,
               private fb: FormBuilder,
@@ -38,13 +39,15 @@ export class EditAboutUserComponent implements OnInit {
                         this.logindata = JSON.parse(localStorage.getItem('user'));
                       }
 
+                      let phone_pattern = '[0-9]*' ;
+
                 this.rForm = fb.group({
                     'photo' : [null],
                     'firstname' : [null],
                     'lastname' : [null],
                     'about_user_description' : [null],
                     'user_address' : [null],
-                    'user_contact_no' : [null],
+                    'user_contact_no' : [null, [Validators.required, Validators.pattern(phone_pattern), Validators.minLength(10), Validators.maxLength(10)]],
                 });
               }
 

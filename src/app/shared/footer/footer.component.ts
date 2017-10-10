@@ -1,3 +1,4 @@
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from './../../api.service';
 
@@ -9,14 +10,20 @@ import { ApiService } from './../../api.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService,
+              private flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form) {
       this.apiService.getNewsLetters(form.value)
-      .subscribe( (response) => console.log(response));
-  }
+      .subscribe( (response) => {
+        this.flashMessagesService.show('Thank You For Registration.', {cssClass: 'alert-success'});
+      }, (err) => {
+      console.log(err);
+      this.flashMessagesService.show('This E-mail Id is Registered.', {cssClass: 'alert-danger'});
+    });
 
-}
+      }
+  }

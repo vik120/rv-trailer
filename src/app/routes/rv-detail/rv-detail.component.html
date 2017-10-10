@@ -1,5 +1,6 @@
 <rv-header>
 </rv-header>
+
 <div class="breadcrumb-wrap">
     <div class="container">
         <h3>Trailer Name</h3>
@@ -384,46 +385,65 @@
             </div>
             <div class="col-sm-4">
 
+
                 <div class="filter-box">
-
-
-                    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                     <div class="filter-box-head clearfix">
                         <i class="icon">
                          <img src="assets/svg/paper-plane.svg" width="35" height="35" class="icon-img" alt="" />
                         </i>
                         <h4>Contact Owner</h4>
                     </div>
-                    <div class="filter-box-body enquiry-form clearfix">
+
+                    <div class="alert alert-success" *ngIf="saveSuccess">
+                        <strong>Trailer Owner is Contact you Soon.</strong>
+                    </div>
+                    <flash-messages></flash-messages>
+
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                      <div class="filter-box-body enquiry-form clearfix">
+
                         <div class="form-group mt-30">
                             <label for="name">Full Name</label>
-                            <input type="text" class="form-control" id="name" required ngModel name="name" #name="ngModel" pattern="[a-zA-Z][a-zA-Z ]+" />
+                            <input type="text" class="form-control" id="name" required ngModel name="name" #name="ngModel" placeholder="Full Name" />
+                            <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+                               <div [hidden]="!name.hasError('required')">Name is required</div>
+                            </div>
                         </div>
-
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" ngModel name="email" id="email" #email="ngModel" class="form-control" required/>
+                            <input type="text" ngModel name="email" id="email" #email="ngModel" class="form-control" placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  required/>
+                            <div [hidden]="email.valid || email.untouched"
+                               class="alert alert-danger">
+                               <div [hidden]="!email.hasError('required')">Email is required</div>
+                               <div [hidden]="!email.hasError('pattern')">Email format should be
+                                  <small><b>email@abc.com</b></small>
+                               </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea class="form-control" ngModel name="message" id="message" #message="ngModel" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>verification</label>
-                            <div class="clearfix row">
-
-                                <!-- <div class="col-md-12">
-                                    <recaptcha (resolved)="resolved($event)" siteKey="6LfIcDMUAAAAABl_no9y4dpVaXxBfTpcrHHmgTYn"></recaptcha>
-                                </div> -->
+                            <textarea class="form-control" ngModel name="message" id="message" #message="ngModel" required placeholder="Your Message here..."></textarea>
+                            <div [hidden]="message.valid || message.untouched" class="alert alert-danger">
+                               <div [hidden]="!message.hasError('required')">Message is required</div>
                             </div>
                         </div>
+
+                          <!-- <div class="form-group">
+                            <label>verification</label>
+                            <div class="clearfix row">
+                                 <div class="col-md-12">
+                                    <recaptcha (resolved)="resolved($event)" siteKey="6LfIcDMUAAAAABl_no9y4dpVaXxBfTpcrHHmgTYn"></recaptcha>
+                                </div>
+                             </div>
+                        </div> -->
 
                         <div class="form-group checkbox">
                             <input type="checkbox" ngModel name="sendCopy" id="send-copy">
                             <label for="send-copy">Send me a copy of email</label>
                         </div>
-                        <button type="submit" class="btn btn-primary full-width searchbtn">Send Email</button>
-                    </div>
+
+                        <button type="submit" [disabled]="!f.valid" class="btn btn-primary full-width searchbtn">Send Email</button>
+                      </div>
                     </form>
                 </div>
 
