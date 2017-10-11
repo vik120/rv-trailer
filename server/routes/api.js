@@ -102,6 +102,13 @@ router.get('/messagebyuserid/:user_id', (req, res) => {
 
 })
 
+router.get('/message/:id', function(req, res, next) {
+  Message.findById(req.params.id, function (err, message) {
+    if (err) return next(err);
+    res.json(message);
+  });
+});
+
 router.post('/filterSearch', (req, res) => {
 
     console.log(req.body);

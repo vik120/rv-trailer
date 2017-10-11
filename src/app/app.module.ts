@@ -108,6 +108,7 @@ import { OwnerPackageComponent } from './shared/owner-package/owner-package.comp
 import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 import { UserDashboardComponent } from './routes/user-dashboard/user-dashboard.component';
 import { EditAboutUserComponent } from './shared/edit-about-user/edit-about-user.component';
+import { UserDetailMessageComponent } from './shared/user-detail-message/user-detail-message.component';
 
 
 const firebaseConfig = {
@@ -204,6 +205,7 @@ const firebaseConfig = {
       CalendarComponent,
       UserDashboardComponent,
       EditAboutUserComponent,
+      UserDetailMessageComponent,
 
   ],
 

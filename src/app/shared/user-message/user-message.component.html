@@ -47,11 +47,11 @@
                         <img src="assets/images/dummy.png" alt="" />
                     </td>
 
-                    <td class="sender-name" width="10%"  [routerLink]="['/renter/message/1']">
+                    <td class="sender-name" width="10%">
                         {{ messageDetail.name }}
                     </td>
 
-                    <td width="62%">
+                    <td width="62%" [routerLink]="['/user-dashboard/all-detail-messages', messageDetail?._id]">
 
 
                         <div class="content"><span class="specialtxt"><b>{{ messageDetail.message}}</b></span></div>

@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var MessageSchema = new Schema({
-    user_id: {type: String},
+    sender_id: {type: String},
+    listings_user_id: {type: String},
     listing_id: {type: String},
     name: {type: String},
     email: {type: String},

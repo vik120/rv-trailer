@@ -1,3 +1,4 @@
+import { UserDetailMessageComponent } from './shared/user-detail-message/user-detail-message.component';
 import { EditAboutUserComponent } from './shared/edit-about-user/edit-about-user.component';
 import { UserDashboardComponent } from './routes/user-dashboard/user-dashboard.component';
 import { AdminViewListTrailerComponent } from './admin/admin-view-list-trailer/admin-view-list-trailer.component';
@@ -224,6 +225,10 @@ export const Routing = RouterModule.forRoot([
             {
                 path: 'message',
                 component: UserMessageComponent
+            },
+            {
+                path: 'all-detail-messages/:id',
+                component: UserDetailMessageComponent
             },
             {
                 path: 'package',

@@ -1,0 +1,139 @@
+ <div class="about-content clearfix">
+    <div class="about-content-top col-sm-6 col-md-5 pull-left" >
+      <h5>Trailer Details</h5><br>
+	    <div class="upload-picture clearfix" *ngFor="let trailerDetail of trailerDetails">
+        Trailer Type : {{trailerDetail.rv_type}} <br>
+        Price : {{trailerDetail.pricing_high_rate_hour}} / Night <br>
+           <div class="trailer-slider">
+              <carousel>
+                <slide>
+                  <img src="/images/{{ trailerDetail.photo }}" alt="Second slide">
+                </slide>
+              </carousel>
+            </div>
+          <div class="about-content-bottom">
+                <a href="" [routerLink]="['/rv', trailerDetail?._id]" class="btn btn-primary btn-lg">View More</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="about-content-mid col-sm-6 col-md-7 pull-right">
+        <h5>Send Message</h5>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group mt-30">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" required ngModel name="name" #name="ngModel" placeholder="Full Name" />
+                <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+                   <div [hidden]="!name.hasError('required')">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" ngModel name="email" id="email" #email="ngModel" class="form-control" placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  required/>
+                <div [hidden]="email.valid || email.untouched"
+                   class="alert alert-danger">
+                   <div [hidden]="!email.hasError('required')">Email is required</div>
+                   <div [hidden]="!email.hasError('pattern')">Email format should be
+                      <small><b>email@abc.com</b></small>
+                   </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" ngModel name="message" id="message" #message="ngModel" required placeholder="Your Message here..."></textarea>
+                <div [hidden]="message.valid || message.untouched" class="alert alert-danger">
+                   <div [hidden]="!message.hasError('required')">Message is required</div>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label>verification</label>
+                <div class="clearfix row">
+                     <div class="col-md-12">
+                        <recaptcha (resolved)="resolved($event)" siteKey="6LfIcDMUAAAAABl_no9y4dpVaXxBfTpcrHHmgTYn" ngModel name="captcha" id="captcha" #captcha="ngModel" required></recaptcha>
+                        <div [hidden]="captcha.valid || captcha.untouched" class="alert alert-danger">
+                          <div [hidden]="!captcha.hasError('required')">Please Select</div>
+                        </div>
+                    </div>
+                 </div>
+            </div> -->
+            <div class="form-group checkbox">
+                <input type="checkbox" ngModel name="sendCopy" id="send-copy">
+                <label for="send-copy">Send me a copy of email</label>
+            </div>
+
+            <div class="about-content-bottom">
+                <button type=submit [disabled]="!f.valid" class="btn btn-primary btn-lg">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="user-message">
+    <div class="user-message-top clearfix">
+        <h4 class="col-sm-6 col-md-7 pull-left"><strong>All Messages</strong></h4>
+        <div class="col-sm-6 col-md-5 pull-right actionbox">
+            <div class="checkbox">
+                <input type="checkbox" id="selectall" />
+                <label for="selectall">Select All</label>
+            </div>
+            <button class="btn btn-border-grey">
+                <i class="icon">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 486.4 486.4" style="enable-background:new 0 0 486.4 486.4;" xml:space="preserve">
+                      <g>
+                        <g>
+                          <path d="M446,70H344.8V53.5c0-29.5-24-53.5-53.5-53.5h-96.2c-29.5,0-53.5,24-53.5,53.5V70H40.4c-7.5,0-13.5,6-13.5,13.5
+                            S32.9,97,40.4,97h24.4v317.2c0,39.8,32.4,72.2,72.2,72.2h212.4c39.8,0,72.2-32.4,72.2-72.2V97H446c7.5,0,13.5-6,13.5-13.5
+                            S453.5,70,446,70z M168.6,53.5c0-14.6,11.9-26.5,26.5-26.5h96.2c14.6,0,26.5,11.9,26.5,26.5V70H168.6V53.5z M394.6,414.2
+                            c0,24.9-20.3,45.2-45.2,45.2H137c-24.9,0-45.2-20.3-45.2-45.2V97h302.9v317.2H394.6z"/>
+                          <path d="M243.2,411c7.5,0,13.5-6,13.5-13.5V158.9c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v238.5
+                            C229.7,404.9,235.7,411,243.2,411z"/>
+                          <path d="M155.1,396.1c7.5,0,13.5-6,13.5-13.5V173.7c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v208.9
+                            C141.6,390.1,147.7,396.1,155.1,396.1z"/>
+                          <path d="M331.3,396.1c7.5,0,13.5-6,13.5-13.5V173.7c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v208.9
+                            C317.8,390.1,323.8,396.1,331.3,396.1z"/>
+                        </g>
+                      </g>
+                    </svg>
+                </i>
+                Remove
+              </button>
+        </div>
+    </div>
+    <div class="user-message-body table-responsive clearfix">
+        <table class="table table-condensed msglist">
+            <tbody>
+
+                <tr draggable="true">
+                    <td width="5%">
+                        <div class="checkbox">
+                            <!-- <input type="checkbox" id="msg-1">
+                            <label for="msg-1"></label> -->
+                            <input type="checkbox" />
+                            <label ></label><br>
+                        </div>
+                    </td>
+                    <td width="10%">
+                        <img src="assets/images/dummy.png" alt="" />
+                    </td>
+
+                    <td class="sender-name" width="10%">
+                        abc
+                    </td>
+
+                    <td width="62%" [routerLink]="['/user-dashboard/all-detail-messages']">
+
+
+                        <div class="content"><span class="specialtxt"><b>message</b></span></div>
+
+                    </td>
+                    <td class="yf xY " width="5%">&nbsp;</td>
+                    <td class="text-right" width="12%"><b>dd/MM/yyyy hh:mm a</b></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

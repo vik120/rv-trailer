@@ -65,13 +65,18 @@ onSubmit(form) {
 console.log(this.listing_id);
 
   form.value.listing_id = this.listing_id;
-  form.value.user_id = this.user_id;
+  form.value.listings_user_id = this.user_id;
+  let senderID = JSON.parse(localStorage.getItem('user'));
+  form.value.sender_id = senderID.id;
   console.log(form.value);
 
   this.apiService.createMessage(form.value)
   .subscribe( (response) => {
     if (response) {
         this.saveSuccess = true;
+        setTimeout(function() {
+        this.saveSuccess = false;
+        }.bind(this), 3000);
     } else {
         this.saveSuccess = false;
     }
