@@ -14,6 +14,7 @@ import { ApiService } from './../../api.service';
 export class UserFavouriteComponent implements OnInit {
 
   public rvList: any[] = [];
+  favourite_id: any[] = [];
   private userId: string;
   public lists: any;
   public toggleBool = true;
@@ -35,7 +36,10 @@ export class UserFavouriteComponent implements OnInit {
           this.rvList = response;
         });
       });
+
+
   }
+
 
   getFavIds() {
     return new Promise((resolve, reject) => {
@@ -51,7 +55,10 @@ export class UserFavouriteComponent implements OnInit {
 
             resolve(favIds);
           }
-          //console.log(response);
+          console.log(response);
+          this.favourite_id = response;
+          console.log(this.favourite_id);
+
         });
     });
   }

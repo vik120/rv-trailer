@@ -11,39 +11,39 @@ import {Router} from '@angular/router';
 })
 export class HeaderFilterComponent implements OnInit {
 
-  
+
   public myForm: FormGroup; // our model driven form
   public submitted: boolean;
   searchForm:any;
   //router:Router;
 
   constructor(private fb: FormBuilder, public router: Router) {
-    
+
     this.searchForm = this.fb.group({
       'location': ['', Validators.required],
       'from': [''],
       'to': [''],
-      
+
     });
    }
 
   ngOnInit() {
-    
+
   }
 
   searchLocation() {
-    //console.log(this.searchForm.value);
+    console.log(this.searchForm.value);
     let formValues = this.searchForm.value;
-    this.router.navigate(['/rv', { 
+    this.router.navigate(['/rv', {
       location: formValues.location,
       from: formValues.from,
       to: formValues.to,
        homeSearch: true
-      }]); 
+      }]);
 
     //this.router.navigate( [ 'Details', { id: company.id }] );
     return false;
-    
+
   }
 
 }

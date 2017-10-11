@@ -1,7 +1,7 @@
-import { RecaptchaModule } from 'ng2-recaptcha';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {AppComponent} from '../../shared/app/app.component';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { RecaptchaModule } from 'ng2-recaptcha';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
 import { FlashMessagesService } from 'angular2-flash-messages/module';
@@ -40,8 +40,7 @@ export class RvDetailComponent implements OnInit {
               public router: Router,
               public apiService: ApiService,
               private route: ActivatedRoute,
-              private flashMessagesService: FlashMessagesService,
-              private RecaptchaModule: RecaptchaModule
+              private flashMessagesService: FlashMessagesService
               ) {
                   this.app.brandSlideVisible = false;
             }
@@ -73,9 +72,6 @@ console.log(this.listing_id);
   .subscribe( (response) => {
     if (response) {
         this.saveSuccess = true;
-        setTimeout(function() {
-          this.saveSuccess = false;
-        }.bind(this), 3000);
     } else {
         this.saveSuccess = false;
     }
