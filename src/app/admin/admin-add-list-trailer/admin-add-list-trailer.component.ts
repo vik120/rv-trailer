@@ -6,8 +6,8 @@ import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-const URL = 'http://localhost:3001/upload';
-// const URL = 'http://165.227.23.237:3001/upload';
+// const URL = 'http://localhost:3001/upload';
+const URL = 'http://165.227.23.237:3001/upload';
 
 @Component({
   selector: 'rv-admin-add-list-trailer',
