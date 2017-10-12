@@ -67,6 +67,11 @@ console.log(this.listing_id);
   form.value.listing_id = this.listing_id;
   form.value.listings_user_id = this.user_id;
   let senderID = JSON.parse(localStorage.getItem('user'));
+
+  if(senderID === null) {
+   this.router.navigate(['/signup/renter']);
+  }
+
   form.value.sender_id = senderID.id;
   form.value.parent_id = 0;
   console.log(form.value);
