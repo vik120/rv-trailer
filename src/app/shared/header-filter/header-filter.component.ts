@@ -28,7 +28,6 @@ export class HeaderFilterComponent implements OnInit {
    }
 
   ngOnInit() {
-
   }
 
   searchLocation() {

@@ -87,19 +87,23 @@ router.post('/message', (req, res) => {
 router.get('/messagebyuserid/:user_id', (req, res) => {
   user_id = req.params.user_id;
   console.log(user_id);
-  let query = { "user_id": user_id};
+  let listingId = { "listings_user_id": user_id};
+  let senderId = { "sender_id": user_id};
+  Message.find({"parent_id": "0",  $or: [ listingId, senderId] }).sort([['date','descending']]).exec(function (err, messages) {
+    if(err) return err;
+      res.json(messages);
+  });
+})
+
+
+router.get('/messagebyParentid/:parentId', (req, res) => {
+  parentId = req.params.parentId;
+  console.log(parentId);
+  let query = { "parent_id": parentId};
   Message.find(query).sort([['date','descending']]).exec(function (err, messages) {
     if(err) return err;
       res.json(messages);
   });
-
-  // Message.find(query, function(err, messages){
-
-  //   if(err) return err;
-
-  //   res.json(messages);
-  // });
-
 })
 
 router.get('/message/:id', function(req, res, next) {

@@ -19,7 +19,7 @@ export class UserMessageComponent implements OnInit {
    this.getMessageById();
   }
 
-  getMessageById() {
+getMessageById() {
     let user = JSON.parse(localStorage.getItem('user'));
     let ids = user.id;
     console.log(ids);

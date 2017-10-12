@@ -68,6 +68,7 @@ console.log(this.listing_id);
   form.value.listings_user_id = this.user_id;
   let senderID = JSON.parse(localStorage.getItem('user'));
   form.value.sender_id = senderID.id;
+  form.value.parent_id = 0;
   console.log(form.value);
 
   this.apiService.createMessage(form.value)

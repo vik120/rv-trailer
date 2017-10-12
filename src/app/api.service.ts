@@ -50,6 +50,11 @@ export class ApiService {
     .map( (res: Response) => res.json());
   }
 
+  messagesByParentId(parentId) {
+    return this.http.get( this.mainURL + '/api/messagebyParentid/' + parentId)
+    .map( (res: Response) => res.json());
+  }
+
   messagesDetails(id) {
     return this.http.get( this.mainURL + '/api/message/' + id)
     .map( (res: Response) => res.json());
