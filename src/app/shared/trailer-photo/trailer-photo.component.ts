@@ -9,7 +9,7 @@ import { FileUploader } from 'ng2-file-upload';
 //const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 // const URL = 'http://localhost:3001/upload';
 
-const URL: string = 'http://165.227.23.237:3001';
+const URL: string = 'http://162.243.111.79:3001';
 
 
 @Component({
