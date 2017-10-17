@@ -16,7 +16,6 @@ export class HeaderFilterComponent implements OnInit {
   public submitted: boolean;
   searchForm:any;
   //router:Router;
-
   constructor(private fb: FormBuilder, public router: Router) {
 
     this.searchForm = this.fb.group({
@@ -37,7 +36,7 @@ export class HeaderFilterComponent implements OnInit {
       location: formValues.location,
       from: formValues.from,
       to: formValues.to,
-       homeSearch: true
+      homeSearch: true
       }]);
 
     //this.router.navigate( [ 'Details', { id: company.id }] );

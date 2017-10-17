@@ -113,17 +113,59 @@ router.get('/message/:id', function(req, res, next) {
   });
 });
 
+// router.post('/filterSearch', (req, res) => {
+
+//     console.log(req.body);
+
+//     //let query = { '_id': { $in: req.body } };
+
+//     ListTrailer.find({}, function(err, trailers){
+
+//       res.json(trailers);
+//     }).skip(2).limit(2);
+//   });
+
+
+
+
 router.post('/filterSearch', (req, res) => {
 
-    console.log(req.body);
+  console.log(req.body);
+  location = req.body.location.split(',');
 
+  city = location[0].trim();
+  province = location[1];
+  price = req.body.price;
+  fifthwheel = req.body.fifthwheel;
+  hybridtrailer = req.body.hybridtrailer;
+  numberOfGuest = req.body.numberOfGuest;
+  tentrailer = req.body.tentrailer;
+  toytrailer = req.body.toytrailer;
+  traveltrailer = req.body.traveltrailer;
+  vintagetrailer = req.body.vintagetrailer;
+
+  dateFrom = req.body.dateFrom;
+  dateTo = req.body.dateTo;
+
+
+  let query = { $or:[ {'location_city':city}, {'location_province':province}, {'fifthwheel':fifthwheel}, {'hybrid':hybridtrailer}, {'specification_guest':numberOfGuest}, {'tenttrailer':tentrailer}, {'toyhauler':toytrailer}, {'traveltrailer':traveltrailer}, {'vintage':vintagetrailer}, {'pricing_high_rate_hour': {$gte: 0, $lte: price} }, {'pricing_highest_season_date_range_from': {$gte: dateFrom, $lte: dateTo}}, {'pricing_highest_season_date_range_to': {$lte: dateTo}}]}
+  // let query = {$and:[{'pricing_high_rate_hour': {$gte: 0, $lte: price} }]}
     //let query = { '_id': { $in: req.body } };
+  // let query = {$and:[{'pricing_highest_season_date_range_from': {$gte: dateFrom, $lte: dateTo}}, {'pricing_highest_season_date_range_to': {$lte: dateTo}}]}
 
-    ListTrailer.find({}, function(err, trailers){
+// let query = { $or:[ {'location_city':city}, {'location_province':province}, {'fifthwheel':fifthwheel}, {'hybrid':hybridtrailer}, {'specification_guest':numberOfGuest}, {'tenttrailer':tentrailer}, {'toyhauler':toytrailer}, {'traveltrailer':traveltrailer}, {'vintage':vintagetrailer}]}
+
+
+    ListTrailer.find(query, function(err, trailers){
 
       res.json(trailers);
-    }).skip(2).limit(2);
+    });
   });
+
+
+
+
+
 
 router.get('/fav/:user_id', (req, res) => {
   let user_id = req.params.user_id;

@@ -1,3 +1,4 @@
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { ApiService } from './../../api.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
@@ -32,7 +33,8 @@ export class RvsListingComponent implements OnInit {
   item: any[] = [];
   listLimit = 10;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,
+              private activatedRoute: ActivatedRoute) {
                       if (this.logindata  === null ) {
                         console.log();
                       } else {
@@ -49,6 +51,12 @@ export class RvsListingComponent implements OnInit {
         const id = this.logindata.id;
         this.getUserData(id);
      }
+
+        this.activatedRoute.queryParams.subscribe((params: Params) => {
+        let userId = params['userId'];
+        console.log(userId);
+      });
+
   }
 
   filterSearch(params) {

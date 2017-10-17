@@ -95,6 +95,11 @@ export const Routing = RouterModule.forRoot([
         component: RvDetailComponent
     },
     {
+        path: 'rv/:?',
+        component: RvDetailComponent
+    },
+
+    {
         path: 'login',
         component: LoginComponent
     },
