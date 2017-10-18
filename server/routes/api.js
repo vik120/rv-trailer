@@ -148,13 +148,9 @@ router.post('/filterSearch', (req, res) => {
   dateTo = req.body.dateTo;
 
 
-  let query = { $or:[ {'location_city':city}, {'location_province':province}, {'fifthwheel':fifthwheel}, {'hybrid':hybridtrailer}, {'specification_guest':numberOfGuest}, {'tenttrailer':tentrailer}, {'toyhauler':toytrailer}, {'traveltrailer':traveltrailer}, {'vintage':vintagetrailer}, {'pricing_high_rate_hour': {$gte: 0, $lte: price} }, {'pricing_highest_season_date_range_from': {$gte: dateFrom, $lte: dateTo}}, {'pricing_highest_season_date_range_to': {$lte: dateTo}}]}
+  let query = { $or:[ {'location_city':city}, {'location_province':province}, {'fifthwheel':fifthwheel}, {'hybrid':hybridtrailer}, {'specification_guest':numberOfGuest}, {'tenttrailer':tentrailer}, {'toyhauler':toytrailer}, {'traveltrailer':traveltrailer}, {'vintage':vintagetrailer}, {'pricing_high_rate_hour': {$gte: 0, $lte: price} }, {$and:[{'pricing_highest_season_date_range_from': {$gte: dateFrom, $lte: dateTo}}, {'pricing_highest_season_date_range_to': {$lte: dateTo}}]}]}
   // let query = {$and:[{'pricing_high_rate_hour': {$gte: 0, $lte: price} }]}
-    //let query = { '_id': { $in: req.body } };
   // let query = {$and:[{'pricing_highest_season_date_range_from': {$gte: dateFrom, $lte: dateTo}}, {'pricing_highest_season_date_range_to': {$lte: dateTo}}]}
-
-// let query = { $or:[ {'location_city':city}, {'location_province':province}, {'fifthwheel':fifthwheel}, {'hybrid':hybridtrailer}, {'specification_guest':numberOfGuest}, {'tenttrailer':tentrailer}, {'toyhauler':toytrailer}, {'traveltrailer':traveltrailer}, {'vintage':vintagetrailer}]}
-
 
     ListTrailer.find(query, function(err, trailers){
 
