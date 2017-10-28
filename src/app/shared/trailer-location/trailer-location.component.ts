@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { GlobaldataService } from './../../globaldata.service';
 import { ApiService } from './../../api.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,38 +16,47 @@ export class TrailerLocationComponent implements OnInit {
   listing: any = [];
   allListing: any = [];
 
+    location_street: any = [];
+    location_city: any = [];
+    location_province: any = [];
+    location_postal: any = [];
+
   constructor(private fb: FormBuilder,
               public router: Router,
-              public apiService: ApiService) {
+              public apiService: ApiService,
+              private gd: GlobaldataService) {
 
-                this.allListing = localStorage.getItem('listing');
-                if (this.allListing === null || this.allListing.length === 0) {
+                this.allListing = this.gd.ListingObj['global'];
+                if (this.allListing === undefined) {
                     console.log();
                 } else {
-                  this.listing = JSON.parse(localStorage.getItem('listing'));
+                  this.listing = this.gd.ListingObj['global'];
                 }
 
-                console.log('step 2');
+                console.log('Location Data');
                 console.log(this.listing);
 
-                  this.rForm = fb.group({
-                    'location_street' : [null, Validators.required],
-                    'location_city' : [null, Validators.required],
-                    'location_province' : [null, Validators.required],
-                    'location_postal' : [null, Validators.required],
-                  });
               }
 
   ngOnInit() {
+      this.allListing.location = this.gd.ListingObj['global'].location;
+    if (this.allListing.location === undefined) {
+        console.log();
+    } else {
+      this.listing = this.gd.ListingObj['global'];
+      this.location_street = this.listing.location.location_street;
+      this.location_city = this.listing.location.location_city;
+      this.location_province = this.listing.location.location_province;
+      this.location_postal = this.listing.location. location_postal;
+      console.log(this.location_postal);
+    }
   }
 
-  onSubmitLocation() {
-     const location = this.rForm.value;
-     console.log(location);
-     this.listing['location'] = location;
-     console.log(this.listing['location']);
-     localStorage.setItem('listing', JSON.stringify(this.listing));
-     this.router.navigate(['list-trailer/details']);
+  onSubmitLocation({value, valid}) {
+      this.gd.ListingObj['global'].location = value;
+      this.listing = this.gd.ListingObj['global'];
+      console.log(this.listing);
+      this.router.navigate(['list-trailer/details']);
   }
 
 }

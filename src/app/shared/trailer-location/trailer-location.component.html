@@ -1,17 +1,17 @@
-<form [formGroup]="rForm" (ngSubmit)="onSubmitLocation()">
+<form #f="ngForm" (ngSubmit)="onSubmitLocation(f)">
     <div class="trailer-location">
         <h4 class="title text-uppercase">Location</h4>
         <div class="row locatoin-form">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="form-label">Street*</label>
-                    <input class="form-control" [(ngModel)]="listing.location_street" formControlName="location_street" type="text" placeholder="Street"/>
+                    <input class="form-control" [(ngModel)]="location_street" #loc_street="ngModel" name="location_street" id="location_street" type="text" placeholder="Street"/>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="form-label">City*</label>
-                    <input type="text" class="form-control" [(ngModel)]="listing.location_city" formControlName="location_city" placeholder="City"/>
+                    <input type="text" class="form-control" [(ngModel)]="location_city" #loc_city="ngModel" name="location_city" id="location_city" placeholder="City"/>
                 </div>
             </div>
         </div>
@@ -19,19 +19,19 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="form-label">Province*</label>
-                    <input type="text" class="form-control" [(ngModel)]="listing.location_province" formControlName="location_province" placeholder="Province"/>
+                    <input type="text" class="form-control" [(ngModel)]="location_province" #loc_province="ngModel" name="location_province" id="location_province" placeholder="Province"/>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="form-label">Postal Code*</label>
-                    <input type="text" class="form-control" [(ngModel)]="listing.location_postal" formControlName="location_postal" placeholder="Postal Code"/>
+                    <input type="text" class="form-control" [(ngModel)]="location_postal" #loc_postal="ngModel" name="location_postal" id="location_postal" placeholder="Postal Code"/>
                 </div>
             </div>
         </div>
         <div class="clearfix location-btn">
             <button class="btn btn-border-red btn-lg" [routerLink]="['/list-trailer/specification']">Back</button>
-            <button [disabled]="!rForm.valid" type="submit" class="btn btn-primary btn-lg">Next</button>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-lg">Next</button>
         </div>
     </div>
 </form>

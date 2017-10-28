@@ -1,4 +1,4 @@
-<form [formGroup]="rForm" (ngSubmit)="onSubmitSpecification()">
+<form #f="ngForm" (ngSubmit)="onSubmitSpecification(f)">
     <div class="specification-box">
         <h4 class="title text-uppercase">Trailer Specification</h4>
         <div class="clearfix specification-btn">
@@ -62,29 +62,29 @@
         <div class="trailer-type" *ngIf="trailerType === 'Travel Trailer'" >
 
             <div class="checkbox">
-                <input type="checkbox" formControlName="traveltrailer" id="traveltrailer" value="traveltrailer" />
+                <input type="checkbox" name="traveltrailer" id="traveltrailer" value="traveltrailer" />
                 <label for="traveltrailer">Travel Trailer</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="fifthwheel" id="fifthwheel" value="fifthwheel" />
+                <input type="checkbox" name="fifthwheel" id="fifthwheel" value="fifthwheel" />
                 <label for="fifthwheel">Fifth Wheel</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="tenttrailer" id="tenttrailer" value="tenttrailer" />
+                <input type="checkbox" name="tenttrailer" id="tenttrailer" value="tenttrailer" />
 
                 <label for="tenttrailer">Tent Trailer</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="vintage" id="vintage" value="vintage" />
+                <input type="checkbox" name="vintage" id="vintage" value="vintage" />
                 <label for="vintage">Vintage</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="hybrid" id="hybrid" value="hybrid" />
+                <input type="checkbox" name="hybrid" id="hybrid" value="hybrid" />
 
                 <label for="hybrid">Hybrid</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="toyhauler" id="toyhauler" value="toyhauler" />
+                <input type="checkbox" name="toyhauler" id="toyhauler" value="toyhauler" />
 
                 <label for="toyhauler">Toy Hauler</label>
             </div>
@@ -92,29 +92,29 @@
 
         <div class="trailer-type" *ngIf="trailerType === 'Motor Home'">
             <div class="checkbox">
-                <input type="checkbox" formControlName="motor_class_a" id="motor_class_a" value="motor_class_a" />
+                <input type="checkbox" [(ngModel)]="motor_class_a" #classA="ngModel" name="motor_class_a" id="motor_class_a" value="motor_class_a" />
                 <label for="motor_class_a">Class A</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="motor_class_b" id="motor_class_b" value="motor_class_b" />
+                <input type="checkbox" [(ngModel)]="motor_class_b" #classB="ngModel" name="motor_class_b" id="motor_class_b" value="motor_class_b" />
                 <label for="motor_class_b">Class B</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" formControlName="motor_class_c" id="motor_class_c" value="motor_class_c" />
+                <input type="checkbox" [(ngModel)]="motor_class_c" #classC="ngModel" name="motor_class_c" id="motor_class_c" value="motor_class_c" />
                 <label for="motor_class_c">Class C</label>
             </div>
         </div>
 
         <div class="clearfix row">
             <div class="col-sm-4 form-group">
-                <input type="text" class="form-control" [(ngModel)]="listing.specification_make" formControlName="specification_make" placeholder="Make" />
+                <input type="text" class="form-control" [(ngModel)]="specification_make" #spec_make="ngModel" name="specification_make" id="specification_make" placeholder="Make" />
             </div>
             <div class="col-sm-4 form-group">
-                <input type="text" class="form-control" [(ngModel)]="listing.specification_model" formControlName="specification_model" placeholder="Model" />
+                <input type="text" class="form-control" [(ngModel)]="specification_model" #spec_model="ngModel" name="specification_model" id="specification_model" placeholder="Model" />
             </div>
             <div class="col-sm-4 form-group">
-                <select class="form-control" [(ngModel)]="listing.specification_year" placeholder="Year" formControlName="specification_year">
-                <option value="" disabled="true" [selected]="!listing.specification_year">Year</option>
+                <select class="form-control" [(ngModel)]="specification_year" placeholder="Year" #spec_year="ngModel" name="specification_year" id="specification_year">
+                <option value="" disabled="true" [selected]="!specification_year">Year</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
             </select>
@@ -123,27 +123,27 @@
         <div class="row">
             <div class="col-sm-4 form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="listing.specification_length" formControlName="specification_length" placeholder="Length" />
+                    <input type="text" class="form-control" [(ngModel)]="specification_length" #spec_length="ngModel" name="specification_length" id="specification_length" placeholder="Length" />
                     <span class="input-group-addon">Ft</span>
                 </div>
             </div>
             <div class="col-sm-4 form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="listing.specification_gross_weight" formControlName="specification_gross_weight" placeholder="Gross Weight" />
+                    <input type="text" class="form-control" [(ngModel)]="specification_gross_weight" #spec_gross_weight="ngModel" name="specification_gross_weight" id="specification_gross_weight" placeholder="Gross Weight" />
                     <span class="input-group-addon">LB</span>
                 </div>
             </div>
             <div class="col-sm-4 form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="listing.specification_tough_weight" formControlName="specification_tough_weight" placeholder="Tongue Weight" />
+                    <input type="text" class="form-control" [(ngModel)]="specification_tough_weight" #spec_tough_weight="ngModel" name="specification_tough_weight" id="specification_tough_weight" placeholder="Tongue Weight" />
                     <span class="input-group-addon">LB</span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4 form-group">
-                <select class="form-control" [(ngModel)]="listing.specification_guest" formControlName="specification_guest">
-                <option value="" disabled="true" [selected]="!listing.specification_guest">Guest</option>
+                <select class="form-control" [(ngModel)]="specification_guest" #spec_guest="ngModel" name="specification_guest" id="specification_guest">
+                <option value="" disabled="true" [selected]="!specification_guest">Guest</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -152,8 +152,8 @@
             </select>
             </div>
             <div class="col-sm-4 form-group">
-                <select class="form-control" [(ngModel)]="listing.specification_slide_out" formControlName="specification_slide_out">
-                <option value="" disabled="true" [selected]="!listing.specification_slide_out">Slide out</option>
+                <select class="form-control" [(ngModel)]="specification_slide_out" #spec_slide_out="ngModel" name="specification_slide_out" id="specification_slide_out">
+                <option value="" disabled="true" [selected]="!specification_slide_out">Slide out</option>
                 <option value="1">1 Slide out</option>
                 <option value="2">2 Slide out</option>
                 <option value="3">3 Slide out</option>
@@ -163,7 +163,7 @@
             </div>
         </div>
         <div class="clearfix specific-btn">
-            <button type=submit [disabled]="!rForm.valid" class="btn btn-primary btn-lg">NEXT</button>
+            <button type=submit [disabled]="!f.valid" class="btn btn-primary btn-lg">NEXT</button>
         </div>
     </div>
 </form>

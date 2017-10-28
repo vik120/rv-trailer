@@ -1,5 +1,6 @@
 import { RecaptchaModule } from 'ng2-recaptcha';
 import { ApiService } from './api.service';
+import { GlobaldataService } from './globaldata.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -232,7 +233,7 @@ const firebaseConfig = {
     RecaptchaModule.forRoot()
 
   ],
-  providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard],
+  providers: [ApiService, AuthGuard, NotAuthGuard, ClientAuthGuard, ClientNotAuthGuard, GlobaldataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
