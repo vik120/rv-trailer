@@ -1,10 +1,10 @@
 <div class="clearfix header-filter">
     <form [formGroup]="searchForm" (ngSubmit)="searchLocation()">
 
-    <div class="col-sm-4">
+        <div class="col-sm-4">
 
-        <div class="field-search">
-            <i class="icon">
+            <div class="field-search">
+                <i class="icon">
 
               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 54.757 54.757" style="enable-background:new 0 0 54.757 54.757;" xml:space="preserve">
@@ -18,12 +18,12 @@
                 </g>
               </svg>
             </i>
-            <input type="text" formControlName="location" name="location" class="form-control" placeholder="NANAIMO, COLUMBIA" />
+                <input type="text" formControlName="location" name="location" class="form-control" placeholder="NANAIMO, COLUMBIA" />
+            </div>
         </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="field-search">
-            <i class="icon">
+        <div class="col-sm-3">
+            <div class="field-search">
+                <i class="icon">
 
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 32.75 32.75" style="enable-background:new 0 0 32.75 32.75;" xml:space="preserve">
                 <g>
@@ -35,13 +35,13 @@
                 </g>
                 </svg>
             </i>
-            <input type="text" formControlName="from" class="form-control" placeholder="Available On" />
+                <input type="text" formControlName="from" class="form-control" bsDatepicker #dp1="bsDatepicker" placeholder="Available On" [(bsValue)]="bsValue" />
+            </div>
         </div>
-    </div>
 
-    <div class="col-sm-3">
-        <div class="field-search">
-            <i class="icon">
+        <div class="col-sm-3">
+            <div class="field-search">
+                <i class="icon">
 
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 32.75 32.75" style="enable-background:new 0 0 32.75 32.75;" xml:space="preserve">
                 <g>
@@ -53,11 +53,12 @@
                 </g>
                 </svg>
             </i>
-            <input type="text" formControlName="to" class="form-control" placeholder="Available Till" />
+                <input type="text" formControlName="to" placeholder="Available Till" class="form-control" bsDatepicker #dp="bsDatepicker">
+                <!-- <input type="text" class="form-control" /> -->
+            </div>
         </div>
-    </div>
-    <div class="col-sm-2">
-        <button type="submit" [disabled]="!searchForm.valid"  class="btn btn-primary">Search</button>
-    </div>
-  </form>
+        <div class="col-sm-2">
+            <button type="submit" [disabled]="!searchForm.valid" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 </div>

@@ -1,5 +1,5 @@
 import { ApiService } from '../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'rv-admin-login',
   templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.scss']
+  styleUrls: ['./admin-login.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminLoginComponent implements OnInit {
 
@@ -85,7 +86,7 @@ form: FormGroup;
         this.message = 'Success';
         this.apiService.storeUserData(data.token, data.user);
         setTimeout(() => {
-            this.router.navigate(['admin/user']);
+            this.router.navigate(['admin/dashboard']);
            }, 2000);
       }
     });

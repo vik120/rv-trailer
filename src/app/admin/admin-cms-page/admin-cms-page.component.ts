@@ -1,11 +1,12 @@
 import { ApiService } from './../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'rv-admin-cms-page',
   templateUrl: './admin-cms-page.component.html',
-  styleUrls: ['./admin-cms-page.component.scss']
+  styleUrls: ['./admin-cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminCmsPageComponent implements OnInit {
 

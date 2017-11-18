@@ -1,5 +1,5 @@
 import { ApiService } from '../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -7,7 +7,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'rv-admin-forgot-pass',
   templateUrl: './admin-forgot-pass.component.html',
-  styleUrls: ['./admin-forgot-pass.component.scss']
+  styleUrls: ['./admin-forgot-pass.component.scss'], 
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminForgotPassComponent implements OnInit {
 

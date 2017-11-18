@@ -41,17 +41,18 @@
                 <p>Sign up to receive notifications on the latest trailer listings.</p>
                 <flash-messages></flash-messages>
                 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-                <div class="row newletterform">
-                    <div class="col-xs-8 col-md-9"><input type="text" ngModel name="email" id="email" #email="ngModel" class="form-control" placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  required/>
-                      <div [hidden]="email.valid || email.pristine"
-                         class="alert alert-danger">
-                         <div [hidden]="!email.hasError('required')">Email is required</div>
-                         <div [hidden]="!email.hasError('pattern')">Email format should be
-                            <small><b>joe@abc.com</b></small>
-                         </div>
-                      </div>
-                    <div class="col-xs-4 col-md-3"><button type="submit" class="btn btn-border-white">Submit</button></div>
-                </div></div>
+                    <div class="row newletterform">
+                        <div class="col-xs-8 col-md-9"><input type="text" ngModel name="email" id="email" #email="ngModel" class="form-control" placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
+                            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                                <div [hidden]="!email.hasError('required')">Email is required</div>
+                                <div [hidden]="!email.hasError('pattern')">Email format should be
+                                    <small><b>joe@abc.com</b></small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-4 col-md-3"><button type="submit" class="btn btn-border-white">Submit</button></div>
+                    </div>
                 </form>
 
                 <div class="follow-us">

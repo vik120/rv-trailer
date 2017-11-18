@@ -1,11 +1,12 @@
 import { ApiService } from './../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'rv-admin-list-trailer',
   templateUrl: './admin-list-trailer.component.html',
-  styleUrls: ['./admin-list-trailer.component.scss']
+  styleUrls: ['./admin-list-trailer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminListTrailerComponent implements OnInit {
 

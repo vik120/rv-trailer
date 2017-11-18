@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
+ 
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,6 +15,7 @@ export class HeaderFilterComponent implements OnInit {
   public myForm: FormGroup; // our model driven form
   public submitted: boolean;
   searchForm:any;
+  bsValue: Date = new Date();
   //router:Router;
   constructor(private fb: FormBuilder, public router: Router) {
 

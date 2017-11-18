@@ -1,5 +1,5 @@
 import { ApiService } from './../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
@@ -12,7 +12,8 @@ const URL = 'http://localhost:3001/upload';
 @Component({
   selector: 'rv-admin-add-list-trailer',
   templateUrl: './admin-add-list-trailer.component.html',
-  styleUrls: ['./admin-add-list-trailer.component.scss']
+  styleUrls: ['./admin-add-list-trailer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminAddListTrailerComponent implements OnInit {
 

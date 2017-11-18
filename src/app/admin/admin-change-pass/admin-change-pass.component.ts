@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
@@ -6,7 +6,8 @@ import { ApiService } from './../../api.service';
 @Component({
   selector: 'rv-admin-change-pass',
   templateUrl: './admin-change-pass.component.html',
-  styleUrls: ['./admin-change-pass.component.scss']
+  styleUrls: ['./admin-change-pass.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminChangePassComponent implements OnInit {
 

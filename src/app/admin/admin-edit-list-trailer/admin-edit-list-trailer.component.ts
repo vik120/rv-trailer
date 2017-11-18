@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
@@ -12,7 +12,8 @@ const URL = 'http://localhost:3001/upload';
 @Component({
   selector: 'rv-admin-edit-list-trailer',
   templateUrl: './admin-edit-list-trailer.component.html',
-  styleUrls: ['./admin-edit-list-trailer.component.scss']
+  styleUrls: ['./admin-edit-list-trailer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminEditListTrailerComponent implements OnInit {
 

@@ -1,12 +1,13 @@
 import { ApiService } from './../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
   selector: 'rv-admin-user',
   templateUrl: './admin-user.component.html',
-  styleUrls: ['./admin-user.component.scss']
+  styleUrls: ['./admin-user.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminUserComponent implements OnInit {
 

@@ -18,7 +18,7 @@ import { AuthGuard } from './guards/auth.guard';
 /* plugins */
 
 
-import { TypeaheadModule, DatepickerModule, AccordionModule, CarouselModule, RatingModule } from 'ngx-bootstrap';
+import { TypeaheadModule, BsDatepickerModule , AccordionModule, CarouselModule, RatingModule } from 'ngx-bootstrap';
 
 import { MyDatePickerModule } from 'mydatepicker';
 import { IonRangeSliderModule } from 'ng2-ion-range-slider';
@@ -110,6 +110,7 @@ import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 import { UserDashboardComponent } from './routes/user-dashboard/user-dashboard.component';
 import { EditAboutUserComponent } from './shared/edit-about-user/edit-about-user.component';
 import { UserDetailMessageComponent } from './shared/user-detail-message/user-detail-message.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
 
 const firebaseConfig = {
@@ -207,6 +208,7 @@ const firebaseConfig = {
       UserDashboardComponent,
       EditAboutUserComponent,
       UserDetailMessageComponent,
+      AdminComponent,
 
   ],
 
@@ -228,7 +230,7 @@ const firebaseConfig = {
     OwlModule,
     CarouselModule.forRoot(),
     AccordionModule.forRoot(),
-    DatepickerModule.forRoot() ,
+    BsDatepickerModule.forRoot(),
     TypeaheadModule.forRoot(),
     RecaptchaModule.forRoot()
 

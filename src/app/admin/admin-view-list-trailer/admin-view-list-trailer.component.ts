@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
@@ -6,7 +6,8 @@ import { ApiService } from './../../api.service';
 @Component({
   selector: 'rv-admin-view-list-trailer',
   templateUrl: './admin-view-list-trailer.component.html',
-  styleUrls: ['./admin-view-list-trailer.component.scss']
+  styleUrls: ['./admin-view-list-trailer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminViewListTrailerComponent implements OnInit {
 

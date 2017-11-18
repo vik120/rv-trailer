@@ -23,7 +23,8 @@
             "../node_modules/ion-rangeslider/css/ion.rangeSlider.css",
             "../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css",
             "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
-            "../node_modules/fullcalendar/dist/fullcalendar.min.css"
+            "../node_modules/fullcalendar/dist/fullcalendar.min.css",
+            "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",

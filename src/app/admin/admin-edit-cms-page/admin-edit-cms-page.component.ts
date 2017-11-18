@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
@@ -6,7 +6,8 @@ import { ApiService } from './../../api.service';
 @Component({
   selector: 'rv-admin-edit-cms-page',
   templateUrl: './admin-edit-cms-page.component.html',
-  styleUrls: ['./admin-edit-cms-page.component.scss']
+  styleUrls: ['./admin-edit-cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminEditCmsPageComponent implements OnInit {
 

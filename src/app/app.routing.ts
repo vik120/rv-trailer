@@ -63,6 +63,7 @@ import { OwnerAdsComponent } from './shared/owner-ads/owner-ads.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminEditCmsPageComponent } from './admin/admin-edit-cms-page/admin-edit-cms-page.component';
 import { RvComponent } from './routes/rv/rv.component';
+import { AdminComponent } from './admin/admin/admin.component';
 export const Routing = RouterModule.forRoot([
     {
         path: '',
@@ -157,22 +158,35 @@ export const Routing = RouterModule.forRoot([
       component: ContactUsComponent
     },
 
-    { path: 'admin', component: AdminLoginComponent, canActivate: [NotAuthGuard] },
-    { path: 'admin/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-    { path: 'admin/user', component: AdminUserComponent, canActivate: [AuthGuard] },
-    { path: 'admin/add-user', component: AdminAddUserComponent, canActivate: [AuthGuard] },
-    { path: 'admin/view-user/:id', component: AdminViewUserComponent, canActivate: [AuthGuard] },
-    { path: 'admin/edit-user/:id', component: AdminEditUserComponent, canActivate: [AuthGuard] },
-    { path: 'admin/forgot', component: AdminForgotPassComponent },
-    { path: 'admin/change-password', component: AdminChangePassComponent },
-    { path: 'admin/cmspage', component: AdminCmsPageComponent },
-    { path: 'admin/add-cmspage', component: AdminAddCmsPageComponent },
-    { path: 'admin/view-cmspage/:id', component: AdminViewCmsPageComponent },
-    { path: 'admin/edit-cmspage/:id', component: AdminEditCmsPageComponent },
-    { path: 'admin/list-trailer', component: AdminListTrailerComponent },
-    { path: 'admin/add-list-trailer', component: AdminAddListTrailerComponent },
-    { path: 'admin/edit-list-trailer/:id', component: AdminEditListTrailerComponent },
-    { path: 'admin/view-list-trailer/:id', component: AdminViewListTrailerComponent },
+    {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
+            { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+            { path: 'user', component: AdminUserComponent, canActivate: [AuthGuard] },
+            { path: 'add-user', component: AdminAddUserComponent, canActivate: [AuthGuard] },
+            { path: 'view-user/:id', component: AdminViewUserComponent, canActivate: [AuthGuard] },
+            { path: 'edit-user/:id', component: AdminEditUserComponent, canActivate: [AuthGuard] },
+            { path: 'forgot', component: AdminForgotPassComponent },
+            { path: 'change-password', component: AdminChangePassComponent },
+            { path: 'cmspage', component: AdminCmsPageComponent },
+            { path: 'add-cmspage', component: AdminAddCmsPageComponent },
+            { path: 'view-cmspage/:id', component: AdminViewCmsPageComponent },
+            { path: 'edit-cmspage/:id', component: AdminEditCmsPageComponent },
+            { path: 'list-trailer', component: AdminListTrailerComponent },
+            { path: 'add-list-trailer', component: AdminAddListTrailerComponent },
+            { path: 'edit-list-trailer/:id', component: AdminEditListTrailerComponent },
+            { path: 'view-list-trailer/:id', component: AdminViewListTrailerComponent },
+        ]
+    },
+
+    { path: 'admin-login', component: AdminLoginComponent, canActivate: [NotAuthGuard] },
 
     {
         path: 'blog',

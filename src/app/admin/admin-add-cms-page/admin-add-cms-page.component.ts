@@ -1,5 +1,5 @@
 import { ApiService } from './../../api.service';
-import { Component, OnInit, Input, Output,  AfterViewInit, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output,  AfterViewInit, EventEmitter, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'rv-admin-add-cms-page',
   templateUrl: './admin-add-cms-page.component.html',
-  styleUrls: ['./admin-add-cms-page.component.scss']
+  styleUrls: ['./admin-add-cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminAddCmsPageComponent implements OnInit, AfterViewInit, OnDestroy  {
 

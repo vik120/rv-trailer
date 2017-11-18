@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../api.service';
@@ -7,7 +7,8 @@ import { ApiService } from './../../api.service';
 @Component({
   selector: 'rv-admin-view-user',
   templateUrl: './admin-view-user.component.html',
-  styleUrls: ['./admin-view-user.component.scss']
+  styleUrls: ['./admin-view-user.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdminViewUserComponent implements OnInit {
 
